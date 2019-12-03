@@ -1,5 +1,7 @@
-# progetto.esport
+# eSport
 Progetto di Ingegneria del Software, Università degli Studi di Salerno.
+
+Partecipanti:
 
 | Nome | Cognome |
 | ---- | ------- |
