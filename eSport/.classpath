@@ -14,7 +14,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/tizianocitro/git/progetto.esport/eSport/res/mysql-connector-java-5.1.48.jar"/>
-	<classpathentry kind="lib" path="/Users/tizianocitro/git/progetto.esport/eSport/res/gson-2.6.2.jar"/>
+	<classpathentry kind="lib" path="/Users/tizianocitro/git/progetto.esport/eSport/Resources/ExternalJAR/gson-2.6.2.jar"/>
+	<classpathentry kind="lib" path="/Users/tizianocitro/git/progetto.esport/eSport/Resources/ExternalJAR/mysql-connector-java-5.1.48.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
