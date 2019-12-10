@@ -62,7 +62,7 @@ create table prodotto(
 use eSportDB;
 
 create table ordine(
-	numero char(3) primary key,
+	numero char(6) primary key,
     stato varchar(36),
     totale double not null,
     data date not null,
