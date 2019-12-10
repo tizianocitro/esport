@@ -3,14 +3,13 @@ create schema eSportDB;
 use eSportDB;
 
 create table utente(
-	username varchar(36) not null ,
+	username varchar(36) primary key,
     password varchar(36) not null, 
     nome	varchar(36),
     cognome	varchar(36),
     email varchar(128),
     piva char(11),
-    telefono char(10),
-    primary key(username, password)
+    telefono char(10)
 );
 
 use eSportDB;
