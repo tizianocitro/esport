@@ -4,78 +4,152 @@ import java.util.Collection;
 import java.util.Set;
 
 public class ProdottoBean {
+	/**
+	 * Costruttore di default
+	 */
 	public ProdottoBean() {
 	}
 	
+	/**
+	 * 
+	 * @return codice
+	 */
 	public String getCodice() {
 		return codice;
 	}
 	
+	/**
+	 * 
+	 * @param codice
+	 */
 	public void setCodice(String codice) {
 		this.codice=codice;
 	}
 	
+	/**
+	 * 
+	 * @return tipo
+	 */
 	public String getTipo() {
 		return tipo;
 	}
 	
+	/**
+	 * 
+	 * @param tipo
+	 */
 	public void setTipo(String tipo) {
 		this.tipo=tipo;
 	}
 	
-	
+	/**
+	 * 
+	 * @return nome
+	 */
 	public String getNome() {
 		return nome;
 	}
 
+	/**
+	 * 
+	 * @param nome
+	 */
 	public void setNome(String nome) {
 		this.nome=nome;
 	}
 
+	/**
+	 * 
+	 * @return marca
+	 */
 	public String getMarca() {
 		return marca;
 	}
 
+	/**
+	 * 
+	 * @param marca
+	 */
 	public void setMarca(String marca) {
 		this.marca=marca;
 	}
 
+	/**
+	 * 
+	 * @return taglie
+	 */
 	public Collection<TagliaBean> getTaglia() {
 		return taglie;
 	}
 	
+	/**
+	 * 
+	 * @param taglie
+	 */
 	public void setTaglia(Set<TagliaBean> taglie) {
 		this.taglie = taglie;
 	}
 	
-	public int getQuant() {
-		return quant;
+	/**
+	 * 
+	 * @return qt
+	 */
+	public int getQt() {
+		return qt;
 	}
 	
-	public void setQuant(int quant) {
-		this.quant = quant;
+	/**
+	 * 
+	 * @param qt
+	 */
+	public void setQt(int qt) {
+		this.qt = qt;
 	}
 	
+	/**
+	 * 
+	 * @return prezzo
+	 */
 	public double getPrezzo() {
 		return prezzo;
 	}
 	
+	/**
+	 * 
+	 * @param prezzo
+	 */
 	public void setPrezzo(double prezzo) {
 		this.prezzo = prezzo;
 	}
 	
+	/**
+	 * 
+	 * @return iva
+	 */
 	public int getIva() {
 		return iva;
 	}
 	
+	/**
+	 * 
+	 * @param iva
+	 */
 	public void setIva(int iva) {
 		this.iva = iva;
 	}
 	
+	/**
+	 * 
+	 * @return descrizione
+	 */
 	public String getDescrizione() {
 		return descrizione;
 	}
 	
+	/**
+	 * 
+	 * @param descrizione
+	 */
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
@@ -106,9 +180,9 @@ public class ProdottoBean {
 	private Set<TagliaBean> taglie;
 	
 	/*
-	 * Variabili d'istanza quantità
+	 * Variabili d'istanza quantita'
 	 */
-	private int quant;
+	private int qt;
 	
 	/*
 	 * Variabili d'istanza prezzo
