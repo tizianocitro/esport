@@ -37,6 +37,14 @@ public class CatalogoBean {
 	}
 	
 	/**
+	 * 
+	 * @param prodotto
+	 */
+	public void removeProdotto(ProdottoBean prodotto) {
+		catalogo.remove(prodotto);
+	}
+	
+	/**
 	 * Variabile d'istanza catalogo
 	 */
 	private Set<ProdottoBean> catalogo;
