@@ -8,11 +8,15 @@ public class RuoloBean {
 		
 	}
 	
-	public String getUsr() {
+	/**
+	 * 
+	 * @return username
+	 */
+	public String getUsername() {
 		return usr;
 	}
 	
-	public void setUsr(String usr) {
+	public void setUsrrname(String usr) {
 		this.usr = usr;
 	}
 	

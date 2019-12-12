@@ -1,62 +1,113 @@
 package beans;
 
 public class RecensioneBean {
+	/**
+	 * Costruttore di default
+	 */
 	public RecensioneBean() {
 		
 	}
 	
-	public RecensioneBean(int voto, String commento, String usrutente, String passutente,
-			String prodotto) {
-		this.voto = voto;
-		this.commento = commento;
-		this.usrutente = usrutente;
-		this.passutente = passutente;
-		this.prodotto = prodotto;
+	/**
+	 * 
+	 * @return codice
+	 */
+	public int getCodice() {
+		return codice;
 	}
 
+	/**
+	 * 
+	 * @param codice
+	 */
+	public void setCodice(int codice) {
+		this.codice = codice;
+	}
+
+	/**
+	 * 
+	 * @return voto
+	 */
 	public int getVoto() {
 		return voto;
 	}
 	
+	/**
+	 * 
+	 * @param voto
+	 */
 	public void setVoto(int voto) {
 		this.voto = voto;
 	}
 	
+	/**
+	 * 
+	 * @return commento
+	 */
 	public String getCommento() {
 		return commento;
 	}
 	
+	/**
+	 * 
+	 * @param commento
+	 */
 	public void setCommento(String commento) {
 		this.commento = commento;
 	}
 	
+	/**
+	 * 
+	 * @return usr
+	 */
 	public String getUsrutente() {
-		return usrutente;
+		return usr;
 	}
 	
-	public void setUsrutente(String usrutente) {
-		this.usrutente = usrutente;
+	/**
+	 * 
+	 * @param usr
+	 */
+	public void setUsrutente(String usr) {
+		this.usr = usr;
 	}
 	
-	public String getPassutente() {
-		return passutente;
+	/**
+	 * 
+	 * @return passUtente
+	 */
+	public String getPassUtente() {
+		return passUtente;
 	}
 	
-	public void setPassutente(String passutente) {
-		this.passutente = passutente;
+	/**
+	 * 
+	 * @param passUtente
+	 */
+	public void setPassutente(String passUtente) {
+		this.passUtente = passUtente;
 	}
 	
+	/**
+	 * 
+	 * @return prodotto
+	 */
 	public String getProdotto() {
 		return prodotto;
 	}
 	
+	/**
+	 * 
+	 * @param prodotto
+	 */
 	public void setProdotto(String prodotto) {
 		this.prodotto = prodotto;
 	}
 
+	private int codice;
 	private int voto;
 	private String commento;
-	private String usrutente;
-	private String passutente;
+	private String usr;
+	private String passUtente;
 	private String prodotto;
 }

@@ -1,61 +1,114 @@
 package beans;
 
 public class OrdineBean {
+	/**
+	 * Costruttore di default
+	 */
 	public OrdineBean() {	
 	}
-
+    
+	/**
+	 * 
+	 * @return numero
+	 */
 	public String getNumero() {
 		return numero;
 	}
 	
+	/**
+	 * 
+	 * @param numero
+	 */
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 	
+	/**
+	 * 
+	 * @return nome
+	 */
 	public String getNome() {
 		return nome;
 	}
 	
+	/**
+	 * 
+	 * @param nome
+	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 	
-	public double getPrezzotot() {
-		return prezzotot;
+	/**
+	 * 
+	 * @return prezzoTot
+	 */
+	public double getPrezzoTot() {
+		return prezzoTot;
 	}
 	
-	public void setPrezzotot(double prezzotot) {
-		this.prezzotot = prezzotot;
+	/**
+	 * 
+	 * @param prezzoTot
+	 */
+	public void setPrezzoTot(double prezzoTot) {
+		this.prezzoTot = prezzoTot;
 	}
 	
-	public String getDataord() {
-		return dataord;
+	/**
+	 * 
+	 * @return dataOrd
+	 */
+	public String getDataOrd() {
+		return dataOrd;
 	}
 	
-	public void setDataord(String dataord) {
-		this.dataord = dataord;
+	/**
+	 * 
+	 * @param dataOrd
+	 */
+	public void setDataOrd(String dataOrd) {
+		this.dataOrd = dataOrd;
 	}
 	
+	/**
+	 * 
+	 * @return consegna
+	 */
+	public String getConsegna() {
+		return consegna;
+	}
+
+	/**
+	 * 
+	 * @param consegna
+	 */
+	public void setConsegna(String consegna) {
+		this.consegna = consegna;
+	}
+
+	/**
+	 * 
+	 * @return usr
+	 */
 	public String getUsrutente() {
-		return usrutente;
+		return usr;
 	}
 	
-	public void setUsrutente(String usrutente) {
-		this.usrutente = usrutente;
+	/**
+	 * 
+	 * @param usr
+	 */
+	public void setUsrutente(String usr) {
+		this.usr = usr;
 	}
 	
-	public String getPassutente() {
-		return passutente;
-	}
-	
-	public void setPassutente(String passutente) {
-		this.passutente = passutente;
-	}
 	
 	private String numero;
 	private String nome;
-	private double prezzotot;
-	private String dataord;
-	private String usrutente;
-	private String passutente;
+	private double prezzoTot;
+	private String dataOrd;
+	private String consegna;
+	private String usr;
+	
 }
