@@ -124,12 +124,12 @@ public class OrdineBean {
 	private String dataOrd;
 	
 	/*
-	 * Variabili d'istanza
+	 * Variabili d'istanza consegna
 	 */
 	private String consegna;
 	
 	/*
-	 * Variabili d'istanza
+	 * Variabili d'istanza username
 	 */
 	private String usr;
 	
