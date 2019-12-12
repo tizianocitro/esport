@@ -1,6 +1,7 @@
 package beans;
 
 import java.util.Collection;
+import java.util.Set;
 
 public class ProdottoBean {
 	public ProdottoBean() {
@@ -43,7 +44,7 @@ public class ProdottoBean {
 		return taglie;
 	}
 	
-	public void setTaglia(String taglie) {
+	public void setTaglia(Set<TagliaBean> taglie) {
 		this.taglie = taglie;
 	}
 	

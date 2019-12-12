@@ -1,6 +1,9 @@
 package beans;
 
 public class RuoloBean {
+	/**
+	 * Costruttore di default
+	 */
 	public RuoloBean() {
 		
 	}
