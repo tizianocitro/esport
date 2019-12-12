@@ -2,61 +2,112 @@ package beans;
 
 
 public class ComposizioneBean {
+	/**
+	 * Costruttore di default
+	 */
 	public ComposizioneBean() {
 	}
-
+	
+    /**
+     *  
+     * @return ordine
+     */
 	public String getOrdine() {
 		return ordine;
 	}
 	
+	/**
+	 * 
+	 * @param ordine
+	 */
 	public void setOrdine(String ordine) {
 		this.ordine = ordine;
 	}
 	
+	/**
+	 * 
+	 * @return prodotto
+	 */
 	public String getProdotto() {
 		return prodotto;
 	}
 	
+	/**
+	 * 
+	 * @param prodotto
+	 */
 	public void setProdotto(String prodotto) {
 		this.prodotto = prodotto;
 	}
 	
+	/**
+	 * 
+	 * @return nomeProdotto
+	 */
 	public String getNomeProdotto() {
 		return nomeProdotto;
 	}
 	
+	/**
+	 * 
+	 * @param nomeProdotto
+	 */
 	public void setNomeProdotto(String nomeProdotto) {
 		this.nomeProdotto = nomeProdotto;
 	}
 	
-	public double getPrezzoven() {
-		return prezzoven;
+	/**
+	 * 
+	 * @return prezzoven
+	 */
+	public double getPrezzoVen() {
+		return prezzoVen;
 	}
 	
-	public void setPrezzoven(double prezzoven) {
-		this.prezzoven = prezzoven;
+	/**
+	 * 
+	 * @param prezzoven
+	 */
+	public void setPrezzoVen(double prezzoven) {
+		this.prezzoVen = prezzoven;
 	}
 	
+	/**
+	 * 
+	 * @return ivaven
+	 */
 	public int getIvaven() {
-		return ivaven;
+		return ivaVen;
 	}
 	
-	public void setIvaven(int ivaven) {
-		this.ivaven = ivaven;
+	/**
+	 * 
+	 * @param ivaven
+	 */
+	public void setIvaVen(int ivaVen) {
+		this.ivaVen = ivaVen;
 	}
 	
+	/**
+	 * 
+	 * @return qt
+	 */
 	public int getQuantity() {
-		return quantity;
+		return qt;
 	}
 	
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	/**
+	 * 
+	 * @param qt
+	 */
+	public void setQuantity(int qt) {
+		this.qt = qt;
 	}
 	
 	private String ordine;
 	private String prodotto;
 	private String nomeProdotto;
-	private double prezzoven;
-	private int ivaven;
-	private int quantity;
+	private double prezzoVen;
+	private int ivaVen;
+	private int qt;
 }
