@@ -60,7 +60,7 @@ public class RecensioneBean {
 	 * 
 	 * @return usr
 	 */
-	public String getUsrutente() {
+	public String getUsername() {
 		return usr;
 	}
 	
@@ -68,24 +68,8 @@ public class RecensioneBean {
 	 * 
 	 * @param usr
 	 */
-	public void setUsrutente(String usr) {
+	public void setUsername(String usr) {
 		this.usr = usr;
-	}
-	
-	/**
-	 * 
-	 * @return passUtente
-	 */
-	public String getPassUtente() {
-		return passUtente;
-	}
-	
-	/**
-	 * 
-	 * @param passUtente
-	 */
-	public void setPassutente(String passUtente) {
-		this.passUtente = passUtente;
 	}
 	
 	/**
@@ -108,6 +92,5 @@ public class RecensioneBean {
 	private int voto;
 	private String commento;
 	private String usr;
-	private String passUtente;
 	private String prodotto;
 }
