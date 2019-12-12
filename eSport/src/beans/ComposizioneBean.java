@@ -104,10 +104,28 @@ public class ComposizioneBean {
 		this.qt = qt;
 	}
 	
+	/**
+	 * Variabile d'istanza ordine
+	 */
 	private String ordine;
+	/**
+	 * Variabile d'istanza prodotto
+	 */
 	private String prodotto;
+	/**
+	 * Variabile d'istanza nome prodotto
+	 */
 	private String nomeProdotto;
+	/**
+	 * Variabile d'istanza prezzo di vendita
+	 */
 	private double prezzoVen;
+	/**
+	 * Variabile d'istanza iva di vendita
+	 */
 	private int ivaVen;
+	/**
+	 * Variabile d'istanza quantita
+	 */
 	private int qt;
 }
