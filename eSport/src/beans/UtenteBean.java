@@ -58,10 +58,18 @@ public class UtenteBean {
 		this.ruoli = ruoli;
 	}
 	
+	/**
+	 * 
+	 * @param ruolo
+	 */
 	public void addRuolo(RuoloBean ruolo) {
 		ruoli.add(ruolo);
 	}
 	
+	/**
+	 * 
+	 * @param ruolo
+	 */
 	public void removeRuolo(RuoloBean ruolo) {
 		ruoli.remove(ruolo);
 	}
@@ -90,62 +98,122 @@ public class UtenteBean {
 		return cognome;
 	}
 	
+	/**
+	 * 
+	 * @param cognome
+	 */
 	public void setCognome(String cognome) {
 		this.cognome=cognome;
 	}
 	
+	/**
+	 * 
+	 * @return email
+	 */
 	public String getEmail() {
 		return email;
 	}
 	
+	/**
+	 * 
+	 * @param email
+	 */
 	public void setEmail(String email) {
 		this.email=email;
 	}
 	
+	/**
+	 * 
+	 * @return partitaIVA
+	 */
 	public String getPiva() {
 		return piva;
 	}
 	
+	/**
+	 * 
+	 * @param piva
+	 */
 	public void setPiva(String piva) {
 		this.piva=piva;
 	}
 	
+	/**
+	 * 
+	 * @return metodi pagamento
+	 */
 	public Collection<MetodoPagamentoBean> getMetpag() {
 		return metPags;
 	}
 	
+	/**
+	 * 
+	 * @param metPags
+	 */
 	public void setMetpag(Set<MetodoPagamentoBean> metPags) {
 		this.metPags=metPags;
 	}
 	
+	/**
+	 * 
+	 * @param metPag
+	 */
 	public void addMetPag(MetodoPagamentoBean metPag) {
 		metPags.add(metPag);
 	}
 	
+	/**
+	 * 
+	 * @param metPag
+	 */
 	public void removeMetPag(MetodoPagamentoBean metPag) {
 		metPags.remove(metPag);
 	}
 
+	/**
+	 * 
+	 * @return telefono
+	 */
 	public String getTelefono() {
 		return telefono;
 	}
 	
+	/**
+	 * 
+	 * @param telefono
+	 */
 	public void setTelefono(String telefono) {
 		this.telefono=telefono;
 	}
 	
+	/**
+	 * 
+	 * @return indirizzi
+	 */
 	public Collection<IndirizzoBean> getIndirizzi() {
 		return indirizzi;
 	}
 	
+	/**
+	 * 
+	 * @param indirizzi
+	 */
 	public void setIndirizzi(Set<IndirizzoBean> indirizzi) {
 		this.indirizzi=indirizzi;
 	}
 
+	/**
+	 * 
+	 * @param indirizzo
+	 */
 	public void addIndirizzo(IndirizzoBean indirizzo) {
 		indirizzi.add(indirizzo);
 	}
 	
+	/**
+	 * 
+	 * @param indirizzo
+	 */
 	public void removeIndirizzo(IndirizzoBean indirizzo) {
 		indirizzi.remove(indirizzo);
 	}

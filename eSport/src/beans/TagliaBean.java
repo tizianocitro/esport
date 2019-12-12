@@ -14,27 +14,27 @@ public class TagliaBean {
 	public String getProdotto() {
 		return prodotto;
 	}
+	
 	/*
 	 * @param prodotto
 	 */
 	public void setProdotto(String prodotto) {
 		this.prodotto = prodotto;
 	}
+	
 	/*
 	 * @return misura
 	 */
 	public String getMisura() {
 		return misura;
 	}
+	
 	/*
 	 * @param misura
 	 */
 	public void setMisura(String misura) {
 		this.misura = misura;
 	}
-
-
-
 
 	/*
 	 * Variabile d'istanza prodotto
