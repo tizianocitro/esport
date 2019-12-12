@@ -9,7 +9,7 @@ public class RuoloBean {
 	 * 
 	 * @return username
 	 */
-	public String getUsr() {
+	public String getUsername() {
 		return usr;
 	}
 	
