@@ -80,13 +80,48 @@ public class ProdottoBean {
 		this.descrizione = descrizione;
 	}
 	
+	/*
+	 * Variabili d'istanza codice
+	 */
 	private String codice;
+	
+	/*
+	 * Variabili d'istanza tipo
+	 */
 	private String tipo;
+	
+	/*
+	 * Variabili d'istanza nome
+	 */
 	private String nome;
+	
+	/*
+	 * Variabili d'istanza marca
+	 */
 	private String marca;
+	
+	/*
+	 * Variabili d'istanza taglie
+	 */
 	private Set<TagliaBean> taglie;
+	
+	/*
+	 * Variabili d'istanza quantità
+	 */
 	private int quant;
+	
+	/*
+	 * Variabili d'istanza prezzo
+	 */
 	private double prezzo;
+	
+	/*
+	 * Variabili d'istanza iva
+	 */
 	private int iva;
+	
+	/*
+	 * Variabili d'istanza descrizione
+	 */
 	private String descrizione;
 }
