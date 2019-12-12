@@ -4,34 +4,63 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+<<<<<<< HEAD
 
+=======
+/**
+ * Costruttore di default
+ */
+>>>>>>> branch 'master' of https://github.com/TizianoCitro/progetto.esport.git
 public class CarrelloBean {
 	public CarrelloBean() {
-		cart=new HashSet<CarrelloItem>();
+		carrello=new HashSet<CarrelloItem>();
 	}
 	
+	/**
+	 * 
+	 * @param carrello item
+	 */
 	public void addProdotto(CarrelloItem ci) {
-		cart.add(ci);
+		carrello.add(ci);
 	}
 	
+	/**
+	 * 
+	 * @param carrello item
+	 */
 	public void removeProdotto(CarrelloItem ci) {
-		cart.remove(ci);
+		carrello.remove(ci);
 	}
 	
+	/**
+	 * 
+	 * @return carrello
+	 */
 	public Collection<CarrelloItem> getCart() {
-		return cart;
+		return carrello;
 	}
 
-	public void setCart(Set<CarrelloItem> cart) {
-		this.cart=cart;
+	/**
+	 * 
+	 * @param carrello
+	 */
+	public void setCart(Set<CarrelloItem> carrello) {
+		this.carrello=carrello;
 	}
 
+	/**
+	 * 
+	 * @return vuoto / non vuoto
+	 */
 	public boolean isEmpty() {
-		if(cart.size()==0)
+		if(carrello.size()==0)
 			return true;
 		
 		return false;
 	}
 	
-	private Set<CarrelloItem> cart;
+	/**
+	 * Variabile d'istanza carrello
+	 */
+	private Set<CarrelloItem> carrello;
 }
