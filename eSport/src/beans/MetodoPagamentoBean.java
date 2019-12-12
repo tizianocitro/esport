@@ -49,7 +49,14 @@ public class MetodoPagamentoBean {
 	/**
 	 * Variabile d'istanza username
 	 */
+	
 	private String usr;
+	/*
+	 * Variabile d'istanza tipo
+	 */
 	private String tipo;
+	/*
+	 * Variabile d'istanza numero
+	 */
 	private String numero;
 }
