@@ -16,7 +16,7 @@ public class RuoloBean {
 		return usr;
 	}
 	
-	public void setUsrrname(String usr) {
+	public void setUsername(String usr) {
 		this.usr = usr;
 	}
 	
