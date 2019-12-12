@@ -103,12 +103,34 @@ public class OrdineBean {
 		this.usr = usr;
 	}
 	
-	
+	/*
+	 * Variabili d'istanza numero
+	 */
 	private String numero;
+	
+	/*
+	 * Variabili d'istanza nome
+	 */
 	private String nome;
+	
+	/*
+	 * Variabili d'istanza prezzoTotale
+	 */
 	private double prezzoTot;
+	
+	/*
+	 * Variabili d'istanza dataOrdine
+	 */
 	private String dataOrd;
+	
+	/*
+	 * Variabili d'istanza
+	 */
 	private String consegna;
+	
+	/*
+	 * Variabili d'istanza
+	 */
 	private String usr;
 	
 }
