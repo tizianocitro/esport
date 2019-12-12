@@ -88,9 +88,31 @@ public class RecensioneBean {
 		this.prodotto = prodotto;
 	}
 
+	/*
+	 * Variabili d'istanza codice
+	 */
 	private int codice;
+	/*
+	 * Variabili d'istanza voto
+	 */
 	private int voto;
+	/*
+	 * Variabili d'istanza commento
+	 */
 	private String commento;
+	/*
+	 * Variabili d'istanza username
+	 */
 	private String usr;
+<<<<<<< HEAD
+=======
+	/*
+	 * Variabili d'istanza passwordUtente
+	 */
+	private String passUtente;
+	/*
+	 * Variabili d'istanza prodotto
+	 */
+>>>>>>> branch 'master' of https://github.com/TizianoCitro/progetto.esport.git
 	private String prodotto;
 }

@@ -39,7 +39,13 @@ public class RuoloBean {
 	public void setPermesso(String permesso) {
 		this.permesso = permesso;
 	}
-
+	
+	/*
+	 * Variabili d'istanza username
+	 */
 	private String usr;
+	/*
+	 * Variabili d'istanza permesso
+	 */
 	private String permesso;
 }
