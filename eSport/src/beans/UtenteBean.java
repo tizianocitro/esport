@@ -30,7 +30,7 @@ public class UtenteBean {
 	 * 
 	 * @return password
 	 */
-	public String getPass() {
+	public String getPassword() {
 		return pass;
 	}
 	
@@ -38,7 +38,7 @@ public class UtenteBean {
 	 * 
 	 * @param password
 	 */
-	public void setPass(String pass) {
+	public void setPassword(String pass) {
 		this.pass = pass;
 	}
 	

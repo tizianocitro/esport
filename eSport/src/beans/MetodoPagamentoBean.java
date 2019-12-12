@@ -13,13 +13,13 @@ public class MetodoPagamentoBean {
 	 */
 	
 	public String getUsername() {
-		return username;
+		return usr;
 	}
 	/*
 	 * @param username
 	 */
 	public void setUsername(String usr) {
-		this.usr = username;
+		this.usr = usr;
 	}
 	/*
 	 * @return tipo;
@@ -46,9 +46,9 @@ public class MetodoPagamentoBean {
 		this.numero = numero;
 	}
 	
-	
-	
-	
+	/**
+	 * Variabile d'istanza username
+	 */
 	private String usr;
 	private String tipo;
 	private String numero;

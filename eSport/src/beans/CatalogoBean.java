@@ -1,28 +1,43 @@
 package beans;
 
-import java.util.ArrayList;
+import java.util.Set;
+import java.util.Collection;
+import java.util.HashSet;
 
 public class CatalogoBean {
+	/**
+	 * Costruttore di default
+	 */
 	public CatalogoBean() {
-		this.catalogo=new ArrayList<ProdottoBean>();
+		this.catalogo=new HashSet<ProdottoBean>();
 	}
 	
-	public CatalogoBean(ArrayList<ProdottoBean> catalogo) {
-		this.catalogo=catalogo;
-	}
-	
-	public ArrayList<ProdottoBean> getCatalogo() {
+	/**
+	 * 
+	 * @return catalogo
+	 */
+	public Collection<ProdottoBean> getCatalogo() {
 		return catalogo;
 	}
 
-
-	public void setCatalogo(ArrayList<ProdottoBean> catalogo) {
+	/**
+	 * 
+	 * @param catalogo
+	 */
+	public void setCatalogo(Set<ProdottoBean> catalogo) {
 		this.catalogo=catalogo;
 	}
 
-	public void addProdotto(ProdottoBean p) {
-		catalogo.add(p);
+	/**
+	 * 
+	 * @param prodotto
+	 */
+	public void addProdotto(ProdottoBean prodotto) {
+		catalogo.add(prodotto);
 	}
 	
-	private ArrayList<ProdottoBean> catalogo;
+	 /**
+	  * Variabile d'istanza catalogo
+	  */
+	private Set<ProdottoBean> catalogo;
 }
