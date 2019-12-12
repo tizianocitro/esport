@@ -1,15 +1,15 @@
 package beans;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
-/**
- * Costruttore di default
- */
 public class CarrelloBean {
+	
+	/**
+	 * Costruttore di default
+	 */
 	public CarrelloBean() {
-		carrello=new HashSet<CarrelloItem>();
+		carrello=new HashMap<String, CarrelloItem>();
 	}
 	
 	/**
@@ -17,7 +17,16 @@ public class CarrelloBean {
 	 * @param carrello item
 	 */
 	public void addProdotto(CarrelloItem carrelloItem) {
-		carrello.add(carrelloItem);
+		carrello.put("" + carrelloItem.getProdotto().getCodice(), carrelloItem);
+	}
+	
+	/**
+	 * 
+	 * @param codiceProdotto
+	 * @return carrello item
+	 */
+	public CarrelloItem getProdotto(String codiceProdotto) {
+		return carrello.get(codiceProdotto);
 	}
 	
 	/**
@@ -25,14 +34,14 @@ public class CarrelloBean {
 	 * @param carrello item
 	 */
 	public void removeProdotto(CarrelloItem carrelloItem) {
-		carrello.remove(carrelloItem);
+		carrello.remove(carrelloItem.getProdotto().getCodice());
 	}
 	
 	/**
 	 * 
 	 * @return carrello
 	 */
-	public Collection<CarrelloItem> getCarrello() {
+	public Map<String, CarrelloItem> getCarrello() {
 		return carrello;
 	}
 
@@ -40,13 +49,13 @@ public class CarrelloBean {
 	 * 
 	 * @param carrello
 	 */
-	public void setCarrello(Set<CarrelloItem> carrello) {
+	public void setCarrello(Map<String, CarrelloItem> carrello) {
 		this.carrello=carrello;
 	}
 
 	/**
 	 * 
-	 * @return vuoto / non vuoto
+	 * @return true se vuoto, altrimenti false
 	 */
 	public boolean isEmpty() {
 		if(carrello.size()==0)
@@ -56,7 +65,14 @@ public class CarrelloBean {
 	}
 	
 	/**
+	 * Svuota il carrello
+	 */
+	public void svuotaCarrello() {
+		carrello.clear();
+	}
+	
+	/**
 	 * Variabile d'istanza carrello
 	 */
-	private Set<CarrelloItem> carrello;
+	private Map<String, CarrelloItem> carrello;
 }
