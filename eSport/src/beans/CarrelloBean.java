@@ -32,7 +32,7 @@ public class CarrelloBean {
 	 * 
 	 * @return carrello
 	 */
-	public Collection<CarrelloItem> getCart() {
+	public Collection<CarrelloItem> getCarrello() {
 		return carrello;
 	}
 
@@ -40,7 +40,7 @@ public class CarrelloBean {
 	 * 
 	 * @param carrello
 	 */
-	public void setCart(Set<CarrelloItem> carrello) {
+	public void setCarrello(Set<CarrelloItem> carrello) {
 		this.carrello=carrello;
 	}
 
