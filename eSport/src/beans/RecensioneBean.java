@@ -104,6 +104,8 @@ public class RecensioneBean {
 	 * Variabili d'istanza username
 	 */
 	private String usr;
-
+    /**
+     * Variabili d'istanza prodotto
+     */
 	private String prodotto;
 }
