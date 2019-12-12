@@ -218,14 +218,44 @@ public class UtenteBean {
 		indirizzi.remove(indirizzo);
 	}
 	
+	/**
+	 * Variabile d'istanza username
+	 */
 	private String username;
+	/**
+	 * Variabile d'istanza password
+	 */
 	private String pass;
+	/**
+	 * Variabile d'istanza nome
+	 */
 	private String nome;
+	/**
+	 * Variabile d'istanza cognome
+	 */
 	private String cognome;
+	/**
+	 * Variabile d'istanza email
+	 */
 	private String email;
+	/**
+	 * Variabile d'istanza partita iva
+	 */
 	private String piva;
+	/**
+	 * Variabile d'istanza telefono
+	 */
 	private String telefono;
+	/**
+	 * Variabile d'istanza metodo pagamento
+	 */
 	private Set<MetodoPagamentoBean> metPags;
+	/**
+	 * Variabile d'istanza indirizzi
+	 */
 	private Set<IndirizzoBean> indirizzi;
+	/**
+	 * Variabile d'istanza ruoli
+	 */
 	private Set<RuoloBean> ruoli;
 }
