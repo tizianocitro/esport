@@ -89,9 +89,24 @@ public class IndirizzoBean {
 		this.cap = cap;
 	}
 
+	/**
+	 * Variabile d'istanza username
+	 */
 	private String usr;
+	/**
+	 * Variabile d'istanza citta
+	 */
 	private String citta;
+	/**
+	 * Variabile d'istanza via
+	 */
 	private String via;
+	/**
+	 * Variabile d'istanza civico
+	 */
 	private String civico;
+	/**
+	 * Variabile d'istanza cap
+	 */
 	private String cap;
 }
