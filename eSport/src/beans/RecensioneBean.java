@@ -104,15 +104,6 @@ public class RecensioneBean {
 	 * Variabili d'istanza username
 	 */
 	private String usr;
-<<<<<<< HEAD
-=======
-	/*
-	 * Variabili d'istanza passwordUtente
-	 */
-	private String passUtente;
-	/*
-	 * Variabili d'istanza prodotto
-	 */
->>>>>>> branch 'master' of https://github.com/TizianoCitro/progetto.esport.git
+
 	private String prodotto;
 }
