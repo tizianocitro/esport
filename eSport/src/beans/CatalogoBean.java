@@ -36,8 +36,8 @@ public class CatalogoBean {
 		catalogo.add(prodotto);
 	}
 	
-	 /**
-	  * Variabile d'istanza catalogo
-	  */
+	/**
+	 * Variabile d'istanza catalogo
+	 */
 	private Set<ProdottoBean> catalogo;
 }
