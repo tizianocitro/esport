@@ -16,14 +16,26 @@ public class RuoloBean {
 		return usr;
 	}
 	
+	/**
+	 * 
+	 * @param usr
+	 */
 	public void setUsername(String usr) {
 		this.usr = usr;
 	}
 	
+	/**
+	 * 
+	 * @return permesso
+	 */
 	public String getPermesso() {
 		return permesso;
 	}
 	
+	/**
+	 * 
+	 * @param permesso
+	 */
 	public void setPermesso(String permesso) {
 		this.permesso = permesso;
 	}
