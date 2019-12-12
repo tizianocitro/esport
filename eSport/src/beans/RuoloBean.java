@@ -5,6 +5,10 @@ public class RuoloBean {
 		
 	}
 	
+	/**
+	 * 
+	 * @return username
+	 */
 	public String getUsr() {
 		return usr;
 	}
