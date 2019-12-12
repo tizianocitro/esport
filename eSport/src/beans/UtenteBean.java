@@ -134,7 +134,7 @@ public class UtenteBean {
 		this.telefono=telefono;
 	}
 	
-	public Collection<MetodoPagamentoBean> getIndirizzi() {
+	public Collection<IndirizzoBean> getIndirizzi() {
 		return indirizzi;
 	}
 	

@@ -1,5 +1,7 @@
 package beans;
 
+import java.util.Collection;
+
 public class ProdottoBean {
 	public ProdottoBean() {
 	}
@@ -37,12 +39,12 @@ public class ProdottoBean {
 		this.marca=marca;
 	}
 
-	public String getTaglia() {
-		return taglia;
+	public Collection<TagliaBean> getTaglia() {
+		return taglie;
 	}
 	
-	public void setTaglia(String taglia) {
-		this.taglia = taglia;
+	public void setTaglia(String taglie) {
+		this.taglie = taglie;
 	}
 	
 	public int getQuant() {
@@ -76,23 +78,14 @@ public class ProdottoBean {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-
-	public int getRimosso() {
-		return rimosso;
-	}
-	
-	public void setRimosso(int rimosso) {
-		this.rimosso=rimosso;
-	}
 	
 	private String codice;
 	private String tipo;
 	private String nome;
 	private String marca;
-	private String taglia;
+	private Set<TagliaBean> taglie;
 	private int quant;
 	private double prezzo;
 	private int iva;
 	private String descrizione;
-	private int rimosso;
 }
