@@ -107,7 +107,6 @@ create table recensione(
     voto int not null,
     commento varchar(512) not null,
     usr varchar(36),
-    passutente varchar(36) not null, 
     prodotto char(3) not null,
     foreign key(usr) references utente(username)
 		on update cascade
