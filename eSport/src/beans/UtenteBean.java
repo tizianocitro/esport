@@ -157,7 +157,7 @@ public class UtenteBean {
 	private String email;
 	private String piva;
 	private String telefono;
-	private Set<MetodoPagsamentoBean> metPags;
+	private Set<MetodoPagamentoBean> metPags;
 	private Set<IndirizzoBean> indirizzi;
 	private Set<RuoloBean> ruoli;
 }

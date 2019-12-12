@@ -61,6 +61,16 @@ create table prodotto(
 
 use eSportDB;
 
+create table taglia(
+	prodotto char(3),
+    misura varchar(3),
+	foreign key(prodotto) references prodotto(codice)
+		on update cascade
+        on delete cascade
+);
+
+use eSportDB;
+
 create table ordine(
 	numero char(6) primary key,
     stato varchar(36),
