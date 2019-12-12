@@ -16,16 +16,16 @@ public class CarrelloBean {
 	 * 
 	 * @param carrello item
 	 */
-	public void addProdotto(CarrelloItem ci) {
-		carrello.add(ci);
+	public void addProdotto(CarrelloItem carrelloItem) {
+		carrello.add(carrelloItem);
 	}
 	
 	/**
 	 * 
 	 * @param carrello item
 	 */
-	public void removeProdotto(CarrelloItem ci) {
-		carrello.remove(ci);
+	public void removeProdotto(CarrelloItem carrelloItem) {
+		carrello.remove(carrelloItem);
 	}
 	
 	/**
