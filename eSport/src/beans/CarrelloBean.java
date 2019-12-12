@@ -4,13 +4,9 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-<<<<<<< HEAD
-
-=======
 /**
  * Costruttore di default
  */
->>>>>>> branch 'master' of https://github.com/TizianoCitro/progetto.esport.git
 public class CarrelloBean {
 	public CarrelloBean() {
 		carrello=new HashSet<CarrelloItem>();
