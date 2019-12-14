@@ -1,0 +1,70 @@
+body{
+    font-family: sans-serif;
+}
+
+.bw-box{
+    width: 100%;
+    margin: 0px !important;
+}
+
+section.sec-box{
+    background: white;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+}
+
+.box-wh{
+    background: white;
+    min-width: 50%;
+}
+
+.box-bl{
+    background: black;
+    min-width: 50%;
+}
+
+h1.white-box{
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 4em;
+    line-height: 1.2em;
+    padding: 50px;
+    text-align: center;
+}
+
+h1.black-box{
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 4em;
+    line-height: 1.2em;
+    padding: 50px;
+    text-align: center;
+    color:  white;
+}
+
+.pointer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
+}
+
+@media(max-width: 990px){
+    h1.white-box{
+        font-size: 2em;
+        padding: 30px;
+    }
+
+    h1.black-box{
+        font-size: 2em;
+        padding: 30px;
+    }
+}

@@ -1,0 +1,143 @@
+#cart-item{
+    color: lightgray;
+    opacity: 0.7;
+}
+
+#span-cart{
+	opacity: 0;
+}
+
+#searchForm{
+	display: none;
+}
+        
+@media(min-width: 990px){
+    .dropdown-menu{
+        border-radius: 0px;  
+        margin-left: -1px;
+        min-width: 12rem;
+    }
+	
+	.navbar-nav li{
+		color: white ;
+	}
+	
+    .dropdown:hover > .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown > .dropdown-toggle:active {
+        pointer-events: none;
+    }
+
+    .dropdown:hover > .dropdown-menu li a {
+        color: white !important;
+        text-decoration: none !important;
+    }
+    
+    .dropdown:hover > .dropdown-menu li a:hover {
+        color: white !important;
+        text-decoration: none !important;
+    }
+    
+    .dropdown:hover > .dropdown-menu li:hover{
+    	background-color: gray !important;
+    }
+    
+    .navbar .dropdown.show a { 
+        color: white;
+    }
+    
+    .navbar .dropdown.show li a:hover{
+        background-color: gray !important;
+        text-decoration: none;
+    }
+    
+    .navbar .dropdown.show li a:hover{
+        text-decoration: none;
+    }
+    
+    input.form-control {
+        background-color: black; 
+        color: black;
+    }
+
+    input.form-control:focus {
+        border: none !important;
+        box-shadow: none !important;
+        outline: 0 none !important;
+    }
+    
+    div.searchDiv{
+        border: none;
+    }
+
+    #btt{
+        background-color: grey;
+        opacity: 0.7;
+        border: 0;
+    }
+
+    #btt:focus {
+        border: none !important;
+        box-shadow: none !important;
+        outline: 0 none !important;
+    }
+
+    #searchForm{
+    	display: initial;
+        margin-right: 10px;
+    }
+
+    .form-control{
+        border: 0;
+    }
+}
+
+@media(max-width: 990px){
+    .navbar-toggler{
+        border: none !important;
+    }
+
+    .navbar-toggler:focus{
+        border: none !important;
+        box-shadow: none !important;
+        outline: 0 none !important;
+    }
+
+    #searchForm{
+        display: none;
+    }
+      
+    .navbar .dropdown.show a { 
+        color: white;
+    }
+
+    .navbar .dropdown.show a:hover{
+        text-decoration: none;
+    }
+    
+    .navbar .dropdown.show li:hover{
+        background-color: gray;
+    }
+}
+
+@media(max-width: 990px){
+    #span-cart{
+        opacity: 0;
+    }
+
+    #cart-li{
+        display: initial;
+    }
+}
+
+@media(max-width: 990px){
+    #span-cart{
+        opacity: 1 !important;
+    }
+
+    #cart-li{
+        display: none;
+    }
+}

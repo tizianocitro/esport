@@ -1,0 +1,56 @@
+body{
+    font-family: sans-serif;
+    font-size: 100%;
+}
+
+.welcome-div{
+    text-align: center;
+    height: 80px;
+    background: black;
+    color: white;
+}
+
+.welcome-div h1{
+    padding-top: 15px;
+}
+
+.products{
+    background: grey;
+}
+
+.titled-h1 h1{
+    color: black;
+    padding-left: 30px;
+    padding-top: 13px; 
+}
+
+.carousel-item img{
+    width: 100%;
+    height: auto;
+}
+
+@media(max-width: 1060px){
+    .welcome-div h1{
+        font-size: 35px;
+        padding-top: 18px;
+    }
+}
+
+@media(max-width: 990px){
+    .welcome-div h1{
+        font-size: 25px;
+        padding-top: 24px;
+    }
+}
+
+@media(max-width: 760px){
+    .welcome-div h1{
+        font-size: 17px;
+        padding-top: 27px;
+    }
+
+    .titled-h1 h1{
+        font-size: 1.8em;
+    }
+}
+

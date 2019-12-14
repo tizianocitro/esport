@@ -1,0 +1,123 @@
+body {
+    font-family: Sans-Serif;
+    font-weight: bold;
+}
+
+.main-head{
+    height: 150px;
+    background: #FFF;
+   
+}
+
+.error-msg{
+    color: red !important;
+    font-size: 14px !important;
+}
+
+aside {
+    height: 100%;
+    background-color: black;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.Logo{
+	width: 100%;
+	height: auto;	
+}
+
+div.Login-form{
+	padding: 400px 120px;
+	margin: 100%;
+	margin-top: 500px;
+	margin-bottom: 500px;
+}
+
+.main {
+    padding: 0px 10px;
+}
+
+.no-dec{
+	text-decoration: none !important;	
+}
+
+a.reg {
+	text-decoration: none !important;
+}
+
+a#a-annulla{
+	text-decoration: none !important;
+}
+
+@media screen and (max-height: 450px) {
+    aside {
+    	padding-top: 15px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .login-form {
+        margin-top: 5%;
+    }
+
+    .register-form {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    
+   	aside{
+   		margin-top: 0px;
+   		padding-top: 0px;
+   		height: 300px;
+   		overflow: hidden;
+   	}
+   	
+   	div#Logo{
+   		margin-top: 0px;
+   		padding-top: 15%;
+   		
+   	}
+   	
+   	.Logo{
+   		width: 100%;
+		height: auto;
+   	}
+}
+
+@media screen and (min-width: 768px){
+    .main {
+        margin-left: 40%; 
+    }
+
+    aside {
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    .login-form {
+        margin-top: 50%;
+    }
+
+    .register-form {
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+}
+
+.login-main-text {
+    margin-top: 20%;
+    padding: 60px;
+    color: white;
+}
+
+.login-main-text h2 {
+    font-weight: 300;
+}
+
+.btn-black {
+    background-color: black !important;
+    color: white;
+}

@@ -1,6 +1,9 @@
 package beans;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class UtenteBean {
@@ -8,6 +11,9 @@ public class UtenteBean {
 	 * Costruttore di default
 	 */
 	public UtenteBean() {
+		metPags=new HashSet<MetodoPagamentoBean>();
+		indirizzi=new HashSet<IndirizzoBean>();
+		ruoli=new HashMap<String, RuoloBean>();
 	}
 	
 	/**
@@ -46,7 +52,7 @@ public class UtenteBean {
 	 * 
 	 * @return ruoli
 	 */
-	public Collection<RuoloBean> getRuolo() {
+	public Map<String, RuoloBean> getRuolo() {
 		return ruoli;
 	}
 	
@@ -54,7 +60,7 @@ public class UtenteBean {
 	 * 
 	 * @param ruoli
 	 */
-	public void setRuolo(Set<RuoloBean> ruoli) {
+	public void setRuolo(Map<String, RuoloBean> ruoli) {
 		this.ruoli = ruoli;
 	}
 	
@@ -63,7 +69,7 @@ public class UtenteBean {
 	 * @param ruolo
 	 */
 	public void addRuolo(RuoloBean ruolo) {
-		ruoli.add(ruolo);
+		ruoli.put("" + ruolo.getPermesso(), ruolo);
 	}
 	
 	/**
@@ -71,7 +77,7 @@ public class UtenteBean {
 	 * @param ruolo
 	 */
 	public void removeRuolo(RuoloBean ruolo) {
-		ruoli.remove(ruolo);
+		ruoli.remove(ruolo.getPermesso());
 	}
 	
 	/**
@@ -257,5 +263,5 @@ public class UtenteBean {
 	/**
 	 * Variabile d'istanza ruoli
 	 */
-	private Set<RuoloBean> ruoli;
+	private Map<String, RuoloBean> ruoli;
 }

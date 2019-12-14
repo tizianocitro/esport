@@ -1,0 +1,228 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+<%@ page import="beans.*" %>
+<%
+	String ruolo=(String) session.getAttribute("ruolo");
+%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>e-Sport - Home page</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="css/BlackWhite.css">
+        <link type="text/css" rel="stylesheet" href="css/CardCatalogo.css">
+        <link rel="stylesheet" type="text/css" href="css/HomePage.css">
+		<link rel="stylesheet" type="text/css" href="css/Nav.css">
+		<link rel="stylesheet" type="text/css" href="css/Footer.css">
+	</head>
+	
+	<body class="py-0">
+		<!-- Navigation -->
+		<header>
+			<% 
+				String pg="";
+			
+				if(ruolo==null || ruolo.equals("utente"))
+					pg="NavbarUtente.jsp";
+				else if(ruolo.equals("catalogo"))
+					pg="NavbarCatalogo.jsp";
+				else if(ruolo.equals("ordini"))
+					pg="NavbarOrdini.jsp";
+			
+			%>
+			
+			<jsp:include page="<%= pg %>" />
+		</header>
+		
+		<!-- Page Content -->
+		
+			<!--Welcome Box-->
+	        <div class="welcome-div">
+	            <h1>Benvenuto su e-Sport - soddisfa la tua passione</h1>
+	        </div>
+	
+	        <!--Box color with white and black-->
+	        <div class="bw-box">
+	            <section class="sec-box">
+	                <div class="pointer"></div>
+	                <span class="box-wh">
+	                    <h1 class="white-box">Believe <br> your</h1>
+	                </span>
+	                    
+	                <span class="box-bl">
+	                    <h1 class="black-box">in <br> passion</h1>
+	                </span>
+	            </section>
+	        </div>
+		
+			<!--Some product cards-->
+	        <div class="products">
+	            <div class="titled-h1">
+	                <h1>Prodotti del momento</h1>
+	            </div>
+	
+	            <div class="row">
+	                <!--first card-->
+	                <span class="card">
+	                    <input class="npt" type="checkbox" name="">
+	                    <div id="t1" class="toggle">+</div>
+	                    <div class="imgBx">
+	                        <img src="images/001.jpg" class="imgcard">
+	                    </div>
+	                    <div class="details">
+	                        <p>
+	                            <h3 class="nameP">
+	                            	<a id="nm1" href="ProdottoServlet?codProd=001" class="text-light"></a>
+	                            </h3>
+	                        </p>
+	                    
+	                        <div class="descDiv">
+	                            <p id="desc1"></p>
+	                        </div>
+	                    </div>
+	                </span>
+	
+	                <!--second card-->
+	                <span class="card">
+	                    <input class="npt" type="checkbox" name="">
+	                    <div id="t2" class="toggle">+</div>
+	                    <div class="imgBx">
+	                        <img src="images/005.jpg" class="imgcard">
+	                    </div>
+	                    <div class="details">
+	                        <p>
+	                            <h3 class="nameP">
+	                            	<a id="nm2" href="ProdottoServlet?codProd=005" class="text-light"></a>
+	                            </h3>
+	                        </p>
+	                        
+	                        <div class="descDiv">
+	                            <p id="desc2"></p>
+	                        </div>
+	                    </div>
+	                </span>
+	
+	                <!--third card-->
+	                <span class="card">
+	                    <input class="npt" type="checkbox" name="">
+	                    <div id="t3" class="toggle">+</div>
+	                    <div class="imgBx">
+	                        <img src="images/004.jpg" class="imgcard">
+	                    </div>
+	                    <div class="details">
+	                        <p>
+	                            <h3 class="nameP">
+									<a id="nm3" href="ProdottoServlet?codProd=004" class="text-light"></a>
+								</h3>
+	                        </p>
+	                        
+	                        <div class="descDiv">
+	                            <p id="desc3"></p>
+	                        </div>
+	                    </div>
+	                </span>
+	
+	                <!--fourth card-->
+	                <span class="card">
+	                    <input class="npt" type="checkbox" name="">
+	                    <div id="t4" class="toggle">+</div>
+	                    <div class="imgBx">
+	                        <img src="images/003.jpg" class="imgcard">
+	                    </div>
+	                    <div class="details">
+	                        <p>
+	                            <h2 class="nameP">
+	                            	<a id="nm4" href="ProdottoServlet?codProd=003" class="text-light"></a>
+	                            </h1>
+	                        </p>
+	                        
+	                        <div class="descDiv">
+	                            <p id="desc4"></p>
+	                        </div>
+	                    </div>
+	                </span>
+	            </div>
+	        </div>
+		
+		<!-- Footer -->
+ 		 <footer class="bg-dark">
+    		<%@ include file="Footer.jsp" %>
+  		 </footer>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+  		
+  		<script type="text/javascript">
+            $('.sec-box').mousemove(function(e){
+                $('.pointer').css({
+                    left: e.pageX,
+                    top: e.pageY
+                })
+            })
+
+            $('.sec-box').mouseenter(function(){
+                $('.pointer').css({
+                    width: 150,
+                    height: 150
+                })
+            })
+
+            $('.sec-box').mouseleave(function(){
+                $('.pointer').css({
+                    width: 0,
+                    height: 0
+                })
+            })
+        </script>
+        
+        <script type="text/javascript">
+        	$(document).ready(
+        		$('#t1').mouseenter($.get("ProdottiMomentoServlet?cod=001", function(data){
+        			var p=JSON.parse(data);
+        			$('#desc1').html(p.descrizione);
+        			$('#nm1').html(p.nome);
+
+        		}))
+        	);
+        </script>
+        
+        <script type="text/javascript">
+        	$(document).ready(
+        		$('#t2').mouseenter($.get("ProdottiMomentoServlet?cod=005", function(data){
+        			var p=JSON.parse(data);
+        			$('#desc2').html(p.descrizione);
+        			$('#nm2').html(p.nome);
+
+        		}))
+        	);
+        </script>
+        
+        <script type="text/javascript">
+        	$(document).ready(
+        		$('#t3').mouseenter($.get("ProdottiMomentoServlet?cod=004", function(data){
+        			var p=JSON.parse(data);
+        			$('#desc3').html(p.descrizione);
+        			$('#nm3').html(p.nome);
+
+        		}))
+        	);
+        </script>
+        
+        <script type="text/javascript">
+        	$(document).ready(
+        		$('#t4').mouseenter($.get("ProdottiMomentoServlet?cod=003", function(data){
+        			var p=JSON.parse(data);
+        			$('#desc4').html(p.descrizione);
+        			$('#nm4').html(p.nome);
+
+        		}))
+        	);
+        </script>
+	</body>
+</html>
