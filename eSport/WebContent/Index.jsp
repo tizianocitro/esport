@@ -4,6 +4,9 @@
 <%@ page import="beans.*" %>
 <%
 	String ruolo=(String) session.getAttribute("ruolo");
+	String CATALOGO="Catalogo";
+	String ORDINI="Ordini";
+	String UTENTE="Utente";
 %>
 <!DOCTYPE html>
 <html>
@@ -27,11 +30,11 @@
 			<% 
 				String pg="";
 			
-				if(ruolo==null || ruolo.equals("utente"))
+				if(ruolo==null || ruolo.equals(UTENTE))
 					pg="NavbarUtente.jsp";
-				else if(ruolo.equals("catalogo"))
+				else if(ruolo.equals(CATALOGO))
 					pg="NavbarCatalogo.jsp";
-				else if(ruolo.equals("ordini"))
+				else if(ruolo.equals(ORDINI))
 					pg="NavbarOrdini.jsp";
 			
 			%>

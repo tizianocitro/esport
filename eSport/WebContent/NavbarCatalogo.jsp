@@ -5,6 +5,10 @@
 <%
 	Boolean userAuth = (Boolean) session.getAttribute("userAuth");
 	String ruoloToChange = (String) session.getAttribute("ruolo");
+	String CATALOGO="Catalogo";
+	String ORDINI="Ordini";
+	
+	UtenteBean user = (UtenteBean) session.getAttribute("userLogged");
 %>
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
 	<button type="button" class="navbar-toggler" data-toggle="collapse"
@@ -30,8 +34,35 @@
 					<li class="dropdown-item"><a href="#">Aggiorna catalogo</a></li>
 				</ul></li>
 
-		</ul>
+			<%
+				if (user.getRuolo().containsKey(CATALOGO) || user.getRuolo().containsKey(ORDINI)) {
+			%>
 
+			<li class="dropdown nav-item" id="hvr3"><a
+				class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">
+					Permessi: Gestore <%=ruoloToChange%></a>
+				<ul class="dropdown-menu bg-dark">
+					<%
+						for (RuoloBean r : user.getRuolo().values()) {
+					%>
+					<li class="dropdown-item">
+						
+						<% if(r.getPermesso().equals(CATALOGO) || r.getPermesso().equals(ORDINI)) { %>
+							<a href="Ruolo?permesso=<%=r.getPermesso()%>">Gestore <%=r.getPermesso()%></a></li>
+						<%}
+						   else{
+						%>
+							<a href="Ruolo?permesso=<%=r.getPermesso()%>"><%=r.getPermesso()%></a></li>
+						<% 
+						   }
+						}
+					%>
+				</ul></li>
+			<%
+				}
+			%>
+		</ul>
+		
 		<ul class="nav navbar-nav ml-auto">
 			<form id="searchForm" class="form-inline" action="#" method="post">
 				<div id="searchDiv" class="input-group">
@@ -55,7 +86,6 @@
 			</a></li>
 			<%
 				} else {
-					UtenteBean user = (UtenteBean) session.getAttribute("userLogged");
 			%>
 
 			<li class="dropdown nav-item" id="hvr2"><a
@@ -72,24 +102,6 @@
 				</ul></li>
 
 			<%
-				if (user.getRuolo().containsKey("catalogo") || user.getRuolo().containsKey("ordini")) {
-			%>
-
-			<li class="dropdown nav-item" id="hvr3"><a
-				class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">
-					<%=ruoloToChange%></a>
-				<ul class="dropdown-menu bg-dark">
-					<%
-						for (RuoloBean r : user.getRuolo().values()) {
-					%>
-					<li class="dropdown-item"><a
-						href="Ruolo?permesso=<%=r.getPermesso()%>"><%=r.getPermesso()%></a></li>
-					<%
-						}
-					%>
-				</ul></li>
-			<%
-				}
 				}
 			%>
 

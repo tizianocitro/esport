@@ -42,7 +42,7 @@ public class LoginStub extends HttpServlet {
 				if(user!=null) {
 					log.info("utente loggato: " + user.getUsername() + ", " + user.getPassword());
 					session.setAttribute("userAuth", true);
-					session.setAttribute("ruolo", "utente");
+					session.setAttribute("ruolo", "Utente");
 					session.setAttribute("userLogged", user);
 
 					String pp=(String) session.getAttribute("previousPage");
@@ -55,7 +55,7 @@ public class LoginStub extends HttpServlet {
 				}
 				else {
 					session.setAttribute("userAuth", false);
-					session.setAttribute("ruolo", "utente");
+					session.setAttribute("ruolo", "Utente");
 					session.setAttribute("userLogged", null);
 					
 					redirectedPage="/LoginPage.jsp";
@@ -63,7 +63,7 @@ public class LoginStub extends HttpServlet {
 			}
 			catch(Exception e) {
 				session.setAttribute("userAuth", false);
-				session.setAttribute("ruolo", "utente");
+				session.setAttribute("ruolo", "Utente");
 				session.setAttribute("userLogged", null);
 								
 				redirectedPage="/Login.jsp";
@@ -109,7 +109,7 @@ public class LoginStub extends HttpServlet {
 		paolo.setTelefono(tel);
 		
 		HashMap<String, RuoloBean> ruoli=(HashMap<String, RuoloBean>) simulateRuolo(paolo);
-		paolo.addRuolo(ruoli.get("utente"));
+		paolo.addRuolo(ruoli.get("Utente"));
 
 		log.info("Inserisco: " + paolo.getUsername() + ", " + paolo.getPassword());
 		users.put("" + paolo.getUsername(), paolo);
@@ -118,16 +118,16 @@ public class LoginStub extends HttpServlet {
 		UtenteBean root=new UtenteBean();
 		root.setUsername("root");
 		root.setPassword("root");
-		root.setNome("root");
-		root.setCognome("admin");
+		root.setNome("Amministratore");
+		root.setCognome("globale");
 		root.setEmail("root@esport.com");
 		root.setPiva(pIva);
 		root.setTelefono(tel);
 		
 		HashMap<String, RuoloBean> ruoliRoot=(HashMap<String, RuoloBean>) simulateRuolo(root);
-		root.addRuolo(ruoliRoot.get("utente"));
-		root.addRuolo(ruoliRoot.get("catalogo"));
-		root.addRuolo(ruoliRoot.get("ordini"));
+		root.addRuolo(ruoliRoot.get("Utente"));
+		root.addRuolo(ruoliRoot.get("Catalogo"));
+		root.addRuolo(ruoliRoot.get("Ordini"));
 		
 		log.info("Inserisco: " + root.getUsername() + ", " + root.getPassword());
 		users.put("" + root.getUsername(), root);
@@ -142,21 +142,21 @@ public class LoginStub extends HttpServlet {
 		
 		RuoloBean utente=new RuoloBean();
 		utente.setUsername(user.getUsername());
-		utente.setPermesso("utente");
+		utente.setPermesso("Utente");
 		
 		log.info("Inserisco ruolo: " + utente.getPermesso());
 		ruoli.put(utente.getPermesso(), utente);
 		
 		RuoloBean catalogo=new RuoloBean();
 		catalogo.setUsername(user.getUsername());
-		catalogo.setPermesso("catalogo");
+		catalogo.setPermesso("Catalogo");
 	
 		log.info("Inserisco ruolo: " + catalogo.getPermesso());
 		ruoli.put(catalogo.getPermesso(), catalogo);
 		
 		RuoloBean ordini=new RuoloBean();
 		ordini.setUsername(user.getUsername());
-		ordini.setPermesso("ordini");
+		ordini.setPermesso("Ordini");
 		
 		log.info("Inserisco ruolo: " + ordini.getPermesso());
 		ruoli.put(ordini.getPermesso(), ordini);
