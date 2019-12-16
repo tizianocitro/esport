@@ -1,0 +1,54 @@
+a.bw{
+    position: relative;
+    padding: 8px 10px;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 10px;
+    border: 2px solid white;
+    box-sizing: border-box;  
+}
+
+a.bw:hover{
+    color: black;
+}
+
+a.bw:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: white;
+    z-index: -1;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+    transform-origin: left;  
+}
+
+a.bw:hover:before{
+    transform: scaleX(1);
+    transition: transform 0.5s;
+    transform-origin: right;  
+}
+
+a.bw:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: white;
+    z-index: -1;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+    transform-origin: right;  
+}
+
+a.bw:hover:after{
+    transform: scaleX(1);
+    transition: transform 0.5s;
+    transform-origin: left;  
+}

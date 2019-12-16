@@ -1,0 +1,51 @@
+body {
+    font-family: sans-serif;
+}
+
+.card:hover{
+    border-color: black;
+}
+
+.card:hover hr{
+    border-color: black;
+}
+
+#title-prod{
+    padding: 0px;
+}
+
+#marca-prod{
+    color: grey;
+}
+
+#rev-h{
+    color: white;
+    background: black;
+}
+
+div.order{
+    text-align: right;
+}
+
+a.bb{
+    margin-left: 8px;
+}
+
+.a-btt{
+	text-decoration: none !important;	
+}
+
+@media (max-width: 768px){
+    div#prodImg{
+        text-align: center;
+    }
+
+    div.order{
+        text-align: left;
+    }
+
+    a.bb{
+        display: block;
+        margin-left: 0px; 
+    }
+}

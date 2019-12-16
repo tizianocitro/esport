@@ -1,6 +1,5 @@
 package beans;
 
-import java.util.Collection;
 import java.util.Set;
 
 public class ProdottoBean {
@@ -78,7 +77,7 @@ public class ProdottoBean {
 	 * 
 	 * @return taglie
 	 */
-	public Collection<TagliaBean> getTaglia() {
+	public Set<TagliaBean> getTaglie() {
 		return taglie;
 	}
 	
@@ -86,7 +85,7 @@ public class ProdottoBean {
 	 * 
 	 * @param taglie
 	 */
-	public void setTaglia(Set<TagliaBean> taglie) {
+	public void setTaglie(Set<TagliaBean> taglie) {
 		this.taglie = taglie;
 	}
 	
@@ -154,6 +153,22 @@ public class ProdottoBean {
 		this.descrizione = descrizione;
 	}
 	
+	/**
+	 * 
+	 * @return recensioni
+	 */
+	public Set<RecensioneBean> getRecensioni() {
+		return recensioni;
+	}
+
+	/**
+	 * 
+	 * @param recensioni
+	 */
+	public void setRecensioni(Set<RecensioneBean> recensioni) {
+		this.recensioni = recensioni;
+	}
+	
 	/*
 	 * Variabili d'istanza codice
 	 */
@@ -198,4 +213,9 @@ public class ProdottoBean {
 	 * Variabili d'istanza descrizione
 	 */
 	private String descrizione;
+	
+	/**
+	 * Variabili d'istanza recensioni
+	 */
+	private Set<RecensioneBean> recensioni;
 }

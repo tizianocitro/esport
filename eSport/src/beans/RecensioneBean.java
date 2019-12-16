@@ -7,22 +7,6 @@ public class RecensioneBean {
 	public RecensioneBean() {
 		
 	}
-	
-	/**
-	 * 
-	 * @return codice
-	 */
-	public int getCodice() {
-		return codice;
-	}
-
-	/**
-	 * 
-	 * @param codice
-	 */
-	public void setCodice(int codice) {
-		this.codice = codice;
-	}
 
 	/**
 	 * 
@@ -88,10 +72,6 @@ public class RecensioneBean {
 		this.prodotto = prodotto;
 	}
 
-	/*
-	 * Variabili d'istanza codice
-	 */
-	private int codice;
 	/*
 	 * Variabili d'istanza voto
 	 */

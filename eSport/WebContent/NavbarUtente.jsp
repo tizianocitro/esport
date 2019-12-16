@@ -29,9 +29,9 @@
 			<li class="dropdown nav-item" id="hvr1"><a
 				class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Catalogo</a>
 				<ul class="dropdown-menu bg-dark">
-					<li class="dropdown-item"><a href="#">Divise</a></li>
-					<li class="dropdown-item"><a href="#">Pantaloncini</a></li>
-					<li class="dropdown-item"><a href="#">Scarpe da gioco</a></li>
+					<li class="dropdown-item"><a href="CatalogoStub?tipo=Divisa&order=nome">Divise</a></li>
+					<li class="dropdown-item"><a href="CatalogoStub?tipo=Pantaloncini&order=nome">Pantaloncini</a></li>
+					<li class="dropdown-item"><a href="CatalogoStub?tipo=Scarpe&order=nome">Scarpe da gioco</a></li>
 				</ul></li>
 
 			<li class="hvr nav-item"><a href="#"

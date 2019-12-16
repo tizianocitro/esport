@@ -1,6 +1,5 @@
 package beans;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -148,7 +147,7 @@ public class UtenteBean {
 	 * 
 	 * @return metodi pagamento
 	 */
-	public Collection<MetodoPagamentoBean> getMetpag() {
+	public Set<MetodoPagamentoBean> getMetpag() {
 		return metPags;
 	}
 	
@@ -196,7 +195,7 @@ public class UtenteBean {
 	 * 
 	 * @return indirizzi
 	 */
-	public Collection<IndirizzoBean> getIndirizzi() {
+	public Set<IndirizzoBean> getIndirizzi() {
 		return indirizzi;
 	}
 	
