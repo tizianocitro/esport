@@ -37,13 +37,44 @@ public class CarrelloItem {
 		this.qt=qt;
 	}
 
+	/**
+	 * 
+	 * @return taglia
+	 */
+	public String getTaglia() {
+		return taglia;
+	}
+
+	/**
+	 * 
+	 * @param taglia
+	 */
+	public void setTaglia(String taglia) {
+		this.taglia = taglia;
+	}
+
+	@Override
+	public boolean equals(Object item) {
+		if(!(item instanceof CarrelloItem) || item==null)
+			return false;
+		
+		CarrelloItem carrelloItem=(CarrelloItem) item;
+
+		return prodotto.getCodice().equals(carrelloItem.getProdotto().getCodice()) && qt==carrelloItem.getQt()
+				&& taglia.equals(carrelloItem.getTaglia());
+	}
 	/*
-	 * Variabili d'istanza prodotto
+	 * Variabile d'istanza prodotto
 	 */
 	private ProdottoBean prodotto;
 	
 	/*
-	 * Variabili d'istanza quantita
+	 * Variabile d'istanza quantita
 	 */
 	private int qt;
+	
+	/**
+	 * Variabile d'istanza taglia
+	 */
+	private String taglia;
 }

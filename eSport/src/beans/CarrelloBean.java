@@ -1,7 +1,8 @@
 package beans;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class CarrelloBean {
 	
@@ -9,7 +10,7 @@ public class CarrelloBean {
 	 * Costruttore di default
 	 */
 	public CarrelloBean() {
-		carrello=new HashMap<String, CarrelloItem>();
+		carrello=new LinkedHashSet<CarrelloItem>();
 	}
 	
 	/**
@@ -17,7 +18,16 @@ public class CarrelloBean {
 	 * @param carrello item
 	 */
 	public void addProdotto(CarrelloItem carrelloItem) {
-		carrello.put("" + carrelloItem.getProdotto().getCodice(), carrelloItem);
+		carrello.add(carrelloItem);
+	}
+	
+	/**
+	 */
+	public void reAddProdotto(CarrelloItem carrelloItem) {
+		for(CarrelloItem item: carrello) {
+			if(item.equals(carrelloItem))
+				item.setQt(item.getQt() + 1);
+		}
 	}
 	
 	/**
@@ -26,7 +36,12 @@ public class CarrelloBean {
 	 * @return carrello item
 	 */
 	public CarrelloItem getProdotto(String codiceProdotto) {
-		return carrello.get(codiceProdotto);
+		for(CarrelloItem item: carrello) {
+			if(item.getProdotto().getCodice().equals(codiceProdotto))
+				return item;
+		}
+		
+		return null;
 	}
 	
 	/**
@@ -34,14 +49,27 @@ public class CarrelloBean {
 	 * @param carrello item
 	 */
 	public void removeProdotto(CarrelloItem carrelloItem) {
-		carrello.remove(carrelloItem.getProdotto().getCodice());
+		ArrayList<CarrelloItem> array=new ArrayList<CarrelloItem>();
+		for(CarrelloItem item: carrello) {
+			array.add(item);
+		}
+		
+		for(int i=0; i<array.size(); i++) {
+			if(array.get(i).equals(carrelloItem))
+				array.remove(i);
+		}
+		
+		svuotaCarrello();
+		
+		for(CarrelloItem item: array)
+			carrello.add(item);
 	}
 	
 	/**
 	 * 
 	 * @return carrello
 	 */
-	public Map<String, CarrelloItem> getCarrello() {
+	public Set<CarrelloItem> getCarrello() {
 		return carrello;
 	}
 
@@ -49,7 +77,7 @@ public class CarrelloBean {
 	 * 
 	 * @param carrello
 	 */
-	public void setCarrello(Map<String, CarrelloItem> carrello) {
+	public void setCarrello(Set<CarrelloItem> carrello) {
 		this.carrello=carrello;
 	}
 
@@ -65,6 +93,18 @@ public class CarrelloBean {
 	}
 	
 	/**
+	 * 
+	 * @return true se il prodotto è già nel carrello, altrimenti false
+	 */
+	public boolean contains(CarrelloItem carrelloItem) {
+		for(CarrelloItem item: carrello)
+			if(item.equals(carrelloItem))
+				return true;
+
+		return false;
+	}
+	
+	/**
 	 * Svuota il carrello
 	 */
 	public void svuotaCarrello() {
@@ -74,5 +114,5 @@ public class CarrelloBean {
 	/**
 	 * Variabile d'istanza carrello
 	 */
-	private Map<String, CarrelloItem> carrello;
+	private Set<CarrelloItem> carrello;
 }

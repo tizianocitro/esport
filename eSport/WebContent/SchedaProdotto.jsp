@@ -64,7 +64,7 @@
                                 <h4><%= p.getPrezzo() + "&euro;" %></h4>
                                 <h6>Disponibili <%= p.getQt()%></h6>
                                 
-                                <form class="form-inline" action="CarrelloStub?prodotto=<%= p.getCodice()%>" method="post">
+                                <form class="form-inline" action="AddProdottoCarrelloStub?prodotto=<%= p.getCodice()%>" method="post">
 									<div class="input-group">
 									  <select class="custom-select" name="selectTaglia" id="inputGroupSelect04">
 									    <option selected>Scegli la taglia</option>

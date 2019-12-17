@@ -1,7 +1,7 @@
 package beans;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -10,9 +10,9 @@ public class UtenteBean {
 	 * Costruttore di default
 	 */
 	public UtenteBean() {
-		metPags=new HashSet<MetodoPagamentoBean>();
-		indirizzi=new HashSet<IndirizzoBean>();
-		ruoli=new HashMap<String, RuoloBean>();
+		metPags=new LinkedHashSet<MetodoPagamentoBean>();
+		indirizzi=new LinkedHashSet<IndirizzoBean>();
+		ruoli=new LinkedHashMap<String, RuoloBean>();
 	}
 	
 	/**

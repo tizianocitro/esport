@@ -1,9 +1,11 @@
 package Utilities;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import beans.CarrelloBean;
+import beans.CarrelloItem;
 import beans.CatalogoBean;
 import beans.ProdottoBean;
 import beans.TagliaBean;
@@ -12,7 +14,7 @@ public class ServletUtilities {
 	static Logger log=Logger.getLogger("ServletUtilitiesDebugger");
 	
 	public static Set<ProdottoBean> simulateDB(){
-		HashSet<TagliaBean> taglie=new HashSet<TagliaBean>();
+		LinkedHashSet<TagliaBean> taglie=new LinkedHashSet<TagliaBean>();
 		TagliaBean S=new TagliaBean();
 		S.setMisura("S");
 		taglie.add(S);
@@ -23,7 +25,15 @@ public class ServletUtilities {
 		L.setMisura("L");
 		taglie.add(L);
 		
-		HashSet<ProdottoBean> catalogo=new HashSet<ProdottoBean>();
+		LinkedHashSet<TagliaBean> taglieScarpe=new LinkedHashSet<TagliaBean>();
+		TagliaBean t=new TagliaBean();
+		t.setMisura("39");
+		taglieScarpe.add(t);
+		TagliaBean tOne=new TagliaBean();
+		tOne.setMisura("40");
+		taglieScarpe.add(tOne);
+		
+		LinkedHashSet<ProdottoBean> catalogo=new LinkedHashSet<ProdottoBean>();
 		
 		log.info("Metodo simulateDB -> aggiungo i prodotti per simulare il catalogo");
 
@@ -46,6 +56,7 @@ public class ServletUtilities {
 		pTwo.setPrezzo(89.99);
 		pTwo.setQt(40);
 		pTwo.setDescrizione("Napoli Home kit 2018. Divisa ufficiale della stagione 2018/2019");
+		pTwo.setTaglie(taglie);
 		catalogo.add(pTwo);
 		
 		ProdottoBean pThree=new ProdottoBean();
@@ -56,6 +67,7 @@ public class ServletUtilities {
 		pThree.setPrezzo(99.99);
 		pThree.setQt(31);
 		pThree.setDescrizione("Real Madrid Awat Kit 2018, divisa ufficiale della stagione 2018/2019 della squadra calcistica Real Madrid");
+		pThree.setTaglie(taglie);
 		catalogo.add(pThree);
 		
 		ProdottoBean pFour=new ProdottoBean();
@@ -66,6 +78,7 @@ public class ServletUtilities {
 		pFour.setPrezzo(99.99);
 		pFour.setQt(38);
 		pFour.setDescrizione("Juventus Home Kit 2018, divisa ufficiale della stagione 2018/2019 della squadra calcistica Juventus");
+		pFour.setTaglie(taglie);
 		catalogo.add(pFour);
 		
 		ProdottoBean pFifth=new ProdottoBean();
@@ -76,6 +89,7 @@ public class ServletUtilities {
 		pFifth.setPrezzo(89.99);
 		pFifth.setQt(46);
 		pFifth.setDescrizione("Scarpe Nike originali. Serie Mercurial 2018/2019");
+		pFifth.setTaglie(taglieScarpe);
 		catalogo.add(pFifth);
 		
 		ProdottoBean pSixth=new ProdottoBean();
@@ -86,6 +100,7 @@ public class ServletUtilities {
 		pSixth.setPrezzo(49.99);
 		pSixth.setQt(50);
 		pSixth.setDescrizione("Pantolinci Real Madrid originali, anno 2018/2019");
+		pSixth.setTaglie(taglie);
 		catalogo.add(pSixth);
 		
 		ProdottoBean pSeven=new ProdottoBean();
@@ -96,6 +111,7 @@ public class ServletUtilities {
 		pSeven.setPrezzo(49.99);
 		pSeven.setQt(44);
 		pSeven.setDescrizione("Pantolinci Juventus originali, anno 2018/2019");
+		pSeven.setTaglie(taglie);
 		catalogo.add(pSeven);
 		
 		return catalogo;
@@ -105,6 +121,15 @@ public class ServletUtilities {
 		for(ProdottoBean prodottoCercato: catalogo.getCatalogo()) {
 			if(prodottoCercato.getCodice().equals(codiceProdotto))
 				return prodottoCercato;
+		}
+		
+		return null;
+	}
+	
+	public static CarrelloItem searchProdottoByCodice(String codiceProdotto, CarrelloBean carrello) {		
+		for(CarrelloItem item: carrello.getCarrello()) {
+			if(item.getProdotto().getCodice().equals(codiceProdotto))
+				return item;
 		}
 		
 		return null;

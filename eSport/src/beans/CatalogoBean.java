@@ -3,13 +3,14 @@ package beans;
 import java.util.Set;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class CatalogoBean {
 	/**
 	 * Costruttore di default
 	 */
 	public CatalogoBean() {
-		this.catalogo=new HashSet<ProdottoBean>();
+		this.catalogo=new LinkedHashSet<ProdottoBean>();
 	}
 	
 	/**
@@ -42,6 +43,19 @@ public class CatalogoBean {
 	 */
 	public void removeProdotto(ProdottoBean prodotto) {
 		catalogo.remove(prodotto);
+	}
+	
+	/**
+	 * 
+	 * @param codiceProdotto
+	 * @return prodotto
+	 */
+	public ProdottoBean getProdotto(String codiceProdotto) {
+		for(ProdottoBean prodotto: catalogo)
+			if(prodotto.getCodice().equals(codiceProdotto))
+				return prodotto;
+		
+		return null;
 	}
 	
 	/**

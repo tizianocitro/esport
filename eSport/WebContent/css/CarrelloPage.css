@@ -1,0 +1,78 @@
+body {
+    padding-top: 75px;
+    font-family: sans-serif;
+}
+
+.not-cart{
+	text-align: center;
+	margin: 90px;	
+}
+
+div.data-prod{
+    margin-bottom: 5px;
+    border: 2px solid black;
+    border-radius: 7px;
+    padding: 10px;
+    font-variant: small-caps;
+    font-size: 17px;
+}
+
+table{
+    width: 100%;
+}
+
+tr{
+    text-align: right;
+}
+
+span.a-sp{
+    font-size: 12px;
+}
+
+span.a-nsp{
+    font-size: 11px;
+}
+
+.card:hover{
+    border-color: black !important;
+}
+
+a.title-prod{
+    text-decoration: none;
+    color: black;
+}
+
+#marca-prod{
+    color: grey;
+}
+
+#rev-h{
+    color: white;
+    background: black;
+}
+
+div.order{
+    text-align: right;
+}
+
+span#dp-qt{
+	font-size: 15px;	
+}
+
+a.a-btt:hover{
+	text-decoration: none;	
+}
+
+@media (max-width: 768px){
+    div#prodImg{
+        text-align: center;
+    }
+
+    div.order{
+        text-align: left;
+    }
+
+    #opt-cart{
+        margin-bottom: 13px;
+    }
+}

@@ -1,7 +1,7 @@
 package topdown;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -76,7 +76,7 @@ public class LoginStub extends HttpServlet {
 	public UtenteBean verifica(UtenteBean user) {
 		log.info("Sono nello stub di login -> metodo: verifica");
 
-		HashMap<String, UtenteBean> users=(HashMap<String, UtenteBean>) simulateUtente();
+		LinkedHashMap<String, UtenteBean> users=(LinkedHashMap<String, UtenteBean>) simulateUtente();
 		log.info("Sono nello stub di login -> metodo: verifica -> terminato metodo: simulateUtente");
 
 		log.info("Comincio scorrimento");
@@ -94,7 +94,7 @@ public class LoginStub extends HttpServlet {
 	public Map<String, UtenteBean> simulateUtente(){
 		log.info("Sono nello stub di login -> metodo: simulateUtente");
 
-		HashMap<String, UtenteBean> users=new HashMap<String, UtenteBean>();
+		LinkedHashMap<String, UtenteBean> users=new LinkedHashMap<String, UtenteBean>();
 		String pIva="11111111111";
 		String tel="3391771608";
 		
@@ -108,7 +108,7 @@ public class LoginStub extends HttpServlet {
 		paolo.setPiva(pIva);
 		paolo.setTelefono(tel);
 		
-		HashMap<String, RuoloBean> ruoli=(HashMap<String, RuoloBean>) simulateRuolo(paolo);
+		LinkedHashMap<String, RuoloBean> ruoli=(LinkedHashMap<String, RuoloBean>) simulateRuolo(paolo);
 		paolo.addRuolo(ruoli.get("Utente"));
 
 		log.info("Inserisco: " + paolo.getUsername() + ", " + paolo.getPassword());
@@ -124,7 +124,7 @@ public class LoginStub extends HttpServlet {
 		root.setPiva(pIva);
 		root.setTelefono(tel);
 		
-		HashMap<String, RuoloBean> ruoliRoot=(HashMap<String, RuoloBean>) simulateRuolo(root);
+		LinkedHashMap<String, RuoloBean> ruoliRoot=(LinkedHashMap<String, RuoloBean>) simulateRuolo(root);
 		root.addRuolo(ruoliRoot.get("Utente"));
 		root.addRuolo(ruoliRoot.get("Catalogo"));
 		root.addRuolo(ruoliRoot.get("Ordini"));
@@ -138,7 +138,7 @@ public class LoginStub extends HttpServlet {
 	public Map<String, RuoloBean> simulateRuolo(UtenteBean user){
 		log.info("Sono nello stub di login -> metodo: simulateRuolo");
 
-		HashMap<String, RuoloBean> ruoli=new HashMap<String, RuoloBean>();
+		LinkedHashMap<String, RuoloBean> ruoli=new LinkedHashMap<String, RuoloBean>();
 		
 		RuoloBean utente=new RuoloBean();
 		utente.setUsername(user.getUsername());

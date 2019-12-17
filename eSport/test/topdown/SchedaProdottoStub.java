@@ -33,7 +33,7 @@ public class SchedaProdottoStub extends HttpServlet {
 			CatalogoBean prodotti=new CatalogoBean();
 			prodotti.setCatalogo(ServletUtilities.simulateDB());
 			
-			ProdottoBean prodottoDaMostrare=ServletUtilities.searchProdottoByCodice(codiceProdotto, prodotti);
+			ProdottoBean prodottoDaMostrare=prodotti.getProdotto(codiceProdotto);
 			if(prodottoDaMostrare!=null) {
 				session.setAttribute("ProdottoDaMostrare", prodottoDaMostrare);
 			}

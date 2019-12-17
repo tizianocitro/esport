@@ -1,7 +1,7 @@
 package topdown;
 
 import java.io.IOException;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.logging.Logger;
 
@@ -61,7 +61,7 @@ public class CatalogoStub extends HttpServlet {
 
 	
 	public Set<ProdottoBean> filtraByTipo(String tipo, CatalogoBean catalogo){
-		HashSet<ProdottoBean> temp=new HashSet<ProdottoBean>();
+		LinkedHashSet<ProdottoBean> temp=new LinkedHashSet<ProdottoBean>();
 		
 		log.info("Metodo filtraByTipo -> filtro i prodotti per il catalogo");
 		for(ProdottoBean p: catalogo.getCatalogo()) {

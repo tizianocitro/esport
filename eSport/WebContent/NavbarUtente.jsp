@@ -17,7 +17,7 @@
 	</button>
 
 	<a class="navbar-brand mr-auto ml-auto" href="Index.jsp">e-Sport</a> <span
-		id="span-cart"> <a href="#" id="cart-item" class="hvr"> <i
+		id="span-cart"> <a href="CarrelloStub" id="cart-item" class="hvr"> <i
 			class="fas fa-shopping-cart"></i>
 	</a>
 	</span>
@@ -110,7 +110,7 @@
 				}
 			%>
 
-			<li id="cart-li" class="hvr nav-item"><a href="#" id="cart-item"
+			<li id="cart-li" class="hvr nav-item"><a href="CarrelloStub" id="cart-item"
 				class="nav-link"> <i class="fas fa-shopping-cart"></i>
 			</a></li>
 		</ul>
