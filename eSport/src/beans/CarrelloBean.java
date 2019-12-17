@@ -83,6 +83,23 @@ public class CarrelloBean {
 
 	/**
 	 * 
+	 * @param codiceProdotto
+	 * @param action
+	 */
+	public void modificaQt(String codiceProdotto, String taglia, String action) {
+		for(CarrelloItem item: carrello) {
+			if(item.getProdotto().getCodice().equals(codiceProdotto) 
+					&& item.getTaglia().equals(taglia))
+				if(action.equals("plus"))
+					item.setQt(item.getQt() + 1);
+				else if(action.equals("minus")) {
+					item.setQt(item.getQt() - 1);
+				}
+		}
+	}
+	
+	/**
+	 * 
 	 * @return true se vuoto, altrimenti false
 	 */
 	public boolean isEmpty() {

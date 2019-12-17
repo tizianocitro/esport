@@ -59,8 +59,8 @@ public class CarrelloItem {
 			return false;
 		
 		CarrelloItem carrelloItem=(CarrelloItem) item;
-
-		return prodotto.getCodice().equals(carrelloItem.getProdotto().getCodice()) && qt==carrelloItem.getQt()
+		
+		return prodotto.getCodice().equals(carrelloItem.getProdotto().getCodice())
 				&& taglia.equals(carrelloItem.getTaglia());
 	}
 	/*

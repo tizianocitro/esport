@@ -104,13 +104,16 @@
             			<span class="a-sp">Procedi al pagamento</span>
           			</a>
           			<br>
-          			<a href="CatalogoDivisaServlet" class="list-group-item bb">
+          			<a href="CatalogoStub?tipo=Divisa&order=nome" class="list-group-item bb">
             			<span class="a-nsp">Compra altre divise</span>
           			</a>
-          			<a href="CatalogoScarpeServlet" class="list-group-item bb">
+          			<a href="CatalogoStub?tipo=Pantaloncini&order=nome" class="list-group-item bb">
+            			<span class="a-nsp">Compra altri pantaloncini</span>
+          			</a>
+          			<a href="CatalogoStub?tipo=Scarpe&order=nome" class="list-group-item bb">
             			<span class="a-nsp">Compra altre scarpe da gioco</span>
           			</a>
-         	 		<a href="SvuotaCarrelloServlet" class="list-group-item bb">
+         	 		<a href="SvuotaCarrello" class="list-group-item bb">
               			<span class="a-nsp">Svuota il carrello</span>
           			</a>
         		</div>
@@ -158,11 +161,15 @@
                           		<p>
                           			<span id="sp-qt">Quantità acquisto <%= i.getQt() %></span>
                           			&nbsp;
-									<a href="QtaServlet?action=plus&prodotto=<%= p.getCodice()%>">
+                          			<% if(i.getQt()<i.getProdotto().getQt()){ %>
+                          			
+									<a href="ModificaQtStub?action=plus&prodotto=<%= p.getCodice()%>&taglia=<%= i.getTaglia() %>">
 										<i id="icn-plus" class="fas fa-plus-circle text-dark"></i>
 									</a>
-									<% if(i.getQt()!=1){ %>
-										<a href="QtaServlet?action=minus&prodotto=<%= p.getCodice()%>">
+									<% }
+                          			
+                          			   if(i.getQt()!=1){ %>
+										<a href="ModificaQtStub?action=minus&prodotto=<%= p.getCodice()%>&taglia=<%= i.getTaglia() %>">
 											<i id="icn-minus" class="fas fa-minus-circle text-dark"></i>
 										</a>
 									<% } %>
