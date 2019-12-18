@@ -60,7 +60,7 @@
                         <div class="card-title mb-4">
                             <div class="d-flex justify-content-start">
                                 <div class="image-container">
-                                    <img src="images/avatar.jpg" id="imgProfile" class="img-thumbnail" />
+                                    <img src="images/Avatar.jpg" id="imgProfile" class="img-thumbnail" />
                                     <div class="middle">
                                         <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Modifica" />
                                     </div>
