@@ -12,13 +12,14 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>e-Sport - Home page</title>
+		<title>e-Sport - Home Page</title>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="css/BlackWhite.css">
         <link type="text/css" rel="stylesheet" href="css/CardCatalogo.css">
+        <link type="text/css" rel="stylesheet" href="css/Header.css">
         <link rel="stylesheet" type="text/css" href="css/HomePage.css">
 		<link rel="stylesheet" type="text/css" href="css/Nav.css">
 		<link rel="stylesheet" type="text/css" href="css/Footer.css">
@@ -43,13 +44,14 @@
 		</header>
 		
 		<!-- Page Content -->
+		<section class="head-section"></section>
 		
-			<!--Welcome Box-->
+			<!-- Da testare
 	        <div class="welcome-div">
 	            <h1>Benvenuto su e-Sport - soddisfa la tua passione</h1>
 	        </div>
-	
-	        <!--Box color with white and black-->
+			-->
+			
 	        <div class="bw-box">
 	            <section class="sec-box">
 	                <div class="pointer"></div>
@@ -62,11 +64,12 @@
 	                </span>
 	            </section>
 	        </div>
-		
+			
+			
 			<!--Some product cards-->
-	        <div class="products">
+	        <div class="">
 	            <div class="titled-h1">
-	                <h1>Prodotti del momento</h1>
+	                <h1>Prodotti da non perdere</h1>
 	            </div>
 	
 	            <div class="row">
