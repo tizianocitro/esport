@@ -1,0 +1,13 @@
+div.ind-prod{
+	margin-bottom: 5px;
+    border: 2px solid black;
+    border-radius: 7px;
+    padding: 10px;
+    font-variant: small-caps;
+    font-size: 17px;
+	text-align: center;
+}
+
+a#add-indirizzo{
+	text-decoration: none;
+}

@@ -2,7 +2,9 @@ package topdown;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import beans.IndirizzoBean;
 import beans.RuoloBean;
 import beans.UtenteBean;
 
@@ -119,10 +122,14 @@ public class LoginStub extends HttpServlet {
 		root.setUsername("root");
 		root.setPassword("root");
 		root.setNome("Amministratore");
-		root.setCognome("globale");
+		root.setCognome("Globale");
 		root.setEmail("root@esport.com");
 		root.setPiva(pIva);
 		root.setTelefono(tel);
+		
+		LinkedHashSet<IndirizzoBean> indirizzi=(LinkedHashSet<IndirizzoBean>) simulateIndirizzo(root);
+		for(IndirizzoBean indirizzo: indirizzi)
+			root.addIndirizzo(indirizzo);
 		
 		LinkedHashMap<String, RuoloBean> ruoliRoot=(LinkedHashMap<String, RuoloBean>) simulateRuolo(root);
 		root.addRuolo(ruoliRoot.get("Utente"));
@@ -162,5 +169,27 @@ public class LoginStub extends HttpServlet {
 		ruoli.put(ordini.getPermesso(), ordini);
 		
 		return ruoli;
+	}
+	
+	public Set<IndirizzoBean> simulateIndirizzo(UtenteBean user){
+		LinkedHashSet<IndirizzoBean> indirizzi=new LinkedHashSet<IndirizzoBean>();
+
+		IndirizzoBean indOne=new IndirizzoBean();
+		indOne.setUsername(user.getUsername());
+		indOne.setCap("84096");
+		indOne.setCitta("Salerno");
+		indOne.setCivico("67");
+		indOne.setVia("Via Tullio Maratea");
+		indirizzi.add(indOne);
+		
+		IndirizzoBean indTwo=new IndirizzoBean();
+		indTwo.setUsername(user.getUsername());
+		indTwo.setCap("84092");
+		indTwo.setCitta("Napoli");
+		indTwo.setCivico("46");
+		indTwo.setVia("Via Ponzio Pilato");
+		indirizzi.add(indTwo);
+		
+		return indirizzi;
 	}
 }

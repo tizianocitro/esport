@@ -16,7 +16,7 @@
 		<i class="fas fa-bars"></i>
 	</button>
 
-	<a class="navbar-brand mr-auto ml-auto" href="Index.jsp">e-Sport</a>
+	<a class="navbar-brand mr-auto ml-auto" href="Index.jsp">eSport</a>
 
 	<div class="collapse navbar-collapse" id="myNavbar">
 		<ul class="nav navbar-nav">
@@ -93,7 +93,7 @@
 					<i class="fas fa-user-circle"></i> <%=user.getNome()%> <%=user.getCognome()%>
 			</a>
 				<ul class="dropdown-menu bg-dark">
-					<li class="dropdown-item"><a href="#"> <i
+					<li class="dropdown-item"><a href="Profilo.jsp"> <i
 							class="fas fa-user"></i> Profilo
 					</a></li>
 					<li class="dropdown-item"><a href="Logout"> <i

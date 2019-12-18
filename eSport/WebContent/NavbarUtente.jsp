@@ -16,7 +16,7 @@
 		<i class="fas fa-bars"></i>
 	</button>
 
-	<a class="navbar-brand mr-auto ml-auto" href="Index.jsp">e-Sport</a> <span
+	<a class="navbar-brand mr-auto ml-auto" href="Index.jsp">eSport</a> <span
 		id="span-cart"> <a href="CarrelloStub" id="cart-item" class="hvr"> <i
 			class="fas fa-shopping-cart"></i>
 	</a>
@@ -99,7 +99,7 @@
 			</a>
 				<ul class="dropdown-menu bg-dark">
 					<li class="dropdown-item"><a href="#">Ordini effettuati</a></li>
-					<li class="dropdown-item"><a href="#"> <i
+					<li class="dropdown-item"><a href="Profilo.jsp"> <i
 							class="fas fa-user"></i> Profilo
 					</a></li>
 					<li class="dropdown-item"><a href="Logout"> <i
