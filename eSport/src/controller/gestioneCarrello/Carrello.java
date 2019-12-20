@@ -1,4 +1,4 @@
-package topdown;
+package controller.gestioneCarrello;
 
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -11,36 +11,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Utilities.ServletUtilities;
 import beans.CarrelloBean;
-import beans.CarrelloItem;
 
-@WebServlet("/RemoveProdottoCarrelloStub")
-public class RemoveProdottoCarrelloStub extends HttpServlet {
+@WebServlet("/Carrello")
+public class Carrello extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    Logger log=Logger.getLogger("RemoveProdottoCarrelloStubDebugger");
-    
+	Logger log=Logger.getLogger("CarrelloDebugger");
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		
 		synchronized(session) {
-			log.info("Ottengo il carrello");
-			CarrelloBean carrello=(CarrelloBean)session.getAttribute("Carrello");
-			
-			log.info("Ottengo codice prodotto da eliminare");
-			String codiceProdotto=request.getParameter("prodotto");
-						
-			log.info("Ottengo il prodotto da rimuovere dal carrello");
-			CarrelloItem prodottoDaRimuovere=carrello.getProdotto(codiceProdotto);
-			
-			log.info("Prodotto ottenuto: " + prodottoDaRimuovere.getProdotto().getCodice());
-			if(prodottoDaRimuovere!=null)
-				carrello.removeProdotto(prodottoDaRimuovere);
-			
-			log.info("Aggiorno il carrello");
+			log.info("Verifico che il carrello esiste, se non esiste lo creo");
+			CarrelloBean carrello=(CarrelloBean) session.getAttribute("Carrello");
+			if(carrello==null)
+				carrello=new CarrelloBean();
+
+			log.info("Aggiungo carrello alla sessione");
 			session.setAttribute("Carrello", carrello);
 		}
-		//Fine synchronized
+		
 		RequestDispatcher view=request.getRequestDispatcher("Carrello.jsp");
 		view.forward(request, response);
 	}
@@ -48,4 +38,5 @@ public class RemoveProdottoCarrelloStub extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
+
 }

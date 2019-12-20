@@ -17,7 +17,7 @@
 	</button>
 
 	<a class="navbar-brand mr-auto ml-auto" href="Index.jsp">eSport</a> <span
-		id="span-cart"> <a href="CarrelloStub" id="cart-item" class="hvr"> <i
+		id="span-cart"> <a href="Carrello" id="cart-item" class="hvr"> <i
 			class="fas fa-shopping-cart"></i>
 	</a>
 	</span>
@@ -29,9 +29,9 @@
 			<li class="dropdown nav-item" id="hvr1"><a
 				class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Catalogo</a>
 				<ul class="dropdown-menu bg-dark">
-					<li class="dropdown-item"><a href="CatalogoStub?tipo=Divisa&order=nome">Divise</a></li>
-					<li class="dropdown-item"><a href="CatalogoStub?tipo=Pantaloncini&order=nome">Pantaloncini</a></li>
-					<li class="dropdown-item"><a href="CatalogoStub?tipo=Scarpe&order=nome">Scarpe da gioco</a></li>
+					<li class="dropdown-item"><a href="Catalogo?tipo=Divisa&order=nome">Divise</a></li>
+					<li class="dropdown-item"><a href="Catalogo?tipo=Pantaloncini&order=nome">Pantaloncini</a></li>
+					<li class="dropdown-item"><a href="Catalogo?tipo=Scarpe&order=nome">Scarpe da gioco</a></li>
 				</ul></li>
 
 			<li class="hvr nav-item"><a href="#"
@@ -98,7 +98,7 @@
 					<i class="fas fa-user-circle"></i> <%=user.getNome()%> <%=user.getCognome()%>
 			</a>
 				<ul class="dropdown-menu bg-dark">
-					<li class="dropdown-item"><a href="OrdineStub?toDo=utente&order=sottomissione">Ordini effettuati</a></li>
+					<li class="dropdown-item"><a href="Ordine?toDo=utente&order=sottomissione">Ordini effettuati</a></li>
 					<li class="dropdown-item"><a href="Profilo.jsp"> <i
 							class="fas fa-user"></i> Profilo
 					</a></li>
@@ -110,7 +110,7 @@
 				}
 			%>
 
-			<li id="cart-li" class="hvr nav-item"><a href="CarrelloStub" id="cart-item"
+			<li id="cart-li" class="hvr nav-item"><a href="Carrello" id="cart-item"
 				class="nav-link"> <i class="fas fa-shopping-cart"></i>
 			</a></li>
 		</ul>

@@ -1,4 +1,4 @@
-package topdown;
+package controller.gestioneCarrello;
 
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -13,10 +13,10 @@ import javax.servlet.http.HttpSession;
 
 import beans.CarrelloBean;
 
-@WebServlet("/ModificaQtStub")
-public class ModificaQtStub extends HttpServlet {
+@WebServlet("/ModificaQt")
+public class ModificaQt extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    Logger log=Logger.getLogger("ModificaQtStubDebugger");
+    Logger log=Logger.getLogger("ModificaQtDebugger");
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();

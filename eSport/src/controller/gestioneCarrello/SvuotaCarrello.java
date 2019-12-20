@@ -21,10 +21,10 @@ public class SvuotaCarrello extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		
-		synchronized(session) {
-			CarrelloBean carrello=(CarrelloBean)session.getAttribute("Carrello");
+		log.info("Svuoto il carrello");
+		CarrelloBean carrello=(CarrelloBean) session.getAttribute("Carrello");
+		if(carrello!=null)
 			carrello.svuotaCarrello();
-		}
 		
 		RequestDispatcher view=request.getRequestDispatcher("Carrello.jsp");
 		view.forward(request, response);

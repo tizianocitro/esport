@@ -51,28 +51,28 @@
         				if(tp.equalsIgnoreCase("Divisa")){
         			%>
         			<div class="list-group">
-          				<a href="CatalogoStub?tipo=Divisa&order=nome" class="list-group-item bb">Nome</a>
-         	 			<a href="CatalogoStub?tipo=Divisa&order=marca" class="list-group-item bb">Marca</a>
-          				<a href="CatalogoStub?tipo=Divisa&order= <%= pasc %>"  class="list-group-item bb">Prezzo [alto-basso]</a>
-          				<a href="CatalogoStub?tipo=Divisa&order=prezzo" class="list-group-item bb">Prezzo [basso-alto]</a>
+          				<a href="Catalogo?tipo=Divisa&order=nome" class="list-group-item bb">Nome</a>
+         	 			<a href="Catalogo?tipo=Divisa&order=marca" class="list-group-item bb">Marca</a>
+          				<a href="Catalogo?tipo=Divisa&order= <%= pasc %>"  class="list-group-item bb">Prezzo [alto-basso]</a>
+          				<a href="Catalogo?tipo=Divisa&order=prezzo" class="list-group-item bb">Prezzo [basso-alto]</a>
         			</div>
         			<%}
         				else if(tp.equalsIgnoreCase("Pantaloncini")){	
         			%>
         			<div class="list-group">
-          				<a href="CatalogoStub?tipo=Pantaloncini&order=nome" class="list-group-item bb">Nome</a>
-         	 			<a href="CatalogoStub?tipo=Pantaloncini&order=marca" class="list-group-item bb">Marca</a>
-          				<a href="CatalogoStub?tipo=Pantaloncini&order= <%= pasc %>"  class="list-group-item bb">Prezzo [alto-basso]</a>
-          				<a href="CatalogoStub?tipo=Pantaloncini&order=prezzo" class="list-group-item bb">Prezzo [basso-alto]</a>
+          				<a href="Catalogo?tipo=Pantaloncini&order=nome" class="list-group-item bb">Nome</a>
+         	 			<a href="Catalogo?tipo=Pantaloncini&order=marca" class="list-group-item bb">Marca</a>
+          				<a href="Catalogo?tipo=Pantaloncini&order= <%= pasc %>"  class="list-group-item bb">Prezzo [alto-basso]</a>
+          				<a href="Catalogo?tipo=Pantaloncini&order=prezzo" class="list-group-item bb">Prezzo [basso-alto]</a>
         			</div>
         			<%} 
         				else{
         			%>
         			<div class="list-group">
-          				<a href="CatalogoStub?tipo=Scarpe&order=nome" class="list-group-item bb">Nome</a>
-         	 			<a href="CatalogoStub?tipo=Scarpe&order=marca" class="list-group-item bb">Marca</a>
-          				<a href="CatalogoStub?tipo=Scarpe&order= <%= pasc %>"  class="list-group-item bb">Prezzo [alto-basso]</a>
-          				<a href="CatalogoStub?tipo=Scarpe&order=prezzo" class="list-group-item bb">Prezzo [basso-alto]</a>
+          				<a href="Catalogo?tipo=Scarpe&order=nome" class="list-group-item bb">Nome</a>
+         	 			<a href="Catalogo?tipo=Scarpe&order=marca" class="list-group-item bb">Marca</a>
+          				<a href="Catalogo?tipo=Scarpe&order= <%= pasc %>"  class="list-group-item bb">Prezzo [alto-basso]</a>
+          				<a href="Catalogo?tipo=Scarpe&order=prezzo" class="list-group-item bb">Prezzo [basso-alto]</a>
         			</div>
         			<% } %>
         			
@@ -110,13 +110,13 @@
         				<% imgString="images/" + p.getCodice() + ".jpg"; %>
         		
             				<div class="card text-white bg-dark h-100">
-              					<a href="SchedaProdottoStub?codProd=<%= p.getCodice()%>" class="card-link">
+              					<a href="SchedaProdotto?codProd=<%= p.getCodice()%>" class="card-link">
               						<img class="card-img-top" src=<%= imgString %> alt="Immagine prodotto">
               					</a>
               		
               					<div class="card-body">
                 					<h4 class="card-header">
-                  						<a href="SchedaProdottoStub?codProd=<%= p.getCodice()%>" class="card-link text-white"><%= p.getNome() %></a>
+                  						<a href="SchedaProdotto?codProd=<%= p.getCodice()%>" class="card-link text-white"><%= p.getNome() %></a>
                 					</h4>
          		
 									<div class="card-header">

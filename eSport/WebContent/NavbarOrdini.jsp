@@ -30,7 +30,7 @@
 							attivi</a></li>
 					<li class="dropdown-item"><a href="#">Aggiorna stato
 							ordini</a></li>
-					<li class="dropdown-item"><a href="OrdineStub?toDo=gestore&order=sottomissione">Visualizza ordini</a></li>
+					<li class="dropdown-item"><a href="Ordine?toDo=gestore&order=sottomissione">Visualizza ordini</a></li>
 				</ul></li>
 				
 			<%

@@ -1,4 +1,4 @@
-package topdown;
+package controller.gestioneOrdine;
 
 import java.io.IOException;
 import java.util.LinkedHashSet;
@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Utilities.ServletUtilities;
 import beans.OrdineBean;
 import beans.UtenteBean;
+import topdown.OrdineModelStub;
 
-@WebServlet("/OrdineStub")
-public class OrdineStub extends HttpServlet {
+@WebServlet("/Ordine")
+public class Ordine extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Logger log=Logger.getLogger("OrdineStubDebugger");
+	Logger log=Logger.getLogger("OrdineDebugger");
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
@@ -40,32 +40,26 @@ public class OrdineStub extends HttpServlet {
 				response.sendRedirect(request.getContextPath() + redirectedPage);
 			}
 			else {
+				OrdineModelStub ordineModel=new OrdineModelStub();
 				LinkedHashSet<OrdineBean> ordini=new LinkedHashSet<OrdineBean>();
-				OrdineBean ordOne=ServletUtilities.simulateOrdine("root", "000001", ServletUtilities.ELABORAZIONE);
-				ordini.add(ordOne);
-				
-				OrdineBean ordTwo=ServletUtilities.simulateOrdine("PaoloG", "000002", ServletUtilities.SPEDIZIONE);
-				ordini.add(ordTwo);
-				
-				OrdineBean ordThree=ServletUtilities.simulateOrdine("PaoloG", "000003", ServletUtilities.CONSEGNATO);
-				ordini.add(ordThree);
-				
+
 				log.info("Ottengo l'ordine per visualizzare gli ordini");
 				String order=request.getParameter("order");
 				if(order==null || order.equals(""))
 					order="nome";
-			
+				
 				if(toDo.equals(GESTORE)) {
-					session.setAttribute("Ordini", ordini);
+					log.info("Ottengo tutti gli ordini poichè l'utente è gestore degli ordini");
+					ordini=(LinkedHashSet<OrdineBean>) ordineModel.doRetrieveAll();							
 				}
 				else {
 					UtenteBean utente=(UtenteBean) session.getAttribute("userLogged");
-
-					LinkedHashSet<OrdineBean> ordiniUtente=(LinkedHashSet<OrdineBean>) 
-							ServletUtilities.filtraOrdiniByUtente(utente, ordini);
 					
-					session.setAttribute("Ordini", ordiniUtente);
+					log.info("Ottengo solo gli ordini dell'utente");
+					ordini=(LinkedHashSet<OrdineBean>) ordineModel.doRetrieveOrdiniByUtente(utente);					
 				}
+				
+				session.setAttribute("Ordini", ordini);
 			}
 		}
 		//Fine synchronized

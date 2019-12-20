@@ -102,17 +102,17 @@
         		</div>
 
         		<div id="opt-cart" class="list-group">
-          			<a href="AcquistoForm.jsp" class="list-group-item bb">
+          			<a href="#" class="list-group-item bb">
             			<span class="a-sp">Procedi al pagamento</span>
           			</a>
           			<br>
-          			<a href="CatalogoStub?tipo=Divisa&order=nome" class="list-group-item bb">
+          			<a href="Catalogo?tipo=Divisa&order=nome" class="list-group-item bb">
             			<span class="a-nsp">Compra altre divise</span>
           			</a>
-          			<a href="CatalogoStub?tipo=Pantaloncini&order=nome" class="list-group-item bb">
+          			<a href="Catalogo?tipo=Pantaloncini&order=nome" class="list-group-item bb">
             			<span class="a-nsp">Compra altri pantaloncini</span>
           			</a>
-          			<a href="CatalogoStub?tipo=Scarpe&order=nome" class="list-group-item bb">
+          			<a href="Catalogo?tipo=Scarpe&order=nome" class="list-group-item bb">
             			<span class="a-nsp">Compra altre scarpe da gioco</span>
           			</a>
          	 		<a href="SvuotaCarrello" class="list-group-item bb">
@@ -148,7 +148,7 @@
                      		 	</div>
                       			<div class="col-md-6 col-lg-8 card-body">
                           		<h4>
-                            		<a class="title-prod" href="SchedaProdottoStub?codProd=<%= p.getCodice()%>">
+                            		<a class="title-prod" href="SchedaProdotto?codProd=<%= p.getCodice()%>">
                               			<%= p.getNome() %> <%= i.getTaglia() %>
                             		</a>
                           		</h4>
@@ -165,20 +165,20 @@
                           			&nbsp;
                           			<% if(i.getQt()<i.getProdotto().getQt()){ %>
                           			
-									<a href="ModificaQtStub?action=plus&prodotto=<%= p.getCodice()%>&taglia=<%= i.getTaglia() %>">
+									<a href="ModificaQt?action=plus&prodotto=<%= p.getCodice()%>&taglia=<%= i.getTaglia() %>">
 										<i id="icn-plus" class="fas fa-plus-circle text-dark"></i>
 									</a>
 									<% }
                           			
                           			   if(i.getQt()!=1){ %>
-										<a href="ModificaQtStub?action=minus&prodotto=<%= p.getCodice()%>&taglia=<%= i.getTaglia() %>">
+										<a href="ModificaQt?action=minus&prodotto=<%= p.getCodice()%>&taglia=<%= i.getTaglia() %>">
 											<i id="icn-minus" class="fas fa-minus-circle text-dark"></i>
 										</a>
 									<% } %>
                           		</p>
                           
                           		<button id="carrello-button" class="btn btn-secondary bg-dark text-white">
-                              		<a class="text-light a-btt" href="RemoveProdottoCarrelloStub?prodotto=<%= p.getCodice()%>">
+                              		<a class="text-light a-btt" href="RemoveProdottoCarrello?prodotto=<%= p.getCodice()%>">
                               			Rimuovi dal carrello
                               		</a>
                           		</button>

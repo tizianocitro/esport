@@ -1,8 +1,6 @@
-package topdown;
+package controller.gestioneCatalogo;
 
 import java.io.IOException;
-import java.util.LinkedHashSet;
-import java.util.Set;
 import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -13,22 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Utilities.ServletUtilities;
 import beans.CatalogoBean;
-import beans.ProdottoBean;
+import topdown.ProdottoModelStub;
 
-@WebServlet("/CatalogoStub")
-public class CatalogoStub extends HttpServlet {
+@WebServlet("/Catalogo")
+public class Catalogo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Logger log=Logger.getLogger("CatalogoStubDebugger");
+	Logger log=Logger.getLogger("CatalogoDebugger");
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		
 		synchronized(session) {
-			log.info("Sono nello stub del catalogo, ottengo i prodotti per simulare DB");
-			CatalogoBean prodotti=new CatalogoBean();
-			prodotti.setCatalogo(ServletUtilities.simulateDB());
+			ProdottoModelStub prodottoModel=new ProdottoModelStub();
 			
 			log.info("Ottengo il tipo dei prodotti per il catalogo");
 			String tipo=(String) request.getParameter("tipo");
@@ -40,7 +35,7 @@ public class CatalogoStub extends HttpServlet {
 			
 			log.info("Ottengo i prodotti per il catalogo in base al tipo");
 			CatalogoBean catalogo=new CatalogoBean();
-			catalogo.setCatalogo(filtraByTipo(tipo, prodotti));
+			catalogo.setCatalogo(prodottoModel.doRetrieveByTipo(tipo));
 			
 			session.setAttribute("Catalogo", catalogo);
 			session.setAttribute("tp", tipo);
@@ -58,17 +53,4 @@ public class CatalogoStub extends HttpServlet {
 		doGet(request, response);
 	}
 
-
-	
-	public Set<ProdottoBean> filtraByTipo(String tipo, CatalogoBean catalogo){
-		LinkedHashSet<ProdottoBean> temp=new LinkedHashSet<ProdottoBean>();
-		
-		log.info("Metodo filtraByTipo -> filtro i prodotti per il catalogo");
-		for(ProdottoBean p: catalogo.getCatalogo()) {
-			if(p.getTipo().equalsIgnoreCase(tipo))
-				temp.add(p);
-		}
-		
-		return temp;
-	}
 }

@@ -1,4 +1,4 @@
-package topdown;
+package controller.gestioneCarrello;
 
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -11,16 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Utilities.ServletUtilities;
 import beans.CarrelloBean;
 import beans.CarrelloItem;
 import beans.CatalogoBean;
 import beans.ProdottoBean;
 
-@WebServlet("/AddProdottoCarrelloStub")
-public class AddProdottoCarrelloStub extends HttpServlet {
+@WebServlet("/AddProdottoCarrello")
+public class AddProdottoCarrello extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    Logger log=Logger.getLogger("AddProdottoCarrelloStubDebugger");
+    Logger log=Logger.getLogger("AddProdottoCarrelloDebugger");
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();

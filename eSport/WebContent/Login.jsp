@@ -24,7 +24,7 @@
       	<div class="main">
 			<div class="col-md-6 col-sm-12">
             	<div class="login-form">
-               		<form name='accesso' action="LoginStub" method="post">
+               		<form name='accesso' action="Login" method="post">
                			<div class="error-msg" id="usrErr"></div>
                			<div class="form-group">
                      		<label><h2>Username</h2></label>

@@ -64,7 +64,7 @@
 					<a id="add-indirizzo" href="#">	
 	        			<div class="ind-prod">
 							<i class="fas fa-plus text-dark"></i>
-							<h3 class="text-dark">Aggiungi <br> matodo di pagamento</h3>
+							<h3 class="text-dark">Aggiungi <br> metodo di pagamento</h3>
 	        			</div>
 					</a>
 	        			

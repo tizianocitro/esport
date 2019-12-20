@@ -62,13 +62,13 @@
 	        			<%! String casc="sottomissione desc"; %>
 	        			
 	        			<div class="list-group">
-	          				<a href="OrdineStub?toDo=gestore&order=nome" class="list-group-item bb">Nome</a>
-	         	 			<a href="OrdineStub?toDo=gestore&order=<%= dasc %>" class="list-group-item bb">Data [più recente]</a>
-	         	 			<a href="OrdineStub?toDo=gestore&order=sottomissione" class="list-group-item bb">Data [meno recente]</a>
-	         	 			<a href="OrdineStub?toDo=gestore&order=<%= dasc %>" class="list-group-item bb">Consegna [più recente]</a>
-	         	 			<a href="OrdineStub?toDo=gestore&order=consegna" class="list-group-item bb">Consegna [meno recente]</a>
-	          				<a href="OrdineStub?toDo=gestore&order= <%= casc %>"  class="list-group-item bb">Prezzo [alto-basso]</a>
-	          				<a href="OrdineStub?toDo=gestore&order=prezzotot" class="list-group-item bb">Prezzo [basso-alto]</a>
+	          				<a href="Ordine?toDo=gestore&order=nome" class="list-group-item bb">Nome</a>
+	         	 			<a href="Ordine?toDo=gestore&order=<%= dasc %>" class="list-group-item bb">Data [più recente]</a>
+	         	 			<a href="Ordine?toDo=gestore&order=sottomissione" class="list-group-item bb">Data [meno recente]</a>
+	         	 			<a href="Ordine?toDo=gestore&order=<%= dasc %>" class="list-group-item bb">Consegna [più recente]</a>
+	         	 			<a href="Ordine?toDo=gestore&order=consegna" class="list-group-item bb">Consegna [meno recente]</a>
+	          				<a href="Ordine?toDo=gestore&order= <%= casc %>"  class="list-group-item bb">Prezzo [alto-basso]</a>
+	          				<a href="Ordine?toDo=gestore&order=prezzotot" class="list-group-item bb">Prezzo [basso-alto]</a>
 	        			</div>
 	        			
 	        			<h1 class="my-4">Filtra</h1>
@@ -122,7 +122,7 @@
                                                 <h6>Sottomesso il <%= o.getSottomissione() %></h6>
                                                 <h6>Consegna prevista il <%= o.getConsegna() %></h6>
                                                 
-                                                <h4>Totale <%= (float) o.getTotale() %></h4>
+                                                <h4>Totale <%= (float) o.getTotale() + "&euro;" %></h4>
                                                 
                                                 <button id="carrello-button" class="btn btn-secondary bg-dark text-white">
 				                              		<a class="text-light a-btt" href="#?numeroOrdine=<%= o.getNumero() %>">
@@ -163,7 +163,7 @@
                                                 <h6>Sottomesso il <%= o.getSottomissione() %></h6>
                                                 <h6>Consegna prevista il <%= o.getConsegna() %></h6>
                                                 
-                                                <h4>Totale <%= (float) o.getTotale() %></h4>
+                                                <h4>Totale <%= (float) o.getTotale() + "&euro;" %></h4>
                                                 
                                                 <button id="carrello-button" class="btn btn-secondary bg-dark text-white">
 				                              		<a class="text-light a-btt" href="#?numeroOrdine=<%= o.getNumero() %>">

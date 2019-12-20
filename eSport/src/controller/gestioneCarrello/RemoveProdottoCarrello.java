@@ -1,4 +1,4 @@
-package topdown;
+package controller.gestioneCarrello;
 
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -12,23 +12,34 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.CarrelloBean;
+import beans.CarrelloItem;
 
-@WebServlet("/CarrelloStub")
-public class CarrelloStub extends HttpServlet {
+@WebServlet("/RemoveProdottoCarrello")
+public class RemoveProdottoCarrello extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Logger log=Logger.getLogger("CarrelloStubDebugger");
-	
+    Logger log=Logger.getLogger("RemoveProdottoCarrelloDebugger");
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		
 		synchronized(session) {
+			log.info("Ottengo il carrello");
 			CarrelloBean carrello=(CarrelloBean)session.getAttribute("Carrello");
-			if(carrello==null)
-				carrello=new CarrelloBean();
-
+			
+			log.info("Ottengo codice prodotto da eliminare");
+			String codiceProdotto=request.getParameter("prodotto");
+						
+			log.info("Ottengo il prodotto da rimuovere dal carrello");
+			CarrelloItem prodottoDaRimuovere=carrello.getProdotto(codiceProdotto);
+			
+			log.info("Prodotto ottenuto: " + prodottoDaRimuovere.getProdotto().getCodice());
+			if(prodottoDaRimuovere!=null)
+				carrello.removeProdotto(prodottoDaRimuovere);
+			
+			log.info("Aggiorno il carrello");
 			session.setAttribute("Carrello", carrello);
 		}
-		
+		//Fine synchronized
 		RequestDispatcher view=request.getRequestDispatcher("Carrello.jsp");
 		view.forward(request, response);
 	}
@@ -36,5 +47,4 @@ public class CarrelloStub extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }
