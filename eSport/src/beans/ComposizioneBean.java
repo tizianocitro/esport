@@ -92,7 +92,7 @@ public class ComposizioneBean {
 	 * 
 	 * @return qt
 	 */
-	public int getQuantity() {
+	public int getQt() {
 		return qt;
 	}
 	
@@ -100,10 +100,26 @@ public class ComposizioneBean {
 	 * 
 	 * @param qt
 	 */
-	public void setQuantity(int qt) {
+	public void setQt(int qt) {
 		this.qt = qt;
 	}
 	
+	/**
+	 * 
+	 * @return taglia
+	 */
+	public String getTaglia() {
+		return taglia;
+	}
+
+	/**
+	 * 
+	 * @param taglia
+	 */
+	public void setTaglia(String taglia) {
+		this.taglia = taglia;
+	}
+
 	/**
 	 * Variabile d'istanza ordine
 	 */
@@ -125,7 +141,12 @@ public class ComposizioneBean {
 	 */
 	private int ivaVen;
 	/**
-	 * Variabile d'istanza quantita
+	 * Variabile d'istanza quantità
 	 */
 	private int qt;
+	
+	/**
+	 * Variabile d'istanza taglia
+	 */
+	private String taglia;
 }

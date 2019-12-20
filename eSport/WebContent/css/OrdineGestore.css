@@ -1,0 +1,9 @@
+#d-fil, #d2-fil, #u-fil, #nm-fil, #mrc-fil {
+	background: white;
+	margin-bottom: 5px;
+	border: 1px solid gray;
+}
+
+#div-d-filt{
+	margin-bottom: 10px !important;
+}

@@ -15,7 +15,7 @@
 	}
 	else{
 		UtenteBean user=(UtenteBean) session.getAttribute("userLogged");
-		LinkedHashSet<IndirizzoBean> indirizzi=(LinkedHashSet<IndirizzoBean>) user.getIndirizzi();
+		LinkedHashSet<MetodoPagamentoBean> metodi=(LinkedHashSet<MetodoPagamentoBean>) user.getMetPag();
 %>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>e-Sport - I tuoi indirizzi</title>
+		<title>e-Sport - I tuoi metodi di pagamento</title>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
@@ -60,11 +60,11 @@
     		<div class="row py-4">
 
 	      	 	  <div class="col-lg-3">
-					<h1 class="my-4">I tuoi indirizzi</h1>
+					<h1 class="my-4">I tuoi metodi di pagamento</h1>
 					<a id="add-indirizzo" href="#">	
 	        			<div class="ind-prod">
 							<i class="fas fa-plus text-dark"></i>
-							<h3 class="text-dark">Aggiungi <br> indirizzo</h3>
+							<h3 class="text-dark">Aggiungi <br> matodo di pagamento</h3>
 	        			</div>
 					</a>
 	        			
@@ -73,30 +73,24 @@
 	      			
 	      			<div class="col-lg-9">
 	      				<%
-	      					if(indirizzi.size()==0){
+	      					if(metodi.size()==0){
 	      				%>	
 	      					<div class="not-cart">
-		        				<h1>Nessun indirizzo aggiunto</h1>
+		        				<h1>Nessun metodo di pagamento aggiunto</h1>
 		        			</div>	
 	      				<%
 	      				}
 	      				else {		
-	      					for(IndirizzoBean ind: indirizzi){
+	      					for(MetodoPagamentoBean metodo: metodi){
 	      				%>
 	      				<div class="row">
                                 <div class="col-12 col-md-12 col-lg-12">
                                     <div class="card bg-light card-body mb-3 card bg-faded p-1 mb-3">
                                         <div class="row">
                                             <div class="col-md-6 col-lg-8 card-body">
-                                                <h4 class="title-prod">
-                                                    <%= user.getNome() %> <%= user.getCognome() %>
-                                                  
+                                                <h4>
+                                                	<%= metodo.getTipo() %> <%= metodo.getNumero() %>
                                                 </h4>
-                                                
-                                                <h5>
-                                                	<%= ind.getVia() %> <%= ind.getCivico() %>
-                                                </h5>
-                                                <h6><%= ind.getCitta() %> <%= ind.getCap() %></h6>
                                             </div>
                                         </div>
                                     </div>

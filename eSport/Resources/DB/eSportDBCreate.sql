@@ -74,9 +74,10 @@ use eSportDB;
 create table ordine(
 	numero char(6) primary key,
     stato varchar(36),
+    pagamento varchar(36) not null,
     totale double not null,
-    data date not null,
-    consegna date,
+    sottomissione date not null,
+    consegna date not null,
     usr varchar(36) not null ,
     foreign key(usr) references utente(username)
 		on update cascade
@@ -86,12 +87,13 @@ create table ordine(
 use eSportDB;
 
 create table composizione(
-	ordine char(3) not null,
+	ordine char(6) not null,
     prodotto char(3),
     nomeprodotto varchar(36) not null,
     prezzoven double not null,
     ivaven int not null,
     qt int default 1,
+    taglia varchar(3) not null,
     foreign key(ordine) references ordine(numero)
 		on update cascade
         on delete cascade,

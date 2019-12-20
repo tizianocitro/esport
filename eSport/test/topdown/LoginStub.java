@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.IndirizzoBean;
+import beans.MetodoPagamentoBean;
 import beans.RuoloBean;
 import beans.UtenteBean;
 
@@ -61,7 +62,7 @@ public class LoginStub extends HttpServlet {
 					session.setAttribute("ruolo", "Utente");
 					session.setAttribute("userLogged", null);
 					
-					redirectedPage="/LoginPage.jsp";
+					redirectedPage="/Login.jsp";
 				}
 			}
 			catch(Exception e) {
@@ -131,6 +132,10 @@ public class LoginStub extends HttpServlet {
 		for(IndirizzoBean indirizzo: indirizzi)
 			root.addIndirizzo(indirizzo);
 		
+		LinkedHashSet<MetodoPagamentoBean> metodi=(LinkedHashSet<MetodoPagamentoBean>) simulateMetPag(root);
+		for(MetodoPagamentoBean metodo: metodi)
+			root.addMetPag(metodo);
+		
 		LinkedHashMap<String, RuoloBean> ruoliRoot=(LinkedHashMap<String, RuoloBean>) simulateRuolo(root);
 		root.addRuolo(ruoliRoot.get("Utente"));
 		root.addRuolo(ruoliRoot.get("Catalogo"));
@@ -191,5 +196,23 @@ public class LoginStub extends HttpServlet {
 		indirizzi.add(indTwo);
 		
 		return indirizzi;
+	}
+	
+	public Set<MetodoPagamentoBean> simulateMetPag(UtenteBean user){
+		LinkedHashSet<MetodoPagamentoBean> metodi=new LinkedHashSet<MetodoPagamentoBean>();
+
+		MetodoPagamentoBean metPagOne=new MetodoPagamentoBean();
+		metPagOne.setUsername(user.getUsername());
+		metPagOne.setTipo("Postepay");
+		metPagOne.setNumero("1378122267340911");
+		metodi.add(metPagOne);
+		
+		MetodoPagamentoBean metPagTwo=new MetodoPagamentoBean();
+		metPagTwo.setUsername(user.getUsername());
+		metPagTwo.setTipo("Postepay");
+		metPagTwo.setNumero("1378134767340924");
+		metodi.add(metPagTwo);
+		
+		return metodi;
 	}
 }

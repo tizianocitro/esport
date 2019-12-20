@@ -1,10 +1,14 @@
 package beans;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 public class OrdineBean {
 	/**
 	 * Costruttore di default
 	 */
-	public OrdineBean() {	
+	public OrdineBean() {
+		composizione=new LinkedHashSet<ComposizioneBean>();
 	}
     
 	/**
@@ -25,50 +29,66 @@ public class OrdineBean {
 	
 	/**
 	 * 
-	 * @return nome
-	 */
-	public String getNome() {
-		return nome;
+	 * @return stato
+ 	 */
+	public String getStato() {
+		return stato;
 	}
-	
+
 	/**
 	 * 
-	 * @param nome
+	 * @param stato
 	 */
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setStato(String stato) {
+		this.stato = stato;
 	}
-	
+
+	/**
+	 * 
+	 * @return pagamento
+	 */
+	public String getPagamento() {
+		return pagamento;
+	}
+
+	/**
+	 * 
+	 * @param pagamento
+	 */
+	public void setPagamento(String pagamento) {
+		this.pagamento = pagamento;
+	}
+
 	/**
 	 * 
 	 * @return prezzoTot
 	 */
-	public double getPrezzoTot() {
-		return prezzoTot;
+	public double getTotale() {
+		return totale;
 	}
 	
 	/**
 	 * 
 	 * @param prezzoTot
 	 */
-	public void setPrezzoTot(double prezzoTot) {
-		this.prezzoTot = prezzoTot;
+	public void setTotale(double prezzoTot) {
+		this.totale = prezzoTot;
 	}
 	
 	/**
 	 * 
 	 * @return dataOrd
 	 */
-	public String getDataOrd() {
-		return dataOrd;
+	public String getSottomissione() {
+		return sottomissione;
 	}
 	
 	/**
 	 * 
 	 * @param dataOrd
 	 */
-	public void setDataOrd(String dataOrd) {
-		this.dataOrd = dataOrd;
+	public void setSottomissione(String sottomissione) {
+		this.sottomissione = sottomissione;
 	}
 	
 	/**
@@ -91,7 +111,7 @@ public class OrdineBean {
 	 * 
 	 * @return usr
 	 */
-	public String getUsrutente() {
+	public String getUsername() {
 		return usr;
 	}
 	
@@ -99,29 +119,50 @@ public class OrdineBean {
 	 * 
 	 * @param usr
 	 */
-	public void setUsrutente(String usr) {
+	public void setUsername(String usr) {
 		this.usr = usr;
 	}
 	
+	/**
+	 * 
+	 * @return composizione
+	 */
+	public Set<ComposizioneBean> getComposizione() {
+		return composizione;
+	}
+
+	/**
+	 * 
+	 * @param composizione
+	 */
+	public void setComposizione(Set<ComposizioneBean> composizione) {
+		this.composizione = composizione;
+	}
+
 	/*
 	 * Variabili d'istanza numero
 	 */
 	private String numero;
 	
-	/*
-	 * Variabili d'istanza nome
+	/**
+	 * Variabile d'istanza stato
 	 */
-	private String nome;
+	private String stato;
 	
+	/*
+	 * Variabili d'istanza pagamento
+	 */
+	private String pagamento;
+
 	/*
 	 * Variabili d'istanza prezzoTotale
 	 */
-	private double prezzoTot;
+	private double totale;
 	
 	/*
 	 * Variabili d'istanza dataOrdine
 	 */
-	private String dataOrd;
+	private String sottomissione;
 	
 	/*
 	 * Variabili d'istanza consegna
@@ -132,5 +173,10 @@ public class OrdineBean {
 	 * Variabili d'istanza username
 	 */
 	private String usr;
+	
+	/**
+	 * Variabile d'istanza composizione
+	 */
+	private Set<ComposizioneBean> composizione;
 	
 }

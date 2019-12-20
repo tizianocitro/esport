@@ -1,17 +1,29 @@
 package Utilities;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 
 import beans.CarrelloBean;
 import beans.CarrelloItem;
 import beans.CatalogoBean;
+import beans.ComposizioneBean;
+import beans.OrdineBean;
 import beans.ProdottoBean;
 import beans.TagliaBean;
+import beans.UtenteBean;
 
 public class ServletUtilities {
 	static Logger log=Logger.getLogger("ServletUtilitiesDebugger");
+	public static String ELABORAZIONE="In elaborazione";
+	public static String SPEDIZIONE="In spedizione";
+	public static String CONSEGNATO="Consegnato";
 	
 	public static Set<ProdottoBean> simulateDB(){
 		LinkedHashSet<TagliaBean> taglie=new LinkedHashSet<TagliaBean>();
@@ -44,6 +56,7 @@ public class ServletUtilities {
 		pOne.setMarca("Adidas");
 		pOne.setPrezzo(99.99);
 		pOne.setQt(40);
+		pOne.setIva(22);
 		pOne.setDescrizione("Real Madrid Home Kit 2018, divisa ufficiale della stagione 2018/2019 della squadra calcistica Real Madrid");
 		pOne.setTaglie(taglie);
 		catalogo.add(pOne);
@@ -133,5 +146,66 @@ public class ServletUtilities {
 		}
 		
 		return null;
+	}
+	
+	public static OrdineBean simulateOrdine(String user, String numero, String stato) {		
+		OrdineBean ordOne=new OrdineBean();
+		ordOne.setUsername(user);
+		ordOne.setNumero(numero);
+		ordOne.setStato(stato);
+		ordOne.setPagamento("1378134767340924");
+		
+		log.info("Imposto la data di sottomissione come la data odierna");
+		Date d=Calendar.getInstance().getTime();
+		String format="yyyy-MM-dd";
+		DateFormat df=new SimpleDateFormat(format);
+		String date=df.format(d);
+		ordOne.setSottomissione(date);
+		
+		log.info("Imposto la data di consegna");
+    	String data=ordOne.getSottomissione();
+    	Calendar cal=Calendar.getInstance();
+    	cal.add(Calendar.DATE, 3);
+    	String formatOne="yyyy-MM-dd";
+		DateFormat dfOne=new SimpleDateFormat(formatOne);
+		String dateOne=dfOne.format(cal.getTime());
+		ordOne.setConsegna(dateOne);
+		
+		log.info("Ottengo i prodotti che compongono l'ordine");
+		LinkedHashSet<ComposizioneBean> comp=(LinkedHashSet<ComposizioneBean>) simulateComposizione(ordOne);
+		double totale=0;
+		for(ComposizioneBean cb: comp)
+			totale+=cb.getPrezzoVen();
+		
+		ordOne.setTotale(totale);
+		ordOne.setComposizione(comp);
+				
+		return ordOne;
+	}
+	
+	public static Set<ComposizioneBean> simulateComposizione(OrdineBean ordine){
+		LinkedHashSet<ComposizioneBean> comp=new LinkedHashSet<ComposizioneBean>();
+		
+		ComposizioneBean compOne=new ComposizioneBean();
+		compOne.setOrdine(ordine.getNumero());
+		compOne.setProdotto("001");
+		compOne.setNomeProdotto("Divisa Home Real Madrid");
+		compOne.setPrezzoVen(99.99);
+		compOne.setIvaVen(22);
+		compOne.setQt(1);
+		compOne.setTaglia("S");
+		comp.add(compOne);
+		
+		return comp;
+	}
+	
+	public static Set<OrdineBean> filtraOrdiniByUtente(UtenteBean utente, Set<OrdineBean> ordini) {
+		LinkedHashSet<OrdineBean> ordiniUtente=new LinkedHashSet<OrdineBean>();
+		
+		for(OrdineBean ordine: ordini)
+			if(ordine.getUsername().equals(utente.getUsername()))
+				ordiniUtente.add(ordine);
+		
+		return ordiniUtente;
 	}
 }

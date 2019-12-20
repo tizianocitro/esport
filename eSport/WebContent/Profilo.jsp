@@ -12,7 +12,7 @@
 	Boolean userIn=(Boolean) session.getAttribute("userAuth"); 
 	if((userIn==null) || (!userIn.booleanValue())){
 		session.setAttribute("previousPage", "/Profilo.jsp");
-		response.sendRedirect("./LoginPage.jsp");
+		response.sendRedirect("./Login.jsp");
 	}
 	else{
 		UtenteBean user=(UtenteBean) session.getAttribute("userLogged");
@@ -181,7 +181,7 @@
                                                 <label><b>Metodo di pagamento</b></label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                <a class="text-dark metpag-link" href="#" target="_blanc" style="text-decoration: none">
+                                                <a class="text-dark metpag-link" href="MetodoPagamento.jsp" target="_blanc" style="text-decoration: none">
                                                 	Visualizza metodi di pagamento aggiunti
                                                 </a>
                                             </div>

@@ -147,7 +147,7 @@ public class UtenteBean {
 	 * 
 	 * @return metodi pagamento
 	 */
-	public Set<MetodoPagamentoBean> getMetpag() {
+	public Set<MetodoPagamentoBean> getMetPag() {
 		return metPags;
 	}
 	
@@ -155,7 +155,7 @@ public class UtenteBean {
 	 * 
 	 * @param metPags
 	 */
-	public void setMetpag(Set<MetodoPagamentoBean> metPags) {
+	public void setMetPag(Set<MetodoPagamentoBean> metPags) {
 		this.metPags=metPags;
 	}
 	
