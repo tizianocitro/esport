@@ -5,6 +5,10 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 
+/**
+ * Questa classe modella il catalogo
+ */
+
 public class CatalogoBean {
 	/**
 	 * Costruttore di default
@@ -14,7 +18,7 @@ public class CatalogoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il catalogo
 	 * @return catalogo
 	 */
 	public Collection<ProdottoBean> getCatalogo() {
@@ -22,7 +26,7 @@ public class CatalogoBean {
 	}
 
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il catalogo
 	 * @param catalogo
 	 */
 	public void setCatalogo(Set<ProdottoBean> catalogo) {
@@ -30,7 +34,7 @@ public class CatalogoBean {
 	}
 
 	/**
-	 * 
+	 * Permette di aggiungere un prodotto al catalogo
 	 * @param prodotto
 	 */
 	public void addProdotto(ProdottoBean prodotto) {
@@ -38,7 +42,7 @@ public class CatalogoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di rimuovere un prodotto dal catalogo
 	 * @param prodotto
 	 */
 	public void removeProdotto(ProdottoBean prodotto) {
@@ -46,7 +50,7 @@ public class CatalogoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella un prodotto presente nel catalogo
 	 * @param codiceProdotto
 	 * @return prodotto
 	 */

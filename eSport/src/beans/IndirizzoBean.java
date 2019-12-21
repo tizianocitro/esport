@@ -1,5 +1,9 @@
 package beans;
 
+/**
+ * Questa classe modella gli indirizzi  degli utenti
+ */
+
 public class IndirizzoBean {
 	
 	/**
@@ -10,7 +14,7 @@ public class IndirizzoBean {
 	}	
 
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella l'username dell'utente
 	 * @return username
 	 */
 	public String getUsername() {
@@ -18,7 +22,7 @@ public class IndirizzoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella l'username dell'utente
 	 * @param username
 	 */
 	public void setUsername(String usr) {
@@ -26,7 +30,7 @@ public class IndirizzoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella la città dell'utente
 	 * @return citta
 	 */
 	public String getCitta() {
@@ -34,7 +38,7 @@ public class IndirizzoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella la città dell'utente
 	 * @param citta
 	 */
 	public void setCitta(String citta) {
@@ -42,7 +46,7 @@ public class IndirizzoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella la via dell'utente
 	 * @return via
 	 */
 	public String getVia() {
@@ -50,7 +54,7 @@ public class IndirizzoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella la via dell'utente
 	 * @param via
 	 */
 	public void setVia(String via) {
@@ -58,7 +62,7 @@ public class IndirizzoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il numero civico dell'utente
 	 * @return civico
 	 */
 	public String getCivico() {
@@ -66,7 +70,7 @@ public class IndirizzoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il numero civico dell'utente
 	 * @param civico
 	 */
 	public void setCivico(String civico) {
@@ -74,7 +78,7 @@ public class IndirizzoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il cap dell'utente
 	 * @return cap
 	 */
 	public String getCap() {
@@ -82,7 +86,7 @@ public class IndirizzoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modicare il valore della variabile d'istanza che modella il cap dell'utente
 	 * @param cap
 	 */
 	public void setCap(String cap) {

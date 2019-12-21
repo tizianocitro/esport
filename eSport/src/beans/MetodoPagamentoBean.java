@@ -1,5 +1,9 @@
 package beans;
 
+/*
+ * Questa classe modella il metodo di pagamento degli utenti
+ */
+
 public class MetodoPagamentoBean {
 	
 	/*
@@ -8,26 +12,33 @@ public class MetodoPagamentoBean {
 	public MetodoPagamentoBean(){
 		
 	}	
+	
 	/*
+	 * Permette di ottenere il valore della variabile d'istanza che modella l'username dell' utente
 	 * @return username;
 	 */
-	
 	public String getUsername() {
 		return usr;
 	}
+	
 	/*
+	 * Permette di modificare il valore della variabile d'istanza che modella l'username dell'utente
 	 * @param username
 	 */
 	public void setUsername(String usr) {
 		this.usr = usr;
 	}
+	
 	/*
+	 * Permette di ottenere il valore della variabile d'istanza che modella il tipo di metodo di pagamento dell'utente
 	 * @return tipo;
 	 */
 	public String getTipo() {
 		return tipo;
 	}
+	
 	/*
+	 * Permette di modificare il valore della variabile d'istanza che modella il tipo di metodo di pagamento dell'utente
 	 * @param tipo;
 	 */
 	public void setTipo(String tipo) {

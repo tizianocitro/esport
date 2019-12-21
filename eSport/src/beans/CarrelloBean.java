@@ -3,7 +3,9 @@ package beans;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
-
+/**
+ * Questa classe modella il carrello
+ */
 public class CarrelloBean {
 	
 	/**
@@ -14,7 +16,7 @@ public class CarrelloBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di inseire elementi al carrello
 	 * @param carrello item
 	 */
 	public void addProdotto(CarrelloItem carrelloItem) {
@@ -22,6 +24,8 @@ public class CarrelloBean {
 	}
 	
 	/**
+	 * Permette di aumentare la quantità di un elemento nel carrello di un'unita
+	 * @param carrello item
 	 */
 	public void reAddProdotto(CarrelloItem carrelloItem) {
 		for(CarrelloItem item: carrello) {
@@ -31,7 +35,7 @@ public class CarrelloBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere un elemento del carrello specificando il codice prodotto
 	 * @param codiceProdotto
 	 * @return carrello item
 	 */
@@ -45,7 +49,7 @@ public class CarrelloBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di rimuovere un elemento dal carrello
 	 * @param carrello item
 	 */
 	public void removeProdotto(CarrelloItem carrelloItem) {
@@ -66,7 +70,7 @@ public class CarrelloBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il carrello
 	 * @return carrello
 	 */
 	public Set<CarrelloItem> getCarrello() {
@@ -74,7 +78,7 @@ public class CarrelloBean {
 	}
 
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il carrello
 	 * @param carrello
 	 */
 	public void setCarrello(Set<CarrelloItem> carrello) {
@@ -82,7 +86,7 @@ public class CarrelloBean {
 	}
 
 	/**
-	 * 
+	 * Permette di modificare la quantità di un elemento nel carrello aggiungendo o togliendo un'unita
 	 * @param codiceProdotto
 	 * @param action
 	 */
@@ -99,7 +103,7 @@ public class CarrelloBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di sapere se il carrello è vuoto 
 	 * @return true se vuoto, altrimenti false
 	 */
 	public boolean isEmpty() {
@@ -110,7 +114,7 @@ public class CarrelloBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di sapere se un elemento è gia presente nel carrello
 	 * @return true se il prodotto è già nel carrello, altrimenti false
 	 */
 	public boolean contains(CarrelloItem carrelloItem) {
@@ -122,7 +126,7 @@ public class CarrelloBean {
 	}
 	
 	/**
-	 * Svuota il carrello
+	 * Permette di svuotare il carrello
 	 */
 	public void svuotaCarrello() {
 		carrello.clear();
