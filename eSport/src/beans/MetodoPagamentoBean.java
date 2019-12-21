@@ -1,9 +1,8 @@
 package beans;
 
 /*
- * Questa classe modella il metodo di pagamento degli utenti
+ * Questa classe modella i metodi di pagamento degli utenti
  */
-
 public class MetodoPagamentoBean {
 	
 	/*
@@ -13,10 +12,18 @@ public class MetodoPagamentoBean {
 		
 	}	
 	
+	/**
+	 * Permette di ottenere il valore della variabile d'istanza che modella il codice identificativo del metodo di pagamento
+	 * @return codice
+	 */
 	public int getCodice() {
 		return codice;
 	}
 
+	/**
+	 * Permette di modificare il valore della variabile d'istanza che modella il codice identificativo del metodo di pagamento
+	 * @param codice
+	 */
 	public void setCodice(int codice) {
 		this.codice = codice;
 	}
@@ -54,7 +61,7 @@ public class MetodoPagamentoBean {
 	}
 	
 	/*
-	 * Permette di ottenere il valore della variabile d'istanza che modella il numero dell'utente
+	 * Permette di ottenere il valore della variabile d'istanza che modella il numero del metodo di pagamento
 	 * @return numero;
 	 */
 	public String getNumero() {
@@ -62,7 +69,7 @@ public class MetodoPagamentoBean {
 	}
 	
 	/*
-	 * Permette di modificare il valore della variabile d'istanza che modella il numero dell'utente
+	 * Permette di modificare il valore della variabile d'istanza che modella il numero del metodo di pagamento
 	 * @param numero;
 	 */
 	public void setNumero(String numero) {
@@ -78,14 +85,17 @@ public class MetodoPagamentoBean {
 	 * Variabile d'istanza codice
 	 */
 	private int codice;
+	
 	/**
 	 * Variabile d'istanza username
 	 */
 	private String usr;
+	
 	/*
 	 * Variabile d'istanza tipo
 	 */
 	private String tipo;
+	
 	/*
 	 * Variabile d'istanza numero
 	 */

@@ -5,6 +5,7 @@ package beans;
  */
 
 public class ComposizioneBean {
+	
 	/**
 	 * Costruttore di default
 	 */
@@ -44,7 +45,7 @@ public class ComposizioneBean {
 	}
 	
 	/**
-	 * Permette di ottenre il valore della variabile d'istanza che modella il nome del prodotto dell'ordine
+	 * Permette di ottenere il valore della variabile d'istanza che modella il nome del prodotto dell'ordine
 	 * @return nomeProdotto
 	 */
 	public String getNomeProdotto() {
@@ -127,22 +128,27 @@ public class ComposizioneBean {
 	 * Variabile d'istanza ordine
 	 */
 	private String ordine;
+	
 	/**
 	 * Variabile d'istanza prodotto
 	 */
 	private String prodotto;
+	
 	/**
 	 * Variabile d'istanza nome prodotto
 	 */
 	private String nomeProdotto;
+	
 	/**
 	 * Variabile d'istanza prezzo di vendita
 	 */
 	private double prezzoVen;
+	
 	/**
 	 * Variabile d'istanza iva di vendita
 	 */
 	private int ivaVen;
+	
 	/**
 	 * Variabile d'istanza quantità
 	 */

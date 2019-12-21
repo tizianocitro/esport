@@ -5,8 +5,8 @@ import java.util.Set;
 /**
  * Questa classe modella un prodotto
  */
-
 public class ProdottoBean {
+	
 	/**
 	 * Costruttore di default
 	 */
@@ -174,52 +174,52 @@ public class ProdottoBean {
 	}
 	
 	/*
-	 * Variabili d'istanza codice
+	 * Variabile d'istanza codice
 	 */
 	private String codice;
 	
 	/*
-	 * Variabili d'istanza tipo
+	 * Variabile d'istanza tipo
 	 */
 	private String tipo;
 	
 	/*
-	 * Variabili d'istanza nome
+	 * Variabile d'istanza nome
 	 */
 	private String nome;
 	
 	/*
-	 * Variabili d'istanza marca
+	 * Variabile d'istanza marca
 	 */
 	private String marca;
 	
 	/*
-	 * Variabili d'istanza taglie
+	 * Variabile d'istanza taglie
 	 */
 	private Set<TagliaBean> taglie;
 	
 	/*
-	 * Variabili d'istanza quantita'
+	 * Variabile d'istanza quantita'
 	 */
 	private int qt;
 	
 	/*
-	 * Variabili d'istanza prezzo
+	 * Variabile d'istanza prezzo
 	 */
 	private double prezzo;
 	
 	/*
-	 * Variabili d'istanza iva
+	 * Variabile d'istanza iva
 	 */
 	private int iva;
 	
 	/*
-	 * Variabili d'istanza descrizione
+	 * Variabile d'istanza descrizione
 	 */
 	private String descrizione;
 	
 	/**
-	 * Variabili d'istanza recensioni
+	 * Variabile d'istanza recensioni
 	 */
 	private Set<RecensioneBean> recensioni;
 }

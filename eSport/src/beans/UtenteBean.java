@@ -6,9 +6,10 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Questa classe modella gli utenti
+ * Questa classe modella un utente
  */
 public class UtenteBean {
+	
 	/**
 	 * Costruttore di default
 	 */
@@ -51,7 +52,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella il ruolo dell'utente
+	 * Permette di ottenere il valore della variabile d'istanza che modella i ruoli dell'utente
 	 * @return ruoli
 	 */
 	public Map<String, RuoloBean> getRuolo() {
@@ -59,7 +60,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * Permette di modificare il valore della variabile d'istanza che modella il ruolo dell'utente
+	 * Permette di modificare il valore della variabile d'istanza che modella i ruoli dell'utente
 	 * @param ruoli
 	 */
 	public void setRuolo(Map<String, RuoloBean> ruoli) {
@@ -131,7 +132,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella la P.iva dell'utente
+	 * Permette di ottenere il valore della variabile d'istanza che modella la partita iva dell'utente
 	 * @return partitaIVA
 	 */
 	public String getPiva() {
@@ -139,7 +140,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * Permette di modificare il valore della variabile d'istanza che modella la P.iva dell'utente
+	 * Permette di modificare il valore della variabile d'istanza che modella la partita iva dell'utente
 	 * @param piva
 	 */
 	public void setPiva(String piva) {
@@ -163,7 +164,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * Permette di restituire un singolo metodo di pagamento in base al codice del metodo
+	 * Permette di ottenere un singolo metodo di pagamento in base al codice identificativo del metodo di pagamento
 	 * @param codice
 	 * @return metodo pagamento
 	 */
@@ -223,7 +224,7 @@ public class UtenteBean {
 	}
 
 	/**
-	 * Permette di restituire un singolo indirizzo in base al codice del metodo
+	 * Permette di ottenere un singolo indirizzo dell'utente in base al codice identificativo dell'indirizzo
 	 * @param codice
 	 * @return indirizzo
 	 */
@@ -236,7 +237,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * Permette di aggiunfere un nuovo indirizzo
+	 * Permette di aggiungere un nuovo indirizzo
 	 * @param indirizzo
 	 */
 	public void addIndirizzo(IndirizzoBean indirizzo) {
@@ -255,38 +256,47 @@ public class UtenteBean {
 	 * Variabile d'istanza username
 	 */
 	private String username;
+	
 	/**
 	 * Variabile d'istanza password
 	 */
 	private String pass;
+	
 	/**
 	 * Variabile d'istanza nome
 	 */
 	private String nome;
+	
 	/**
 	 * Variabile d'istanza cognome
 	 */
 	private String cognome;
+	
 	/**
 	 * Variabile d'istanza email
 	 */
 	private String email;
+	
 	/**
 	 * Variabile d'istanza partita iva
 	 */
 	private String piva;
+	
 	/**
 	 * Variabile d'istanza telefono
 	 */
 	private String telefono;
+	
 	/**
-	 * Variabile d'istanza metodo pagamento
+	 * Variabile d'istanza metodi di pagamento
 	 */
 	private Set<MetodoPagamentoBean> metPags;
+	
 	/**
 	 * Variabile d'istanza indirizzi
 	 */
 	private Set<IndirizzoBean> indirizzi;
+	
 	/**
 	 * Variabile d'istanza ruoli
 	 */

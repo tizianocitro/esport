@@ -1,7 +1,7 @@
 package beans;
 
 /**
- * Questa classe modella gli indirizzi  degli utenti
+ * Questa classe modella gli indirizzi degli utenti
  */
 
 public class IndirizzoBean {
@@ -14,16 +14,15 @@ public class IndirizzoBean {
 	}	
 	
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella il codice dell'utente
+	 * Permette di ottenere il valore della variabile d'istanza che modella il codice identificativo dell'indirizzo
 	 * @return codice
 	 */
-
 	public int getCodice() {
 		return codice;
 	}
 	
 	/**
-	 * Permette di modificare il valore della variabile d'istanza che modella il codice dell'utente
+	 * Permette di modificare il valore della variabile d'istanza che modella il codice identificativo dell'indirizzo
 	 * @param codice
 	 */
 	public void setCodice(int codice) {
@@ -63,7 +62,7 @@ public class IndirizzoBean {
 	}
 	
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella la via dell'utente
+	 * Permette di ottenere il valore della variabile d'istanza che modella la via relativa alla città dell'utente
 	 * @return via
 	 */
 	public String getVia() {
@@ -71,7 +70,7 @@ public class IndirizzoBean {
 	}
 	
 	/**
-	 * Permette di modificare il valore della variabile d'istanza che modella la via dell'utente
+	 * Permette di modificare il valore della variabile d'istanza che modella la via relativa alla città dell'utente
 	 * @param via
 	 */
 	public void setVia(String via) {
@@ -79,7 +78,7 @@ public class IndirizzoBean {
 	}
 	
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella il numero civico dell'utente
+	 * Permette di ottenere il valore della variabile d'istanza che modella il numero civico relativa alla via dell'utente
 	 * @return civico
 	 */
 	public String getCivico() {
@@ -87,7 +86,7 @@ public class IndirizzoBean {
 	}
 	
 	/**
-	 * Permette di modificare il valore della variabile d'istanza che modella il numero civico dell'utente
+	 * Permette di modificare il valore della variabile d'istanza che modella il numero civico relativa alla via dell'utente
 	 * @param civico
 	 */
 	public void setCivico(String civico) {
@@ -119,22 +118,27 @@ public class IndirizzoBean {
 	 * Variabile d'istanza codice
 	 */
 	private int codice;
+	
 	/**
 	 * Variabile d'istanza username
 	 */
 	private String usr;
+	
 	/**
 	 * Variabile d'istanza citta
 	 */
 	private String citta;
+	
 	/**
 	 * Variabile d'istanza via
 	 */
 	private String via;
+	
 	/**
 	 * Variabile d'istanza civico
 	 */
 	private String civico;
+	
 	/**
 	 * Variabile d'istanza cap
 	 */

@@ -1,4 +1,5 @@
 package beans;
+
 /**
  * Questa classe modella gli elementi del carrello
  */
@@ -61,7 +62,7 @@ public class CarrelloItem {
 	}
 
 	/**
-	 * Permette di confrontare due prodotti per verificare se sono uguali 
+	 * Permette di confrontare due prodotti per verificare che essi siano uguali 
 	 */
 	@Override
 	public boolean equals(Object item) {

@@ -10,6 +10,7 @@ import java.util.LinkedHashSet;
  */
 
 public class CatalogoBean {
+	
 	/**
 	 * Costruttore di default
 	 */
@@ -50,7 +51,7 @@ public class CatalogoBean {
 	}
 	
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella un prodotto presente nel catalogo
+	 * Permette di ottenere un prodotto presente nel catalogo specificando il codice del prodotto
 	 * @param codiceProdotto
 	 * @return prodotto
 	 */

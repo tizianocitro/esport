@@ -1,12 +1,13 @@
 package beans;
 
-/**
- * Questa classe modella un ordine 
- */
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+/**
+ * Questa classe modella un ordine 
+ */
 public class OrdineBean {
+	
 	/**
 	 * Costruttore di default
 	 */
@@ -47,7 +48,7 @@ public class OrdineBean {
 	}
 
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella il pagamento dell'ordine
+	 * Permette di ottenere il valore della variabile d'istanza che modella il metodo di pagamento usato per sottomettere l'ordine
 	 * @return pagamento
 	 */
 	public int getPagamento() {
@@ -55,7 +56,7 @@ public class OrdineBean {
 	}
 
 	/**
-	 * Permette di modificare il valore della variabile d'istanza che modella il pagamento dell'ordine
+	 * Permette di modificare il valore della variabile d'istanza che modella il metodo di pagamento usato per sottomettere l'ordine
 	 * @param pagamento
 	 */
 	public void setPagamento(int pagamento) {
@@ -63,7 +64,7 @@ public class OrdineBean {
 	}
 
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella l'indirizzo dell'ordine
+	 * Permette di ottenere il valore della variabile d'istanza che modella l'indirizzo specificato per l'ordine
 	 * @return indirizzo
 	 */
 	public int getIndirizzo() {
@@ -71,7 +72,7 @@ public class OrdineBean {
 	}
 
 	/**
-	 * Permette di modificare il valore della variabile d'istanza che modella l'indirizzo dell'ordine
+	 * Permette di modificare il valore della variabile d'istanza che modella l'indirizzo specificato per l'ordine
 	 * @param indirizzo
 	 */
 	public void setIndirizzo(int indirizzo) {
@@ -95,7 +96,7 @@ public class OrdineBean {
 	}
 	
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella la data in cui è stato effettuato l'ordine
+	 * Permette di ottenere il valore della variabile d'istanza che modella la data in cui è stato sottomesso l'ordine
 	 * @return dataOrd
 	 */
 	public String getSottomissione() {
@@ -103,7 +104,7 @@ public class OrdineBean {
 	}
 	
 	/**
-	 * Permette di modificare il valore della variabile d'istanza che modella la data in cui è stato effettuato l'ordine
+	 * Permette di modificare il valore della variabile d'istanza che modella la data in cui è stato sottomesso l'ordine
 	 * @param dataOrd
 	 */
 	public void setSottomissione(String sottomissione) {
@@ -127,7 +128,7 @@ public class OrdineBean {
 	}
 
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella l'username di chi ha effettuato l'ordine
+	 * Permette di ottenere il valore della variabile d'istanza che modella l'username dell'utente ha effettuato l'ordine
 	 * @return usr
 	 */
 	public String getUsername() {
@@ -135,7 +136,7 @@ public class OrdineBean {
 	}
 	
 	/**
-	 * Permette di modificare il valore della variabile d'istanza che modella l'username di chi ha effettuato l'ordine
+	 * Permette di modificare il valore della variabile d'istanza che modella l'username dell'utente ha effettuato l'ordine
 	 * @param usr
 	 */
 	public void setUsername(String usr) {
@@ -159,7 +160,7 @@ public class OrdineBean {
 	}
 
 	/*
-	 * Variabili d'istanza numero
+	 * Variabile d'istanza numero
 	 */
 	private String numero;
 	
@@ -169,32 +170,32 @@ public class OrdineBean {
 	private String stato;
 	
 	/*
-	 * Variabili d'istanza pagamento
+	 * Variabile d'istanza pagamento
 	 */
 	private int pagamento;
 
 	/*
-	 * Variabili d'istanza pagamento
+	 * Variabile d'istanza pagamento
 	 */
 	private int indirizzo;
 	
 	/*
-	 * Variabili d'istanza prezzoTotale
+	 * Variabile d'istanza prezzoTotale
 	 */
 	private double totale;
 	
 	/*
-	 * Variabili d'istanza dataOrdine
+	 * Variabile d'istanza dataOrdine
 	 */
 	private String sottomissione;
 	
 	/*
-	 * Variabili d'istanza consegna
+	 * Variabile d'istanza consegna
 	 */
 	private String consegna;
 	
 	/*
-	 * Variabili d'istanza username
+	 * Variabile d'istanza username
 	 */
 	private String usr;
 	

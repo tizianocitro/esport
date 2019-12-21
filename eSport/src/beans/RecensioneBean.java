@@ -4,6 +4,7 @@ package beans;
  * Questa classe modella la recensione di un utente
  */
 public class RecensioneBean {
+	
 	/**
 	 * Costruttore di default
 	 */
@@ -12,7 +13,7 @@ public class RecensioneBean {
 	}
 
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella il voto dell'utente
+	 * Permette di ottenere il valore della variabile d'istanza che modella il voto della recensione
 	 * @return voto
 	 */
 	public int getVoto() {
@@ -20,7 +21,7 @@ public class RecensioneBean {
 	}
 	
 	/**
-	 * Permette di modificare il valore della variabile d'istanza che modella il voto dell'utente
+	 * Permette di modificare il valore della variabile d'istanza che modella il voto della recensione
 	 * @param voto
 	 */
 	public void setVoto(int voto) {
@@ -28,7 +29,7 @@ public class RecensioneBean {
 	}
 	
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella il commento dell'utente
+	 * Permette di ottenere il valore della variabile d'istanza che modella il commento della recensione
 	 * @return commento
 	 */
 	public String getCommento() {
@@ -36,7 +37,7 @@ public class RecensioneBean {
 	}
 	
 	/**
-	 * Permette di modificare il valore della variabile d'istanza che modella il commento dell'utente
+	 * Permette di modificare il valore della variabile d'istanza che modella il commento della recensione
 	 * @param commento
 	 */
 	public void setCommento(String commento) {
@@ -44,7 +45,7 @@ public class RecensioneBean {
 	}
 	
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella l'username dell'utente
+	 * Permette di ottenere il valore della variabile d'istanza che modella l'username dell'utente che ha lasciato la recensione
 	 * @return usr
 	 */
 	public String getUsername() {
@@ -52,7 +53,7 @@ public class RecensioneBean {
 	}
 	
 	/**
-	 * Permette di modificare il valore della variabile d'istanza che modella l'username dell'utente
+	 * Permette di modificare il valore della variabile d'istanza che modella l'username dell'utente che ha lasciato la recensione
 	 * @param usr
 	 */
 	public void setUsername(String usr) {
@@ -60,7 +61,7 @@ public class RecensioneBean {
 	}
 	
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella il prodotto da recensire
+	 * Permette di ottenere il valore della variabile d'istanza che modella il prodotto recensito
 	 * @return prodotto
 	 */
 	public String getProdotto() {
@@ -68,7 +69,7 @@ public class RecensioneBean {
 	}
 	
 	/**
-	 * Permette di modificare il valore della variabile d'istanza che modella il prodotto da recensire
+	 * Permette di modificare il valore della variabile d'istanza che modella il prodotto recensito
 	 * @param prodotto
 	 */
 	public void setProdotto(String prodotto) {
@@ -76,19 +77,22 @@ public class RecensioneBean {
 	}
 
 	/*
-	 * Variabili d'istanza voto
+	 * Variabile d'istanza voto
 	 */
 	private int voto;
+	
 	/*
-	 * Variabili d'istanza commento
+	 * Variabile d'istanza commento
 	 */
 	private String commento;
+	
 	/*
-	 * Variabili d'istanza username
+	 * Variabile d'istanza username
 	 */
 	private String usr;
+	
     /**
-     * Variabili d'istanza prodotto
+     * Variabile d'istanza prodotto
      */
 	private String prodotto;
 }

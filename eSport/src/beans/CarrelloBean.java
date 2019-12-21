@@ -3,8 +3,9 @@ package beans;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
+
 /**
- * Questa classe modella il carrello
+ * Questa classe modella il carrello per un utente
  */
 public class CarrelloBean {
 	
@@ -16,7 +17,7 @@ public class CarrelloBean {
 	}
 	
 	/**
-	 * Permette di inseire elementi al carrello
+	 * Permette di inserire un elemento nel carrello
 	 * @param carrello item
 	 */
 	public void addProdotto(CarrelloItem carrelloItem) {
@@ -24,7 +25,7 @@ public class CarrelloBean {
 	}
 	
 	/**
-	 * Permette di aumentare la quantità di un elemento nel carrello di un'unita
+	 * Permette di inserire un elemento nel carrello se già presente aumentandone la quantità senza reinserirlo
 	 * @param carrello item
 	 */
 	public void reAddProdotto(CarrelloItem carrelloItem) {
@@ -35,7 +36,7 @@ public class CarrelloBean {
 	}
 	
 	/**
-	 * Permette di ottenere un elemento del carrello specificando il codice prodotto
+	 * Permette di ottenere un elemento dal carrello specificando il codice del prodotto da ottenere
 	 * @param codiceProdotto
 	 * @return carrello item
 	 */
@@ -86,7 +87,7 @@ public class CarrelloBean {
 	}
 
 	/**
-	 * Permette di modificare la quantità di un elemento nel carrello aggiungendo o togliendo un'unita
+	 * Permette di modificare la quantità di un elemento nel carrello aumentandola o diminuiendola di un'unita
 	 * @param codiceProdotto
 	 * @param action
 	 */
@@ -103,7 +104,7 @@ public class CarrelloBean {
 	}
 	
 	/**
-	 * Permette di sapere se il carrello è vuoto 
+	 * Permette di sapere se il carrello è vuoto oppure no
 	 * @return true se vuoto, altrimenti false
 	 */
 	public boolean isEmpty() {
@@ -114,7 +115,7 @@ public class CarrelloBean {
 	}
 	
 	/**
-	 * Permette di sapere se un elemento è gia presente nel carrello
+	 * Permette di verificare che un elemento sia gia presente nel carrello
 	 * @return true se il prodotto è già nel carrello, altrimenti false
 	 */
 	public boolean contains(CarrelloItem carrelloItem) {

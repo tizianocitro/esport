@@ -4,6 +4,7 @@ package beans;
  * Questa classe modella il ruolo di un utente
  */
 public class RuoloBean {
+	
 	/**
 	 * Costruttore di default
 	 */
@@ -12,7 +13,7 @@ public class RuoloBean {
 	}
 	
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella l'username di un utente
+	 * Permette di ottenere il valore della variabile d'istanza che modella l'username dell'utente
 	 * @return username
 	 */
 	public String getUsername() {
@@ -20,7 +21,7 @@ public class RuoloBean {
 	}
 	
 	/**
-	 * Permette di modificare il valore della variabile d'istanza che modella l'username di un utente
+	 * Permette di modificare il valore della variabile d'istanza che modella l'username dell'utente
 	 * @param usr
 	 */
 	public void setUsername(String usr) {
@@ -28,7 +29,7 @@ public class RuoloBean {
 	}
 	
 	/**
-	 * Permette di ottenere il valore della variabile d'istanza che modella il permesso di un utente
+	 * Permette di ottenere il valore della variabile d'istanza che modella il permesso assegnato all'utente
 	 * @return permesso
 	 */
 	public String getPermesso() {
@@ -36,19 +37,20 @@ public class RuoloBean {
 	}
 	
 	/**
-	 * Permette di modificare il valore della variabile d'istanza che modella il permesso di un utente
+	 * Permette di modificare il valore della variabile d'istanza che modella il permesso assegnato all'utente
 	 * @param permesso
 	 */
 	public void setPermesso(String permesso) {
 		this.permesso = permesso;
 	}
 	
-	/*
-	 * Variabili d'istanza username
+	/**
+	 * Variabile d'istanza username
 	 */
 	private String usr;
-	/*
-	 * Variabili d'istanza permesso
+	
+	/**
+	 * Variabile d'istanza permesso
 	 */
 	private String permesso;
 }
