@@ -12,11 +12,20 @@ public class IndirizzoBean {
 	public IndirizzoBean () {
 		
 	}	
+	
+	/**
+	 * Permette di ottenere il valore della variabile d'istanza che modella il codice dell'utente
+	 * @return codice
+	 */
 
 	public int getCodice() {
 		return codice;
 	}
-
+	
+	/**
+	 * Permette di modificare il valore della variabile d'istanza che modella il codice dell'utente
+	 * @param codice
+	 */
 	public void setCodice(int codice) {
 		this.codice = codice;
 	}
