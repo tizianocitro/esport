@@ -1,5 +1,8 @@
 package beans;
 
+/**
+ * Questa classe modella un ordine 
+ */
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -12,7 +15,7 @@ public class OrdineBean {
 	}
     
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il numero dell'ordine
 	 * @return numero
 	 */
 	public String getNumero() {
@@ -20,7 +23,7 @@ public class OrdineBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il numero dell'ordine
 	 * @param numero
 	 */
 	public void setNumero(String numero) {
@@ -28,7 +31,7 @@ public class OrdineBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella lo stato dell'ordine
 	 * @return stato
  	 */
 	public String getStato() {
@@ -36,7 +39,7 @@ public class OrdineBean {
 	}
 
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella lo stato dell'ordine
 	 * @param stato
 	 */
 	public void setStato(String stato) {
@@ -44,7 +47,7 @@ public class OrdineBean {
 	}
 
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il pagamento dell'ordine
 	 * @return pagamento
 	 */
 	public int getPagamento() {
@@ -52,7 +55,7 @@ public class OrdineBean {
 	}
 
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il pagamento dell'ordine
 	 * @param pagamento
 	 */
 	public void setPagamento(int pagamento) {
@@ -60,7 +63,7 @@ public class OrdineBean {
 	}
 
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella l'indirizzo dell'ordine
 	 * @return indirizzo
 	 */
 	public int getIndirizzo() {
@@ -68,7 +71,7 @@ public class OrdineBean {
 	}
 
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella l'indirizzo dell'ordine
 	 * @param indirizzo
 	 */
 	public void setIndirizzo(int indirizzo) {
@@ -76,7 +79,7 @@ public class OrdineBean {
 	}
 
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il totale dell'ordine
 	 * @return prezzoTot
 	 */
 	public double getTotale() {
@@ -84,7 +87,7 @@ public class OrdineBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il totale dell'ordine
 	 * @param prezzoTot
 	 */
 	public void setTotale(double prezzoTot) {
@@ -92,7 +95,7 @@ public class OrdineBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella la data in cui è stato effettuato l'ordine
 	 * @return dataOrd
 	 */
 	public String getSottomissione() {
@@ -100,7 +103,7 @@ public class OrdineBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella la data in cui è stato effettuato l'ordine
 	 * @param dataOrd
 	 */
 	public void setSottomissione(String sottomissione) {
@@ -108,7 +111,7 @@ public class OrdineBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella la data di consegna dell'ordine
 	 * @return consegna
 	 */
 	public String getConsegna() {
@@ -116,7 +119,7 @@ public class OrdineBean {
 	}
 
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella la data di consegna dell'ordine
 	 * @param consegna
 	 */
 	public void setConsegna(String consegna) {
@@ -124,7 +127,7 @@ public class OrdineBean {
 	}
 
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella l'username di chi ha effettuato l'ordine
 	 * @return usr
 	 */
 	public String getUsername() {
@@ -132,7 +135,7 @@ public class OrdineBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella l'username di chi ha effettuato l'ordine
 	 * @param usr
 	 */
 	public void setUsername(String usr) {
@@ -140,7 +143,7 @@ public class OrdineBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella la composizione dell'ordine
 	 * @return composizione
 	 */
 	public Set<ComposizioneBean> getComposizione() {
@@ -148,7 +151,7 @@ public class OrdineBean {
 	}
 
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella la composizione dell'ordine
 	 * @param composizione
 	 */
 	public void setComposizione(Set<ComposizioneBean> composizione) {

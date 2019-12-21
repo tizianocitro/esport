@@ -52,13 +52,17 @@ public class MetodoPagamentoBean {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+	
 	/*
+	 * Permette di ottenere il valore della variabile d'istanza che modella il numero dell'utente
 	 * @return numero;
 	 */
 	public String getNumero() {
 		return numero;
 	}
+	
 	/*
+	 * Permette di modificare il valore della variabile d'istanza che modella il numero dell'utente
 	 * @param numero;
 	 */
 	public void setNumero(String numero) {

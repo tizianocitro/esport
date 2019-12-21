@@ -2,6 +2,10 @@ package beans;
 
 import java.util.Set;
 
+/**
+ * Questa classe modella un prodotto
+ */
+
 public class ProdottoBean {
 	/**
 	 * Costruttore di default
@@ -10,7 +14,7 @@ public class ProdottoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il codice del prodotto
 	 * @return codice
 	 */
 	public String getCodice() {
@@ -18,7 +22,7 @@ public class ProdottoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il codice del prodotto
 	 * @param codice
 	 */
 	public void setCodice(String codice) {
@@ -26,7 +30,7 @@ public class ProdottoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il tipo del prodotto
 	 * @return tipo
 	 */
 	public String getTipo() {
@@ -34,7 +38,7 @@ public class ProdottoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il tipo del prodotto
 	 * @param tipo
 	 */
 	public void setTipo(String tipo) {
@@ -42,7 +46,7 @@ public class ProdottoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il nome del prodotto
 	 * @return nome
 	 */
 	public String getNome() {
@@ -50,7 +54,7 @@ public class ProdottoBean {
 	}
 
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il nome del prodotto
 	 * @param nome
 	 */
 	public void setNome(String nome) {
@@ -58,7 +62,7 @@ public class ProdottoBean {
 	}
 
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella la marca del prodotto
 	 * @return marca
 	 */
 	public String getMarca() {
@@ -66,7 +70,7 @@ public class ProdottoBean {
 	}
 
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella la marca del prodotto
 	 * @param marca
 	 */
 	public void setMarca(String marca) {
@@ -74,7 +78,7 @@ public class ProdottoBean {
 	}
 
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella le taglie del prodotto
 	 * @return taglie
 	 */
 	public Set<TagliaBean> getTaglie() {
@@ -82,7 +86,7 @@ public class ProdottoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella le taglie del prodotto
 	 * @param taglie
 	 */
 	public void setTaglie(Set<TagliaBean> taglie) {
@@ -90,7 +94,7 @@ public class ProdottoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella la quantità del prodotto
 	 * @return qt
 	 */
 	public int getQt() {
@@ -98,7 +102,7 @@ public class ProdottoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella la quantità del prodotto
 	 * @param qt
 	 */
 	public void setQt(int qt) {
@@ -106,7 +110,7 @@ public class ProdottoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il prezzo del prodotto
 	 * @return prezzo
 	 */
 	public double getPrezzo() {
@@ -114,7 +118,7 @@ public class ProdottoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il prezzo del prodotto
 	 * @param prezzo
 	 */
 	public void setPrezzo(double prezzo) {
@@ -122,7 +126,7 @@ public class ProdottoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella l'iva del prodotto
 	 * @return iva
 	 */
 	public int getIva() {
@@ -130,7 +134,7 @@ public class ProdottoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella l'iva del prodotto
 	 * @param iva
 	 */
 	public void setIva(int iva) {
@@ -138,7 +142,7 @@ public class ProdottoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella la descrizione del prodotto
 	 * @return descrizione
 	 */
 	public String getDescrizione() {
@@ -146,7 +150,7 @@ public class ProdottoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella la descrizione del prodotto
 	 * @param descrizione
 	 */
 	public void setDescrizione(String descrizione) {
@@ -154,7 +158,7 @@ public class ProdottoBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella le recensioni del prodotto
 	 * @return recensioni
 	 */
 	public Set<RecensioneBean> getRecensioni() {
@@ -162,7 +166,7 @@ public class ProdottoBean {
 	}
 
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella le recensioni del prodotto
 	 * @param recensioni
 	 */
 	public void setRecensioni(Set<RecensioneBean> recensioni) {

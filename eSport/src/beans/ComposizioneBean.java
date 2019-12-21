@@ -1,5 +1,8 @@
 package beans;
 
+/**
+ * Questa classe modella la composizione dell'ordine
+ */
 
 public class ComposizioneBean {
 	/**
@@ -9,7 +12,7 @@ public class ComposizioneBean {
 	}
 	
     /**
-     *  
+     *  Permette di ottenere il valore della variabile d'istanza che modella l'ordine
      * @return ordine
      */
 	public String getOrdine() {
@@ -17,7 +20,7 @@ public class ComposizioneBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella l'ordine
 	 * @param ordine
 	 */
 	public void setOrdine(String ordine) {
@@ -25,7 +28,7 @@ public class ComposizioneBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il prodotto dell'ordine
 	 * @return prodotto
 	 */
 	public String getProdotto() {
@@ -33,7 +36,7 @@ public class ComposizioneBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il prodotto dell'ordine
 	 * @param prodotto
 	 */
 	public void setProdotto(String prodotto) {
@@ -41,7 +44,7 @@ public class ComposizioneBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenre il valore della variabile d'istanza che modella il nome del prodotto dell'ordine
 	 * @return nomeProdotto
 	 */
 	public String getNomeProdotto() {
@@ -49,7 +52,7 @@ public class ComposizioneBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il nome del prodotto dell'ordine
 	 * @param nomeProdotto
 	 */
 	public void setNomeProdotto(String nomeProdotto) {
@@ -57,7 +60,7 @@ public class ComposizioneBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il prezzo di vendita di un prodotto dell'ordine
 	 * @return prezzoven
 	 */
 	public double getPrezzoVen() {
@@ -65,7 +68,7 @@ public class ComposizioneBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il prezzo di vendita di un prodotto dell'ordine
 	 * @param prezzoven
 	 */
 	public void setPrezzoVen(double prezzoven) {
@@ -73,7 +76,7 @@ public class ComposizioneBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella l'iva di un prodotto dell'ordine
 	 * @return ivaven
 	 */
 	public int getIvaVen() {
@@ -81,7 +84,7 @@ public class ComposizioneBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella l'iva di un prodotto dell'ordine
 	 * @param ivaven
 	 */
 	public void setIvaVen(int ivaVen) {
@@ -89,7 +92,7 @@ public class ComposizioneBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella la quantità di un prodotto dell'ordine
 	 * @return qt
 	 */
 	public int getQt() {
@@ -97,7 +100,7 @@ public class ComposizioneBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella la quantità di un prodotto dell'ordine
 	 * @param qt
 	 */
 	public void setQt(int qt) {
@@ -105,7 +108,7 @@ public class ComposizioneBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella la taglia di un prodotto dell'ordine
 	 * @return taglia
 	 */
 	public String getTaglia() {
@@ -113,7 +116,7 @@ public class ComposizioneBean {
 	}
 
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella la taglia di un prodotto dell'ordine
 	 * @param taglia
 	 */
 	public void setTaglia(String taglia) {

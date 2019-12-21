@@ -1,5 +1,8 @@
 package beans;
 
+/**
+ * Questa classe modella la taglia di un prodotto
+ */
 public class TagliaBean {
 	/*
 	 * Costruttore di default
@@ -9,6 +12,7 @@ public class TagliaBean {
 	}
 	
 	/*
+	 * Permette di ottenere il valore della variabile d'istanza che modella il prodotto 
 	 * @return prodotto
 	 */
 	public String getProdotto() {
@@ -16,6 +20,7 @@ public class TagliaBean {
 	}
 	
 	/*
+	 * Permette di modificare il valore della variabile d'istanza che modella il prodotto 
 	 * @param prodotto
 	 */
 	public void setProdotto(String prodotto) {
@@ -23,6 +28,7 @@ public class TagliaBean {
 	}
 	
 	/*
+	 * Permette di ottenere il valore della variabile d'istanza che modella la misura del prodotto
 	 * @return misura
 	 */
 	public String getMisura() {
@@ -30,6 +36,7 @@ public class TagliaBean {
 	}
 	
 	/*
+	 * Permette di modificare il valore della variabile d'istanza che modella la misura del prodotto
 	 * @param misura
 	 */
 	public void setMisura(String misura) {

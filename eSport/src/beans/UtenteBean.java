@@ -5,6 +5,9 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Questa classe modella gli utenti
+ */
 public class UtenteBean {
 	/**
 	 * Costruttore di default
@@ -16,7 +19,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella l'username dell'utente
 	 * @return username
 	 */
 	public String getUsername() {
@@ -24,7 +27,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella l'username dell'utente
 	 * @param username
 	 */
 	public void setUsername(String username) {
@@ -32,7 +35,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella la password dell'utente
 	 * @return password
 	 */
 	public String getPassword() {
@@ -40,7 +43,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella la password dell'utente
 	 * @param password
 	 */
 	public void setPassword(String pass) {
@@ -48,7 +51,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il ruolo dell'utente
 	 * @return ruoli
 	 */
 	public Map<String, RuoloBean> getRuolo() {
@@ -56,7 +59,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il ruolo dell'utente
 	 * @param ruoli
 	 */
 	public void setRuolo(Map<String, RuoloBean> ruoli) {
@@ -64,7 +67,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di aggiungere un nuovo ruolo
 	 * @param ruolo
 	 */
 	public void addRuolo(RuoloBean ruolo) {
@@ -72,7 +75,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di rimuovere un ruolo
 	 * @param ruolo
 	 */
 	public void removeRuolo(RuoloBean ruolo) {
@@ -80,7 +83,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il nome dell'utente
 	 * @return nome
 	 */
 	public String getNome() {
@@ -88,7 +91,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il nome dell'utente
 	 * @param nome
 	 */
 	public void setNome(String nome) {
@@ -96,7 +99,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il cognome dell'utente
 	 * @return cognome
 	 */
 	public String getCognome() {
@@ -104,7 +107,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella il cognome dell'utente
 	 * @param cognome
 	 */
 	public void setCognome(String cognome) {
@@ -112,7 +115,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella l'email dell'utente
 	 * @return email
 	 */
 	public String getEmail() {
@@ -120,7 +123,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella l'email dell'utente
 	 * @param email
 	 */
 	public void setEmail(String email) {
@@ -128,7 +131,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella la P.iva dell'utente
 	 * @return partitaIVA
 	 */
 	public String getPiva() {
@@ -136,7 +139,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella la P.iva dell'utente
 	 * @param piva
 	 */
 	public void setPiva(String piva) {
@@ -144,7 +147,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella i metodi di pagamento dell'utente
 	 * @return metodi pagamento
 	 */
 	public Set<MetodoPagamentoBean> getMetPag() {
@@ -152,7 +155,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modicare il valore della variabile d'istanza che modella i metodi di pagamento dell'utente
 	 * @param metPags
 	 */
 	public void setMetPag(Set<MetodoPagamentoBean> metPags) {
@@ -160,7 +163,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di restituire un singolo metodo di pagamento in base al codice del metodo
 	 * @param codice
 	 * @return metodo pagamento
 	 */
@@ -173,7 +176,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di aggiungere un nuovo metodo di pagamento 
 	 * @param metPag
 	 */
 	public void addMetPag(MetodoPagamentoBean metPag) {
@@ -181,7 +184,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di rimuovere un metodo di pagamento 
 	 * @param metPag
 	 */
 	public void removeMetPag(MetodoPagamentoBean metPag) {
@@ -189,15 +192,14 @@ public class UtenteBean {
 	}
 
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella il numero di telefono dell'utente
 	 * @return telefono
 	 */
 	public String getTelefono() {
 		return telefono;
 	}
 	
-	/**
-	 * 
+	/**Permette di modificare il valore della variabile d'istanza che modella il numero di telefono dell'utente
 	 * @param telefono
 	 */
 	public void setTelefono(String telefono) {
@@ -205,7 +207,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di ottenere il valore della variabile d'istanza che modella gli indirizzi dell'utente
 	 * @return indirizzi
 	 */
 	public Set<IndirizzoBean> getIndirizzi() {
@@ -213,7 +215,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di modificare il valore della variabile d'istanza che modella gli indirizzi dell'utente
 	 * @param indirizzi
 	 */
 	public void setIndirizzi(Set<IndirizzoBean> indirizzi) {
@@ -221,7 +223,7 @@ public class UtenteBean {
 	}
 
 	/**
-	 * 
+	 * Permette di restituire un singolo indirizzo in base al codice del metodo
 	 * @param codice
 	 * @return indirizzo
 	 */
@@ -234,7 +236,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di aggiunfere un nuovo indirizzo
 	 * @param indirizzo
 	 */
 	public void addIndirizzo(IndirizzoBean indirizzo) {
@@ -242,7 +244,7 @@ public class UtenteBean {
 	}
 	
 	/**
-	 * 
+	 * Permette di rimuovere un indirizzo
 	 * @param indirizzo
 	 */
 	public void removeIndirizzo(IndirizzoBean indirizzo) {
