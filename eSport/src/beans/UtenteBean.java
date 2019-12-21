@@ -161,6 +161,19 @@ public class UtenteBean {
 	
 	/**
 	 * 
+	 * @param codice
+	 * @return metodo pagamento
+	 */
+	public MetodoPagamentoBean getMetPag(int codice) {
+		for(MetodoPagamentoBean metodo: metPags)
+			if(metodo.getCodice()==codice)
+				return metodo;
+		
+		return null;
+	}
+	
+	/**
+	 * 
 	 * @param metPag
 	 */
 	public void addMetPag(MetodoPagamentoBean metPag) {
@@ -207,6 +220,19 @@ public class UtenteBean {
 		this.indirizzi=indirizzi;
 	}
 
+	/**
+	 * 
+	 * @param codice
+	 * @return indirizzo
+	 */
+	public IndirizzoBean getIndirizzo(int codice) {
+		for(IndirizzoBean indirizzo: indirizzi)
+			if(indirizzo.getCodice()==codice)
+				return indirizzo;
+		
+		return null;
+	}
+	
 	/**
 	 * 
 	 * @param indirizzo

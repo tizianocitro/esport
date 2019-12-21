@@ -17,18 +17,16 @@ public class UtenteModelStub {
 		
 	}
 	
-	public UtenteBean verifica(UtenteBean user) {
-		log.info("Metodo: verifica");
-
+	public UtenteBean validate(UtenteBean user) {
+		log.info("Metodo: validate -> metodo: doRetrieveAll");
 		LinkedHashMap<String, UtenteBean> users=(LinkedHashMap<String, UtenteBean>) doRetrieveAll();
-		log.info("Metodo: verifica -> terminato metodo: doRetrieveAll");
-
+		
 		log.info("Comincio scorrimento");
-		for(UtenteBean u: users.values()) {
-			if(u.getUsername().equals(user.getUsername()) && u.getPassword().equals(user.getPassword())) {
-				log.info("utente restituito: " + u.getUsername() + ", pwd: " + u.getPassword());
+		for(UtenteBean utente: users.values()) {
+			if(utente.getUsername().equals(user.getUsername()) && utente.getPassword().equals(user.getPassword())) {
+				log.info("utente restituito: " + utente.getUsername() + ", pwd: " + utente.getPassword());
 				
-				return u;
+				return utente;
 			}
 		}
 		
@@ -55,6 +53,16 @@ public class UtenteModelStub {
 		paolo.setPiva(pIva);
 		paolo.setTelefono(tel);
 		
+		log.info("Ottengo indirizzi per Paolo");
+		LinkedHashSet<IndirizzoBean> indirizziPaolo=(LinkedHashSet<IndirizzoBean>) indirizzoModel.doRetrieveByUtente(paolo, 1);
+		for(IndirizzoBean indirizzo: indirizziPaolo)
+			paolo.addIndirizzo(indirizzo);
+		
+		log.info("Ottengo metodi di pagamento per Paolo");
+		LinkedHashSet<MetodoPagamentoBean> metodiPaolo=(LinkedHashSet<MetodoPagamentoBean>) metPagModel.doRetrieveByUtente(paolo, 1);
+		for(MetodoPagamentoBean metodo: metodiPaolo)
+			paolo.addMetPag(metodo);
+		
 		log.info("Ottengo ruoli per Paolo");
 		LinkedHashMap<String, RuoloBean> ruoli=(LinkedHashMap<String, RuoloBean>) ruoloModel.doRetrieveByUtente(paolo);
 		paolo.addRuolo(ruoli.get("Utente"));
@@ -73,12 +81,12 @@ public class UtenteModelStub {
 		root.setTelefono(tel);
 		
 		log.info("Ottengo indirizzi per root");
-		LinkedHashSet<IndirizzoBean> indirizzi=(LinkedHashSet<IndirizzoBean>) indirizzoModel.doRetrieveByUtente(root);
+		LinkedHashSet<IndirizzoBean> indirizzi=(LinkedHashSet<IndirizzoBean>) indirizzoModel.doRetrieveByUtente(root, 3);
 		for(IndirizzoBean indirizzo: indirizzi)
 			root.addIndirizzo(indirizzo);
 		
 		log.info("Ottengo metodi di pagamento per root");
-		LinkedHashSet<MetodoPagamentoBean> metodi=(LinkedHashSet<MetodoPagamentoBean>) metPagModel.doRetrieveByUtente(root);
+		LinkedHashSet<MetodoPagamentoBean> metodi=(LinkedHashSet<MetodoPagamentoBean>) metPagModel.doRetrieveByUtente(root, 3);
 		for(MetodoPagamentoBean metodo: metodi)
 			root.addMetPag(metodo);
 		
@@ -92,5 +100,21 @@ public class UtenteModelStub {
 		users.put("" + root.getUsername(), root);
 
 		return users;
+	}
+	
+	public UtenteBean doRetrieveByUsername(String username) {
+		log.info("Metodo: doRetrieveByUsername -> metodo: doRetrieveAll");
+		LinkedHashMap<String, UtenteBean> users=(LinkedHashMap<String, UtenteBean>) doRetrieveAll();
+		
+		log.info("Comincio scorrimento");
+		for(UtenteBean utente: users.values()) {
+			if(utente.getUsername().equals(username)) {
+				log.info("utente restituito: " + utente.getUsername());
+				
+				return utente;
+			}
+		}
+		
+		return null;
 	}
 }

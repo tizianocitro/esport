@@ -47,7 +47,7 @@ public class OrdineBean {
 	 * 
 	 * @return pagamento
 	 */
-	public String getPagamento() {
+	public int getPagamento() {
 		return pagamento;
 	}
 
@@ -55,8 +55,24 @@ public class OrdineBean {
 	 * 
 	 * @param pagamento
 	 */
-	public void setPagamento(String pagamento) {
+	public void setPagamento(int pagamento) {
 		this.pagamento = pagamento;
+	}
+
+	/**
+	 * 
+	 * @return indirizzo
+	 */
+	public int getIndirizzo() {
+		return indirizzo;
+	}
+
+	/**
+	 * 
+	 * @param indirizzo
+	 */
+	public void setIndirizzo(int indirizzo) {
+		this.indirizzo = indirizzo;
 	}
 
 	/**
@@ -152,8 +168,13 @@ public class OrdineBean {
 	/*
 	 * Variabili d'istanza pagamento
 	 */
-	private String pagamento;
+	private int pagamento;
 
+	/*
+	 * Variabili d'istanza pagamento
+	 */
+	private int indirizzo;
+	
 	/*
 	 * Variabili d'istanza prezzoTotale
 	 */

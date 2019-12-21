@@ -14,10 +14,11 @@ public class IndirizzoModelStub {
 		
 	}
 	
-	public Set<IndirizzoBean> doRetrieveByUtente(UtenteBean user){
+	public Set<IndirizzoBean> doRetrieveByUtente(UtenteBean user, int codice){
 		LinkedHashSet<IndirizzoBean> indirizzi=new LinkedHashSet<IndirizzoBean>();
 
 		IndirizzoBean indOne=new IndirizzoBean();
+		indOne.setCodice(codice);
 		indOne.setUsername(user.getUsername());
 		indOne.setCap("84096");
 		indOne.setCitta("Salerno");
@@ -25,7 +26,10 @@ public class IndirizzoModelStub {
 		indOne.setVia("Via Tullio Maratea");
 		indirizzi.add(indOne);
 		
+		codice++;
+
 		IndirizzoBean indTwo=new IndirizzoBean();
+		indTwo.setCodice(codice);
 		indTwo.setUsername(user.getUsername());
 		indTwo.setCap("84092");
 		indTwo.setCitta("Napoli");

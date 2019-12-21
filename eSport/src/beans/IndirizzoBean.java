@@ -13,6 +13,14 @@ public class IndirizzoBean {
 		
 	}	
 
+	public int getCodice() {
+		return codice;
+	}
+
+	public void setCodice(int codice) {
+		this.codice = codice;
+	}
+
 	/**
 	 * Permette di ottenere il valore della variabile d'istanza che modella l'username dell'utente
 	 * @return username
@@ -93,6 +101,15 @@ public class IndirizzoBean {
 		this.cap = cap;
 	}
 
+	@Override
+	public String toString() {
+		return citta + ", " + via + " " + civico;
+	}
+	
+	/**
+	 * Variabile d'istanza codice
+	 */
+	private int codice;
 	/**
 	 * Variabile d'istanza username
 	 */

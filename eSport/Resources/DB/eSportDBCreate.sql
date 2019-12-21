@@ -25,6 +25,7 @@ create table ruolo(
 use eSportDB;
 
 create table indirizzo(
+	codice int primary key auto_increment,
 	usr varchar(36),
     citta varchar(36),
     via varchar(36),
@@ -38,6 +39,7 @@ create table indirizzo(
 use eSportDB;
 
 create table metodopagamento(
+	codice int primary key auto_increment,
 	usr varchar(36),
     tipo varchar(36),
     numero varchar(36),
@@ -74,12 +76,19 @@ use eSportDB;
 create table ordine(
 	numero char(6) primary key,
     stato varchar(36),
-    pagamento varchar(36) not null,
+    pagamento int not null,
+    indirizzo int not null,
     totale double not null,
     sottomissione date not null,
     consegna date not null,
     usr varchar(36) not null ,
     foreign key(usr) references utente(username)
+		on update cascade
+        on delete cascade,
+	foreign key(pagamento) references metodopagamento(codice)
+		on update cascade
+        on delete cascade,
+	foreign key(indirizzo) references indirizzo(codice)
 		on update cascade
         on delete cascade
 );

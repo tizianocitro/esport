@@ -119,13 +119,14 @@
                                                   </a>
                                                 </h4>
                                                 <h5> <%= o.getStato() %> </h5>
+                                                <h6>Sottomesso da <%= o.getUsername() %></h6>
                                                 <h6>Sottomesso il <%= o.getSottomissione() %></h6>
                                                 <h6>Consegna prevista il <%= o.getConsegna() %></h6>
                                                 
                                                 <h4>Totale <%= (float) o.getTotale() + "&euro;" %></h4>
                                                 
                                                 <button id="carrello-button" class="btn btn-secondary bg-dark text-white">
-				                              		<a class="text-light a-btt" href="#?numeroOrdine=<%= o.getNumero() %>">
+				                              		<a class="text-light a-btt" href="Fattura?numeroOrdine=<%= o.getNumero() %>">
 				                              			Visualizza dettagli
 				                              		</a>
 				                          		</button>
@@ -166,7 +167,7 @@
                                                 <h4>Totale <%= (float) o.getTotale() + "&euro;" %></h4>
                                                 
                                                 <button id="carrello-button" class="btn btn-secondary bg-dark text-white">
-				                              		<a class="text-light a-btt" href="#?numeroOrdine=<%= o.getNumero() %>">
+				                              		<a class="text-light a-btt" href="Fattura?numeroOrdine=<%= o.getNumero() %>">
 				                              			Visualizza dettagli
 				                              		</a>
 				                          		</button>

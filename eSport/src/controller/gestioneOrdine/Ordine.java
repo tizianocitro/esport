@@ -56,7 +56,7 @@ public class Ordine extends HttpServlet {
 					UtenteBean utente=(UtenteBean) session.getAttribute("userLogged");
 					
 					log.info("Ottengo solo gli ordini dell'utente");
-					ordini=(LinkedHashSet<OrdineBean>) ordineModel.doRetrieveOrdiniByUtente(utente);					
+					ordini=(LinkedHashSet<OrdineBean>) ordineModel.doRetrieveByUtente(utente);					
 				}
 				
 				session.setAttribute("Ordini", ordini);

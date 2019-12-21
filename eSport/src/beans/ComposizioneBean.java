@@ -76,7 +76,7 @@ public class ComposizioneBean {
 	 * 
 	 * @return ivaven
 	 */
-	public int getIvaven() {
+	public int getIvaVen() {
 		return ivaVen;
 	}
 	

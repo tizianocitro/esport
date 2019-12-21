@@ -30,13 +30,13 @@ public class Login extends HttpServlet {
 		HttpSession session=request.getSession();
 		synchronized(session) {
 			try {
-				log.info("Sono nella servlet di login");
-				UtenteBean temp=new UtenteBean();
-				temp.setUsername(username);
-				temp.setPassword(password);
+				log.info("Sono nella servlet di login -> creo l'utente da loggare");
+				UtenteBean toLog=new UtenteBean();
+				toLog.setUsername(username);
+				toLog.setPassword(password);
 				
 				UtenteModelStub utenteModel=new UtenteModelStub();
-				UtenteBean user=utenteModel.verifica(temp);
+				UtenteBean user=utenteModel.validate(toLog);
 				log.info("Sono nello servlet di login -> terminato metodo: verifica");
 				if(user!=null) {
 					log.info("utente loggato: " + user.getUsername() + ", " + user.getPassword());

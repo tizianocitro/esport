@@ -13,6 +13,14 @@ public class MetodoPagamentoBean {
 		
 	}	
 	
+	public int getCodice() {
+		return codice;
+	}
+
+	public void setCodice(int codice) {
+		this.codice = codice;
+	}
+	
 	/*
 	 * Permette di ottenere il valore della variabile d'istanza che modella l'username dell' utente
 	 * @return username;
@@ -57,10 +65,18 @@ public class MetodoPagamentoBean {
 		this.numero = numero;
 	}
 	
+	@Override
+	public String toString() {
+		return tipo + " " + numero;
+	}
+	
+	/**
+	 * Variabile d'istanza codice
+	 */
+	private int codice;
 	/**
 	 * Variabile d'istanza username
 	 */
-	
 	private String usr;
 	/*
 	 * Variabile d'istanza tipo

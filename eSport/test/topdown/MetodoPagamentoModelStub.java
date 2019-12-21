@@ -14,16 +14,20 @@ public class MetodoPagamentoModelStub {
 		
 	}
 	
-	public Set<MetodoPagamentoBean> doRetrieveByUtente(UtenteBean user){
+	public Set<MetodoPagamentoBean> doRetrieveByUtente(UtenteBean user, int codice){
 		LinkedHashSet<MetodoPagamentoBean> metodi=new LinkedHashSet<MetodoPagamentoBean>();
 
 		MetodoPagamentoBean metPagOne=new MetodoPagamentoBean();
+		metPagOne.setCodice(codice);
 		metPagOne.setUsername(user.getUsername());
 		metPagOne.setTipo("Postepay");
 		metPagOne.setNumero("1378122267340911");
 		metodi.add(metPagOne);
 		
+		codice++;
+		
 		MetodoPagamentoBean metPagTwo=new MetodoPagamentoBean();
+		metPagTwo.setCodice(codice);
 		metPagTwo.setUsername(user.getUsername());
 		metPagTwo.setTipo("Postepay");
 		metPagTwo.setNumero("1378134767340924");

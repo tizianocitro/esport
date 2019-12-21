@@ -4,7 +4,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 
@@ -25,19 +27,22 @@ public class OrdineModelStub {
 	public Set<OrdineBean> doRetrieveAll() {	
 		LinkedHashSet<OrdineBean> ordini=new LinkedHashSet<OrdineBean>();
 		
-		OrdineBean ordOne=createOrdine("root", "000001", ELABORAZIONE);	
+		UtenteModelStub utenteModel=new UtenteModelStub();
+		LinkedHashMap<String, UtenteBean> utenti=(LinkedHashMap<String, UtenteBean>) utenteModel.doRetrieveAll();
+		
+		OrdineBean ordOne=createOrdine(utenti.get("root"), 3, "000001", ELABORAZIONE);	
 		ordini.add(ordOne);
 		
-		OrdineBean ordTwo=createOrdine("PaoloG", "000002", SPEDIZIONE);	
+		OrdineBean ordTwo=createOrdine(utenti.get("PaoloG"), 1, "000002", SPEDIZIONE);	
 		ordini.add(ordTwo);
 		
-		OrdineBean ordThree=createOrdine("PaoloG", "000003", CONSEGNATO);	
+		OrdineBean ordThree=createOrdine(utenti.get("PaoloG"), 2, "000003", CONSEGNATO);	
 		ordini.add(ordThree);
 		
 		return ordini;
 	}
 	
-	public Set<OrdineBean> doRetrieveOrdiniByUtente(UtenteBean utente) {
+	public Set<OrdineBean> doRetrieveByUtente(UtenteBean utente) {
 		LinkedHashSet<OrdineBean> ordini=new LinkedHashSet<OrdineBean>();
 		ordini=(LinkedHashSet<OrdineBean>) doRetrieveAll();
 		
@@ -50,12 +55,25 @@ public class OrdineModelStub {
 		return ordiniUtente;
 	}
 	
-	private OrdineBean createOrdine(String user, String numero, String stato) {
+	public OrdineBean doRetrieveByNumero(String numero) {
+		LinkedHashSet<OrdineBean> ordini=new LinkedHashSet<OrdineBean>();
+		ordini=(LinkedHashSet<OrdineBean>) doRetrieveAll();
+		
+		log.info("doRetrieveByNumero -> procedo all'ottenimento dell'ordine");
+		for(OrdineBean ordine: ordini)
+			if(ordine.getNumero().equals(numero))
+				return ordine;
+		
+		return null;
+	}
+	
+	private OrdineBean createOrdine(UtenteBean user, int codice, String numero, String stato) {
 		OrdineBean ordOne=new OrdineBean();
-		ordOne.setUsername(user);
+		ordOne.setUsername(user.getUsername());
 		ordOne.setNumero(numero);
 		ordOne.setStato(stato);
-		ordOne.setPagamento("1378134767340924");
+		ordOne.setPagamento(user.getIndirizzo(codice).getCodice());
+		ordOne.setIndirizzo(user.getIndirizzo(codice).getCodice());
 		
 		log.info("Imposto la data di sottomissione come la data odierna");
 		Date d=Calendar.getInstance().getTime();

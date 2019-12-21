@@ -88,15 +88,15 @@
             		<table>
               			<tr>
 			                <td><h6>Costo prodotti:</h6></td>
-			                <td><h6><%= cst %> $</h6></td>
+			                <td><h6><%= cst + "&euro;" %></h6></td>
 			            </tr>
 			            <tr>
                 			<td><h6>Tasse:</h6></td>
-                			<td><h6><%= tss %> $</h6></td>
+                			<td><h6><%= tss + "&euro;" %></h6></td>
               			</tr>
               			<tr>
                 			<td><h6>Costo totale:</h6></td>
-                			<td><h6><%= ct %> $</h6></td>
+                			<td><h6><%= ct + "&euro;" %></h6></td>
               			</tr>
           			</table>
         		</div>

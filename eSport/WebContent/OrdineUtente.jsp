@@ -91,7 +91,7 @@
                                                 <h4>Totale <%= (float) o.getTotale() + "&euro;" %></h4>
                                                 
                                                 <button id="carrello-button" class="btn btn-secondary bg-dark text-white">
-				                              		<a class="text-light a-btt" href="#?numeroOrdine=<%= o.getNumero() %>">
+				                              		<a class="text-light a-btt" href="Fattura?numeroOrdine=<%= o.getNumero() %>">
 				                              			Visualizza dettagli
 				                              		</a>
 				                          		</button>
@@ -132,7 +132,7 @@
                                                 <h4>Totale <%= (float) o.getTotale() + "&euro;" %></h4>
                                                 
                                                 <button id="carrello-button" class="btn btn-secondary bg-dark text-white">
-				                              		<a class="text-light a-btt" href="#?numeroOrdine=<%= o.getNumero() %>">
+				                              		<a class="text-light a-btt" href="Fattura?numeroOrdine=<%= o.getNumero() %>">
 				                              			Visualizza dettagli
 				                              		</a>
 				                          		</button>
