@@ -159,6 +159,14 @@ public class OrdineBean {
 		this.composizione = composizione;
 	}
 
+	/**
+	 * Permette di aggiungere un prodotto nella composizione dell'ordine
+	 * @param prodotto
+	 */
+	public void addProdotto(ComposizioneBean prodotto) {
+		composizione.add(prodotto);
+	}
+	
 	/*
 	 * Variabile d'istanza numero
 	 */

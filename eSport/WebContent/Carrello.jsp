@@ -102,7 +102,7 @@
         		</div>
 
         		<div id="opt-cart" class="list-group">
-          			<a href="#" class="list-group-item bb">
+          			<a href="Acquisto.jsp" class="list-group-item bb">
             			<span class="a-sp">Procedi al pagamento</span>
           			</a>
           			<br>

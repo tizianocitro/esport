@@ -29,7 +29,7 @@ public class Fattura extends HttpServlet {
 			log.info("Servlet Fattura -> controllo che l'utente si sia autenticato");
 			Boolean userAuth=(Boolean) session.getAttribute("userAuth");
 			if((userAuth==null) || (!userAuth.booleanValue())) {
-				redirectedPage="Login.jsp";
+				redirectedPage="/Login.jsp";
 				response.sendRedirect(request.getContextPath() + redirectedPage);
 			}
 			else {

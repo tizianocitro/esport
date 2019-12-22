@@ -29,4 +29,8 @@ public class ComposizioneModelStub {
 		
 		return comp;
 	}
+	
+	public void doSave(ComposizioneBean composizione) {
+		
+	}
 }

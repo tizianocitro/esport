@@ -43,8 +43,7 @@ public class OrdineModelStub {
 	}
 	
 	public Set<OrdineBean> doRetrieveByUtente(UtenteBean utente) {
-		LinkedHashSet<OrdineBean> ordini=new LinkedHashSet<OrdineBean>();
-		ordini=(LinkedHashSet<OrdineBean>) doRetrieveAll();
+		LinkedHashSet<OrdineBean> ordini=(LinkedHashSet<OrdineBean>) doRetrieveAll();
 		
 		LinkedHashSet<OrdineBean> ordiniUtente=new LinkedHashSet<OrdineBean>();
 		
@@ -56,8 +55,7 @@ public class OrdineModelStub {
 	}
 	
 	public OrdineBean doRetrieveByNumero(String numero) {
-		LinkedHashSet<OrdineBean> ordini=new LinkedHashSet<OrdineBean>();
-		ordini=(LinkedHashSet<OrdineBean>) doRetrieveAll();
+		LinkedHashSet<OrdineBean> ordini=(LinkedHashSet<OrdineBean>) doRetrieveAll();
 		
 		log.info("doRetrieveByNumero -> procedo all'ottenimento dell'ordine");
 		for(OrdineBean ordine: ordini)
@@ -67,6 +65,56 @@ public class OrdineModelStub {
 		return null;
 	}
 	
+	public void doSave(OrdineBean ordine) {
+		ComposizioneModelStub composizioneModel=new ComposizioneModelStub();
+		
+		LinkedHashSet<ComposizioneBean> composizione=(LinkedHashSet<ComposizioneBean>) ordine.getComposizione();
+		for(ComposizioneBean comp: composizione)
+			composizioneModel.doSave(comp);
+	}
+	
+	public String generatoreSottomissione() {
+		log.info("Imposto la data di sottomissione come la data odierna");
+		Date d=Calendar.getInstance().getTime();
+		String format="yyyy-MM-dd";
+		DateFormat df=new SimpleDateFormat(format);
+		String sottomissione=df.format(d);
+		
+		return sottomissione;
+	}
+	
+	public String generatoreConsegna() {
+		log.info("Imposto la data di consegna");
+    	Calendar cal=Calendar.getInstance();
+    	cal.add(Calendar.DATE, 3);
+    	String formatOne="yyyy-MM-dd";
+		DateFormat dfOne=new SimpleDateFormat(formatOne);
+		String consegna=dfOne.format(cal.getTime());
+		
+		return consegna;
+	}
+	
+	public String generatoreNumero() {		
+		log.info("generatoreNumero -> eseguo doCount");
+		int count=doCount();
+		count++;
+		
+		return String.format("%06d", count);
+	}
+	
+	public int doCount() {
+		int count=0;
+		
+		log.info("metodo: generatoreNumero -> metodo: doCount -> ottengo gli ordini per la generazione del numero");
+		LinkedHashSet<OrdineBean> ordini=(LinkedHashSet<OrdineBean>) doRetrieveAll();
+
+		for(OrdineBean ordine: ordini)
+			count++;
+		
+		return count;
+	}
+	
+	//Metodo per la simulazione di ordini nel DB
 	private OrdineBean createOrdine(UtenteBean user, int codice, String numero, String stato) {
 		OrdineBean ordOne=new OrdineBean();
 		ordOne.setUsername(user.getUsername());
@@ -75,21 +123,9 @@ public class OrdineModelStub {
 		ordOne.setPagamento(user.getIndirizzo(codice).getCodice());
 		ordOne.setIndirizzo(user.getIndirizzo(codice).getCodice());
 		
-		log.info("Imposto la data di sottomissione come la data odierna");
-		Date d=Calendar.getInstance().getTime();
-		String format="yyyy-MM-dd";
-		DateFormat df=new SimpleDateFormat(format);
-		String date=df.format(d);
-		ordOne.setSottomissione(date);
-		
-		log.info("Imposto la data di consegna");
-    	String data=ordOne.getSottomissione();
-    	Calendar cal=Calendar.getInstance();
-    	cal.add(Calendar.DATE, 3);
-    	String formatOne="yyyy-MM-dd";
-		DateFormat dfOne=new SimpleDateFormat(formatOne);
-		String dateOne=dfOne.format(cal.getTime());
-		ordOne.setConsegna(dateOne);
+		log.info("Gestisco le date");
+		ordOne.setSottomissione(generatoreSottomissione());
+		ordOne.setConsegna(generatoreConsegna());
 		
 		log.info("Ottengo i prodotti che compongono l'ordine");
 		ComposizioneModelStub composizioneModel=new ComposizioneModelStub();
