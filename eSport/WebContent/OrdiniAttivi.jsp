@@ -22,9 +22,7 @@
 			String ORDINI_RUOLO="Ordini";
 			session.setAttribute("ruolo", ORDINI_RUOLO);
 
-			boolean areAttivi=false;
-			boolean areChiusi=false;
-			LinkedHashSet<OrdineBean> ordini=(LinkedHashSet<OrdineBean>) session.getAttribute("Ordini");
+			LinkedHashSet<OrdineBean> ordiniAttivi=(LinkedHashSet<OrdineBean>) session.getAttribute("OrdiniAttivi");
 %>
 
 <!DOCTYPE html>
@@ -32,7 +30,7 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>eSport - Gestione ordini</title>
+		<title>eSport - Gestione ordini attivi</title>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
@@ -56,7 +54,7 @@
 
     		<div class="row py-4">
 
-	      	 	  <div class="col-lg-3">
+	      	 	  <div class="col-lg-3">	      	 	  
 					<h1 class="my-4">Ordina</h1>
 	        			
 	        			<%! String totale="totale desc"; %>
@@ -64,12 +62,12 @@
 	        			<%! String consegna="consegna desc"; %>
 	        			
 	        			<div class="list-group">
-	         	 			<a href="Ordine?toDo=gestore&order=<%= sottomissione %>" class="list-group-item bb">Data [più recente]</a>
-	         	 			<a href="Ordine?toDo=gestore&order=sottomissione" class="list-group-item bb">Data [meno recente]</a>
-	         	 			<a href="Ordine?toDo=gestore&order=<%= consegna %>" class="list-group-item bb">Consegna [più recente]</a>
-	         	 			<a href="Ordine?toDo=gestore&order=consegna" class="list-group-item bb">Consegna [meno recente]</a>
-	          				<a href="Ordine?toDo=gestore&order= <%= totale %>"  class="list-group-item bb">Prezzo [alto-basso]</a>
-	          				<a href="Ordine?toDo=gestore&order=totale" class="list-group-item bb">Prezzo [basso-alto]</a>
+	         	 			<a href="OrdiniAttivi?order=<%= sottomissione %>" class="list-group-item bb">Data [più recente]</a>
+	         	 			<a href="OrdiniAttivi?order=sottomissione" class="list-group-item bb">Data [meno recente]</a>
+	         	 			<a href="OrdiniAttivi?order=<%= consegna %>" class="list-group-item bb">Consegna [più recente]</a>
+	         	 			<a href="OrdiniAttivi?order=consegna" class="list-group-item bb">Consegna [meno recente]</a>
+	          				<a href="OrdiniAttivi?order= <%= totale %>"  class="list-group-item bb">Prezzo [alto-basso]</a>
+	          				<a href="OrdiniAttivi?order=totale" class="list-group-item bb">Prezzo [basso-alto]</a>
 	        			</div>
 	        			
 	        			<h1 class="my-4">Filtra</h1>
@@ -106,9 +104,7 @@
 						<h1 class="my-4">Ordini attivi</h1>
 	      				
 	      				<%
-	      					for(OrdineBean o: ordini){
-	      						if(o.getStato().equals(ELABORAZIONE) || o.getStato().equals(SPEDIZIONE)){
-	      							areAttivi=true;
+	      					for(OrdineBean o: ordiniAttivi){
 	      				%>
 	      				<div class="row">
                                 <div class="col-12 col-md-12 col-lg-12">
@@ -144,55 +140,11 @@
                                 </div>
                         </div>
                         <%
-                        		}
-	      					}
-	      				
-	      					if(!areAttivi){ 
+                        	}
+	      					if(ordiniAttivi.size()==0){ 
 	      				%>
 								<h4 class="my-4">Nessun ordine attivo</h4>
-	      				<% } %>
-	      				
-	      				<h1 class="my-4">Ordini chiusi</h1>
-	      				
-	      				<%
-	      					for(OrdineBean o: ordini){
-	      						if(o.getStato().equals(CONSEGNATO) && ordini.size()!=0){
-	      							areChiusi=true;
-	      				%>
-	      				<div class="row">
-                                <div class="col-12 col-md-12 col-lg-12">
-                                    <div class="card bg-light card-body mb-3 card bg-faded p-1 mb-3">
-                                        <div class="row">
-                                            <div class="col-md-6 col-lg-8 card-body">
-                                                <h4>
-                                                  <a class="title-prod" href="#">
-                                                     Ordine <%= o.getNumero() %>
-                                                  </a>
-                                                </h4>
-                                                <h5> <%= o.getStato() %> </h5>
-                                                <h6>Sottomesso il <%= o.getSottomissione() %></h6>
-                                                <h6>Consegnato il <%= o.getConsegna() %></h6>
-                                                
-                                                <h4>Totale <%= (float) o.getTotale() + "&euro;" %></h4>
-                                                
-                                                <button id="carrello-button" class="btn btn-secondary bg-dark text-white">
-				                              		<a class="text-light a-btt" href="Fattura?numeroOrdine=<%= o.getNumero() %>">
-				                              			Visualizza dettagli
-				                              		</a>
-				                          		</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                        <%
-                        		}
-	      					}
-	      				
-	      					if(!areChiusi){ 
-	      				%>
-								<h4 class="my-4">Nessun ordine chiuso</h4>
-	      				<% } %>
+	      				<%	} %>
 	      			</div>
 	        		<!-- /.col-lg-9 -->
 	        		

@@ -13,7 +13,9 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/Ruolo")
 public class Ruolo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    Logger log=Logger.getLogger("RuoloDebugger");   
+    Logger log=Logger.getLogger("RuoloDebugger");  
+	String CATALOGO="Catalogo";
+	String ORDINI="Ordini";
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String permesso="";
@@ -28,8 +30,17 @@ public class Ruolo extends HttpServlet {
 			
 			session.setAttribute("ruolo", permesso);
 
-			log.info("Vado alla Home Page");
-			redirectedPage="/Index.jsp";		
+			log.info("Se gestore degli ordini vado alla pagina di gestione degli ordini attivi");
+			if(permesso.equals(ORDINI))
+				redirectedPage="/OrdiniAttivi";
+			else if(permesso.equals(CATALOGO)) {
+				log.info("Vado alla pagina di gestione del catalogo");
+				redirectedPage="/GestioneCatalogo?tipo=Divisa&order=nome";
+			}
+			else {
+				log.info("Vado alla Home Page");
+				redirectedPage="/Index.jsp";
+			}
 		}
 		
 		response.sendRedirect(request.getContextPath() + redirectedPage);

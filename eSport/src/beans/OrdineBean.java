@@ -212,4 +212,12 @@ public class OrdineBean {
 	 */
 	private Set<ComposizioneBean> composizione;
 	
+	/**
+	 * Variabili statiche che descrivono i possibili stati di un ordine
+	 * Un ordine è attivo se stato=ELABORAZIONE oppure stato=SPEDIZIONE, altrimenti è chiuso
+	 */
+	public static String ELABORAZIONE="In elaborazione";
+	public static String SPEDIZIONE="In spedizione";
+	public static String CONSEGNATO="Consegnato";
+	
 }

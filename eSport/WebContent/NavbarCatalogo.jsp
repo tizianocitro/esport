@@ -23,14 +23,14 @@
 			<li class="hvr nav-item"><a href="Index.jsp" class="nav-link">Home</a></li>
 
 			<li class="dropdown nav-item" id="hvr3"><a
-				class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Gestione
+				class="dropdown-toggle nav-link" data-toggle="dropdown" href="GestioneCatalogo?">Gestione
 					catalogo</a>
 				<ul class="dropdown-menu bg-dark">
 
-					<li class="dropdown-item"><a href="#">Gestisci divise</a></li>
-					<li class="dropdown-item"><a href="#">Gestisci
+					<li class="dropdown-item"><a href="GestioneCatalogo?tipo=Divisa&order=nome">Gestisci divise</a></li>
+					<li class="dropdown-item"><a href="GestioneCatalogo?tipo=Pantaloncini&order=nome">Gestisci
 							pantaloncini</a></li>
-					<li class="dropdown-item"><a href="#">Gestisci scarpe</a></li>
+					<li class="dropdown-item"><a href="GestioneCatalogo?tipo=Scarpe&order=nome">Gestisci scarpe</a></li>
 					<li class="dropdown-item"><a href="#">Aggiorna catalogo</a></li>
 				</ul></li>
 

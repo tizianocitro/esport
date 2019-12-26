@@ -14,11 +14,11 @@ import javax.servlet.http.HttpSession;
 import beans.CatalogoBean;
 import topdown.ProdottoModelStub;
 
-@WebServlet("/Catalogo")
-public class Catalogo extends HttpServlet {
+@WebServlet("/GestioneCatalogo")
+public class GestioneCatalogo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Logger log=Logger.getLogger("CatalogoDebugger");
-	
+    Logger log=Logger.getLogger("GestioneCatalogoDebugger");
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		
@@ -42,7 +42,7 @@ public class Catalogo extends HttpServlet {
 			CatalogoBean catalogo=new CatalogoBean();
 			catalogo.setCatalogo(prodottoModel.doRetrieveByTipo(tipo));
 			
-			session.setAttribute("Catalogo", catalogo);
+			session.setAttribute("CatalogoDaGestire", catalogo);
 			session.setAttribute("tp", tipo);
 			
 			CatalogoBean cdf=(CatalogoBean) session.getAttribute("CatalogoDaFiltrare");
@@ -50,7 +50,7 @@ public class Catalogo extends HttpServlet {
 				session.removeAttribute("CatalogoDaFiltrare");
 		}
 		
-		RequestDispatcher view=request.getRequestDispatcher("Catalogo.jsp");
+		RequestDispatcher view=request.getRequestDispatcher("GestioneCatalogo.jsp");
 		view.forward(request, response);
 	}
 

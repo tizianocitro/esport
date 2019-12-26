@@ -17,6 +17,8 @@
 		response.sendRedirect("./Login.jsp");
 	}
 	else{
+		boolean areAttivi=false;
+		boolean areChiusi=false;
 		LinkedHashSet<OrdineBean> ordini=(LinkedHashSet<OrdineBean>) session.getAttribute("Ordini");
 %>
 
@@ -51,18 +53,17 @@
 	      	 	  <div class="col-lg-3">
 					<h1 class="my-4">Ordina</h1>
 	        			
-	        			<%! String pasc="totale desc"; %>
-	        			<%! String dasc="sottomissione desc"; %>
-	        			<%! String casc="sottomissione desc"; %>
+	        			<%! String totale="totale desc"; %>
+	        			<%! String sottomissione="sottomissione desc"; %>
+	        			<%! String consegna="consegna desc"; %>
 	        			
 	        			<div class="list-group">
-	          				<a href="Ordine?toDo=utente&order=nome" class="list-group-item bb">Nome</a>
-	         	 			<a href="Ordine?toDo=utente&order=<%= dasc %>" class="list-group-item bb">Data [più recente]</a>
+	         	 			<a href="Ordine?toDo=utente&order=<%= sottomissione %>" class="list-group-item bb">Data [più recente]</a>
 	         	 			<a href="Ordine?toDo=utente&order=sottomissione" class="list-group-item bb">Data [meno recente]</a>
-	         	 			<a href="Ordine?toDo=utente&order=<%= dasc %>" class="list-group-item bb">Consegna [più recente]</a>
+	         	 			<a href="Ordine?toDo=utente&order=<%= consegna %>" class="list-group-item bb">Consegna [più recente]</a>
 	         	 			<a href="Ordine?toDo=utente&order=consegna" class="list-group-item bb">Consegna [meno recente]</a>
-	          				<a href="Ordine?toDo=utente&order= <%= casc %>"  class="list-group-item bb">Prezzo [alto-basso]</a>
-	          				<a href="Ordine?toDo=utente&order=prezzotot" class="list-group-item bb">Prezzo [basso-alto]</a>
+	          				<a href="Ordine?toDo=utente&order= <%= totale %>"  class="list-group-item bb">Prezzo [alto-basso]</a>
+	          				<a href="Ordine?toDo=utente&order=totale" class="list-group-item bb">Prezzo [basso-alto]</a>
 	        			</div>
 	      			</div> 
 	      			<!-- /.col-lg-3 -->
@@ -73,6 +74,7 @@
 	      				<%
 	      					for(OrdineBean o: ordini){
 	      						if(o.getStato().equals(ELABORAZIONE) || o.getStato().equals(SPEDIZIONE) && ordini.size()!=0){
+	      							areAttivi=true;
 	      				%>
 	      				<div class="row">
                                 <div class="col-12 col-md-12 col-lg-12">
@@ -102,10 +104,12 @@
                         </div>
                         <%
                         		}
-	      						else{ 
+	      					}
+	      				
+	      					if(!areAttivi){
 	      				%>
-									<h4 class="my-4">Nessun ordine attivo</h4>
-	      				<%		}
+								<h4 class="my-4">Nessun ordine attivo</h4>
+	      				<%
 	      					}		
 	      				%>
 	      				
@@ -114,6 +118,7 @@
 	      				<%
 	      					for(OrdineBean o: ordini){
 	      						if(o.getStato().equals(CONSEGNATO) && ordini.size()!=0){
+	      							areChiusi=true;
 	      				%>
 	      				<div class="row">
                                 <div class="col-12 col-md-12 col-lg-12">
@@ -127,7 +132,7 @@
                                                 </h4>
                                                 <h5> <%= o.getStato() %> </h5>
                                                 <h6>Sottomesso il <%= o.getSottomissione() %></h6>
-                                                <h6>Consegna prevista il <%= o.getConsegna() %></h6>
+                                                <h6>Consegnato il <%= o.getConsegna() %></h6>
                                                 
                                                 <h4>Totale <%= (float) o.getTotale() + "&euro;" %></h4>
                                                 
@@ -143,12 +148,12 @@
                         </div>
                         <%
                         		}
-	      						else{ 
+	      					}
+	      				
+	      					if(!areChiusi){
 	      				%>
-									<h4 class="my-4">Nessun ordine chiuso</h4>
-	      				<%		}
-	      					}		
-	      				%>
+								<h4 class="my-4">Nessun ordine chiuso</h4>
+	      				<%	} %>
 	      			</div>
 	        		<!-- /.col-lg-9 -->
 	        		

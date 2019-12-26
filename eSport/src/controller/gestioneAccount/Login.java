@@ -17,7 +17,8 @@ import topdown.UtenteModelStub;
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Logger log=Logger.getLogger("LoginDebugger");
-
+	String UTENTE="Utente";
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
@@ -29,42 +30,33 @@ public class Login extends HttpServlet {
 		
 		HttpSession session=request.getSession();
 		synchronized(session) {
-			try {
-				log.info("Sono nella servlet di login -> creo l'utente da loggare");
-				UtenteBean toLog=new UtenteBean();
-				toLog.setUsername(username);
-				toLog.setPassword(password);
+			log.info("Sono nella servlet di login -> creo l'utente da loggare");
+			UtenteBean toLog=new UtenteBean();
+			toLog.setUsername(username);
+			toLog.setPassword(password);
 				
-				UtenteModelStub utenteModel=new UtenteModelStub();
-				UtenteBean user=utenteModel.validate(toLog);
-				log.info("Sono nello servlet di login -> terminato metodo: verifica");
-				if(user!=null) {
-					log.info("utente loggato: " + user.getUsername() + ", " + user.getPassword());
-					session.setAttribute("userAuth", true);
-					session.setAttribute("ruolo", "Utente");
-					session.setAttribute("userLogged", user);
+			UtenteModelStub utenteModel=new UtenteModelStub();
+			UtenteBean user=utenteModel.validate(toLog);
+			log.info("Sono nello servlet di login -> terminato metodo: verifica");
+			if(user!=null) {
+				log.info("utente loggato: " + user.getUsername() + ", " + user.getPassword());
+				session.setAttribute("userAuth", true);
+				session.setAttribute("ruolo", UTENTE);
+				session.setAttribute("userLogged", user);
 
-					String pp=(String) session.getAttribute("previousPage");
-					if(pp!=null && !pp.equals("")) {
-						redirectedPage=pp;
-						session.removeAttribute("previousPage");
-					}
-					else
-						redirectedPage="/Index.jsp";
-				}
-				else {
-					session.setAttribute("userAuth", false);
-					session.setAttribute("ruolo", "Utente");
-					session.setAttribute("userLogged", null);
-					
-					redirectedPage="/Login.jsp";
-				}
+				String pp=(String) session.getAttribute("previousPage");
+				if(pp!=null && !pp.equals("")) {
+					redirectedPage=pp;
+					session.removeAttribute("previousPage");
 			}
-			catch(Exception e) {
+			else
+				redirectedPage="/Index.jsp";
+			}
+			else {
 				session.setAttribute("userAuth", false);
-				session.setAttribute("ruolo", "Utente");
+				session.setAttribute("ruolo", UTENTE);
 				session.setAttribute("userLogged", null);
-								
+					
 				redirectedPage="/Login.jsp";
 			}
 		}

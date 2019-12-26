@@ -26,10 +26,8 @@
 				class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Gestione
 					ordini</a>
 				<ul class="dropdown-menu bg-dark">
-					<li class="dropdown-item"><a href="#">Gestisci ordini
+					<li class="dropdown-item"><a href="OrdiniAttivi?order=sottomissione">Gestisci ordini
 							attivi</a></li>
-					<li class="dropdown-item"><a href="#">Aggiorna stato
-							ordini</a></li>
 					<li class="dropdown-item"><a href="Ordine?toDo=gestore&order=sottomissione">Visualizza ordini</a></li>
 				</ul></li>
 				

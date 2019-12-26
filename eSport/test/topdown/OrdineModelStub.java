@@ -73,6 +73,24 @@ public class OrdineModelStub {
 			composizioneModel.doSave(comp);
 	}
 	
+	public void aggiornaStato(OrdineBean ordine, String stato) {
+		
+	}
+	
+	public Set<OrdineBean> doRetrieveIfAttivi(String order) {
+		LinkedHashSet<OrdineBean> ordini=new LinkedHashSet<OrdineBean>();
+		
+		log.info("metodo: doRetrieveIfAttivi -> metodo: doCount -> ottengo gli ordini per la generazione del numero");
+		LinkedHashSet<OrdineBean> listaOrdini=(LinkedHashSet<OrdineBean>) doRetrieveAll();
+		
+		for(OrdineBean ordine: listaOrdini)
+			if(ordine.getStato().equals(OrdineBean.ELABORAZIONE) 
+					|| ordine.getStato().equals(OrdineBean.SPEDIZIONE))
+				ordini.add(ordine);
+		
+		return ordini;
+	}
+	
 	public String generatoreSottomissione() {
 		log.info("Imposto la data di sottomissione come la data odierna");
 		Date d=Calendar.getInstance().getTime();

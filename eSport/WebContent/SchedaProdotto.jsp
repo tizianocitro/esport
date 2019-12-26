@@ -124,7 +124,7 @@
 	                         	<p>Nessuna recensione disponibile per questo prodotto</p>
 	                         <% } %>
 	                         
-                            <a href="RecensioneStub?rewProd=<%= p.getCodice() %>" class="btn btn-secondary bg-dark">
+                            <a href="LasciaRecensione?needTo=write&rewProd=<%= p.getCodice() %>" class="btn btn-secondary bg-dark">
                             	Scrivi una recensione
                             </a>
                         </div>
