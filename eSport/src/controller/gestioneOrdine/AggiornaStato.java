@@ -74,7 +74,7 @@ public class AggiornaStato extends HttpServlet {
 					
 					log.info("Se l'ordine è contrassegnato come consegnato, allora aggiorno la data di consegna");
 					if(ordineDaModificare.getStato().equals(OrdineBean.CONSEGNATO)) {
-						ordineDaModificare.setConsegna(ordineModel.generatoreConsegna());
+						ordineDaModificare.setConsegna(ordineModel.generatoreSottomissione());
 						log.info("Nuova data di consegna: " + ordineDaModificare.getConsegna());
 					}
 					
