@@ -8,8 +8,8 @@ import beans.UtenteBean;
 import junit.framework.TestCase;
 import model.RuoloModel;
 
-public class RuoloModelTests extends TestCase {
-	public RuoloModelTests(String nome) {
+public class RuoloModelTestCase extends TestCase {
+	public RuoloModelTestCase(String nome) {
 		super(nome);
 	}
 	
