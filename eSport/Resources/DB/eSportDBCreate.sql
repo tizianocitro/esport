@@ -1,10 +1,10 @@
-create schema eSportDB;
+create schema esportdb;
 
-use eSportDB;
+use esportdb;
 
 create table utente(
 	username varchar(36) primary key,
-    password varchar(36) not null, 
+    pwd varchar(36) not null, 
     nome	varchar(36),
     cognome	varchar(36),
     email varchar(128),
@@ -12,7 +12,7 @@ create table utente(
     telefono char(10)
 );
 
-use eSportDB;
+use esportdb;
 
 create table ruolo(
 	usr varchar(36),
@@ -22,7 +22,7 @@ create table ruolo(
         on delete cascade
 );
 
-use eSportDB;
+use esportdb;
 
 create table indirizzo(
 	codice int primary key auto_increment,
@@ -36,7 +36,7 @@ create table indirizzo(
         on delete cascade
 );
 
-use eSportDB;
+use esportdb;
 
 create table metodopagamento(
 	codice int primary key auto_increment,
@@ -48,7 +48,7 @@ create table metodopagamento(
         on delete cascade
 );
 
-use eSportDB;
+use esportdb;
 
 create table prodotto(
 	codice char(3) primary key,
@@ -61,7 +61,7 @@ create table prodotto(
     descrizione varchar(512)
 );
 
-use eSportDB;
+use esportdb;
 
 create table taglia(
 	prodotto char(3),
@@ -71,7 +71,7 @@ create table taglia(
         on delete cascade
 );
 
-use eSportDB;
+use esportdb;
 
 create table ordine(
 	numero char(6) primary key,
@@ -93,7 +93,7 @@ create table ordine(
         on delete cascade
 );
 
-use eSportDB;
+use esportdb;
 
 create table composizione(
 	ordine char(6) not null,
@@ -111,7 +111,7 @@ create table composizione(
         on delete set null
 );
 
-use eSportDB;
+use esportdb;
 
 create table recensione(
 	codice int primary key auto_increment,

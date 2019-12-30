@@ -60,7 +60,7 @@ public class LasciaRecensione extends HttpServlet {
 					
 				log.info("Ottengo il commento e gestisco i caratteri speciali");
 				String commento=request.getParameter("commento");
-				commento=recensioneModel.correzzione(commento);
+				commento=recensioneModel.correzione(commento);
 					
 				log.info("Ottengo il voto");
 				Integer voto=Integer.parseInt(request.getParameter("voto"));

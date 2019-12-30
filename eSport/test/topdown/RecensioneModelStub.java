@@ -49,7 +49,7 @@ public class RecensioneModelStub {
 	 * @param commento
 	 * @return commentoFiltrato
 	 */
-	public String correzzione(String commento) {
+	public String correzione(String commento) {
 		if(!hasSpecialChars(commento)) {
 			return commento;
 		}

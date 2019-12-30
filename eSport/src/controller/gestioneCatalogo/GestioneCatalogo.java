@@ -22,7 +22,7 @@ public class GestioneCatalogo extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		
-		log.info("Ottengo l'ordine di visualizzazione dei prodotti del catalogo");
+		log.info("GestioneCatalogo -> ottengo l'ordine di visualizzazione dei prodotti del catalogo");
 		String order=request.getParameter("order");
 		if(order==null || order.equals(""))
 			order="nome";
@@ -30,21 +30,22 @@ public class GestioneCatalogo extends HttpServlet {
 		synchronized(session) {
 			ProdottoModelStub prodottoModel=new ProdottoModelStub();
 			
-			log.info("Ottengo il tipo dei prodotti per il catalogo");
+			log.info("GestioneCatalogo -> ottengo il tipo dei prodotti per il catalogo");
 			String tipo=(String) request.getParameter("tipo");
-			log.info("Tipo: " + tipo);
+			log.info("GestioneCatalogo -> tipo: " + tipo);
 			if(tipo==null || tipo.equals(""))
 				tipo="Divisa";
 			
-			log.info("Secondo controllo su tipo: " + tipo);
+			log.info("GestioneCatalogo -> secondo controllo su tipo: " + tipo);
 			
-			log.info("Ottengo i prodotti per il catalogo in base al tipo");
+			log.info("GestioneCatalogo -> ottengo i prodotti per il catalogo in base al tipo");
 			CatalogoBean catalogo=new CatalogoBean();
 			catalogo.setCatalogo(prodottoModel.doRetrieveByTipo(tipo));
 			
 			session.setAttribute("CatalogoDaGestire", catalogo);
 			session.setAttribute("tp", tipo);
 			
+			log.info("GestioneCatalogo -> controllo che il catalogo non sia filtrato");
 			CatalogoBean cdf=(CatalogoBean) session.getAttribute("CatalogoDaFiltrare");
 			if(cdf!=null)
 				session.removeAttribute("CatalogoDaFiltrare");

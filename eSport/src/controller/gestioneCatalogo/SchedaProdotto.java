@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import beans.CatalogoBean;
 import beans.ProdottoBean;
 import beans.RecensioneBean;
 import topdown.ProdottoModelStub;
@@ -27,23 +26,24 @@ public class SchedaProdotto extends HttpServlet {
 		HttpSession session=request.getSession();
 		
 		synchronized(session) {
-			log.info("Ottengo il codice del prodotto da mostrare");
+			log.info("Scheda prodotto -> ottengo il codice del prodotto da mostrare dalla richiesta");
 			String codiceProdotto=request.getParameter("codProd");
 			
 			ProdottoModelStub prodottoModel=new ProdottoModelStub();
 			
-			log.info("Ottengo il prodotto da mostrare");
+			log.info("Scheda prodotto -> ottengo il prodotto da mostrare");
 			ProdottoBean prodottoDaMostrare=prodottoModel.doRetrieveByCodice(codiceProdotto);
-			if(prodottoDaMostrare!=null) {
+			if(prodottoDaMostrare!=null) {				
+				log.info("Scheda prodotto -> ottengo le recensioni per il prodotto da mostrare");
+				RecensioneModelStub recensioneModel=new RecensioneModelStub();
+				LinkedHashSet<RecensioneBean> recensioni=(LinkedHashSet<RecensioneBean>) recensioneModel.doRetrieveAll();
+				if(recensioni.size()!=0) {
+					prodottoDaMostrare.setRecensioni(recensioneModel.doRetrieveByProdotto(codiceProdotto));
+				}	
+				
+				log.info("Scheda prodotto -> aggiungo il prodotto da mostrare alla sessione");
 				session.setAttribute("ProdottoDaMostrare", prodottoDaMostrare);
 			}
-			
-			log.info("Sono nello stub della scheda prodotto, ottengo le recensioni per il prodotto da mostrare");
-			RecensioneModelStub recensioneModel=new RecensioneModelStub();
-			LinkedHashSet<RecensioneBean> recensioni=(LinkedHashSet<RecensioneBean>) recensioneModel.doRetrieveAll();
-			if(recensioni.size()!=0) {
-				prodottoDaMostrare.setRecensioni(recensioneModel.doRetrieveByProdotto(codiceProdotto));
-			}			
 		}
 		
 		RequestDispatcher view=request.getRequestDispatcher("SchedaProdotto.jsp");

@@ -1,5 +1,9 @@
 package model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -7,6 +11,7 @@ import java.util.logging.Logger;
 import beans.RecensioneBean;
 
 public class RecensioneModel {
+	private static final String TABLE_NAME="recensione";
 	static Logger log=Logger.getLogger("RecensioneModelDebugger");
 
 	public RecensioneModel() {
@@ -16,19 +21,86 @@ public class RecensioneModel {
 	/**
 	 * Permette di salvare una recensione
 	 * @param recensione
+	 * @throws SQLException 
 	 */
-	public void doSave(RecensioneBean recensione) {
+	public void doSave(RecensioneBean recensione) throws SQLException {
+		Connection connection=null;
+		PreparedStatement preparedStatement=null;
 		
+		String insertSQL="insert into " + RecensioneModel.TABLE_NAME
+				+ " (voto, commento, usr, prodotto) "
+				+ "values (?, ?, ?, ?)";
+
+		try {
+			connection=DriverManagerConnectionPool.getConnection();
+			preparedStatement=connection.prepareStatement(insertSQL);
+
+			preparedStatement.setInt(1, recensione.getVoto());
+			preparedStatement.setString(2, recensione.getCommento());
+			preparedStatement.setString(3, recensione.getUsername());
+			preparedStatement.setString(4, recensione.getProdotto());
+
+			preparedStatement.executeUpdate();
+
+			connection.commit();
+		} 
+		finally {
+			try {
+				if(preparedStatement!=null)
+					preparedStatement.close();
+			}	 
+			finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}
 	}
 	
 	/**
 	 * Permette di ottenere le recensioni di un prodotto specificando un ordine di restituzione
 	 * @param codiceProdotto
 	 * @return recensioni
+	 * @throws SQLException 
 	 */
-	public Set<RecensioneBean> doRetrieveByProdotto(String codiceProdotto, String order) {
+	public Set<RecensioneBean> doRetrieveByProdotto(String prodotto, String order) throws SQLException {
 		LinkedHashSet<RecensioneBean> recensioni=new LinkedHashSet<RecensioneBean>();
 
+		Connection connection=null;
+		PreparedStatement preparedStatement=null;
+
+		String selectSQL = "select * from " + RecensioneModel.TABLE_NAME + " where prodotto=?";
+
+		if (order!=null && !order.equals("")) {
+			selectSQL+=" order by " + order;
+		}
+
+		try {
+			connection=DriverManagerConnectionPool.getConnection();
+			preparedStatement=connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, prodotto);
+
+			ResultSet rs=preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				RecensioneBean temp=new RecensioneBean();
+				
+				temp.setVoto(rs.getInt("voto"));
+				temp.setCommento(rs.getString("commento"));
+				temp.setUsername(rs.getString("usr"));
+				temp.setProdotto(rs.getString("prodotto"));
+				
+				recensioni.add(temp);
+			}
+
+		} 
+		finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		
 		return recensioni;
 	}
 	
@@ -37,7 +109,7 @@ public class RecensioneModel {
 	 * @param commento
 	 * @return commentoFiltrato
 	 */
-	public String correzzione(String commento) {
+	public String correzione(String commento) {
 		if(!hasSpecialChars(commento)) {
 			return commento;
 		}

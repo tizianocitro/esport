@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 
 import beans.CatalogoBean;
 import beans.ProdottoBean;
-import beans.TagliaBean;
 
 public class ProdottoModelStub {
 	static Logger log=Logger.getLogger("ProdottoModelStubDebugger");
@@ -17,27 +16,10 @@ public class ProdottoModelStub {
 	
 	public Set<ProdottoBean> doRetrieveAll(){
 		log.info("Metodo: doRetrieveAll -> ottengo le taglie");
-		LinkedHashSet<TagliaBean> taglie=new LinkedHashSet<TagliaBean>();
-		TagliaBean S=new TagliaBean();
-		S.setMisura("S");
-		taglie.add(S);
-		TagliaBean M=new TagliaBean();
-		M.setMisura("M");
-		taglie.add(M);
-		TagliaBean L=new TagliaBean();
-		L.setMisura("L");
-		taglie.add(L);
-		
-		LinkedHashSet<TagliaBean> taglieScarpe=new LinkedHashSet<TagliaBean>();
-		TagliaBean t=new TagliaBean();
-		t.setMisura("39");
-		taglieScarpe.add(t);
-		TagliaBean tOne=new TagliaBean();
-		tOne.setMisura("40");
-		taglieScarpe.add(tOne);
 		
 		LinkedHashSet<ProdottoBean> catalogo=new LinkedHashSet<ProdottoBean>();
-		
+		TagliaModelStub tagliaModel=new TagliaModelStub();
+
 		log.info("Aggiungo i prodotti per simulare il catalogo");
 
 		ProdottoBean pOne=new ProdottoBean();
@@ -48,8 +30,8 @@ public class ProdottoModelStub {
 		pOne.setPrezzo(99.99);
 		pOne.setQt(40);
 		pOne.setIva(22);
+		pOne.setTaglie(tagliaModel.doRetrieveByProdotto(pOne.getCodice(), pOne.getTipo()));
 		pOne.setDescrizione("Real Madrid Home Kit 2018, divisa ufficiale della stagione 2018/2019 della squadra calcistica Real Madrid");
-		pOne.setTaglie(taglie);
 		catalogo.add(pOne);
 		
 		ProdottoBean pTwo=new ProdottoBean();
@@ -60,8 +42,8 @@ public class ProdottoModelStub {
 		pTwo.setPrezzo(89.99);
 		pTwo.setQt(40);
 		pTwo.setIva(22);
+		pTwo.setTaglie(tagliaModel.doRetrieveByProdotto(pTwo.getCodice(), pTwo.getTipo()));
 		pTwo.setDescrizione("Napoli Home kit 2018. Divisa ufficiale della stagione 2018/2019");
-		pTwo.setTaglie(taglie);
 		catalogo.add(pTwo);
 		
 		ProdottoBean pThree=new ProdottoBean();
@@ -72,8 +54,8 @@ public class ProdottoModelStub {
 		pThree.setPrezzo(99.99);
 		pThree.setQt(31);
 		pThree.setIva(22);
+		pThree.setTaglie(tagliaModel.doRetrieveByProdotto(pThree.getCodice(), pThree.getTipo()));
 		pThree.setDescrizione("Real Madrid Awat Kit 2018, divisa ufficiale della stagione 2018/2019 della squadra calcistica Real Madrid");
-		pThree.setTaglie(taglie);
 		catalogo.add(pThree);
 		
 		ProdottoBean pFour=new ProdottoBean();
@@ -83,9 +65,9 @@ public class ProdottoModelStub {
 		pFour.setMarca("Adidas");
 		pFour.setPrezzo(99.99);
 		pFour.setQt(38);
-		pFour.setIva(22);
+		pFour.setIva(22);		
+		pFour.setTaglie(tagliaModel.doRetrieveByProdotto(pFour.getCodice(), pFour.getTipo()));
 		pFour.setDescrizione("Juventus Home Kit 2018, divisa ufficiale della stagione 2018/2019 della squadra calcistica Juventus");
-		pFour.setTaglie(taglie);
 		catalogo.add(pFour);
 		
 		ProdottoBean pFifth=new ProdottoBean();
@@ -95,9 +77,9 @@ public class ProdottoModelStub {
 		pFifth.setMarca("Nike");
 		pFifth.setPrezzo(89.99);
 		pFifth.setQt(46);
-		pFifth.setIva(22);
+		pFifth.setIva(22);		
+		pFifth.setTaglie(tagliaModel.doRetrieveByProdotto(pFifth.getCodice(), pFifth.getTipo()));
 		pFifth.setDescrizione("Scarpe Nike originali. Serie Mercurial 2018/2019");
-		pFifth.setTaglie(taglieScarpe);
 		catalogo.add(pFifth);
 		
 		ProdottoBean pSixth=new ProdottoBean();
@@ -108,8 +90,8 @@ public class ProdottoModelStub {
 		pSixth.setPrezzo(49.99);
 		pSixth.setQt(50);
 		pSixth.setIva(22);
+		pSixth.setTaglie(tagliaModel.doRetrieveByProdotto(pSixth.getCodice(), pSixth.getTipo()));
 		pSixth.setDescrizione("Pantolinci Real Madrid originali, anno 2018/2019");
-		pSixth.setTaglie(taglie);
 		catalogo.add(pSixth);
 		
 		ProdottoBean pSeven=new ProdottoBean();
@@ -120,8 +102,8 @@ public class ProdottoModelStub {
 		pSeven.setPrezzo(49.99);
 		pSeven.setQt(44);
 		pSeven.setIva(22);
+		pSeven.setTaglie(tagliaModel.doRetrieveByProdotto(pSeven.getCodice(), pSeven.getTipo()));
 		pSeven.setDescrizione("Pantolinci Juventus originali, anno 2018/2019");
-		pSeven.setTaglie(taglie);
 		catalogo.add(pSeven);
 		
 		return catalogo;
