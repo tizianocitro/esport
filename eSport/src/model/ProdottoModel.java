@@ -96,7 +96,7 @@ public class ProdottoModel {
 					bean.setPrezzo(rs.getDouble("prezzo"));
 					bean.setIva(rs.getInt("iva"));
 					bean.setDescrizione(rs.getString("descrizione"));
-					bean.setTaglie(tagliaModel.doRetrieveByProdotto(bean.getCodice(), ""));
+					bean.setTaglie(tagliaModel.doRetrieveByProdotto(bean.getCodice()));
 					
 					prodotti.add(bean);
 			}
@@ -145,7 +145,7 @@ public class ProdottoModel {
 					bean.setPrezzo(rs.getDouble("prezzo"));
 					bean.setIva(rs.getInt("iva"));
 					bean.setDescrizione(rs.getString("descrizione"));
-					bean.setTaglie(tagliaModel.doRetrieveByProdotto(bean.getCodice(), ""));
+					bean.setTaglie(tagliaModel.doRetrieveByProdotto(bean.getCodice()));
 			}
 		} 
 		finally {
@@ -170,7 +170,7 @@ public class ProdottoModel {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String deleteSQL="update " + ProdottoModel.TABLE_NAME + " "
+		String updateSQL="update " + ProdottoModel.TABLE_NAME + " "
 					   + " set nome=?, "
 					   + " marca=?, "
 					   + " qt=?, "
@@ -181,7 +181,8 @@ public class ProdottoModel {
 
 		try {
 			connection=DriverManagerConnectionPool.getConnection();
-			preparedStatement=connection.prepareStatement(deleteSQL);
+			preparedStatement=connection.prepareStatement(updateSQL);
+			
 			preparedStatement.setString(1, prodotto.getNome());
 			preparedStatement.setString(2, prodotto.getMarca());
 			preparedStatement.setInt(3, prodotto.getQt());

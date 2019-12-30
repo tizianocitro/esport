@@ -25,6 +25,7 @@ public class RuoloModel {
 	 * @throws SQLException 
 	 */
 	public void doSave(RuoloBean ruolo) throws SQLException {
+		log.info("RuoloModel -> doSave");
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
@@ -52,6 +53,7 @@ public class RuoloModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("RuoloModel -> doSave terminato");
 	}
 	
 	/**
@@ -61,6 +63,7 @@ public class RuoloModel {
 	 * @throws SQLException 
 	 */
 	public Map<String, RuoloBean> doRetrieveByUtente(UtenteBean utente) throws SQLException{
+		log.info("RuoloModel -> doRetrieveByUtente");
 		LinkedHashMap<String, RuoloBean> ruoli=new LinkedHashMap<String, RuoloBean>();
 
 		Connection connection=null;
@@ -93,6 +96,7 @@ public class RuoloModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("Ho ottenuto i ruoli, ruoli vuota: " + ruoli.isEmpty());
 		
 		return ruoli;
 	}

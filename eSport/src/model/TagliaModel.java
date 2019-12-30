@@ -58,17 +58,13 @@ public class TagliaModel {
 	 * @param codiceProdotto
 	 * @throws SQLException 
 	 */
-	public Set<TagliaBean> doRetrieveByProdotto(String prodotto, String order) throws SQLException {
+	public Set<TagliaBean> doRetrieveByProdotto(String prodotto) throws SQLException {
 		LinkedHashSet<TagliaBean> taglie=new LinkedHashSet<TagliaBean>();
 
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
 		String selectSQL="select * from " + TagliaModel.TABLE_NAME + " where prodotto=?";
-		
-		if (order!=null && !order.equals("")) {
-			selectSQL+=" order by " + order;
-		}
 
 		try {
 			connection=DriverManagerConnectionPool.getConnection();
