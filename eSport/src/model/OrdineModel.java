@@ -77,20 +77,22 @@ public class OrdineModel {
 	 * @param stato
 	 * @throws SQLException 
 	 */
-	public void aggiornaStato(OrdineBean ordine, String stato) throws SQLException {
+	public void aggiornaStato(OrdineBean ordine) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		String updateSQL="update " + OrdineModel.TABLE_NAME + " "
-					   + " set stato=? "
+					   + " set stato=?, "
+					   + " consegna=? "
 					   + " where numero=?";
 
 		try {
 			connection=DriverManagerConnectionPool.getConnection();
 			preparedStatement=connection.prepareStatement(updateSQL);
 			
-			preparedStatement.setString(1, stato);
-			preparedStatement.setString(2, ordine.getNumero());
+			preparedStatement.setString(1, ordine.getStato());
+			preparedStatement.setString(2, ordine.getConsegna());
+			preparedStatement.setString(3, ordine.getNumero());
 			
 			preparedStatement.executeUpdate();
 		} 

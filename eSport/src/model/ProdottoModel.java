@@ -176,7 +176,7 @@ public class ProdottoModel {
 					   + " qt=?, "
 					   + " prezzo=?, "
 					   + " iva=?, "
-					   + " descrizione=?, "
+					   + " descrizione=? "
 					   + " where codice=?";
 
 		try {

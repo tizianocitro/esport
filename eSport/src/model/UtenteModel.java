@@ -175,7 +175,7 @@ public class UtenteModel {
 				   + " cognome=?, "
 				   + " email=?, "
 				   + " piva=?, "
-				   + " telefono=?, "
+				   + " telefono=? "
 				   + " where username=?";
 
 		try {

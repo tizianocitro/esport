@@ -73,7 +73,7 @@ public class OrdineModelStub {
 			composizioneModel.doSave(comp);
 	}
 	
-	public void aggiornaStato(OrdineBean ordine, String stato) {
+	public void aggiornaStato(OrdineBean ordine) {
 		
 	}
 	

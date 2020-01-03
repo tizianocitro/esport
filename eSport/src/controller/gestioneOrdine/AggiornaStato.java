@@ -68,6 +68,7 @@ public class AggiornaStato extends HttpServlet {
 					response.sendRedirect(request.getContextPath() + redirectedPage);
 				}
 				else if(what.equals(SAVE)) {
+					log.info("Ottengo il nuovo stato dell'ordine");
 					String stato=request.getParameter("scelta-stato");
 					ordineDaModificare=(OrdineBean) session.getAttribute("OrdineDaModificare");
 					ordineDaModificare.setStato(stato);
@@ -78,7 +79,7 @@ public class AggiornaStato extends HttpServlet {
 						log.info("Nuova data di consegna: " + ordineDaModificare.getConsegna());
 					}
 					
-					ordineModel.aggiornaStato(ordineDaModificare, stato);
+					ordineModel.aggiornaStato(ordineDaModificare);
 					log.info("Ordine aggiornato: " + ordineDaModificare.getNumero() 
 						+ ", stato: " + ordineDaModificare.getStato());
 					
