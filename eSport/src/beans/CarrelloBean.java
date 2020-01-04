@@ -108,10 +108,7 @@ public class CarrelloBean {
 	 * @return true se vuoto, altrimenti false
 	 */
 	public boolean isEmpty() {
-		if(carrello.size()==0)
-			return true;
-		
-		return false;
+		return carrello.isEmpty();
 	}
 	
 	/**

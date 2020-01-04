@@ -23,7 +23,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>e-Sport - Carrello</title>
+		<title>eSport - Carrello</title>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
@@ -125,7 +125,7 @@
 
       		<div class="col-lg-9">
 		        <% 
-		        	if(carrello==null ||carrello.isEmpty()){
+		        	if(carrello==null || carrello.isEmpty()){
 		        %>
 		        	
 		        	<div class="not-cart">

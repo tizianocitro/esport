@@ -2,7 +2,6 @@ package beans;
 
 import java.util.Set;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 
 /**
@@ -32,22 +31,6 @@ public class CatalogoBean {
 	 */
 	public void setCatalogo(Set<ProdottoBean> catalogo) {
 		this.catalogo=catalogo;
-	}
-
-	/**
-	 * Permette di aggiungere un prodotto al catalogo
-	 * @param prodotto
-	 */
-	public void addProdotto(ProdottoBean prodotto) {
-		catalogo.add(prodotto);
-	}
-	
-	/**
-	 * Permette di rimuovere un prodotto dal catalogo
-	 * @param prodotto
-	 */
-	public void removeProdotto(ProdottoBean prodotto) {
-		catalogo.remove(prodotto);
 	}
 	
 	/**

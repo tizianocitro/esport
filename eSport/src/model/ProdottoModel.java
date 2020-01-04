@@ -166,9 +166,11 @@ public class ProdottoModel {
 	 * @param prodotto
 	 * @throws SQLException 
 	 */
-	public void doUpdate(ProdottoBean prodotto) throws SQLException {
+	public boolean doUpdate(ProdottoBean prodotto) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
+
+		int result=0;
 
 		String updateSQL="update " + ProdottoModel.TABLE_NAME + " "
 					   + " set nome=?, "
@@ -191,7 +193,7 @@ public class ProdottoModel {
 			preparedStatement.setString(6, prodotto.getDescrizione());
 			preparedStatement.setString(7, prodotto.getCodice());
 			
-			preparedStatement.executeUpdate();
+			result=preparedStatement.executeUpdate();
 		} 
 		finally {
 			try {
@@ -202,6 +204,8 @@ public class ProdottoModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		
+		return (result!=0);
 	}
 	
 	/**
@@ -234,6 +238,6 @@ public class ProdottoModel {
 			}
 		}
 		
-		return result!=0;
+		return (result!=0);
 	}
 }

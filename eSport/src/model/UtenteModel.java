@@ -164,10 +164,12 @@ public class UtenteModel {
 	 * @param utente
 	 * @throws SQLException 
 	 */
-	public void doUpdate(UtenteBean utente) throws SQLException {
+	public boolean doUpdate(UtenteBean utente) throws SQLException {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
+		int result=0;
+
 		String updateSQL="update " + UtenteModel.TABLE_NAME + " "
 				   + " set username=?, "
 				   + " pwd=?, "
@@ -192,7 +194,7 @@ public class UtenteModel {
 			
 			preparedStatement.setString(8, utente.getUsername());
 
-			preparedStatement.executeUpdate();
+			result=preparedStatement.executeUpdate();
 
 			connection.commit();
 		} 
@@ -205,6 +207,8 @@ public class UtenteModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		
+		return (result!=0);
 	}
 	
 	/**
@@ -237,7 +241,7 @@ public class UtenteModel {
 			}
 		}
 		
-		return result!=0;
+		return (result!=0);
 	}
 	
 }
