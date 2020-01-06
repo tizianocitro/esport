@@ -22,8 +22,18 @@ public class UtenteModel {
 	 * @throws SQLException 
 	 */
 	public void doSave(UtenteBean utente) throws SQLException {
+		log.info("UtenteModel -> doSave");
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
+		
+		log.info("doSave -> verifico correttezza username");
+		if(utente==null || utente.getUsername()==null || utente.getUsername().equals("")
+				|| utente.getPassword()==null || utente.getPassword().equals("")
+				|| utente.getNome()==null || utente.getNome().equals("")
+				|| utente.getCognome()==null || utente.getCognome().equals("")
+				|| utente.getEmail()==null || utente.getEmail().equals("")
+				|| utente.getTelefono()==null || utente.getTelefono().equals(""))
+			return;
 		
 		String insertSQL="insert into " + UtenteModel.TABLE_NAME
 				+ " (username, pwd, nome, cognome, email, piva, telefono) "
@@ -54,6 +64,8 @@ public class UtenteModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		
+		log.info("doSave -> terminato doSave");
 	}
 	
 	/**
@@ -63,14 +75,22 @@ public class UtenteModel {
 	 * @throws SQLException 
 	 */
 	public UtenteBean validate(UtenteBean utente) throws SQLException {
+		log.info("UtenteModel -> validate");
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 
+		log.info("validate -> verifico pre-condizioni");
+		if(utente==null || utente.getUsername()==null || utente.getUsername().equals("")
+				|| utente.getPassword()==null || utente.getPassword().equals(""))
+			return null;
+		
+		RuoloModel ruoloModel=new RuoloModel();
 		IndirizzoModel indirizzoModel=new IndirizzoModel();
 		MetodoPagamentoModel metodoPagamentoModel=new MetodoPagamentoModel();
 		
 		String selectSQL="select * from " + UtenteModel.TABLE_NAME;
 
+		log.info("validate -> eseguo query");
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
 			preparedStatement=connection.prepareStatement(selectSQL);
@@ -90,11 +110,11 @@ public class UtenteModel {
 					bean.setEmail(rs.getString("email"));
 					bean.setPiva(rs.getString("piva"));
 					bean.setTelefono(rs.getString("telefono"));
+					bean.setRuolo(ruoloModel.doRetrieveByUtente(bean));
 					bean.setIndirizzi(indirizzoModel.doRetrieveByUtente(bean));
 					bean.setMetPag(metodoPagamentoModel.doRetrieveByUtente(bean));
 					
 					return bean;
-
 				}
 			}
 		} 
@@ -107,7 +127,8 @@ public class UtenteModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
-		
+		log.info("validate -> utente non presente");
+
 		return null;
 	}
 	
@@ -118,16 +139,23 @@ public class UtenteModel {
 	 * @throws SQLException 
 	 */
 	public UtenteBean doRetrieveByUsername(String username) throws SQLException {
+		log.info("UtenteModel -> doRetrieveByUsername");
 		UtenteBean bean=new UtenteBean();
+		
+		log.info("doRetrieveByUsername -> controllo che l'username sia corretto");
+		if(username==null || username.equals(""))
+			return null;
 
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
-
+		
+		RuoloModel ruoloModel=new RuoloModel();
 		IndirizzoModel indirizzoModel=new IndirizzoModel();
 		MetodoPagamentoModel metodoPagamentoModel=new MetodoPagamentoModel();
 		
 		String selectSQL = "select * from " + UtenteModel.TABLE_NAME + " where username=?";
 
+		log.info("doRetrieveByUsername -> procedo alla query");
 		try {
 			connection=DriverManagerConnectionPool.getConnection();
 			preparedStatement=connection.prepareStatement(selectSQL);
@@ -143,6 +171,7 @@ public class UtenteModel {
 				bean.setEmail(rs.getString("email"));
 				bean.setPiva(rs.getString("piva"));
 				bean.setTelefono(rs.getString("telefono"));
+				bean.setRuolo(ruoloModel.doRetrieveByUtente(bean));
 				bean.setIndirizzi(indirizzoModel.doRetrieveByUtente(bean));
 				bean.setMetPag(metodoPagamentoModel.doRetrieveByUtente(bean));
 			}
@@ -155,6 +184,7 @@ public class UtenteModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("doRetrieveByUsername -> terminato doRetrieveByUsername");
 		
 		return bean;
 	}
@@ -165,11 +195,22 @@ public class UtenteModel {
 	 * @throws SQLException 
 	 */
 	public boolean doUpdate(UtenteBean utente) throws SQLException {
+		log.info("UtenteModel -> doUpdate");
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
 		int result=0;
 
+		log.info("doUpdate -> verifico correttezza username");
+		if(utente==null || utente.getUsername()==null || utente.getUsername().equals("")
+				|| utente.getPassword()==null || utente.getPassword().equals("")
+				|| utente.getNome()==null || utente.getNome().equals("")
+				|| utente.getCognome()==null || utente.getCognome().equals("")
+				|| utente.getEmail()==null || utente.getEmail().equals("")
+				|| utente.getTelefono()==null || utente.getTelefono().equals("")
+				|| doRetrieveByUsername(utente.getUsername())==null)
+			return false;
+		
 		String updateSQL="update " + UtenteModel.TABLE_NAME + " "
 				   + " set username=?, "
 				   + " pwd=?, "
@@ -207,6 +248,7 @@ public class UtenteModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("UtenteModel -> terminato doUpdate");
 		
 		return (result!=0);
 	}
@@ -217,13 +259,18 @@ public class UtenteModel {
 	 * @throws SQLException 
 	 */
 	public boolean doDelete(UtenteBean utente) throws SQLException {
+		log.info("UtenteModel -> doDelete");
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
+		if(utente==null || doRetrieveByUsername(utente.getUsername())==null)
+			return false;
+		
 		int result=0;
 
 		String deleteSQL="delete from " + UtenteModel.TABLE_NAME + " where username=?";
 
+		log.info("doDelete -> eseguo query");
 		try {
 			connection=DriverManagerConnectionPool.getConnection();
 			preparedStatement=connection.prepareStatement(deleteSQL);
@@ -240,7 +287,8 @@ public class UtenteModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
-		
+		log.info("UtenteModel -> terminato doDelete");
+
 		return (result!=0);
 	}
 	

@@ -29,6 +29,11 @@ public class RuoloModel {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
+		log.info("RuoloModel -> verifico la correttezza del ruolo da salvare");
+		if(ruolo==null || ruolo.getUsername()==null || ruolo.getUsername().equals("")
+				|| ruolo.getPermesso()==null || ruolo.getPermesso().equals(""))
+			return;
+		
 		String insertSQL="insert into " + RuoloModel.TABLE_NAME
 				+ " (usr, permesso) "
 				+ "values (?, ?)";
@@ -66,6 +71,10 @@ public class RuoloModel {
 		log.info("RuoloModel -> doRetrieveByUtente");
 		LinkedHashMap<String, RuoloBean> ruoli=new LinkedHashMap<String, RuoloBean>();
 
+		log.info("RuoloModel -> verifico che l'username dell'utente sia corretto");
+		if(utente==null || utente.getUsername()==null || utente.getUsername().equals(""))
+			return null;
+		
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
