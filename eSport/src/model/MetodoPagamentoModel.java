@@ -25,9 +25,18 @@ public class MetodoPagamentoModel {
 	 * @throws SQLException 
 	 */
 	public void doSave(MetodoPagamentoBean metodo) throws SQLException {
+		log.info("MetodoPagamentoModel -> doSave");
+
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
+		log.info("doSave -> verifico la correttezza del metodo da salvare");
+		if(metodo==null || metodo.getUsername()==null || metodo.getUsername().equals("")
+				|| metodo.getTipo()==null || metodo.getTipo().equals("")
+				|| metodo.getNumero()==null || metodo.getNumero().equals(""))
+			return;
+		
+		log.info("doSave -> eseguo query");
 		String insertSQL="insert into " + MetodoPagamentoModel.TABLE_NAME
 				+ " (usr, tipo, numero) "
 				+ "values (?, ?, ?)";
@@ -53,6 +62,7 @@ public class MetodoPagamentoModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("MetodoPagamentoModel -> doSave terminato");
 	}
 	
 	/**
@@ -62,11 +72,17 @@ public class MetodoPagamentoModel {
 	 * @throws SQLException 
 	 */
 	public Set<MetodoPagamentoBean> doRetrieveByUtente(UtenteBean utente) throws SQLException{
+		log.info("MetodoPagamentoModel -> doRetrieveByUtente");
 		LinkedHashSet<MetodoPagamentoBean> metodi=new LinkedHashSet<MetodoPagamentoBean>();
+		
+		log.info("doRetrieveByUtente -> verifico che l'username dell'utente sia corretto");
+		if(utente==null || utente.getUsername()==null || utente.getUsername().equals(""))
+			return null;
 		
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 
+		log.info("doRetrieveByUtente -> eseguo query");
 		String selectSQL = "select * from " + MetodoPagamentoModel.TABLE_NAME + " where usr=?";
 
 		try {
@@ -95,6 +111,7 @@ public class MetodoPagamentoModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("MetodoPagamentoModel -> doRetrieveByUtente terminato");
 		
 		return metodi;
 	}
@@ -105,11 +122,18 @@ public class MetodoPagamentoModel {
 	 * @throws SQLException 
 	 */
 	public boolean doDelete(MetodoPagamentoBean metodo) throws SQLException {
+		log.info("MetodoPagamentoModel -> doDelete");
+
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
+		log.info("doDelete -> controllo correttezza metodo di pagamento");
+		if(metodo==null)
+			return false;
+		
 		int result=0;
 
+		log.info("doDelete -> eseguo query");
 		String deleteSQL="delete from " + MetodoPagamentoModel.TABLE_NAME + " where codice=?";
 
 		try {
@@ -128,6 +152,7 @@ public class MetodoPagamentoModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("MetodoPagamentoModel -> doDelete terminato");
 		
 		return result!=0;
 	}

@@ -95,4 +95,11 @@ public class RecensioneBean {
      * Variabile d'istanza prodotto
      */
 	private String prodotto;
+	
+	/**
+	 * Costanti statiche per esprimere il range dei valori possibili per il voto delle recensioni
+	 */
+	public static final int VOTO_MINIMO=1;
+	public static final int VOTO_MASSIMO=10;
+
 }

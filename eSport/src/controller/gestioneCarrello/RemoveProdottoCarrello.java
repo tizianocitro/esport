@@ -23,20 +23,20 @@ public class RemoveProdottoCarrello extends HttpServlet {
 		HttpSession session=request.getSession();
 		
 		synchronized(session) {
-			log.info("Ottengo il carrello");
+			log.info("RemoveProdottoCarrello -> ottengo il carrello");
 			CarrelloBean carrello=(CarrelloBean)session.getAttribute("Carrello");
 			
-			log.info("Ottengo codice prodotto da eliminare");
+			log.info("RemoveProdottoCarrello -> ottengo codice prodotto da eliminare");
 			String codiceProdotto=request.getParameter("prodotto");
 						
-			log.info("Ottengo il prodotto da rimuovere dal carrello");
+			log.info("RemoveProdottoCarrello -> ottengo il prodotto da rimuovere dal carrello");
 			CarrelloItem prodottoDaRimuovere=carrello.getProdotto(codiceProdotto);
 			
-			log.info("Prodotto ottenuto: " + prodottoDaRimuovere.getProdotto().getCodice());
+			log.info("RemoveProdottoCarrello -> prodotto ottenuto: " + prodottoDaRimuovere.getProdotto().getCodice());
 			if(prodottoDaRimuovere!=null)
 				carrello.removeProdotto(prodottoDaRimuovere);
 			
-			log.info("Aggiorno il carrello");
+			log.info("RemoveProdottoCarrello -> aggiorno il carrello");
 			session.setAttribute("Carrello", carrello);
 		}
 		//Fine synchronized

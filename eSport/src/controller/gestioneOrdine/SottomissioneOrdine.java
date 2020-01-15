@@ -28,30 +28,30 @@ public class SottomissioneOrdine extends HttpServlet {
 		String redirectedPage="";
 		
 		synchronized(session) {
-			log.info("Sottomissione ordine -> controllo che l'utente sia autenticato");
+			log.info("SottomissioneOrdine -> controllo che l'utente sia autenticato");
 			Boolean userAuth=(Boolean) session.getAttribute("userAuth");
 			if((userAuth==null) || (!userAuth.booleanValue())) {
 				redirectedPage="/Login.jsp";
 				response.sendRedirect(request.getContextPath() + redirectedPage);
 			}
 			else {
-				log.info("Sottomissione ordine -> ottengo l'utente che sta sottomettendo l'ordine");
+				log.info("SottomissioneOrdine -> ottengo l'utente che sta sottomettendo l'ordine");
 				UtenteBean user=(UtenteBean) session.getAttribute("userLogged");
 				
-				log.info("Sottomissione ordine -> ottengo il carrello dalla sessione");
+				log.info("SottomissioneOrdine -> ottengo il carrello dalla sessione");
 				CarrelloBean carrello=(CarrelloBean)session.getAttribute("Carrello");
 				
-				log.info("Sottomissione ordine -> controllo che non sia vuoto, altrimenti ritorno alla pagina del carrello");
+				log.info("SottomissioneOrdine -> controllo che non sia vuoto, altrimenti ritorno alla pagina del carrello");
 				if(carrello==null || carrello.isEmpty()) {
 					redirectedPage="/Carrello.jsp";
 					response.sendRedirect(request.getContextPath() + redirectedPage);
 				}
 				else {
-					log.info("Sottomissione ordine -> ottengo i dati dalla richiesta");
+					log.info("SottomissioneOrdine -> ottengo i dati dalla richiesta");
 					String indirizzo=request.getParameter("scelta-indirizzo");
-					log.info("Indirizzo: " + indirizzo);
+					log.info("SottomissioneOrdine -> indirizzo: " + indirizzo);
 					String metodo=request.getParameter("scelta-metpag");
-					log.info("Metodo di pagamento: " + metodo);
+					log.info("SottomissioneOrdine -> metodo di pagamento: " + metodo);
 					if(indirizzo.equalsIgnoreCase("Scegli un indirizzo di spedizione")
 							|| metodo.equalsIgnoreCase("Scegli un metodo di pagamento")) {
 						redirectedPage="/Acquisto.jsp";
@@ -60,7 +60,7 @@ public class SottomissioneOrdine extends HttpServlet {
 					else {
 						OrdineModelStub ordineModel=new OrdineModelStub();
 						
-						log.info("Sottomissione ordine -> creo l'ordine");
+						log.info("SottomissioneOrdine -> creo l'ordine");
 						OrdineBean ordine=new OrdineBean();
 						ordine.setNumero(ordineModel.generatoreNumero());
 						ordine.setUsername(user.getUsername());
@@ -71,9 +71,9 @@ public class SottomissioneOrdine extends HttpServlet {
 						ordine.setPagamento(Integer.parseInt(metodo));
 						
 						double totale=0;
-						log.info("Sottomissione ordine -> uso i prodotti nel carrello per creare la composizione dell'ordine");
+						log.info("SottomissioneOrdine -> uso i prodotti nel carrello per creare la composizione dell'ordine");
 						for(CarrelloItem item: carrello.getCarrello()) {
-							log.info("Sottomissione ordine -> creo la composizone dell'ordine");
+							log.info("SottomissioneOrdine -> creo la composizone dell'ordine");
 							ComposizioneBean cb=new ComposizioneBean();
 							cb.setOrdine(ordine.getNumero());
 							cb.setProdotto(item.getProdotto().getCodice());
@@ -85,19 +85,19 @@ public class SottomissioneOrdine extends HttpServlet {
 							
 							totale+=item.getProdotto().getPrezzo();
 	
-							log.info("Sottomissione ordine -> aggiungo composizione all'ordine");
+							log.info("SottomissioneOrdine -> aggiungo composizione all'ordine");
 							ordine.addProdotto(cb);
 						}
 						
-						log.info("Sottomissione ordine -> aggiorno totale dell'ordine");
+						log.info("SottomissioneOrdine -> aggiorno totale dell'ordine");
 						ordine.setTotale(totale);
-						log.info("Sottomissione ordine -> salvo l'ordine per completare la sottomissione");
+						log.info("SottomissioneOrdine -> salvo l'ordine per completare la sottomissione");
 						ordineModel.doSave(ordine);
 						
-						log.info("Sottomissione ordine -> svuoto il carrello dopo la sottomissione");
+						log.info("SottomissioneOrdine -> svuoto il carrello dopo la sottomissione");
 						carrello.svuotaCarrello();
 						
-						log.info("Sottomissione ordine -> imposto il numero dell'ordine per la fattura");
+						log.info("SottomissioneOrdine -> imposto il numero dell'ordine per la fattura");
 						session.setAttribute("Riepilogo", ordine.getNumero());
 						
 						RequestDispatcher view=request.getRequestDispatcher("Riepilogo.jsp");

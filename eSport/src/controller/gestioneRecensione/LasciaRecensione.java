@@ -27,21 +27,20 @@ public class LasciaRecensione extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 
-		log.info("Controllo l'azione da eseguire");
+		log.info("LasciaRecensione -> controllo l'azione da eseguire");
 		String needTo=request.getParameter("needTo");
-		log.info("Azione: " + needTo);
+		log.info("LasciaRecensione -> azione: " + needTo);
 		if(needTo==null || needTo.equals(""))
-			//Sostituire con pagina d'errore
 			needTo=WRITE;
 		
-		log.info("Controllo che l'utente sia autenticato");
+		log.info("LasciaRecensione -> controllo che l'utente sia autenticato");
 		Boolean userAuth=(Boolean) session.getAttribute("userAuth");
 		if((userAuth==null) || (!userAuth.booleanValue())) {
 			redirectedPage="/Login.jsp";
 			response.sendRedirect(request.getContextPath() + redirectedPage);
 		}
 		else {
-			log.info("Se autenticato procedo");
+			log.info("LasciaRecensione -> se autenticato procedo");
 
 			if(needTo.equals(WRITE)) {
 				rewProd=request.getParameter("rewProd");
@@ -51,37 +50,38 @@ public class LasciaRecensione extends HttpServlet {
 				response.sendRedirect(request.getContextPath() + redirectedPage);
 			}
 			else if(needTo.equals(SAVE)) {
-				log.info("Ottengo l'utente che sta lasciando la recensione");
+				log.info("LasciaRecensione -> ottengo l'utente che sta lasciando la recensione");
 				UtenteBean user=(UtenteBean) session.getAttribute("userLogged");
 				RecensioneModelStub recensioneModel=new RecensioneModelStub();
 					
-				log.info("Ottengo il prodotto per cui si sta lasciando la recensione");
+				log.info("LasciaRecensione -> ottengo il prodotto per cui si sta lasciando la recensione");
 				rewProd=(String) session.getAttribute("rewProd");
 					
-				log.info("Ottengo il commento e gestisco i caratteri speciali");
+				log.info("LasciaRecensione -> ottengo il commento e gestisco i caratteri speciali");
 				String commento=request.getParameter("commento");
 				commento=recensioneModel.correzione(commento);
 					
-				log.info("Ottengo il voto");
+				log.info("LasciaRecensione -> ottengo il voto");
 				Integer voto=Integer.parseInt(request.getParameter("voto"));
 					
-				log.info("Creo la recensione");
+				log.info("LasciaRecensione -> creo la recensione");
 				RecensioneBean recensione=new RecensioneBean();
 				recensione.setVoto(voto);
 				recensione.setCommento(commento);
 				recensione.setUsername(user.getUsername());
 				recensione.setProdotto(rewProd);
 					
-				log.info("Recensione da salvare: " + recensione.getVoto() + ", " + recensione.getProdotto() 
+				log.info("LasciaRecensione -> recensione da salvare: " + recensione.getVoto() 
+				    + ", " + recensione.getProdotto() 
 					+ ", " + recensione.getUsername()
 					+ "\n" + recensione.getCommento());
 					
-				log.info("Salvo la recensione");
+				log.info("LasciaRecensione -> salvo la recensione");
 				recensioneModel.doSave(recensione);
 					
 				session.removeAttribute("rewProd");
 					
-				log.info("Vado alla pagina del prodotto");
+				log.info("LasciaRecensione -> vado alla pagina della scheda del prodotto");
 				redirectedPage="/SchedaProdotto?codProd=" + rewProd;
 				response.sendRedirect(request.getContextPath() + redirectedPage);
 			}

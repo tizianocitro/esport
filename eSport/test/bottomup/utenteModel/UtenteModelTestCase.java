@@ -25,32 +25,34 @@ public class UtenteModelTestCase extends TestCase {
 		utenteTest.setTelefono("3321783520");
 	}
 	
-	//Tests doSave
-	public void doSaveCorretto() throws SQLException {
+	//Test doSave
+	public void doSave() throws SQLException {
+		//Caso corretto
 		utenteModel.doSave(utenteTest);
 		
+		//Verifico caso corretto
 		assertNotNull(utenteModel.doRetrieveByUsername(utenteTest.getUsername()));
-	}
-	
-	public void doSaveErrato() throws SQLException {
+		
+		//Caso errato
 		UtenteBean utenteErrato=new UtenteBean();
 		
 		utenteModel.doSave(utenteErrato);
 		
+		//Verifico caso errato
 		assertNull(utenteModel.doRetrieveByUsername(utenteErrato.getUsername()));
 	}
-	//Fine test doSave
 	
-	//Tests validate
-	public void validateCorretto() throws SQLException {
+	//Test validate
+	public void validate() throws SQLException {
+		//Caso corretto
 		UtenteBean validato=utenteModel.validate(utenteTest);
 		
+		//Verifico caso corretto
 		assertNotNull(validato);
-	}
-	
-	public void validateErrato() throws SQLException {
+		
+		//Casi errati
 		//Primo test
-		UtenteBean validato=utenteModel.validate(null);
+		validato=utenteModel.validate(null);
 		assertNull(validato);
 		
 		//Secondo test
@@ -67,38 +69,38 @@ public class UtenteModelTestCase extends TestCase {
 		validato=utenteModel.validate(user);
 		assertNull(validato);
 	}
-	//Fine tests validate
 	
-	//Tests doRetrieveByUsername
-	public void doRetrieveByUsernameCorretto() throws SQLException {
+	//Test doRetrieveByUsername
+	public void doRetrieveByUsername() throws SQLException {
+		//Caso corretto
 		UtenteBean user=utenteModel.doRetrieveByUsername(utenteTest.getUsername());
 		
+		//Verifico caso corretto
 		assertNotNull(user);
-	}
-	
-	public void doRetrieveByUsernameErrato() throws SQLException {
-		UtenteBean user=utenteModel.doRetrieveByUsername("");
 		
+		//Caso errato
+		user=utenteModel.doRetrieveByUsername("");
+		
+		//Verifico caso errato
 		assertNull(user);
 	}
-	//Fine tests doRetrieveByUsername
 	
-	//Tests doDelete
-	public void doUpdateCorretto() throws SQLException {
+	//Test doUpdate
+	public void doUpdate() throws SQLException {
+		//Caso corretto
+		//Imposto delle modifiche
 		utenteTest.setNome("Tiziano");
 		assertTrue(utenteModel.doUpdate(utenteTest));
-	}
-	
-	public void doUpdateErrato() throws SQLException {
+
+		//Caso errato
 		assertFalse(utenteModel.doUpdate(null));
+
 	}
-	//Fine tests doDelete
 	
-	//Tests doDelete
-	public void doDeleteCorretto() throws SQLException {		
+	//Test doDelete
+	public void doDelete() throws SQLException {		
 		assertTrue(utenteModel.doDelete(utenteTest));
 	}
-	//Fine tests doDelete
 	
 	private UtenteModel utenteModel;
 	private UtenteBean utenteTest;

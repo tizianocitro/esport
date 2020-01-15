@@ -25,9 +25,20 @@ public class IndirizzoModel {
 	 * @throws SQLException 
 	 */
 	public void doSave(IndirizzoBean indirizzo) throws SQLException {
+		log.info("IndirizzoModel -> doSave");
+		
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
+		log.info("doSave -> verifico la correttezza dell'indirizzo da salvare");
+		if(indirizzo==null || indirizzo.getUsername()==null || indirizzo.getUsername().equals("")
+				|| indirizzo.getCitta()==null || indirizzo.getCitta().equals("")
+				|| indirizzo.getVia()==null || indirizzo.getVia().equals("")
+				|| indirizzo.getCap()==null || indirizzo.getCap().equals("")
+				|| indirizzo.getCivico()==null || indirizzo.getCivico().equals(""))
+			return;
+		
+		log.info("doSave -> eseguo query");
 		String insertSQL="insert into " + IndirizzoModel.TABLE_NAME
 				+ " (usr, citta, via, civico, cap) "
 				+ "values (?, ?, ?, ?, ?)";
@@ -39,7 +50,8 @@ public class IndirizzoModel {
 			preparedStatement.setString(1, indirizzo.getUsername());
 			preparedStatement.setString(2, indirizzo.getCitta());
 			preparedStatement.setString(3, indirizzo.getVia());
-			preparedStatement.setString(4, indirizzo.getCap());
+			preparedStatement.setString(4, indirizzo.getCivico());
+			preparedStatement.setString(5, indirizzo.getCap());
 
 			preparedStatement.executeUpdate();
 
@@ -54,6 +66,8 @@ public class IndirizzoModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		
+		log.info("IndirizzoModel -> doSave terminato");
 	}
 	
 	/**
@@ -63,11 +77,17 @@ public class IndirizzoModel {
 	 * @throws SQLException 
 	 */
 	public Set<IndirizzoBean> doRetrieveByUtente(UtenteBean utente) throws SQLException{
+		log.info("IndirizzoModel -> doRetrieveByUtente");
 		LinkedHashSet<IndirizzoBean> indirizzi=new LinkedHashSet<IndirizzoBean>();
 	
+		log.info("doRetrieveByUtente -> verifico che l'username dell'utente sia corretto");
+		if(utente==null || utente.getUsername()==null || utente.getUsername().equals(""))
+			return null;
+		
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 
+		log.info("doRetrieveByUtente -> eseguo query");
 		String selectSQL = "select * from " + IndirizzoModel.TABLE_NAME + " where usr=?";
 
 		try {
@@ -98,6 +118,7 @@ public class IndirizzoModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("IndirizzoModel -> doRetrieveByUtente terminato");
 		
 		return indirizzi;
 	}
@@ -108,10 +129,17 @@ public class IndirizzoModel {
 	 * @throws SQLException 
 	 */
 	public boolean doDelete(IndirizzoBean indirizzo) throws SQLException {
+		log.info("IndirizzoModel -> doDelete");
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
+		log.info("doDelete -> controllo correttezza indirizzo");
+		if(indirizzo==null)
+			return false;
+		
 		int result=0;
+
+		log.info("doDelete -> eseguo query");
 
 		String deleteSQL="delete from " + IndirizzoModel.TABLE_NAME + " where codice=?";
 
@@ -131,7 +159,8 @@ public class IndirizzoModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
-		
-		return result!=0;
+		log.info("IndirizzoModel -> doDelete terminato");
+
+		return (result!=0);
 	}
 }

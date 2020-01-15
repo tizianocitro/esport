@@ -26,26 +26,26 @@ public class Fattura extends HttpServlet {
 		String redirectedPage="";
 		
 		synchronized(session) {
-			log.info("Servlet Fattura -> controllo che l'utente si sia autenticato");
+			log.info("Fattura -> controllo che l'utente si sia autenticato");
 			Boolean userAuth=(Boolean) session.getAttribute("userAuth");
 			if((userAuth==null) || (!userAuth.booleanValue())) {
 				redirectedPage="/Login.jsp";
 				response.sendRedirect(request.getContextPath() + redirectedPage);
 			}
 			else {
-				log.info("Servlet Fattura -> recupero il numero identificativo dell'ordine dalla richiesta");
+				log.info("Fattura -> recupero il numero identificativo dell'ordine dalla richiesta");
 				String numeroOrdine=request.getParameter("numeroOrdine");
 				
 				OrdineModelStub ordineModel=new OrdineModelStub();
 				
-				log.info("Servlet Fattura -> ottengo l'ordine in base al numero");
+				log.info("Fattura -> ottengo l'ordine in base al numero");
 				OrdineBean ordine=ordineModel.doRetrieveByNumero(numeroOrdine);
 				if(ordine!=null)
 					session.setAttribute("Ordine", ordine);
 
 				UtenteModelStub utenteModel=new UtenteModelStub();
 
-				log.info("Ottengo l'utente per la fattura");
+				log.info("Fattura -> ottengo l'utente per la fattura");
 				UtenteBean utente=utenteModel.doRetrieveByUsername(ordine.getUsername());
 				if(utente!=null)
 					session.setAttribute("UtenteFattura", utente);

@@ -18,35 +18,36 @@ public class RuoloModelTestCase extends TestCase {
 		ruoloModel=new RuoloModel();
 	}
 	
-	//Tests doRetrieveByUtente
-	public void doRetrieveByUtenteCorretto() throws SQLException {	
+	//Test doRetrieveByUtente
+	public void doRetrieveByUtente() throws SQLException {	
+		//Caso corretto
 		//Creo l'utente
 		UtenteBean user=new UtenteBean();
 		user.setUsername("root");
 		
-		//Ottengo i ruoli dell'utente
 		LinkedHashMap<String, RuoloBean> ruoli=(LinkedHashMap<String, RuoloBean>) ruoloModel.doRetrieveByUtente(user);
 		
+		//Verifico caso corretto
 		assertFalse(ruoli.isEmpty());
 		assertNotNull(ruoli);
-	}
-	
-	public void doRetrieveByUtenteErrato() throws SQLException {	
-		//Ottengo i ruoli dell'utente
-		LinkedHashMap<String, RuoloBean> ruoli=(LinkedHashMap<String, RuoloBean>) ruoloModel.doRetrieveByUtente(null);
 		
+		//Caso errato
+		ruoli=(LinkedHashMap<String, RuoloBean>) ruoloModel.doRetrieveByUtente(null);
+		
+		//Verifico caso errato
 		assertNull(ruoli);
 	}
-	//Fine tests doRetrieveByUtente
 	
 	//Test doSave
-	public void doSaveCorretto() throws SQLException {
+	public void doSave() throws SQLException {
 		//Creo l'utente
 		UtenteBean user=new UtenteBean();
 		user.setUsername("CarloRaucci");
 		
 		//Creo ruolo da salvare
 		RuoloBean ruolo=new RuoloBean();
+		
+		//Caso corretto
 		ruolo.setUsername("CarloRaucci");
 		ruolo.setPermesso("Catalogo");
 		
@@ -56,19 +57,12 @@ public class RuoloModelTestCase extends TestCase {
 		//Ottengo i ruoli
 		LinkedHashMap<String, RuoloBean> ruoli=(LinkedHashMap<String, RuoloBean>) ruoloModel.doRetrieveByUtente(user);
 		
-		//Verifico
+		//Verifico caso corretto
 		assertNotNull(ruoli);
 		assertFalse(ruoli.isEmpty());
 		assertTrue(ruoli.containsKey(ruolo.getPermesso()));
-	}
-	
-	public void doSaveErrato() throws SQLException {
-		//Creo l'utente
-		UtenteBean user=new UtenteBean();
-		user.setUsername("CarloRaucci");
 		
-		//Creo ruolo da salvare
-		RuoloBean ruolo=new RuoloBean();
+		//Caso errato
 		ruolo.setUsername("");
 		ruolo.setPermesso("");
 		
@@ -76,11 +70,11 @@ public class RuoloModelTestCase extends TestCase {
 		ruoloModel.doSave(ruolo);
 		
 		//Ottengo i ruoli
-		LinkedHashMap<String, RuoloBean> ruoli=(LinkedHashMap<String, RuoloBean>) ruoloModel.doRetrieveByUtente(user);
+		ruoli=(LinkedHashMap<String, RuoloBean>) ruoloModel.doRetrieveByUtente(user);
 		
+		//Verifico caso errato
 		assertFalse(ruoli.containsKey(ruolo.getPermesso()));
 	}
-	//Fine test doSave
 	
 	private RuoloModel ruoloModel;
 

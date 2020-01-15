@@ -23,22 +23,22 @@ public class Ruolo extends HttpServlet {
 		
 		HttpSession session=request.getSession();
 		synchronized(session) {	
-			log.info("Sono nella servlet Ruolo");
+			log.info("Ruolo -> sono nella servlet Ruolo");
 			
 			permesso=request.getParameter("permesso");
-			log.info("ruolo: " + permesso);
+			log.info("Ruolo -> permesso: " + permesso);
 			
 			session.setAttribute("ruolo", permesso);
 
-			log.info("Se gestore degli ordini vado alla pagina di gestione degli ordini attivi");
+			log.info("Ruolo -> se gestore degli ordini vado alla pagina di gestione degli ordini attivi");
 			if(permesso.equals(ORDINI))
 				redirectedPage="/OrdiniAttivi";
 			else if(permesso.equals(CATALOGO)) {
-				log.info("Vado alla pagina di gestione del catalogo");
+				log.info("Ruolo -> vado alla pagina di gestione del catalogo");
 				redirectedPage="/GestioneCatalogo?tipo=Divisa&order=nome";
 			}
 			else {
-				log.info("Vado alla Home Page");
+				log.info("Ruolo -> vado alla Home Page");
 				redirectedPage="/Index.jsp";
 			}
 		}

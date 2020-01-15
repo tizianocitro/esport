@@ -21,10 +21,10 @@ public class OrdiniAttivi extends HttpServlet {
 	Logger log=Logger.getLogger("OrdiniAttiviDebugger");
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		log.info("Servlet per gli ordini attivi");
+		log.info("OrdiniAttivi -> sono nella servlet per gli ordini attivi");
 		HttpSession session=request.getSession();
 		
-		log.info("Ottenog l'ordine di visualizzazione degli ordini attivi");
+		log.info("OrdiniAttivi -> ottengo l'ordine di visualizzazione degli ordini attivi");
 		String order=(String) request.getAttribute("order");
 		if(order==null)
 			order="sottomissione";
@@ -32,10 +32,10 @@ public class OrdiniAttivi extends HttpServlet {
 		synchronized(session) {
 			OrdineModelStub ordineModel=new OrdineModelStub();
 			
-			log.info("Ottengo gli ordini attivi");
+			log.info("OrdiniAttivi -> ottengo gli ordini attivi");
 			LinkedHashSet<OrdineBean> ordiniAttivi=(LinkedHashSet<OrdineBean>) ordineModel.doRetrieveIfAttivi(order);
 			
-			log.info("Aggiungo ordini attivi alla sessione");
+			log.info("OrdiniAttivi -> aggiungo ordini attivi alla sessione");
 			session.setAttribute("OrdiniAttivi", ordiniAttivi);
 		}
 		//Finse synchronized

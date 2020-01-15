@@ -22,12 +22,12 @@ public class Carrello extends HttpServlet {
 		HttpSession session=request.getSession();
 		
 		synchronized(session) {
-			log.info("Verifico che il carrello esiste, se non esiste lo creo");
+			log.info("Carrello -> verifico che il carrello esiste, se non esiste lo creo");
 			CarrelloBean carrello=(CarrelloBean) session.getAttribute("Carrello");
 			if(carrello==null)
 				carrello=new CarrelloBean();
 
-			log.info("Aggiungo carrello alla sessione");
+			log.info("Carrello -> aggiungo carrello alla sessione");
 			session.setAttribute("Carrello", carrello);
 		}
 		

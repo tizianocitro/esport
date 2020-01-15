@@ -22,18 +22,18 @@ public class ModificaQt extends HttpServlet {
 		HttpSession session=request.getSession();
 		
 		synchronized(session) {
-			log.info("Ottengo il carrello");
+			log.info("ModificaQt -> ottengo il carrello");
 			CarrelloBean carrello=(CarrelloBean) session.getAttribute("Carrello");
 			
-			log.info("Ottengo il codice del prodotto, la taglia e l'azione da eseguire: aumento | diminuizione");
+			log.info("ModificaQt -> ottengo il codice del prodotto, la taglia e l'azione da eseguire: aumento | diminuizione");
 			String codiceProdotto=request.getParameter("prodotto");
 			String taglia=request.getParameter("taglia");
 			String action=request.getParameter("action");
 			
-			log.info("Modifico la quantità del prodotto: " + codiceProdotto + ", azione: " + action);
+			log.info("ModificaQt -> modifico la quantità del prodotto: " + codiceProdotto + ", azione: " + action);
 			carrello.modificaQt(codiceProdotto, taglia, action);
 			
-			log.info("Aggiorno il carrello");
+			log.info("ModificaQt -> aggiorno il carrello");
 			session.setAttribute("Carrello", carrello);
 		}
 		

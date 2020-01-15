@@ -112,7 +112,7 @@ public class IndirizzoBean {
 	@Override
 	public String toString() {
 		return citta + ", " + via + " " + civico;
-	}
+	}	
 	
 	/**
 	 * Variabile d'istanza codice

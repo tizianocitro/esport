@@ -18,19 +18,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 		<link  rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-		<link  rel="stylesheet" type="text/css" href="css/RegisterForm.css"  >
+		<link  rel="stylesheet" type="text/css" href="css/Form.css"  >
 	</head>
 	
 	<body>
 		<aside>
 			<div id="Logo" class="login-main-text">
-      			<img src="https://imgur.com/rssBTKs.png" alt="Logo" class="Logo">
+      			<img src="images/LogoNero.png" alt="Logo" class="Logo">
          	</div>
       	</aside>
       	
       	<div class="main">
 			<div class="col-md-6 col-sm-12">
-            	<div class="register-form">
+            	<div class="login-form">
                		<form name='rec' action="LasciaRecensione" method="get" onSubmit="recensioneFormValidation();">
                			<input type="hidden" name="needTo" value="save" />
                			

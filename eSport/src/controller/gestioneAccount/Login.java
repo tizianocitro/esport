@@ -30,16 +30,16 @@ public class Login extends HttpServlet {
 		
 		HttpSession session=request.getSession();
 		synchronized(session) {
-			log.info("Sono nella servlet di login -> creo l'utente da loggare");
+			log.info("Login -> creo l'utente da loggare");
 			UtenteBean toLog=new UtenteBean();
 			toLog.setUsername(username);
 			toLog.setPassword(password);
 				
 			UtenteModelStub utenteModel=new UtenteModelStub();
 			UtenteBean user=utenteModel.validate(toLog);
-			log.info("Sono nello servlet di login -> terminato metodo: verifica");
+			log.info("Login -> terminato metodo: verifica");
 			if(user!=null) {
-				log.info("utente loggato: " + user.getUsername() + ", " + user.getPassword());
+				log.info("Login -> utente loggato: " + user.getUsername() + ", " + user.getPassword());
 				session.setAttribute("userAuth", true);
 				session.setAttribute("ruolo", UTENTE);
 				session.setAttribute("userLogged", user);

@@ -24,9 +24,16 @@ public class TagliaModel {
 	 * @throws SQLException 
 	 */
 	public void doSave(TagliaBean taglia) throws SQLException {
+		log.info("TagliaModel -> doSave");
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
+		log.info("doSave -> verifico che la taglia da salvare sia corretta");
+		if(taglia==null || taglia.getProdotto()==null || taglia.getProdotto().equals("")
+				|| taglia.getMisura()==null || taglia.getMisura().equals(""))
+				return;
+		
+		log.info("doSave -> eseguo query");
 		String insertSQL="insert into " + TagliaModel.TABLE_NAME
 				+ " (prodotto, misura) "
 				+ "values (?, ?)";
@@ -50,7 +57,8 @@ public class TagliaModel {
 			finally {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
-		}
+		}	
+		log.info("TagliaModel -> doSave terminato");
 	}
 	
 	/**
@@ -59,11 +67,17 @@ public class TagliaModel {
 	 * @throws SQLException 
 	 */
 	public Set<TagliaBean> doRetrieveByProdotto(String prodotto) throws SQLException {
+		log.info("TagliaModel -> doRetrieveByProdotto");
 		LinkedHashSet<TagliaBean> taglie=new LinkedHashSet<TagliaBean>();
 
+		log.info("doRetrieveByProdotto -> verifico che il prodotto sia corretto");
+		if(prodotto==null || prodotto.equals(""))
+			return null;
+		
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
+		log.info("doRetrieveByProdotto -> eseguo query");
 		String selectSQL="select * from " + TagliaModel.TABLE_NAME + " where prodotto=?";
 
 		try {
@@ -91,6 +105,7 @@ public class TagliaModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("TagliaModel -> doRetrieveByProdotto terminato");
 		
 		return taglie;
 	}

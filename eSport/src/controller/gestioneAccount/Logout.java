@@ -18,7 +18,7 @@ public class Logout extends HttpServlet {
 		String redirectedPage="/Index.jsp";
 		
 		request.getSession().invalidate();
-		log.info("Logout eseguito");
+		log.info("Logout -> utente disconnesso");
 		
 		response.sendRedirect(request.getContextPath() + redirectedPage);
 	}

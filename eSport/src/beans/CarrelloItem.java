@@ -65,11 +65,11 @@ public class CarrelloItem {
 	 * Permette di confrontare due prodotti per verificare che essi siano uguali 
 	 */
 	@Override
-	public boolean equals(Object item) {
-		if(!(item instanceof CarrelloItem) || item==null)
+	public boolean equals(Object obj) {
+		if(!(obj instanceof CarrelloItem) || obj==null)
 			return false;
 		
-		CarrelloItem carrelloItem=(CarrelloItem) item;
+		CarrelloItem carrelloItem=(CarrelloItem) obj;
 		
 		return prodotto.getCodice().equals(carrelloItem.getProdotto().getCodice())
 				&& taglia.equals(carrelloItem.getTaglia());

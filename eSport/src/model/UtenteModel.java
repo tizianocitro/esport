@@ -65,7 +65,7 @@ public class UtenteModel {
 			}
 		}
 		
-		log.info("doSave -> terminato doSave");
+		log.info("UtenteModel -> terminato doSave");
 	}
 	
 	/**

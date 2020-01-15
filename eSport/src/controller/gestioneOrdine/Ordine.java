@@ -27,13 +27,13 @@ public class Ordine extends HttpServlet {
 		
 		String redirectedPage="";
 		
-		log.info("Distinguo tra utente e gestore degli ordini");
+		log.info("Ordine -> distinguo tra utente e gestore degli ordini");
 		String toDo=request.getParameter("toDo");
 		if(toDo==null || toDo.equals(""))
 			toDo="utente";
 		
 		synchronized(session) {
-			log.info("Verifico che l'utente si sia autenticato");
+			log.info("Ordine -> verifico che l'utente si sia autenticato");
 			Boolean userAuth=(Boolean) session.getAttribute("userAuth");
 			if((userAuth==null) || (!userAuth.booleanValue())) {
 				redirectedPage="/Login.jsp";
@@ -43,19 +43,19 @@ public class Ordine extends HttpServlet {
 				OrdineModelStub ordineModel=new OrdineModelStub();
 				LinkedHashSet<OrdineBean> ordini=new LinkedHashSet<OrdineBean>();
 
-				log.info("Ottengo l'ordine per visualizzare gli ordini");
+				log.info("Ordine -> ottengo l'ordine per visualizzare gli ordini");
 				String order=request.getParameter("order");
 				if(order==null || order.equals(""))
 					order="nome";
 				
 				if(toDo.equals(GESTORE)) {
-					log.info("Ottengo tutti gli ordini poichè l'utente è gestore degli ordini");
+					log.info("Ordine -> ottengo tutti gli ordini poichè l'utente è gestore degli ordini");
 					ordini=(LinkedHashSet<OrdineBean>) ordineModel.doRetrieveAll();							
 				}
 				else {
 					UtenteBean utente=(UtenteBean) session.getAttribute("userLogged");
 					
-					log.info("Ottengo solo gli ordini dell'utente");
+					log.info("Ordine -> ottengo solo gli ordini dell'utente");
 					ordini=(LinkedHashSet<OrdineBean>) ordineModel.doRetrieveByUtente(utente);					
 				}
 				

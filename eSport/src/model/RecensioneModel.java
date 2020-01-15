@@ -24,9 +24,19 @@ public class RecensioneModel {
 	 * @throws SQLException 
 	 */
 	public void doSave(RecensioneBean recensione) throws SQLException {
+		log.info("RecensioneModel -> doSave");
+
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
+		log.info("doSave -> verifico le pre-condizioni");
+		if(recensione==null || recensione.getProdotto()==null || recensione.getProdotto().equals("")
+				|| recensione.getUsername()==null || recensione.getUsername().equals("")
+				|| recensione.getVoto()<RecensioneBean.VOTO_MINIMO || recensione.getVoto()>RecensioneBean.VOTO_MASSIMO
+				|| recensione.getCommento()==null || recensione.getCommento().equals(""))
+			return;
+		
+		log.info("doSave -> eseguo la query");
 		String insertSQL="insert into " + RecensioneModel.TABLE_NAME
 				+ " (voto, commento, usr, prodotto) "
 				+ "values (?, ?, ?, ?)";
@@ -53,6 +63,7 @@ public class RecensioneModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("RecensioneModel -> doSave terminato");
 	}
 	
 	/**
@@ -62,11 +73,18 @@ public class RecensioneModel {
 	 * @throws SQLException 
 	 */
 	public Set<RecensioneBean> doRetrieveByProdotto(String prodotto, String order) throws SQLException {
+		log.info("RecensioneModel -> doRetrieveByProdotto");
+
 		LinkedHashSet<RecensioneBean> recensioni=new LinkedHashSet<RecensioneBean>();
+
+		log.info("doRetrieveByProdotto -> verifico le pre-condizioni");
+		if(prodotto==null || prodotto.equals(""))
+			return null;
 
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 
+		log.info("doRetrieveByProdotto -> eseguo query");
 		String selectSQL = "select * from " + RecensioneModel.TABLE_NAME + " where prodotto=?";
 
 		if (order!=null && !order.equals("")) {
@@ -100,6 +118,7 @@ public class RecensioneModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("RecensioneModel -> doRetrieveByProdotto terminato");
 		
 		return recensioni;
 	}
@@ -110,10 +129,12 @@ public class RecensioneModel {
 	 * @return commentoFiltrato
 	 */
 	public String correzione(String commento) {
+		log.info("RecensioneModel -> verifico la correttezza dei caratteri nel commento della recensione");
 		if(!hasSpecialChars(commento)) {
 			return commento;
 		}
 
+		log.info("RecensioneModel -> filtro commento");
 		StringBuilder commentoFiltrato = new StringBuilder(commento.length());
 		char c;
 		for(int i=0; i<commento.length(); i++) {
@@ -126,6 +147,7 @@ public class RecensioneModel {
 			default: commentoFiltrato.append(c);
 			}
 		}
+		
 		return commentoFiltrato.toString();
 	}
 
