@@ -40,7 +40,7 @@ public class AddProdottoCarrello extends HttpServlet {
 			log.info("AddProdottoCarrello -> controllo che l'utente abbia scelto la taglia");
 			if(taglia.equalsIgnoreCase("Scegli la taglia")) {
 				log.info("AddProdottoCarrello -> se non lo ha fatto il prodotto non viene aggiunto al carrello");
-				response.sendRedirect(request.getContextPath() + "/SchedaProdottoStub?codProd=" + codiceProdotto);
+				response.sendRedirect(request.getContextPath() + "/SchedaProdotto?codProd=" + codiceProdotto);
 			}
 			else {
 				log.info("AddProdottoCarrello -> se l'utente ha inserito la taglia, procedo ottenendo il catalogo");

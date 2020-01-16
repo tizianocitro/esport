@@ -1,6 +1,7 @@
 package controller.gestioneCatalogo;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.CatalogoBean;
-import topdown.ProdottoModelStub;
+import model.ProdottoModel;
 
 @WebServlet("/Catalogo")
 public class Catalogo extends HttpServlet {
@@ -28,7 +29,7 @@ public class Catalogo extends HttpServlet {
 			order="nome";
 		
 		synchronized(session) {
-			ProdottoModelStub prodottoModel=new ProdottoModelStub();
+			ProdottoModel prodottoModel=new ProdottoModel();
 			
 			log.info("Catalogo -> ottengo il tipo dei prodotti per il catalogo");
 			String tipo=(String) request.getParameter("tipo");
@@ -40,7 +41,13 @@ public class Catalogo extends HttpServlet {
 			
 			log.info("Catalogo -> ottengo i prodotti per il catalogo in base al tipo");
 			CatalogoBean catalogo=new CatalogoBean();
-			catalogo.setCatalogo(prodottoModel.doRetrieveByTipo(tipo));
+			try {
+				catalogo.setCatalogo(prodottoModel.doRetrieveByTipo(tipo, order));
+			} 
+			catch (SQLException e) {
+				log.info("Catalogo -> errore ottenimento prodotti del catalogo");
+				e.printStackTrace();
+			}
 			
 			session.setAttribute("Catalogo", catalogo);
 			session.setAttribute("tp", tipo);

@@ -1,6 +1,7 @@
 package controller.gestioneCatalogo;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.LinkedHashSet;
 import java.util.logging.Logger;
 
@@ -14,8 +15,8 @@ import javax.servlet.http.HttpSession;
 
 import beans.ProdottoBean;
 import beans.RecensioneBean;
-import topdown.ProdottoModelStub;
-import topdown.RecensioneModelStub;
+import model.ProdottoModel;
+import model.RecensioneModel;
 
 @WebServlet("/SchedaProdotto")
 public class SchedaProdotto extends HttpServlet {
@@ -28,17 +29,32 @@ public class SchedaProdotto extends HttpServlet {
 		synchronized(session) {
 			log.info("Scheda prodotto -> ottengo il codice del prodotto da mostrare dalla richiesta");
 			String codiceProdotto=request.getParameter("codProd");
+			String order=request.getParameter("order");
+			if(order==null)
+				order="voto";
 			
-			ProdottoModelStub prodottoModel=new ProdottoModelStub();
+			ProdottoModel prodottoModel=new ProdottoModel();
 			
 			log.info("Scheda prodotto -> ottengo il prodotto da mostrare");
-			ProdottoBean prodottoDaMostrare=prodottoModel.doRetrieveByCodice(codiceProdotto);
+			ProdottoBean prodottoDaMostrare=new ProdottoBean();
+			try {
+				prodottoDaMostrare=prodottoModel.doRetrieveByCodice(codiceProdotto);
+			} catch (SQLException e) {
+				log.info("SchedaProdotto -> errore ottenimento prodotto");
+				e.printStackTrace();
+			}
 			if(prodottoDaMostrare!=null) {				
 				log.info("Scheda prodotto -> ottengo le recensioni per il prodotto da mostrare");
-				RecensioneModelStub recensioneModel=new RecensioneModelStub();
-				LinkedHashSet<RecensioneBean> recensioni=(LinkedHashSet<RecensioneBean>) recensioneModel.doRetrieveAll();
-				if(recensioni.size()!=0) {
-					prodottoDaMostrare.setRecensioni(recensioneModel.doRetrieveByProdotto(codiceProdotto));
+				RecensioneModel recensioneModel=new RecensioneModel();
+
+				try {
+					LinkedHashSet<RecensioneBean> recensioni=(LinkedHashSet<RecensioneBean>) recensioneModel.doRetrieveByProdotto(codiceProdotto, order);
+					if(recensioni!=null)
+						prodottoDaMostrare.setRecensioni(recensioni);
+				} 
+				catch (SQLException e) {
+					log.info("Scheda prodotto -> errore ottenimento recensioni per prodotto: " + codiceProdotto);
+					e.printStackTrace();
 				}	
 				
 				log.info("Scheda prodotto -> aggiungo il prodotto da mostrare alla sessione");

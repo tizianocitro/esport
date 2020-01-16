@@ -1,6 +1,7 @@
 package controller.gestioneRecensione;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import beans.RecensioneBean;
 import beans.UtenteBean;
-import topdown.RecensioneModelStub;
+import model.RecensioneModel;
 
 @WebServlet("/LasciaRecensione")
 public class LasciaRecensione extends HttpServlet {
@@ -52,7 +53,7 @@ public class LasciaRecensione extends HttpServlet {
 			else if(needTo.equals(SAVE)) {
 				log.info("LasciaRecensione -> ottengo l'utente che sta lasciando la recensione");
 				UtenteBean user=(UtenteBean) session.getAttribute("userLogged");
-				RecensioneModelStub recensioneModel=new RecensioneModelStub();
+				RecensioneModel recensioneModel=new RecensioneModel();
 					
 				log.info("LasciaRecensione -> ottengo il prodotto per cui si sta lasciando la recensione");
 				rewProd=(String) session.getAttribute("rewProd");
@@ -77,7 +78,13 @@ public class LasciaRecensione extends HttpServlet {
 					+ "\n" + recensione.getCommento());
 					
 				log.info("LasciaRecensione -> salvo la recensione");
-				recensioneModel.doSave(recensione);
+				try {
+					recensioneModel.doSave(recensione);
+				} 
+				catch (SQLException e) {
+					log.info("LasciaRecensione -> errore salvataggio recensione");
+					e.printStackTrace();
+				}
 					
 				session.removeAttribute("rewProd");
 					

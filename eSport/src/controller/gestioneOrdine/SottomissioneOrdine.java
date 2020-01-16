@@ -1,6 +1,7 @@
 package controller.gestioneOrdine;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -16,7 +17,7 @@ import beans.CarrelloItem;
 import beans.ComposizioneBean;
 import beans.OrdineBean;
 import beans.UtenteBean;
-import topdown.OrdineModelStub;
+import model.OrdineModel;
 
 @WebServlet("/SottomissioneOrdine")
 public class SottomissioneOrdine extends HttpServlet {
@@ -58,13 +59,19 @@ public class SottomissioneOrdine extends HttpServlet {
 						response.sendRedirect(request.getContextPath() + redirectedPage);
 					}
 					else {
-						OrdineModelStub ordineModel=new OrdineModelStub();
+						OrdineModel ordineModel=new OrdineModel();
 						
 						log.info("SottomissioneOrdine -> creo l'ordine");
 						OrdineBean ordine=new OrdineBean();
-						ordine.setNumero(ordineModel.generatoreNumero());
+						try {
+							ordine.setNumero(ordineModel.generatoreNumero());
+						} 
+						catch (SQLException eNumero) {
+							log.info("SottomissioneOrdine -> errore generazione numero");
+							eNumero.printStackTrace();
+						}
 						ordine.setUsername(user.getUsername());
-						ordine.setStato(OrdineModelStub.ELABORAZIONE);
+						ordine.setStato(OrdineBean.ELABORAZIONE);
 						ordine.setSottomissione(ordineModel.generatoreSottomissione());
 						ordine.setConsegna(ordineModel.generatoreConsegna());
 						ordine.setIndirizzo(Integer.parseInt(indirizzo));
@@ -92,7 +99,13 @@ public class SottomissioneOrdine extends HttpServlet {
 						log.info("SottomissioneOrdine -> aggiorno totale dell'ordine");
 						ordine.setTotale(totale);
 						log.info("SottomissioneOrdine -> salvo l'ordine per completare la sottomissione");
-						ordineModel.doSave(ordine);
+						try {
+							ordineModel.doSave(ordine);
+						} 
+						catch (SQLException eOrdine) {
+							log.info("Sottomissione ordine -> errore salvataggio ordine");
+							eOrdine.printStackTrace();
+						}
 						
 						log.info("SottomissioneOrdine -> svuoto il carrello dopo la sottomissione");
 						carrello.svuotaCarrello();

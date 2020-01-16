@@ -1,6 +1,7 @@
 package controller.gestioneAccount;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.UtenteBean;
-import topdown.UtenteModelStub;
+import model.UtenteModel;
 
 @WebServlet("/Login")
 public class Login extends HttpServlet {
@@ -35,8 +36,16 @@ public class Login extends HttpServlet {
 			toLog.setUsername(username);
 			toLog.setPassword(password);
 				
-			UtenteModelStub utenteModel=new UtenteModelStub();
-			UtenteBean user=utenteModel.validate(toLog);
+			UtenteModel utenteModel=new UtenteModel();
+			UtenteBean user=new UtenteBean();
+			try {
+				user=utenteModel.validate(toLog);
+			} 
+			catch (SQLException e) {
+				log.info("Login -> errore validazione utente");
+				e.printStackTrace();
+			}
+			
 			log.info("Login -> terminato metodo: verifica");
 			if(user!=null) {
 				log.info("Login -> utente loggato: " + user.getUsername() + ", " + user.getPassword());

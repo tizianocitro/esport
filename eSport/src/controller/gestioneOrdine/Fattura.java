@@ -1,6 +1,7 @@
 package controller.gestioneOrdine;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -13,8 +14,8 @@ import javax.servlet.http.HttpSession;
 
 import beans.OrdineBean;
 import beans.UtenteBean;
-import topdown.OrdineModelStub;
-import topdown.UtenteModelStub;
+import model.OrdineModel;
+import model.UtenteModel;
 
 @WebServlet("/Fattura")
 public class Fattura extends HttpServlet {
@@ -36,19 +37,33 @@ public class Fattura extends HttpServlet {
 				log.info("Fattura -> recupero il numero identificativo dell'ordine dalla richiesta");
 				String numeroOrdine=request.getParameter("numeroOrdine");
 				
-				OrdineModelStub ordineModel=new OrdineModelStub();
+				OrdineModel ordineModel=new OrdineModel();
 				
 				log.info("Fattura -> ottengo l'ordine in base al numero");
-				OrdineBean ordine=ordineModel.doRetrieveByNumero(numeroOrdine);
-				if(ordine!=null)
-					session.setAttribute("Ordine", ordine);
+				OrdineBean ordine=new OrdineBean();
+				try {
+					ordine=ordineModel.doRetrieveByNumero(numeroOrdine);
+					if(ordine!=null)
+						session.setAttribute("Ordine", ordine);
+					
+					UtenteModel utenteModel=new UtenteModel();
 
-				UtenteModelStub utenteModel=new UtenteModelStub();
-
-				log.info("Fattura -> ottengo l'utente per la fattura");
-				UtenteBean utente=utenteModel.doRetrieveByUsername(ordine.getUsername());
-				if(utente!=null)
-					session.setAttribute("UtenteFattura", utente);
+					log.info("Fattura -> ottengo l'utente per la fattura");
+					UtenteBean utente=new UtenteBean();
+					try {
+						utente=utenteModel.doRetrieveByUsername(ordine.getUsername());
+						if(utente!=null)
+							session.setAttribute("UtenteFattura", utente);
+					} 
+					catch (SQLException eUtente) {
+						log.info("Fattura -> errore ottenimento utente");
+						eUtente.printStackTrace();
+					}
+				} 
+				catch (SQLException eOrdine) {
+					log.info("Fattura -> errore ottenimento ordine");
+					eOrdine.printStackTrace();
+				}
 			}
 		}
 		//Fine synchronized

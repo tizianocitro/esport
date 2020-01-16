@@ -1,6 +1,7 @@
 package controller.gestioneOrdine;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import beans.OrdineBean;
 import beans.UtenteBean;
-import topdown.OrdineModelStub;
+import model.OrdineModel;
 
 @WebServlet("/AggiornaStato")
 public class AggiornaStato extends HttpServlet {
@@ -48,16 +49,20 @@ public class AggiornaStato extends HttpServlet {
 				log.info("AggiornaStato -> se autenticato come gestore degli ordini procedo");
 				String numero="";
 				OrdineBean ordineDaModificare=new OrdineBean();
-				OrdineModelStub ordineModel=new OrdineModelStub();
+				OrdineModel ordineModel=new OrdineModel();
 
 				if(what.equals(WRITE)) {
 					numero=request.getParameter("numero");
 					log.info("AggiornaStato -> numero dell'ordine da aggiornare: " + numero);
 					
-					ordineDaModificare=ordineModel.doRetrieveByNumero(numero);
-					if(ordineDaModificare.getStato().equals(OrdineBean.CONSEGNATO))
-						//Sostutuire con pagina di errore
-						redirectedPage="/OnlyAdminPage.html";
+					try {
+						ordineDaModificare=ordineModel.doRetrieveByNumero(numero);
+						if(ordineDaModificare.getStato().equals(OrdineBean.CONSEGNATO))
+							redirectedPage="/OnlyAdminPage.html";
+					} catch (SQLException e) {
+						log.info("AggiornaStato -> errore ottenimento ordine");
+						e.printStackTrace();
+					}
 					
 					log.info("AggiornaStato -> inserisco ordine nella sessione: " + ordineDaModificare.getNumero());
 					session.setAttribute("OrdineDaModificare", ordineDaModificare);
@@ -78,7 +83,12 @@ public class AggiornaStato extends HttpServlet {
 						log.info("AggiornaStato -> nuova data di consegna: " + ordineDaModificare.getConsegna());
 					}
 					
-					ordineModel.aggiornaStato(ordineDaModificare);
+					try {
+						ordineModel.aggiornaStato(ordineDaModificare);
+					} catch (SQLException e) {
+						log.info("AggiornaStato -> errore aggiornamento ordine");
+						e.printStackTrace();
+					}
 					log.info("AggiornaStato -> ordine aggiornato: " + ordineDaModificare.getNumero() 
 						+ ", stato: " + ordineDaModificare.getStato());
 					

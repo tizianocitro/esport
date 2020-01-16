@@ -1,6 +1,7 @@
 package controller.gestioneOrdine;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.LinkedHashSet;
 import java.util.logging.Logger;
 
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import beans.OrdineBean;
 import beans.UtenteBean;
-import topdown.OrdineModelStub;
+import model.OrdineModel;
 
 @WebServlet("/Ordine")
 public class Ordine extends HttpServlet {
@@ -40,23 +41,35 @@ public class Ordine extends HttpServlet {
 				response.sendRedirect(request.getContextPath() + redirectedPage);
 			}
 			else {
-				OrdineModelStub ordineModel=new OrdineModelStub();
+				OrdineModel ordineModel=new OrdineModel();
 				LinkedHashSet<OrdineBean> ordini=new LinkedHashSet<OrdineBean>();
 
 				log.info("Ordine -> ottengo l'ordine per visualizzare gli ordini");
 				String order=request.getParameter("order");
 				if(order==null || order.equals(""))
-					order="nome";
+					order="sottomissione desc";
 				
 				if(toDo.equals(GESTORE)) {
 					log.info("Ordine -> ottengo tutti gli ordini poichè l'utente è gestore degli ordini");
-					ordini=(LinkedHashSet<OrdineBean>) ordineModel.doRetrieveAll();							
+					try {
+						ordini=(LinkedHashSet<OrdineBean>) ordineModel.doRetrieveAll(order);
+					} 
+					catch (SQLException eGestore) {
+						log.info("Ordine -> errore ottenimento ordini gestore");
+						eGestore.printStackTrace();
+					}							
 				}
 				else {
 					UtenteBean utente=(UtenteBean) session.getAttribute("userLogged");
 					
 					log.info("Ordine -> ottengo solo gli ordini dell'utente");
-					ordini=(LinkedHashSet<OrdineBean>) ordineModel.doRetrieveByUtente(utente);					
+					try {
+						ordini=(LinkedHashSet<OrdineBean>) ordineModel.doRetrieveByUtente(utente, order);
+					} 
+					catch (SQLException eUtente) {
+						log.info("Ordine -> errore ottenimento ordini utente");
+						eUtente.printStackTrace();
+					}					
 				}
 				
 				session.setAttribute("Ordini", ordini);

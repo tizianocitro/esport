@@ -331,7 +331,7 @@ public class OrdineModel {
 		ComposizioneModel composizioneModel=new ComposizioneModel();
 		
 		log.info("doRetrieveIfAttivi -> eseguo query");
-		String selectSQL="select * from " + OrdineModel.TABLE_NAME + " where stato=? and stato=?";
+		String selectSQL="select * from " + OrdineModel.TABLE_NAME + " where stato=? or stato=?";
 		
 		if (order!=null && !order.equals("")) {
 			selectSQL+=" order by " + order;
