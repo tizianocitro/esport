@@ -90,6 +90,7 @@ public class UtenteModelTestCase extends TestCase {
 		//Caso corretto
 		//Imposto delle modifiche
 		utenteTest.setNome("Tiziano");
+		
 		assertTrue(utenteModel.doUpdate(utenteTest));
 
 		//Caso errato
@@ -100,6 +101,8 @@ public class UtenteModelTestCase extends TestCase {
 	//Test doDelete
 	public void doDelete() throws SQLException {		
 		assertTrue(utenteModel.doDelete(utenteTest));
+		
+		assertFalse(utenteModel.doDelete(null));
 	}
 	
 	private UtenteModel utenteModel;

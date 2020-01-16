@@ -30,11 +30,23 @@ public class OrdineModel {
 	 * @throws SQLException 
 	 */
 	public void doSave(OrdineBean ordine) throws SQLException {
+		log.info("OrdineModel -> doSave");
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
+		log.info("doSave -> verifico pre-condizioni");
+		if(ordine==null || ordine.getNumero()==null || ordine.getNumero().equals("")
+				|| ordine.getStato()==null || ordine.getStato().equals("")
+				|| ordine.getUsername()==null || ordine.getUsername().equals("")
+				|| ordine.getPagamento()<1 || ordine.getIndirizzo()<1
+				|| ordine.getConsegna()==null || ordine.getConsegna().equals("")
+				|| ordine.getSottomissione()==null || ordine.getSottomissione().equals("")
+				|| ordine.getTotale()<1 || ordine.getComposizione()==null)
+			return;
+		
 		ComposizioneModel composizioneModel=new ComposizioneModel();
 		
+		log.info("doSave -> eseguo query");
 		String insertSQL="insert into " + OrdineModel.TABLE_NAME
 				+ " (numero, stato, pagamento, indirizzo, totale, sottomissione, consegna, usr) "
 				+ "values (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -54,11 +66,12 @@ public class OrdineModel {
 			
 			preparedStatement.executeUpdate();
 			
+			connection.commit();
+
+			log.info("doSave -> ordine salvato, procedo a salvare la composizione dell'ordine");
 			for(ComposizioneBean comp: ordine.getComposizione()) {
 				composizioneModel.doSave(comp);
-			}
-			
-			connection.commit();
+			}	
 		} 
 		finally {
 			try {
@@ -69,6 +82,7 @@ public class OrdineModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("OrdineModel -> doSave terminato");
 	}
 
 	/**
@@ -78,9 +92,19 @@ public class OrdineModel {
 	 * @throws SQLException 
 	 */
 	public void aggiornaStato(OrdineBean ordine) throws SQLException {
+		log.info("OrdineModel -> aggiornaStato");
+		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
+		log.info("aggiornaStato -> verifico pre-condizioni");
+		if(ordine==null || ordine.getNumero()==null || ordine.getNumero().equals("")
+				|| ordine.getStato()==null || ordine.getStato().equals("")
+				|| ordine.getConsegna()==null || ordine.getConsegna().equals("")
+				|| doRetrieveByNumero(ordine.getNumero())==null)
+			return;
+				
+		log.info("aggiornaStato -> eseguo query");
 		String updateSQL="update " + OrdineModel.TABLE_NAME + " "
 					   + " set stato=?, "
 					   + " consegna=? "
@@ -94,7 +118,9 @@ public class OrdineModel {
 			preparedStatement.setString(2, ordine.getConsegna());
 			preparedStatement.setString(3, ordine.getNumero());
 			
-			preparedStatement.executeUpdate();
+			preparedStatement.executeUpdate();	
+			
+			connection.commit();
 		} 
 		finally {
 			try {
@@ -105,6 +131,7 @@ public class OrdineModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("OrdineModel -> aggiornaStato terminato");
 	}
 	
 	/**
@@ -114,6 +141,7 @@ public class OrdineModel {
 	 * @throws SQLException 
 	 */
 	public Set<OrdineBean> doRetrieveAll(String order) throws SQLException{
+		log.info("OrdineModel -> doRetrieveAll");
 		LinkedHashSet<OrdineBean> ordini=new LinkedHashSet<OrdineBean>();
 		
 		Connection connection=null;
@@ -121,6 +149,7 @@ public class OrdineModel {
 
 		ComposizioneModel composizioneModel=new ComposizioneModel();
 		
+		log.info("doRetrieveAll -> eseguo query");
 		String selectSQL="select * from " + OrdineModel.TABLE_NAME;
 		
 		if (order!=null && !order.equals("")) {
@@ -144,6 +173,8 @@ public class OrdineModel {
 				bean.setSottomissione(rs.getString("sottomissione"));
 				bean.setConsegna(rs.getString("consegna"));
 				bean.setUsername(rs.getString("usr"));
+				
+				log.info("doRetrieveAll -> recupero composizione ordine");
 				bean.setComposizione(composizioneModel.doRetrieveByOrdine(bean));
 				
 				ordini.add(bean);
@@ -157,6 +188,7 @@ public class OrdineModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("OrdineModel -> doRetrieveAll terminato");
 		
 		return ordini;
 	}
@@ -168,13 +200,19 @@ public class OrdineModel {
 	 * @throws SQLException 
 	 */
 	public OrdineBean doRetrieveByNumero(String numero) throws SQLException {
+		log.info("OrdineModel -> doRetrieveByNumero");
 		OrdineBean bean=new OrdineBean();
+		
+		log.info("doRetrieveByNumero -> verifico che il  numero sia corretto");
+		if(numero==null || numero.equals(""))
+			return null;
 		
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 
 		ComposizioneModel composizioneModel=new ComposizioneModel();
 		
+		log.info("doRetrieveByNumero -> eseguo query");
 		String selectSQL = "select * from " + OrdineModel.TABLE_NAME + " where numero=?";
 
 		try {
@@ -193,6 +231,8 @@ public class OrdineModel {
 				bean.setSottomissione(rs.getString("sottomissione"));
 				bean.setConsegna(rs.getString("consegna"));
 				bean.setUsername(rs.getString("usr"));
+				
+				log.info("doRetrieveByNumero -> ottengo composizione ordine");
 				bean.setComposizione(composizioneModel.doRetrieveByOrdine(bean));
 			}
 		} 
@@ -204,6 +244,7 @@ public class OrdineModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("OrdineModel -> doRetrieveByNumero terminato, ordine: " + bean.getNumero());
 		
 		return bean;
 	}
@@ -216,13 +257,19 @@ public class OrdineModel {
 	 * @throws SQLException 
 	 */
 	public Set<OrdineBean> doRetrieveByUtente(UtenteBean utente, String order) throws SQLException {
+		log.info("OrdineModel -> doRetrieveByUtente");
 		LinkedHashSet<OrdineBean> ordini=new LinkedHashSet<OrdineBean>();
+		
+		log.info("doRetrieveByUtente -> verifico pre-condizioni");
+		if(utente==null || utente.getUsername()==null || utente.getUsername().equals(""))
+			return null;
 		
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 
 		ComposizioneModel composizioneModel=new ComposizioneModel();
 		
+		log.info("doRetrieveByUtente -> eseguo query");
 		String selectSQL="select * from " + OrdineModel.TABLE_NAME + " where usr=?";
 		
 		if (order!=null && !order.equals("")) {
@@ -247,6 +294,8 @@ public class OrdineModel {
 				bean.setSottomissione(rs.getString("sottomissione"));
 				bean.setConsegna(rs.getString("consegna"));
 				bean.setUsername(rs.getString("usr"));
+				
+				log.info("doRetrieveByUtente -> ottengo composizione ordine");
 				bean.setComposizione(composizioneModel.doRetrieveByOrdine(bean));
 				
 				ordini.add(bean);
@@ -260,6 +309,7 @@ public class OrdineModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("OrdineModel -> doRetrieveByUtente terminato");
 		
 		return ordini;
 	}
@@ -272,6 +322,7 @@ public class OrdineModel {
 	 * @throws SQLException 
 	 */
 	public Set<OrdineBean> doRetrieveIfAttivi(String order) throws SQLException {
+		log.info("OrdineModel -> doRetrieveIfAttivi");
 		LinkedHashSet<OrdineBean> ordini=new LinkedHashSet<OrdineBean>();
 		
 		Connection connection=null;
@@ -279,6 +330,7 @@ public class OrdineModel {
 
 		ComposizioneModel composizioneModel=new ComposizioneModel();
 		
+		log.info("doRetrieveIfAttivi -> eseguo query");
 		String selectSQL="select * from " + OrdineModel.TABLE_NAME + " where stato=? and stato=?";
 		
 		if (order!=null && !order.equals("")) {
@@ -304,6 +356,8 @@ public class OrdineModel {
 				bean.setSottomissione(rs.getString("sottomissione"));
 				bean.setConsegna(rs.getString("consegna"));
 				bean.setUsername(rs.getString("usr"));
+				
+				log.info("doRetrieveIfAttivi -> recupero composizione ordine");
 				bean.setComposizione(composizioneModel.doRetrieveByOrdine(bean));
 				
 				ordini.add(bean);
@@ -317,6 +371,7 @@ public class OrdineModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("OrdineModel -> doRetrieveIfAttivi terminato");
 		
 		return ordini;
 	}
@@ -369,12 +424,15 @@ public class OrdineModel {
 	 * @throws SQLException 
 	 */
 	public int doCount() throws SQLException {
+		log.info("OrdineModel -> doCount");
 		int numeroOrdini=0;
 				
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
+		log.info("doCount -> eseguo query");
 		String selectSQL = "select count(*) as numeroRecord from " + OrdineModel.TABLE_NAME;
+		
 		try {
 			connection=DriverManagerConnectionPool.getConnection();
 			preparedStatement=connection.prepareStatement(selectSQL);
@@ -394,6 +452,7 @@ public class OrdineModel {
 	    		DriverManagerConnectionPool.releaseConnection(connection);
 	    	}
 	    }
+		log.info("OrdineModel -> doCount terminato");
 		
 		return numeroOrdini;
 	}

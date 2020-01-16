@@ -25,9 +25,20 @@ public class ComposizioneModel {
 	 * @throws SQLException 
 	 */
 	public void doSave(ComposizioneBean composizione) throws SQLException {
+		log.info("ComposizioneModel -> doSave");
+		
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
+		log.info("doSave -> verifico pre-condizioni");
+		if(composizione==null || composizione.getOrdine()==null || composizione.getOrdine().equals("")
+				|| composizione.getProdotto()==null || composizione.getProdotto().equals("")
+				|| composizione.getNomeProdotto()==null || composizione.getNomeProdotto().equals("")
+				|| composizione.getPrezzoVen()<1 || composizione.getIvaVen()<1 || composizione.getQt()<1
+				|| composizione.getTaglia()==null || composizione.getTaglia().equals(""))
+			return;
+		
+		log.info("doSave -> eseguo query");
 		String insertSQL="insert into " + ComposizioneModel.TABLE_NAME
 				+ " (ordine, prodotto, nomeprodotto, prezzoven, ivaven, qt, taglia) "
 				+ "values (?, ?, ?, ?, ?, ?, ?)";
@@ -57,6 +68,7 @@ public class ComposizioneModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("ComposizioneModel -> doSave terminato");
 	}
 	
 	/**
@@ -66,14 +78,20 @@ public class ComposizioneModel {
 	 * @throws SQLException 
 	 */
 	public Set<ComposizioneBean> doRetrieveByOrdine(OrdineBean ordine) throws SQLException{
+		log.info("ComposizioneModel -> doRetrieveByOrdine");
+		
 		LinkedHashSet<ComposizioneBean> composizione=new LinkedHashSet<ComposizioneBean>();
 
+		log.info("doRetrieveByOrdine -> verifico pre-condizioni");
+		if(ordine==null || ordine.getNumero()==null || ordine.getNumero().equals(""))
+			return null;
+		
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
+		log.info("doRetrieveByOrdine -> eseguo query");
 		String selectSQL="select * from " + ComposizioneModel.TABLE_NAME + " where ordine=?";
 		
-
 		try {
 			connection=DriverManagerConnectionPool.getConnection();
 			preparedStatement=connection.prepareStatement(selectSQL);
@@ -82,17 +100,17 @@ public class ComposizioneModel {
 			ResultSet rs=preparedStatement.executeQuery();
 
 			while(rs.next()) {
-					ComposizioneBean bean=new ComposizioneBean();
+				ComposizioneBean bean=new ComposizioneBean();
 				
-					bean.setOrdine(rs.getString("ordine"));
-					bean.setProdotto(rs.getString("prodotto"));
-					bean.setNomeProdotto(rs.getString("nomeprodotto"));
-					bean.setPrezzoVen(rs.getDouble("prezzoven"));
-					bean.setIvaVen(rs.getInt("ivaven"));
-					bean.setQt(rs.getInt("qt"));
-					bean.setTaglia(rs.getString("taglia"));
+				bean.setOrdine(rs.getString("ordine"));
+				bean.setProdotto(rs.getString("prodotto"));
+				bean.setNomeProdotto(rs.getString("nomeprodotto"));
+				bean.setPrezzoVen(rs.getDouble("prezzoven"));
+				bean.setIvaVen(rs.getInt("ivaven"));
+				bean.setQt(rs.getInt("qt"));
+				bean.setTaglia(rs.getString("taglia"));
 					
-					composizione.add(bean);
+				composizione.add(bean);
 			}
 		} 
 		finally {
@@ -104,6 +122,7 @@ public class ComposizioneModel {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		log.info("ComposizioneModel -> doRetrieveByOrdine terminato");
 		
 		return composizione;
 	}

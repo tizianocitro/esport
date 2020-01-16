@@ -277,6 +277,8 @@ public class UtenteModel {
 			preparedStatement.setString(1, utente.getUsername());
 
 			result=preparedStatement.executeUpdate();
+			
+			connection.commit();
 		} 
 		finally {
 			try {
