@@ -57,9 +57,9 @@ public class Login extends HttpServlet {
 				if(pp!=null && !pp.equals("")) {
 					redirectedPage=pp;
 					session.removeAttribute("previousPage");
-			}
-			else
-				redirectedPage="/Index.jsp";
+				}
+				else
+					redirectedPage="/Index.jsp";
 			}
 			else {
 				session.setAttribute("userAuth", false);

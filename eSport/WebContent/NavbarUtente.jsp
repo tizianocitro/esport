@@ -98,7 +98,8 @@
 					<i class="fas fa-user-circle"></i> <%=user.getNome()%> <%=user.getCognome()%>
 			</a>
 				<ul class="dropdown-menu bg-dark">
-					<li class="dropdown-item"><a href="Ordine?toDo=utente&order=sottomissione">Ordini effettuati</a></li>
+					<%! String sttDesc="sottomissione desc"; %>
+					<li class="dropdown-item"><a href="Ordine?toDo=utente&order=<%= sttDesc %>">Ordini effettuati</a></li>
 					<li class="dropdown-item"><a href="Profilo.jsp"> <i
 							class="fas fa-user"></i> Profilo
 					</a></li>

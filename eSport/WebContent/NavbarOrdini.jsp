@@ -10,6 +10,9 @@
 	
 	UtenteBean user = (UtenteBean) session.getAttribute("userLogged");
 %>
+
+<%! String sttDsc="sottomissione desc"; %>
+
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
 	<button type="button" class="navbar-toggler" data-toggle="collapse"
 		data-target="#myNavbar">
@@ -26,9 +29,9 @@
 				class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Gestione
 					ordini</a>
 				<ul class="dropdown-menu bg-dark">
-					<li class="dropdown-item"><a href="OrdiniAttivi?order=sottomissione">Gestisci ordini
+					<li class="dropdown-item"><a href="OrdiniAttivi?order=<%= sttDsc %>">Gestisci ordini
 							attivi</a></li>
-					<li class="dropdown-item"><a href="Ordine?toDo=gestore&order=sottomissione">Visualizza ordini</a></li>
+					<li class="dropdown-item"><a href="Ordine?toDo=gestore&order=<%= sttDsc %>">Visualizza ordini</a></li>
 				</ul></li>
 				
 			<%

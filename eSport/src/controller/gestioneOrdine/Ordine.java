@@ -37,6 +37,16 @@ public class Ordine extends HttpServlet {
 			log.info("Ordine -> verifico che l'utente si sia autenticato");
 			Boolean userAuth=(Boolean) session.getAttribute("userAuth");
 			if((userAuth==null) || (!userAuth.booleanValue())) {
+				log.info("Ordine -> stabilisco a quale pagina tornare");
+				if(toDo.equals(GESTORE)) {
+					String ord="sottomissione desc";
+					session.setAttribute("previousPage", "/Ordine?toDo=gestore&order=" + ord);
+				}
+				else {
+					String ord="sottomissione desc";
+					session.setAttribute("previousPage", "/Ordine?toDo=utente&order=" + ord);
+				}
+				
 				redirectedPage="/Login.jsp";
 				response.sendRedirect(request.getContextPath() + redirectedPage);
 			}
@@ -73,17 +83,18 @@ public class Ordine extends HttpServlet {
 				}
 				
 				session.setAttribute("Ordini", ordini);
+				
+				if(toDo.equals(GESTORE)) {
+					RequestDispatcher view=request.getRequestDispatcher("OrdineGestore.jsp");
+					view.forward(request, response);
+				}
+				else {
+					RequestDispatcher view=request.getRequestDispatcher("OrdineUtente.jsp");
+					view.forward(request, response);
+				}
 			}
 		}
 		//Fine synchronized
-		if(toDo.equals(GESTORE)) {
-			RequestDispatcher view=request.getRequestDispatcher("OrdineGestore.jsp");
-			view.forward(request, response);
-		}
-		else {
-			RequestDispatcher view=request.getRequestDispatcher("OrdineUtente.jsp");
-			view.forward(request, response);
-		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

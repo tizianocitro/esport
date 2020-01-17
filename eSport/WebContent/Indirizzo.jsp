@@ -11,6 +11,7 @@
 	String UTENTE="Utente";
 	Boolean userIn=(Boolean) session.getAttribute("userAuth"); 
 	if((userIn==null) || (!userIn.booleanValue())){
+		session.setAttribute("previousPage", "/Indirizzo.jsp");
 		response.sendRedirect("./Login.jsp");
 	}
 	else{

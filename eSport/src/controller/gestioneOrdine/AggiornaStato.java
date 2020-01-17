@@ -36,6 +36,9 @@ public class AggiornaStato extends HttpServlet {
 		log.info("AggiornaStato -> controllo che l'utente sia autenticato");
 		Boolean userAuth=(Boolean) session.getAttribute("userAuth");
 		if((userAuth==null) || (!userAuth.booleanValue())) {
+			String ord="sottomissione desc";
+			session.setAttribute("previousPage", "/OrdiniAttivi?order=" + ord);
+			
 			redirectedPage="/Login.jsp";
 			response.sendRedirect(request.getContextPath() + redirectedPage);
 		}

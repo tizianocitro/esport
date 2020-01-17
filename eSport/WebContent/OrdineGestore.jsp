@@ -7,6 +7,8 @@
 <% 
 	Boolean userIn=(Boolean) session.getAttribute("userAuth"); 
 	if((userIn==null) || (!userIn.booleanValue())){
+		String ord="sottomissione desc";
+		session.setAttribute("previousPage", "/Ordine?toDo=gestore&order=" + ord);
 		response.sendRedirect("./Login.jsp");
 	}
 	else{
