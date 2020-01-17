@@ -3,7 +3,6 @@ package controller.gestioneCarrello;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +25,7 @@ public class AddProdottoCarrello extends HttpServlet {
 		
 		synchronized(session) {
 			log.info("AddProdottoCarrello -> verifico che il carrello esista");
-			CarrelloBean carrello=(CarrelloBean)session.getAttribute("Carrello");
+			CarrelloBean carrello=(CarrelloBean) session.getAttribute("Carrello");
 			if(carrello==null) {
 				log.info("AddProdottoCarrello -> se non esiste, lo creo");
 				carrello=new CarrelloBean();
@@ -38,7 +37,10 @@ public class AddProdottoCarrello extends HttpServlet {
 			String taglia=request.getParameter("selectTaglia");
 			
 			log.info("AddProdottoCarrello -> controllo che l'utente abbia scelto la taglia");
-			if(taglia.equalsIgnoreCase("Scegli la taglia")) {
+			if(taglia==null || taglia.equals("")) {
+				response.sendRedirect(request.getContextPath() + "/Errore.html");
+			}
+			else if(taglia.equalsIgnoreCase("Scegli la taglia")) {
 				log.info("AddProdottoCarrello -> se non lo ha fatto il prodotto non viene aggiunto al carrello");
 				response.sendRedirect(request.getContextPath() + "/SchedaProdotto?codProd=" + codiceProdotto);
 			}
@@ -63,12 +65,15 @@ public class AddProdottoCarrello extends HttpServlet {
 						log.info("AddProdottoCarrello -> già nel carrello, ne aumento solo la quantità");
 						carrello.reAddProdotto(item);
 					}
+					
+					log.info("AddProdottoCarrello -> aggiorno il carrello nella sessione");
+					session.setAttribute("Carrello", carrello);
+					
+					response.sendRedirect(request.getContextPath() + "/Carrello");
 				}
-				log.info("AddProdottoCarrello -> aggiorno il carrello nella sessione");
-				session.setAttribute("Carrello", carrello);
-				
-				RequestDispatcher view=request.getRequestDispatcher("Carrello.jsp");
-				view.forward(request, response);
+				else {
+					response.sendRedirect(request.getContextPath() + "/Errore.html");
+				}
 			}
 			//Fine else
 		}

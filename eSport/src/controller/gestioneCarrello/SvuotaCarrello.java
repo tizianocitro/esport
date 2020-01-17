@@ -3,7 +3,6 @@ package controller.gestioneCarrello;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,9 +26,7 @@ public class SvuotaCarrello extends HttpServlet {
 			carrello.svuotaCarrello();
 		
 		log.info("SvuotaCarrello -> carrello svuotato");
-
-		RequestDispatcher view=request.getRequestDispatcher("Carrello.jsp");
-		view.forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/Carrello");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

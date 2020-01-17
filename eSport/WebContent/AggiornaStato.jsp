@@ -18,10 +18,6 @@
 			response.sendRedirect("./OnlyAdminPage.html");
 		}
 		else{
-			String ELABORAZIONE="In elaborazione";
-			String SPEDIZIONE="In spedizione";
-			String CONSEGNATO="Consegnato";
-			
 			String ORDINI_RUOLO="Ordini";
 			session.setAttribute("ruolo", ORDINI_RUOLO);
 			
@@ -61,10 +57,21 @@
                			<h5>Stato attuale dell'ordine</h5>
                    		<div class="input-group">
   							<select class="custom-select" name="scelta-stato" id="inputGroupSelect04">
-							    <option selected><%= ordineDaModificare.getStato() %></option>
-							    <option value="<%= ELABORAZIONE %>"><%= ELABORAZIONE %></option>
-							    <option value="<%= SPEDIZIONE %>"><%= SPEDIZIONE %></option>
-							    <option value="<%= CONSEGNATO %>"><%= CONSEGNATO %></option>
+  								<option selected><%= ordineDaModificare.getStato() %></option>
+  								<% 
+  									String statoAttuale=ordineDaModificare.getStato(); 
+  									if(statoAttuale.equals(OrdineBean.ELABORAZIONE)){
+  								%>
+							    <option value="<%= OrdineBean.SPEDIZIONE %>"><%= OrdineBean.SPEDIZIONE %></option>
+							    <option value="<%= OrdineBean.CONSEGNATO %>"><%= OrdineBean.CONSEGNATO %></option>
+							    <%
+  									}
+  									else if(statoAttuale.equals(OrdineBean.SPEDIZIONE)){
+							    %>
+							    <option value="<%= OrdineBean.CONSEGNATO %>"><%= OrdineBean.CONSEGNATO %></option>
+							    <%
+  									}
+							    %>
   							</select>
 						</div>
 						<br>

@@ -165,15 +165,15 @@ public class ProdottoModel {
 			ResultSet rs=preparedStatement.executeQuery();
 
 			while(rs.next()) {
-					bean.setCodice(rs.getString("codice"));
-					bean.setTipo(rs.getString("tipo"));
-					bean.setNome(rs.getString("nome"));
-					bean.setMarca(rs.getString("marca"));
-					bean.setQt(rs.getInt("qt"));
-					bean.setPrezzo(rs.getDouble("prezzo"));
-					bean.setIva(rs.getInt("iva"));
-					bean.setDescrizione(rs.getString("descrizione"));
-					bean.setTaglie(tagliaModel.doRetrieveByProdotto(bean.getCodice()));
+				bean.setCodice(rs.getString("codice"));
+				bean.setTipo(rs.getString("tipo"));
+				bean.setNome(rs.getString("nome"));
+				bean.setMarca(rs.getString("marca"));
+				bean.setQt(rs.getInt("qt"));
+				bean.setPrezzo(rs.getDouble("prezzo"));
+				bean.setIva(rs.getInt("iva"));
+				bean.setDescrizione(rs.getString("descrizione"));
+				bean.setTaglie(tagliaModel.doRetrieveByProdotto(bean.getCodice()));
 			}
 		} 
 		finally {
@@ -186,6 +186,8 @@ public class ProdottoModel {
 			}
 		}
 		log.info("ProdottoModel -> doRetrieveByCodice terminato");
+		if(bean.getCodice()==null || bean.getCodice().equals(""))
+			return null;
 		
 		return bean;
 	}

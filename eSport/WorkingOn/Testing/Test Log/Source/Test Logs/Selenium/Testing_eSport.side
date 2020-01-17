@@ -935,6 +935,378 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "e1584dc1-1514-4567-aad3-9a1f26768056",
+    "name": "TC_VisualizzazioneFattura_01",
+    "commands": [{
+      "id": "4a967acb-8b81-4e57-a975-3702ea7938be",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Fattura?numeroOrdine=000001",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9946c867-d66a-420b-a2c0-8a00bfb4ad08",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Login",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "f9a7d1ad-a25a-4433-9df4-474e1524fedc",
+    "name": "TC_VisualizzazioneFattura_02",
+    "commands": [{
+      "id": "ad10067f-4f8b-4bfd-b39b-9c83df22ce04",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2d829394-77e8-4677-b2e2-ea5fa56c45d8",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=.form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "root"
+    }, {
+      "id": "c0f72b7d-5f27-421e-91aa-4106d7d91326",
+      "comment": "",
+      "command": "type",
+      "target": "name=pass",
+      "targets": [
+        ["name=pass", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='pass']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "root"
+    }, {
+      "id": "cce0d043-6fc2-4544-bb0a-a14c67aa702c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-black",
+      "targets": [
+        ["css=.btn-black", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Accedi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce9660c7-1c7b-48b1-9095-b1c64e7d7c61",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Fattura?numeroOrdine=000099",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5076967b-b705-460c-9e9b-51882b03d3b7",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Errore",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "6401d143-3ae2-4c9e-ab27-3a67753d09cc",
+    "name": "TC_AggiornamentoStatoOrdine_01",
+    "commands": [{
+      "id": "3710a0e1-56ac-4d79-9845-5a945777a6d2",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/AggiornaStato?what=write&numero=000004",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "67e596cf-5823-4d27-8224-005d09d2042a",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Login",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "32ac9958-90f6-4b5c-ab8b-cd3a51eb3689",
+    "name": "TC_AggiornamentoStatoOrdine_02",
+    "commands": [{
+      "id": "0d9e16ad-09a3-4144-829c-c96196c307b5",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "398fb467-0ce1-4517-a3e8-1b14fc6013c5",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [],
+      "value": "CarloRaucci"
+    }, {
+      "id": "3f79d95a-a9c1-4ebb-a053-008b2246a234",
+      "comment": "",
+      "command": "type",
+      "target": "name=pass",
+      "targets": [],
+      "value": "carloraucci"
+    }, {
+      "id": "052fd1de-0e05-487c-9394-315073c24e84",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-black",
+      "targets": [
+        ["css=.btn-black", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Accedi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b39f5e9b-ae41-4808-8a79-57eabae0ff24",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/AggiornaStato?what=write&numero=000004",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ccf09352-f3c3-4103-bedf-3c0d2c237979",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Accesso non autorizzato",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "eeb918f9-5096-42f6-a05a-a606904ee97e",
+    "name": "TC_AggiornamentoStatoOrdine_04",
+    "commands": [{
+      "id": "3e729037-a3b1-4486-9693-50819386442a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bed8b36b-9d37-4ca5-a718-8ec6b15ac230",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [],
+      "value": "root"
+    }, {
+      "id": "6264e4c3-d507-4b66-b2a0-216a6ba079ea",
+      "comment": "",
+      "command": "type",
+      "target": "name=pass",
+      "targets": [],
+      "value": "root"
+    }, {
+      "id": "6b50692e-4e3d-46a3-b804-c807df4f657f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-black",
+      "targets": [
+        ["css=.btn-black", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Accedi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a3ae621-bff1-4eb1-a002-5e8fa872736b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/AggiornaStato?what=write&numero=000004",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1133c1c6-4581-47da-b411-93c886e89fe4",
+      "comment": "",
+      "command": "select",
+      "target": "id=inputGroupSelect04",
+      "targets": [
+        ["id=inputGroupSelect04", "id"],
+        ["name=scelta-stato", "name"],
+        ["css=#inputGroupSelect04", "css:finder"],
+        ["xpath=//select[@id='inputGroupSelect04']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "In spedizione"
+    }, {
+      "id": "23436017-6b3f-408a-9f61-6ba7ee58b89b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-black",
+      "targets": [
+        ["css=.btn-black", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Modifica')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0e47d81f-9492-4f3e-a758-81b2370b0825",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Gestione ordini attivi",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "ad460f1a-45c5-461c-82a2-e11c05b6f3c1",
+    "name": "TC_VisualizzazioneSchedaProdotto_01",
+    "commands": [{
+      "id": "7c44724c-54bb-4768-a794-866572662c19",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/SchedaProdotto?codProd=099",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "09895d5c-cc19-4a20-9885-f3af2ddaa140",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Errore",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "c6bb78ce-8089-43cc-ae77-6b70d28768e9",
+    "name": "TC_VisualizzazioneSchedaProdotto_02",
+    "commands": [{
+      "id": "5686e550-b28a-4d7a-96c2-f59de07f1fb9",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/SchedaProdotto?codProd=001",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8ccc91db-acb8-43fd-b74d-4a02b1b9c42c",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Divisa Home Real Madrid",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "2cd25319-1df6-434a-8610-14cd22b7cd10",
+    "name": "TC_VisualizzazioneFattura_03",
+    "commands": [{
+      "id": "fa090c7a-90f7-4072-b8de-303536601781",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ba3980a1-26f3-48d5-8ec0-dae9baa63eda",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=.form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "root"
+    }, {
+      "id": "54d8138d-433a-4da6-9f49-2c30bdf66902",
+      "comment": "",
+      "command": "type",
+      "target": "name=pass",
+      "targets": [
+        ["name=pass", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='pass']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "root"
+    }, {
+      "id": "c8b77005-34b0-4de9-9e35-ed80617a5566",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-black",
+      "targets": [
+        ["css=.btn-black", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Accedi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d051ef1-788f-4323-b252-66fd19cfd442",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Fattura?numeroOrdine=000001",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d1ce8390-ca2c-4df9-adb1-a8ac88afe6b6",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Fattura",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "73fb767d-3c4c-44a9-b98a-e8a5b7e658b4",
+    "name": "TC_AggiornamentoStatoOrdine_03",
+    "commands": [{
+      "id": "83804d08-82f3-4414-95fc-bffef8138e4b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "855363f3-d93e-4f08-9a3f-0f4e5edee13d",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [],
+      "value": "root"
+    }, {
+      "id": "b112707a-4f15-4338-9352-e39ef7970a10",
+      "comment": "",
+      "command": "type",
+      "target": "name=pass",
+      "targets": [],
+      "value": "root"
+    }, {
+      "id": "813815fe-8a93-400a-9230-b2e2730b46c0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-black",
+      "targets": [
+        ["css=.btn-black", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Accedi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "86c5cdfe-a346-442c-97ba-216062a03db0",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/AggiornaStato?what=write&numero=000099",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "411fd0b1-8a72-4b5c-be3f-563b333f0256",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Errore",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "28fa5637-e319-4752-b751-5c28dbc837d6",

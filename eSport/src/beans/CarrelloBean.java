@@ -21,6 +21,10 @@ public class CarrelloBean {
 	 * @param carrello item
 	 */
 	public void addProdotto(CarrelloItem carrelloItem) {
+		if(carrelloItem==null || carrelloItem.getProdotto()==null || carrelloItem.getQt()<1 
+				|| carrelloItem.getTaglia()==null || carrelloItem.getTaglia().equals(""))
+			return;
+		
 		carrello.add(carrelloItem);
 	}
 	
@@ -29,6 +33,10 @@ public class CarrelloBean {
 	 * @param carrello item
 	 */
 	public void reAddProdotto(CarrelloItem carrelloItem) {
+		if(carrelloItem==null || carrelloItem.getProdotto()==null || carrelloItem.getQt()<1 
+				|| carrelloItem.getTaglia()==null || carrelloItem.getTaglia().equals(""))
+			return;
+		
 		for(CarrelloItem item: carrello) {
 			if(item.equals(carrelloItem))
 				item.setQt(item.getQt() + 1);
@@ -41,6 +49,9 @@ public class CarrelloBean {
 	 * @return carrello item
 	 */
 	public CarrelloItem getProdotto(String codiceProdotto) {
+		if(codiceProdotto==null || codiceProdotto.equals(""))
+			return null;
+		
 		for(CarrelloItem item: carrello) {
 			if(item.getProdotto().getCodice().equals(codiceProdotto))
 				return item;
@@ -54,6 +65,10 @@ public class CarrelloBean {
 	 * @param carrello item
 	 */
 	public void removeProdotto(CarrelloItem carrelloItem) {
+		if(carrelloItem==null || carrelloItem.getProdotto()==null || carrelloItem.getQt()<1 
+				|| carrelloItem.getTaglia()==null || carrelloItem.getTaglia().equals(""))
+			return;
+		
 		ArrayList<CarrelloItem> array=new ArrayList<CarrelloItem>();
 		for(CarrelloItem item: carrello) {
 			array.add(item);
@@ -92,12 +107,19 @@ public class CarrelloBean {
 	 * @param action
 	 */
 	public void modificaQt(String codiceProdotto, String taglia, String action) {
+		if(codiceProdotto==null || codiceProdotto.equals("")
+				|| taglia==null || taglia.equals(""))
+			return;
+		
+		if(!action.equals(ACTION_PLUS) && !action.equals(ACTION_MINUS))
+			return;
+		
 		for(CarrelloItem item: carrello) {
 			if(item.getProdotto().getCodice().equals(codiceProdotto) 
 					&& item.getTaglia().equals(taglia))
-				if(action.equals("plus"))
+				if(action.equals(ACTION_PLUS))
 					item.setQt(item.getQt() + 1);
-				else if(action.equals("minus")) {
+				else if(action.equals(ACTION_MINUS)) {
 					item.setQt(item.getQt() - 1);
 				}
 		}
@@ -134,4 +156,10 @@ public class CarrelloBean {
 	 * Variabile d'istanza carrello
 	 */
 	private Set<CarrelloItem> carrello;
+	
+	/**
+	 * Costanti che distinguono le azioni che è possibile effettuare sulla quantità dei prodotti nel carrello
+	 */
+	public static final String ACTION_PLUS="plus";
+	public static final String ACTION_MINUS="minus";
 }

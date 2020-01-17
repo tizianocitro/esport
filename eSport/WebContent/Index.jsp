@@ -23,6 +23,7 @@
         <link rel="stylesheet" type="text/css" href="css/HomePage.css">
 		<link rel="stylesheet" type="text/css" href="css/Nav.css">
 		<link rel="stylesheet" type="text/css" href="css/Footer.css">
+		<link rel="stylesheet" type="text/css" href="css/Presentation.css">
 	</head>
 	
 	<body class="py-0">
@@ -44,13 +45,14 @@
 		</header>
 		
 		<!-- Page Content -->
+		<!-- Da testare
 		<section class="head-section"></section>
 		
-			<!-- Da testare
+			
 	        <div class="welcome-div">
 	            <h1>Benvenuto su e-Sport - soddisfa la tua passione</h1>
 	        </div>
-			-->
+			
 			
 	        <div class="bw-box">
 	            <section class="sec-box">
@@ -64,12 +66,21 @@
 	                </span>
 	            </section>
 	        </div>
+			-->
 			
-			
+			<div id="notfound">
+				<div class="notfound">
+				<div class="notfound-404">
+					<h1><span id="not-up">e</span>Sport</h1>
+					<h2>Soddisfa la tua passione</h2>
+				</div>
+				</div>
+			</div>
+	
 			<!--Some product cards-->
 	        <div class="">
 	            <div class="titled-h1">
-	                <h1>Prodotti da non perdere</h1>
+	                <h1>Novità</h1>
 	            </div>
 	
 	            <div class="row">

@@ -245,6 +245,8 @@ public class OrdineModel {
 			}
 		}
 		log.info("OrdineModel -> doRetrieveByNumero terminato, ordine: " + bean.getNumero());
+		if(bean.getNumero()==null || bean.getNumero().equals(""))
+			return null;
 		
 		return bean;
 	}

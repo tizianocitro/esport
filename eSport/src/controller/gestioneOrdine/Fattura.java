@@ -30,6 +30,9 @@ public class Fattura extends HttpServlet {
 			log.info("Fattura -> controllo che l'utente si sia autenticato");
 			Boolean userAuth=(Boolean) session.getAttribute("userAuth");
 			if((userAuth==null) || (!userAuth.booleanValue())) {
+				String ord="sottomissione desc";
+				session.setAttribute("previousPage", "/Ordine?toDo=utente&order=" + ord);
+				
 				redirectedPage="/Login.jsp";
 				response.sendRedirect(request.getContextPath() + redirectedPage);
 			}
@@ -43,21 +46,28 @@ public class Fattura extends HttpServlet {
 				OrdineBean ordine=new OrdineBean();
 				try {
 					ordine=ordineModel.doRetrieveByNumero(numeroOrdine);
-					if(ordine!=null)
+					if(ordine!=null) {
 						session.setAttribute("Ordine", ordine);
 					
-					UtenteModel utenteModel=new UtenteModel();
-
-					log.info("Fattura -> ottengo l'utente per la fattura");
-					UtenteBean utente=new UtenteBean();
-					try {
-						utente=utenteModel.doRetrieveByUsername(ordine.getUsername());
-						if(utente!=null)
-							session.setAttribute("UtenteFattura", utente);
-					} 
-					catch (SQLException eUtente) {
-						log.info("Fattura -> errore ottenimento utente");
-						eUtente.printStackTrace();
+						UtenteModel utenteModel=new UtenteModel();
+	
+						log.info("Fattura -> ottengo l'utente per la fattura");
+						UtenteBean utente=new UtenteBean();
+						try {
+							utente=utenteModel.doRetrieveByUsername(ordine.getUsername());
+							if(utente!=null)
+								session.setAttribute("UtenteFattura", utente);
+						} 
+						catch (SQLException eUtente) {
+							log.info("Fattura -> errore ottenimento utente");
+							eUtente.printStackTrace();
+						}
+						
+						RequestDispatcher view=request.getRequestDispatcher("Fattura.jsp");
+						view.forward(request, response);
+					}
+					else {
+						response.sendRedirect(request.getContextPath() + "/Errore.html");
 					}
 				} 
 				catch (SQLException eOrdine) {
@@ -67,8 +77,6 @@ public class Fattura extends HttpServlet {
 			}
 		}
 		//Fine synchronized
-		RequestDispatcher view=request.getRequestDispatcher("Fattura.jsp");
-		view.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

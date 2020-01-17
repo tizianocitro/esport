@@ -39,6 +39,9 @@ public class CatalogoBean {
 	 * @return prodotto
 	 */
 	public ProdottoBean getProdotto(String codiceProdotto) {
+		if(codiceProdotto==null || codiceProdotto.equals(""))
+			return null;
+		
 		for(ProdottoBean prodotto: catalogo)
 			if(prodotto.getCodice().equals(codiceProdotto))
 				return prodotto;

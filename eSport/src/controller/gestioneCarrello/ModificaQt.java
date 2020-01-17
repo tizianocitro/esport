@@ -3,7 +3,6 @@ package controller.gestioneCarrello;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,15 +29,17 @@ public class ModificaQt extends HttpServlet {
 			String taglia=request.getParameter("taglia");
 			String action=request.getParameter("action");
 			
-			log.info("ModificaQt -> modifico la quantità del prodotto: " + codiceProdotto + ", azione: " + action);
+			log.info("ModificaQt -> modifico la quantità del prodotto: " 
+					+ codiceProdotto + " " + taglia + ", azione: " + action);
+			
 			carrello.modificaQt(codiceProdotto, taglia, action);
 			
 			log.info("ModificaQt -> aggiorno il carrello");
 			session.setAttribute("Carrello", carrello);
+			
+			response.sendRedirect(request.getContextPath() + "/Carrello");
 		}
-		
-		RequestDispatcher view=request.getRequestDispatcher("Carrello.jsp");
-		view.forward(request, response);
+		//Fine synchronized
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

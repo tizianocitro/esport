@@ -3,7 +3,6 @@ package controller.gestioneCarrello;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,20 +27,20 @@ public class RemoveProdottoCarrello extends HttpServlet {
 			
 			log.info("RemoveProdottoCarrello -> ottengo codice prodotto da eliminare");
 			String codiceProdotto=request.getParameter("prodotto");
-						
+				
 			log.info("RemoveProdottoCarrello -> ottengo il prodotto da rimuovere dal carrello");
 			CarrelloItem prodottoDaRimuovere=carrello.getProdotto(codiceProdotto);
 			
-			log.info("RemoveProdottoCarrello -> prodotto ottenuto: " + prodottoDaRimuovere.getProdotto().getCodice());
+			log.info("RemoveProdottoCarrello -> rimuovo il prodotto se presente nel carrello e quindi diverso da null");
 			if(prodottoDaRimuovere!=null)
 				carrello.removeProdotto(prodottoDaRimuovere);
 			
 			log.info("RemoveProdottoCarrello -> aggiorno il carrello");
 			session.setAttribute("Carrello", carrello);
+			
+			response.sendRedirect(request.getContextPath() + "/Carrello");
 		}
 		//Fine synchronized
-		RequestDispatcher view=request.getRequestDispatcher("Carrello.jsp");
-		view.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

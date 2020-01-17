@@ -31,7 +31,7 @@ public class SchedaProdotto extends HttpServlet {
 			String codiceProdotto=request.getParameter("codProd");
 			String order=request.getParameter("order");
 			if(order==null)
-				order="voto";
+				order="voto desc";
 			
 			ProdottoModel prodottoModel=new ProdottoModel();
 			
@@ -39,31 +39,36 @@ public class SchedaProdotto extends HttpServlet {
 			ProdottoBean prodottoDaMostrare=new ProdottoBean();
 			try {
 				prodottoDaMostrare=prodottoModel.doRetrieveByCodice(codiceProdotto);
-			} catch (SQLException e) {
+				if(prodottoDaMostrare!=null) {				
+					log.info("Scheda prodotto -> ottengo le recensioni per il prodotto da mostrare");
+					RecensioneModel recensioneModel=new RecensioneModel();
+
+					try {
+						LinkedHashSet<RecensioneBean> recensioni=(LinkedHashSet<RecensioneBean>) recensioneModel.doRetrieveByProdotto(codiceProdotto, order);
+						if(recensioni!=null)
+							prodottoDaMostrare.setRecensioni(recensioni);
+					} 
+					catch (SQLException e) {
+						log.info("Scheda prodotto -> errore ottenimento recensioni per prodotto: " + codiceProdotto);
+						e.printStackTrace();
+					}	
+					
+					log.info("Scheda prodotto -> aggiungo il prodotto da mostrare alla sessione");
+					session.setAttribute("ProdottoDaMostrare", prodottoDaMostrare);
+					
+					RequestDispatcher view=request.getRequestDispatcher("SchedaProdotto.jsp");
+					view.forward(request, response);
+				}
+				else {
+					response.sendRedirect(request.getContextPath() + "/Errore.html");
+				}
+			} 
+			catch (SQLException e) {
 				log.info("SchedaProdotto -> errore ottenimento prodotto");
 				e.printStackTrace();
 			}
-			if(prodottoDaMostrare!=null) {				
-				log.info("Scheda prodotto -> ottengo le recensioni per il prodotto da mostrare");
-				RecensioneModel recensioneModel=new RecensioneModel();
-
-				try {
-					LinkedHashSet<RecensioneBean> recensioni=(LinkedHashSet<RecensioneBean>) recensioneModel.doRetrieveByProdotto(codiceProdotto, order);
-					if(recensioni!=null)
-						prodottoDaMostrare.setRecensioni(recensioni);
-				} 
-				catch (SQLException e) {
-					log.info("Scheda prodotto -> errore ottenimento recensioni per prodotto: " + codiceProdotto);
-					e.printStackTrace();
-				}	
-				
-				log.info("Scheda prodotto -> aggiungo il prodotto da mostrare alla sessione");
-				session.setAttribute("ProdottoDaMostrare", prodottoDaMostrare);
-			}
 		}
-		
-		RequestDispatcher view=request.getRequestDispatcher("SchedaProdotto.jsp");
-		view.forward(request, response);
+		//Fine synchorinized
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

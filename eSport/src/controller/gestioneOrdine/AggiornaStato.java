@@ -46,7 +46,9 @@ public class AggiornaStato extends HttpServlet {
 			log.info("AggiornaStato -> controllo che l'utente autenticato sia un gestore degli ordini");
 			UtenteBean utente=(UtenteBean) session.getAttribute("userLogged");
 			if(!utente.getRuolo().containsKey("Ordini")){
-				response.sendRedirect("/OnlyAdminPage.html");
+				redirectedPage="/OnlyAdminPage.html";
+
+				response.sendRedirect(request.getContextPath() + redirectedPage);
 			}
 			else {
 				log.info("AggiornaStato -> se autenticato come gestore degli ordini procedo");
@@ -60,19 +62,24 @@ public class AggiornaStato extends HttpServlet {
 					
 					try {
 						ordineDaModificare=ordineModel.doRetrieveByNumero(numero);
-						if(ordineDaModificare.getStato().equals(OrdineBean.CONSEGNATO))
-							redirectedPage="/OnlyAdminPage.html";
-					} catch (SQLException e) {
+						if(ordineDaModificare==null 
+								|| ordineDaModificare.getStato().equals(OrdineBean.CONSEGNATO)) {
+							redirectedPage="/Errore.html";
+							response.sendRedirect(request.getContextPath() + redirectedPage);
+						}
+						else {
+							log.info("AggiornaStato -> inserisco ordine nella sessione: " + ordineDaModificare.getNumero());
+							session.setAttribute("OrdineDaModificare", ordineDaModificare);
+							
+							log.info("AggiornaStato -> vado alla pagina di aggiornamento");
+							redirectedPage="/AggiornaStato.jsp";
+							response.sendRedirect(request.getContextPath() + redirectedPage);
+						}
+					} 
+					catch (SQLException e) {
 						log.info("AggiornaStato -> errore ottenimento ordine");
 						e.printStackTrace();
 					}
-					
-					log.info("AggiornaStato -> inserisco ordine nella sessione: " + ordineDaModificare.getNumero());
-					session.setAttribute("OrdineDaModificare", ordineDaModificare);
-					
-					log.info("AggiornaStato -> vado alla pagina di aggiornamento");
-					redirectedPage="/AggiornaStato.jsp";
-					response.sendRedirect(request.getContextPath() + redirectedPage);
 				}
 				else if(what.equals(SAVE)) {
 					log.info("AggiornaStato -> ottengo il nuovo stato dell'ordine");
