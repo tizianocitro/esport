@@ -14,12 +14,21 @@
 	session.setAttribute("ruolo", UTENTE);
 	ctlg=(CatalogoBean) session.getAttribute("Catalogo");
 	catalogo=(HashSet<ProdottoBean>) ctlg.getCatalogo();
+	
+	String titolo="";
+	String tp=(String) session.getAttribute("tp");
+	if(tp.equals(CatalogoBean.DIVISA))
+		titolo="divise";
+	else if(tp.equals(CatalogoBean.PANTALONCINI))
+			titolo="pantaloncini";
+	else
+		titolo="scarpe da gioco";
 %>
 		
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>eSport - Catalogo</title>
+		<title>eSport - Catalogo <%= titolo %></title>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
@@ -47,8 +56,7 @@
         			
         			<%! String pasc="prezzo desc"; %>
         			<%
-        				String tp=(String) session.getAttribute("tp");
-        				if(tp.equalsIgnoreCase("Divisa")){
+        				if(tp.equalsIgnoreCase(CatalogoBean.DIVISA)){
         			%>
         			<div class="list-group">
           				<a href="Catalogo?tipo=Divisa&order=nome" class="list-group-item bb">Nome</a>
@@ -57,7 +65,7 @@
           				<a href="Catalogo?tipo=Divisa&order=prezzo" class="list-group-item bb">Prezzo [basso-alto]</a>
         			</div>
         			<%}
-        				else if(tp.equalsIgnoreCase("Pantaloncini")){	
+        				else if(tp.equalsIgnoreCase(CatalogoBean.PANTALONCINI)){	
         			%>
         			<div class="list-group">
           				<a href="Catalogo?tipo=Pantaloncini&order=nome" class="list-group-item bb">Nome</a>

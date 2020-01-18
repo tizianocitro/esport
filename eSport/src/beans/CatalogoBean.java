@@ -53,4 +53,11 @@ public class CatalogoBean {
 	 * Variabile d'istanza catalogo
 	 */
 	private Set<ProdottoBean> catalogo;
+	
+	/**
+	 * Costanti che definiscono le categorie possibili del catalogo
+	 */
+	public static final String DIVISA="Divisa";
+	public static final String PANTALONCINI="Pantaloncini";
+	public static final String SCARPE="Scarpe";
 }

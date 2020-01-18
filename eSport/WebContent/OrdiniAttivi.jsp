@@ -11,16 +11,11 @@
 	}
 	else{
 		UtenteBean userForRoleControl=(UtenteBean) session.getAttribute("userLogged");
-		if(!userForRoleControl.getRuolo().containsKey("Ordini")){
+		if(!userForRoleControl.getRuolo().containsKey(RuoloBean.ORDINI)){
 			response.sendRedirect("./OnlyAdminPage.html");
 		}
 		else{
-			String ELABORAZIONE="In elaborazione";
-			String SPEDIZIONE="In spedizione";
-			String CONSEGNATO="Consegnato";
-			
-			String ORDINI_RUOLO="Ordini";
-			session.setAttribute("ruolo", ORDINI_RUOLO);
+			session.setAttribute("ruolo", RuoloBean.ORDINI);
 
 			LinkedHashSet<OrdineBean> ordiniAttivi=(LinkedHashSet<OrdineBean>) session.getAttribute("OrdiniAttivi");
 %>

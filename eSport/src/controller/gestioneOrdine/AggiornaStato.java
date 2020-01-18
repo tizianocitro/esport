@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.OrdineBean;
+import beans.RuoloBean;
 import beans.UtenteBean;
 import model.OrdineModel;
 
@@ -45,7 +46,7 @@ public class AggiornaStato extends HttpServlet {
 		else {
 			log.info("AggiornaStato -> controllo che l'utente autenticato sia un gestore degli ordini");
 			UtenteBean utente=(UtenteBean) session.getAttribute("userLogged");
-			if(!utente.getRuolo().containsKey("Ordini")){
+			if(!utente.getRuolo().containsKey(RuoloBean.ORDINI)){
 				redirectedPage="/OnlyAdminPage.html";
 
 				response.sendRedirect(request.getContextPath() + redirectedPage);

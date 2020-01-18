@@ -53,4 +53,11 @@ public class RuoloBean {
 	 * Variabile d'istanza permesso
 	 */
 	private String permesso;
+	
+	/**
+	 * Costanti che definiscono i ruoli possibili
+	 */
+	public static final String UTENTE="Utente";
+	public static final String CATALOGO="Catalogo";
+	public static final String ORDINI="Ordini";
 }

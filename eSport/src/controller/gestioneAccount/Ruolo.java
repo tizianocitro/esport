@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import beans.RuoloBean;
+
 @WebServlet("/Ruolo")
 public class Ruolo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     Logger log=Logger.getLogger("RuoloDebugger");  
-	String CATALOGO="Catalogo";
-	String ORDINI="Ordini";
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String permesso="";
@@ -31,9 +31,9 @@ public class Ruolo extends HttpServlet {
 			session.setAttribute("ruolo", permesso);
 
 			log.info("Ruolo -> se gestore degli ordini vado alla pagina di gestione degli ordini attivi");
-			if(permesso.equals(ORDINI))
+			if(permesso.equals(RuoloBean.ORDINI))
 				redirectedPage="/OrdiniAttivi";
-			else if(permesso.equals(CATALOGO)) {
+			else if(permesso.equals(RuoloBean.CATALOGO)) {
 				log.info("Ruolo -> vado alla pagina di gestione del catalogo");
 				redirectedPage="/GestioneCatalogo?tipo=Divisa&order=nome";
 			}

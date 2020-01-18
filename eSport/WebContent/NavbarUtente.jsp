@@ -5,8 +5,6 @@
 <%
 	Boolean userAuth = (Boolean) session.getAttribute("userAuth");
 	String ruoloToChange = (String) session.getAttribute("ruolo");
-	String CATALOGO="Catalogo";
-	String ORDINI="Ordini";
 	
 	UtenteBean user = (UtenteBean) session.getAttribute("userLogged");
 %>
@@ -40,7 +38,7 @@
 
 			<%
 				if(user!=null){
-					if (user.getRuolo().containsKey(CATALOGO) || user.getRuolo().containsKey(ORDINI)) {
+					if (user.getRuolo().containsKey(RuoloBean.CATALOGO) || user.getRuolo().containsKey(RuoloBean.ORDINI)) {
 			%>
 
 			<li class="dropdown nav-item" id="hvr3"><a
@@ -51,7 +49,7 @@
 						for (RuoloBean r : user.getRuolo().values()) {
 					%>
 					<li class="dropdown-item">
-						<% if(r.getPermesso().equals(CATALOGO) || r.getPermesso().equals(ORDINI)) { %>
+						<% if(r.getPermesso().equals(RuoloBean.CATALOGO) || r.getPermesso().equals(RuoloBean.ORDINI)) { %>
 							<a href="Ruolo?permesso=<%=r.getPermesso()%>">Gestore <%=r.getPermesso()%></a></li>
 						<%}
 						   else{

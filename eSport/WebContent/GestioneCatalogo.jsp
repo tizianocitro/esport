@@ -4,16 +4,16 @@
 <% 
 	Boolean userIn=(Boolean) session.getAttribute("userAuth"); 
 	if((userIn==null) || (!userIn.booleanValue())){
+		session.setAttribute("previousPage", "/GestioneCatalogo?tipo=Divisa&order=nome");
 		response.sendRedirect("./Login.jsp");
 	}
 	else{
 		UtenteBean userForRoleControl=(UtenteBean) session.getAttribute("userLogged");
-		if(!userForRoleControl.getRuolo().containsKey("Catalogo")){
+		if(!userForRoleControl.getRuolo().containsKey(RuoloBean.CATALOGO)){
 			response.sendRedirect("./OnlyAdminPage.html");
 		}
 		else{
-			String CATALOGO_RUOLO="Catalogo";
-			session.setAttribute("ruolo", CATALOGO_RUOLO);
+			session.setAttribute("ruolo", RuoloBean.CATALOGO);
 %>
 <!DOCTYPE html>
 
@@ -26,12 +26,21 @@
 <%
 	ctlg=(CatalogoBean) session.getAttribute("CatalogoDaGestire");
 	catalogo=(HashSet<ProdottoBean>) ctlg.getCatalogo();
+	
+	String titolo="";
+	String tp=(String) session.getAttribute("tp");
+	if(tp.equals(CatalogoBean.DIVISA))
+		titolo="divise";
+	else if(tp.equals(CatalogoBean.PANTALONCINI))
+			titolo="pantaloncini";
+	else
+		titolo="scarpe da gioco";
 %>
 		
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>e-Sport - Gestione catalogo</title>
+		<title>e-Sport - Gestione catalogo <%= titolo %></title>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
@@ -67,7 +76,6 @@
         			
         			<%! String pasc="prezzo desc"; %>
         			<%
-        				String tp=(String) session.getAttribute("tp");
         				if(tp.equalsIgnoreCase("Divisa")){
         			%>
         			<div class="list-group">

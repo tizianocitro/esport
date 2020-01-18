@@ -18,7 +18,7 @@
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="css/BlackWhite.css">
-        <link type="text/css" rel="stylesheet" href="css/CardCatalogo.css">
+        <link type="text/css" rel="stylesheet" href="css/BoxCatalogo.css">
         <link type="text/css" rel="stylesheet" href="css/Header.css">
         <link rel="stylesheet" type="text/css" href="css/HomePage.css">
 		<link rel="stylesheet" type="text/css" href="css/Nav.css">
@@ -76,15 +76,55 @@
 				</div>
 				</div>
 			</div>
+			
+			<div class="cat-box">
+            <div class="cat-container">
+                <div class="cat-card">
+                    <div class="imgBx">
+                        <img src="images/design.png">
+                    </div>
+
+                    <div class="cat-title">
+                        <h2>Divise</h2>
+                        <a href="#"><span>Visualizza</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cat-container">
+                <div class="cat-card">
+                    <div class="imgBx">
+                        <img src="images/design.png">
+                    </div>
+
+                    <div class="cat-title">
+                        <h2>Pantaloncini</h2>
+                        <a href="#"><span>Visualizza</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cat-container">
+                <div class="cat-card">
+                    <div class="imgBx">
+                        <img src="images/design.png">
+                    </div>
+
+                    <div class="cat-title">
+                        <h2>Scarpe</h2>
+                        <a href="#"><span>Visualizza</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
 	
-			<!--Some product cards-->
+			<!--Some product cards
 	        <div class="">
 	            <div class="titled-h1">
 	                <h1>Novità</h1>
 	            </div>
 	
 	            <div class="row">
-	                <!--first card-->
 	                <span class="card">
 	                    <input class="npt" type="checkbox" name="">
 	                    <div id="t1" class="toggle">+</div>
@@ -104,7 +144,6 @@
 	                    </div>
 	                </span>
 	
-	                <!--second card-->
 	                <span class="card">
 	                    <input class="npt" type="checkbox" name="">
 	                    <div id="t2" class="toggle">+</div>
@@ -124,7 +163,6 @@
 	                    </div>
 	                </span>
 	
-	                <!--third card-->
 	                <span class="card">
 	                    <input class="npt" type="checkbox" name="">
 	                    <div id="t3" class="toggle">+</div>
@@ -144,7 +182,6 @@
 	                    </div>
 	                </span>
 	
-	                <!--fourth card-->
 	                <span class="card">
 	                    <input class="npt" type="checkbox" name="">
 	                    <div id="t4" class="toggle">+</div>
@@ -165,7 +202,7 @@
 	                </span>
 	            </div>
 	        </div>
-		
+			-->
 		<!-- Footer -->
  		 <footer class="bg-dark">
     		<%@ include file="Footer.jsp" %>

@@ -34,9 +34,13 @@ public class LasciaRecensione extends HttpServlet {
 		if(needTo==null || needTo.equals(""))
 			needTo=WRITE;
 		
+		rewProd=request.getParameter("rewProd");
+
 		log.info("LasciaRecensione -> controllo che l'utente sia autenticato");
 		Boolean userAuth=(Boolean) session.getAttribute("userAuth");
 		if((userAuth==null) || (!userAuth.booleanValue())) {
+			session.setAttribute("previousPage", "/LasciaRecensione?needTo=write&rewProd=" + rewProd);
+
 			redirectedPage="/Login.jsp";
 			response.sendRedirect(request.getContextPath() + redirectedPage);
 		}
@@ -44,7 +48,6 @@ public class LasciaRecensione extends HttpServlet {
 			log.info("LasciaRecensione -> se autenticato procedo");
 
 			if(needTo.equals(WRITE)) {
-				rewProd=request.getParameter("rewProd");
 				session.setAttribute("rewProd", rewProd);
 				
 				redirectedPage="/LasciaRecensione.jsp";
@@ -63,34 +66,49 @@ public class LasciaRecensione extends HttpServlet {
 				commento=recensioneModel.correzione(commento);
 					
 				log.info("LasciaRecensione -> ottengo il voto");
-				Integer voto=Integer.parseInt(request.getParameter("voto"));
+				String votoTemporaneo=request.getParameter("voto");
+				
+				log.info("LasciaRecensione -> effettuo controlli su voto e commento");
+				
+				if(commento==null || commento.length()<RecensioneBean.LUNGHEZZA_MINIMA
+						|| votoTemporaneo==null || votoTemporaneo.equals("")) {
+					if(commento.length()<RecensioneBean.LUNGHEZZA_MINIMA)
+						session.setAttribute("erroreCommento", "errore");
 					
-				log.info("LasciaRecensione -> creo la recensione");
-				RecensioneBean recensione=new RecensioneBean();
-				recensione.setVoto(voto);
-				recensione.setCommento(commento);
-				recensione.setUsername(user.getUsername());
-				recensione.setProdotto(rewProd);
-					
-				log.info("LasciaRecensione -> recensione da salvare: " + recensione.getVoto() 
-				    + ", " + recensione.getProdotto() 
-					+ ", " + recensione.getUsername()
-					+ "\n" + recensione.getCommento());
-					
-				log.info("LasciaRecensione -> salvo la recensione");
-				try {
-					recensioneModel.doSave(recensione);
-				} 
-				catch (SQLException e) {
-					log.info("LasciaRecensione -> errore salvataggio recensione");
-					e.printStackTrace();
+					session.setAttribute("voto", votoTemporaneo);
+					session.setAttribute("commento", commento);
+					response.sendRedirect(request.getContextPath() + "/LasciaRecensione?needTo=write&rewProd=" + rewProd);
 				}
-					
-				session.removeAttribute("rewProd");
-					
-				log.info("LasciaRecensione -> vado alla pagina della scheda del prodotto");
-				redirectedPage="/SchedaProdotto?codProd=" + rewProd;
-				response.sendRedirect(request.getContextPath() + redirectedPage);
+				else {
+					Integer voto=Integer.parseInt(votoTemporaneo);
+						
+					log.info("LasciaRecensione -> creo la recensione");
+					RecensioneBean recensione=new RecensioneBean();
+					recensione.setVoto(voto);
+					recensione.setCommento(commento);
+					recensione.setUsername(user.getUsername());
+					recensione.setProdotto(rewProd);
+						
+					log.info("LasciaRecensione -> recensione da salvare: " + recensione.getVoto() 
+					    + ", " + recensione.getProdotto() 
+						+ ", " + recensione.getUsername()
+						+ "\n" + recensione.getCommento());
+						
+					log.info("LasciaRecensione -> salvo la recensione");
+					try {
+						recensioneModel.doSave(recensione);
+						
+						session.removeAttribute("rewProd");
+							
+						log.info("LasciaRecensione -> vado alla pagina della scheda del prodotto");
+						redirectedPage="/SchedaProdotto?codProd=" + rewProd;
+						response.sendRedirect(request.getContextPath() + redirectedPage);
+					} 
+					catch (SQLException e) {
+						log.info("LasciaRecensione -> errore salvataggio recensione");
+						e.printStackTrace();
+					}
+				}
 			}
 		}
 		//Fine controllo autenticazione

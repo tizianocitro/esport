@@ -15,9 +15,6 @@
 	}
 	else{
 		String ruolo=(String) session.getAttribute("ruolo");
-		String CATALOGO="Catalogo";
-		String ORDINI="Ordini";
-		String UTENTE="Utente";
 %>
 <!DOCTYPE html>
 <html>
@@ -39,9 +36,9 @@
 			<% 
 				String pg="";
 			
-				if(ruolo==null || ruolo.equals(UTENTE) || ruolo.equals(CATALOGO))
+				if(ruolo==null || ruolo.equals(RuoloBean.UTENTE) || ruolo.equals(RuoloBean.CATALOGO))
 					pg="NavbarUtente.jsp";
-				else if(ruolo.equals(ORDINI))
+				else if(ruolo.equals(RuoloBean.ORDINI))
 					pg="NavbarOrdini.jsp";			
 			%>
 			
@@ -61,7 +58,7 @@
 	                    <table>
 	                        <tr>
 	                            <td class="title">
-	                                <img src="images/LogoBianco.png" style="width:60%; max-width:180px;">
+	                                <img src="images/LogoSfondoBianco.png" style="width:60%; max-width:180px;">
 	                            </td>
 	                            
 	                            <td>

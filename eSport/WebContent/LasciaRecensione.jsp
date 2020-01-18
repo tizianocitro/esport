@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
+<%@ page import="beans.*" %>
+
 <% 
 	Boolean userIn=(Boolean) session.getAttribute("userAuth"); 
 	if((userIn==null) || (!userIn.booleanValue())){
@@ -24,30 +26,56 @@
 	<body>
 		<aside>
 			<div id="Logo" class="login-main-text">
-      			<img src="images/LogoNero.png" alt="Logo" class="Logo">
+      			<img src="images/LogoSfondoNero.png" alt="Logo" class="Logo">
          	</div>
       	</aside>
       	
       	<div class="main">
 			<div class="col-md-6 col-sm-12">
             	<div class="login-form">
-               		<form name='rec' action="LasciaRecensione" method="get" onSubmit="recensioneFormValidation();">
+               		<form name='rececensione' action="LasciaRecensione" method="get" onSubmit="recensioneFormValidation();">
                			<input type="hidden" name="needTo" value="save" />
-               			
                			<div class="error-msg" id="vtErr"></div>
                			<div class="form-group">
                      		<label>Voto</label>
-                     		<input type="number" name="voto" min="1" max="10" class="form-control" placeholder="Voto (1-10)">
+                     		<%
+                     			String vt=(String) session.getAttribute("voto");
+                     			if(vt!=null){
+                     		%>
+                     			<input type="number" name="voto" min="1" max="10" class="form-control" placeholder="Voto (1-10)" value="<%= vt %>">
+                     		<% } 
+                     			else{
+                     		%>
+                     			<input type="number" name="voto" min="1" max="10" class="form-control" placeholder="Voto (1-10)" value="Voto (1-10)">
+                     		<% } %>
                   		</div>
                   		
-                  		<div class="error-msg" id="cmmErr"></div>
+                  		<%
+               			String erroreCommento=(String) session.getAttribute("erroreCommento");
+               			if(erroreCommento!=null && erroreCommento.equals("errore")){ 
+               			%>
+                  		<div class="error-msg" id="cmmErr" style="text-color: red">Recensione troppo corta (minimo 12 caratteri)</div>
+                  		<%} %>
                   		<div class="form-group">
                   			<label>Recensione</label>
-                  			<textarea name="commento" rows="10" class="form-control" placeholder="Scrivi qui la tua recensione di minimo 12 e massimo 512 caratteri"></textarea>
+                  			<%
+                  			String cmmnt=(String) session.getAttribute("commento");
+                 			%>
+                  			<textarea id="cmmnt" name="commento" rows="10" class="form-control" placeholder="Scrivi qui la tua recensione di minimo 12 e massimo 512 caratteri" maxlength="512"><%if(cmmnt!=null && !cmmnt.equals("")){%><%= cmmnt %><%}%></textarea>
                   		</div>
+                  		<%
+                  			session.removeAttribute("voto");
+              				session.removeAttribute("commento");
+                  			session.removeAttribute("erroreCommento");
+                  			ProdottoBean p=(ProdottoBean) session.getAttribute("ProdottoDaMostrare");
+                  		%>
                   
                   		<button type="submit" class="btn btn-black">Salva</button>
-                  		<button type="reset" class="btn btn-secondary">Annulla</button>
+                  		<button class="btn btn-danger">
+							<a class="text-light no-dec" href="SchedaProdotto?codProd=<%= p.getCodice() %>" style="text-decoration: none">
+								Indietro
+							</a>
+						</button>
                		</form>
             	</div>
          	</div>

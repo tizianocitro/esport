@@ -31,7 +31,7 @@
 	<body>
 		<aside>
 			<div id="Logo" class="login-main-text">
-      			<img src="https://imgur.com/rssBTKs.png" alt="Logo" class="Logo">
+      			<img src="images/LogoSfondoNero.png" alt="Logo" class="Logo">
          	</div>
       	</aside>
       	

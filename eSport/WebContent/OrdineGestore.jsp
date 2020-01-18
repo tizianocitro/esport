@@ -13,16 +13,11 @@
 	}
 	else{
 		UtenteBean userForRoleControl=(UtenteBean) session.getAttribute("userLogged");
-		if(!userForRoleControl.getRuolo().containsKey("Ordini")){
+		if(!userForRoleControl.getRuolo().containsKey(RuoloBean.ORDINI)){
 			response.sendRedirect("./OnlyAdminPage.html");
 		}
 		else{
-			String ELABORAZIONE="In elaborazione";
-			String SPEDIZIONE="In spedizione";
-			String CONSEGNATO="Consegnato";
-			
-			String ORDINI_RUOLO="Ordini";
-			session.setAttribute("ruolo", ORDINI_RUOLO);
+			session.setAttribute("ruolo", RuoloBean.ORDINI);
 
 			boolean areAttivi=false;
 			boolean areChiusi=false;
@@ -109,7 +104,7 @@
 	      				
 	      				<%
 	      					for(OrdineBean o: ordini){
-	      						if(o.getStato().equals(ELABORAZIONE) || o.getStato().equals(SPEDIZIONE)){
+	      						if(o.getStato().equals(OrdineBean.ELABORAZIONE) || o.getStato().equals(OrdineBean.SPEDIZIONE)){
 	      							areAttivi=true;
 	      				%>
 	      				<div class="row">
@@ -158,7 +153,7 @@
 	      				
 	      				<%
 	      					for(OrdineBean o: ordini){
-	      						if(o.getStato().equals(CONSEGNATO) && ordini.size()!=0){
+	      						if(o.getStato().equals(OrdineBean.CONSEGNATO) && ordini.size()!=0){
 	      							areChiusi=true;
 	      				%>
 	      				<div class="row">

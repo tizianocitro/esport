@@ -5,12 +5,7 @@
 <%@ page import="java.util.*" %>
 
 <% 
-	String ELABORAZIONE="In elaborazione";
-	String SPEDIZIONE="In spedizione";
-	String CONSEGNATO="Consegnato";
-
-	String UTENTE="Utente";
-	session.setAttribute("ruolo", UTENTE);
+	session.setAttribute("ruolo", RuoloBean.UTENTE);
 
 	Boolean userIn=(Boolean) session.getAttribute("userAuth"); 
 	if((userIn==null) || (!userIn.booleanValue())){
@@ -75,7 +70,7 @@
 	      				
 	      				<%
 	      					for(OrdineBean o: ordini){
-	      						if(o.getStato().equals(ELABORAZIONE) || o.getStato().equals(SPEDIZIONE) && ordini.size()!=0){
+	      						if(o.getStato().equals(OrdineBean.ELABORAZIONE) || o.getStato().equals(OrdineBean.SPEDIZIONE) && ordini.size()!=0){
 	      							areAttivi=true;
 	      				%>
 	      				<div class="row">
@@ -119,7 +114,7 @@
 	      				
 	      				<%
 	      					for(OrdineBean o: ordini){
-	      						if(o.getStato().equals(CONSEGNATO) && ordini.size()!=0){
+	      						if(o.getStato().equals(OrdineBean.CONSEGNATO) && ordini.size()!=0){
 	      							areChiusi=true;
 	      				%>
 	      				<div class="row">

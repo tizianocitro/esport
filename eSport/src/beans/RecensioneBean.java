@@ -101,5 +101,6 @@ public class RecensioneBean {
 	 */
 	public static final int VOTO_MINIMO=1;
 	public static final int VOTO_MASSIMO=10;
-
+	public static final int LUNGHEZZA_MINIMA=12;
+	public static final int LUNGHEZZA_MASSIMA=512;
 }

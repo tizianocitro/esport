@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import beans.RuoloBean;
 import beans.UtenteBean;
 import model.UtenteModel;
 
@@ -18,7 +19,6 @@ import model.UtenteModel;
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Logger log=Logger.getLogger("LoginDebugger");
-	String UTENTE="Utente";
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
@@ -50,7 +50,7 @@ public class Login extends HttpServlet {
 			if(user!=null) {
 				log.info("Login -> utente loggato: " + user.getUsername() + ", " + user.getPassword());
 				session.setAttribute("userAuth", true);
-				session.setAttribute("ruolo", UTENTE);
+				session.setAttribute("ruolo", RuoloBean.UTENTE);
 				session.setAttribute("userLogged", user);
 
 				String pp=(String) session.getAttribute("previousPage");
@@ -63,7 +63,7 @@ public class Login extends HttpServlet {
 			}
 			else {
 				session.setAttribute("userAuth", false);
-				session.setAttribute("ruolo", UTENTE);
+				session.setAttribute("ruolo", RuoloBean.UTENTE);
 				session.setAttribute("userLogged", null);
 					
 				session.setAttribute("errore", "errore");

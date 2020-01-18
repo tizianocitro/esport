@@ -14,12 +14,11 @@
 	}
 	else{
 		UtenteBean userForRoleControl=(UtenteBean) session.getAttribute("userLogged");
-		if(!userForRoleControl.getRuolo().containsKey("Ordini")){
+		if(!userForRoleControl.getRuolo().containsKey(RuoloBean.ORDINI)){
 			response.sendRedirect("./OnlyAdminPage.html");
 		}
 		else{
-			String ORDINI_RUOLO="Ordini";
-			session.setAttribute("ruolo", ORDINI_RUOLO);
+			session.setAttribute("ruolo", RuoloBean.ORDINI);
 			
 			OrdineBean ordineDaModificare=(OrdineBean) session.getAttribute("OrdineDaModificare");
 %>
@@ -40,7 +39,7 @@
 	<body>
 		<aside>
 			<div id="Logo" class="login-main-text">
-      			<img src="images/LogoNero.png" alt="Logo" class="Logo">
+      			<img src="images/LogoSfondoNero.png" alt="Logo" class="Logo">
          	</div>
       	</aside>
       

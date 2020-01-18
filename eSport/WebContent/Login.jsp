@@ -17,7 +17,7 @@
 	<body>
 		<aside>
 			<div id="Logo" class="login-main-text">
-      			<img src="images/LogoNero.png" alt="Logo" class="Logo">
+      			<img src="images/LogoSfondoNero.png" alt="Logo" class="Logo">
          	</div>
       	</aside>
       

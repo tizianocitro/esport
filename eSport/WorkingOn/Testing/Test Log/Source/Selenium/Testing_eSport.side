@@ -1463,6 +1463,410 @@
       ],
       "value": "Quantità acquisto 1"
     }]
+  }, {
+    "id": "8a6fdfb6-b1a4-4d87-bdf1-3ea476b90a05",
+    "name": "TC_SottomissioneRecensione_03",
+    "commands": [{
+      "id": "97f12cf6-08bf-4bf8-b594-4db051987101",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "96852998-51d7-4a6a-a472-d3c4013e0d6d",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [],
+      "value": "root"
+    }, {
+      "id": "a8aa0769-d396-44b4-8aae-572aa461cfde",
+      "comment": "",
+      "command": "type",
+      "target": "name=pass",
+      "targets": [],
+      "value": "root"
+    }, {
+      "id": "36ad59e5-3134-4e0a-a976-ce1bfaec32be",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-black",
+      "targets": [
+        ["css=.btn-black", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Accedi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "82f05c9a-927c-4075-b7af-c173477f13b2",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/SchedaProdotto?codProd=001",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2d9c2b20-f9e4-4716-8cbd-98d33047b38b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Scrivi una recensione",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "12875614-f5b3-45e9-8719-7f3b3d7f354e",
+      "comment": "",
+      "command": "type",
+      "target": "name=voto",
+      "targets": [
+        ["name=voto", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='voto']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "11"
+    }, {
+      "id": "6995286d-e511-445b-a00a-84395a557913",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Lascia una recensione",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "d492cd27-a985-42ce-a7cb-7fe87accac8a",
+    "name": "TC_SottomissioneRecensione_01",
+    "commands": [{
+      "id": "787424e5-d472-4612-9b40-785574168cd5",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/SchedaProdotto?codProd=001",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "704dae57-62ed-4058-a63f-710c406f3b54",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Scrivi una recensione",
+      "targets": [
+        ["linkText=Scrivi una recensione", "linkText"],
+        ["css=.btn:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Scrivi una recensione')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'LasciaRecensione?needTo=write&rewProd=001')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Scrivi una recensione')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f9bf6daa-f9e4-40ac-aaee-54d318ba5399",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Login",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "4c829a96-3a88-4c20-a00f-8abf696bf079",
+    "name": "TC_SottomissioneRecensione_02",
+    "commands": [{
+      "id": "0bc6a72a-6cd1-4022-b4d6-d578328d9b1f",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "25a56926-1cd8-46cc-ba6f-39eacd16bdf9",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [],
+      "value": "root"
+    }, {
+      "id": "3d2a080e-e38e-45dc-bccb-d25a4b536631",
+      "comment": "",
+      "command": "type",
+      "target": "name=pass",
+      "targets": [],
+      "value": "root"
+    }, {
+      "id": "cebeba23-52ec-41eb-b2ac-7c93edf877a6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-black",
+      "targets": [
+        ["css=.btn-black", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Accedi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "04825890-f7bd-4166-9219-256d0f612336",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/SchedaProdotto?codProd=001",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c7342257-ae31-4594-b71d-dee95a88180b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Scrivi una recensione",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "18f0af00-e298-4d74-b9d8-24bda16dd7af",
+      "comment": "",
+      "command": "type",
+      "target": "name=voto",
+      "targets": [
+        ["name=voto", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='voto']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "0"
+    }, {
+      "id": "755c0e55-282a-43ed-a69f-cfd5cdca453f",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Lascia una recensione",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "f635ff98-f02d-43e7-a551-05ce9f39eafc",
+    "name": "TC_SottomissioneRecensione_04",
+    "commands": [{
+      "id": "1f9d5da3-58b0-4488-9589-55c8bac4d032",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "641f497d-1acd-4f54-8927-fe1e8bf0a5e0",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [],
+      "value": "root"
+    }, {
+      "id": "921df5a7-9618-4cb6-86dd-2ecdda397360",
+      "comment": "",
+      "command": "type",
+      "target": "name=pass",
+      "targets": [],
+      "value": "root"
+    }, {
+      "id": "0e004071-80d1-445a-857e-b8fca52d932b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-black",
+      "targets": [
+        ["css=.btn-black", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Accedi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "69630633-a570-443b-9e98-0f98e1618885",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/SchedaProdotto?codProd=001",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "461902d7-1441-43c6-a942-986925798041",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Scrivi una recensione",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "405a253f-5f9f-4e91-a1b6-de2c5191ab04",
+      "comment": "",
+      "command": "type",
+      "target": "name=voto",
+      "targets": [
+        ["name=voto", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='voto']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "9"
+    }, {
+      "id": "28c50e5a-991b-4b3b-8517-761ac55e55ad",
+      "comment": "",
+      "command": "type",
+      "target": "id=cmmnt",
+      "targets": [
+        ["id=cmmnt", "id"],
+        ["name=commento", "name"],
+        ["css=#cmmnt", "css:finder"],
+        ["xpath=//textarea[@id='cmmnt']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Ottimo"
+    }, {
+      "id": "84211f0a-bdc8-487e-ada4-28766292bd44",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Lascia una recensione",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e1ffd60e-bb74-45ec-ad3e-4e56f69da427",
+    "name": "TC_SottomissioneRecensione_05",
+    "commands": [{
+      "id": "a466150c-84fc-47e6-b655-e2983560a617",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7b88bb74-57d7-4e0e-8f28-e216e0c02480",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [],
+      "value": "root"
+    }, {
+      "id": "9d73c404-d038-49e9-b3cc-e8e2f1bcc1ec",
+      "comment": "",
+      "command": "type",
+      "target": "name=pass",
+      "targets": [],
+      "value": "root"
+    }, {
+      "id": "b31399c5-e575-4575-be2f-c667399cbcbd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-black",
+      "targets": [
+        ["css=.btn-black", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Accedi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "98a166d5-5566-4b05-a60e-f55304942fb0",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/SchedaProdotto?codProd=001",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "29ba1b7f-688f-46ca-930c-071114310aa3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Scrivi una recensione",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8792c4f9-60fb-4fb8-889c-932d46a8bebc",
+      "comment": "",
+      "command": "type",
+      "target": "name=voto",
+      "targets": [
+        ["name=voto", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='voto']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "9"
+    }, {
+      "id": "6c5daee4-6635-4686-a453-f7e7b7ee13ae",
+      "comment": "",
+      "command": "type",
+      "target": "id=cmmnt",
+      "targets": [
+        ["id=cmmnt", "id"],
+        ["name=commento", "name"],
+        ["css=#cmmnt", "css:finder"],
+        ["xpath=//textarea[@id='cmmnt']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Ottimo prodotto, davvero soddisfatto del mio acquisto."
+    }, {
+      "id": "1ad30fe7-b54f-40f3-8791-4b882850f429",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-black",
+      "targets": [
+        ["css=.btn-black", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Salva')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3f01d135-ffeb-4be3-bd25-6667ed522c2b",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Divisa Home Real Madrid",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "57021b67-bb83-49a1-835e-3478bd52ebd2",
+    "name": "TC_VisualizzazioneCatalogo_01",
+    "commands": [{
+      "id": "70ff3f0a-c6b0-4169-b606-21dfd46cf548",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Catalogo",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7b999b7a-6fec-4887-b46a-a63ca44bf704",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Catalogo divise",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "496d81a4-075a-4c62-b263-3b4214baed7e",
+    "name": "TC_VisualizzazioneCatalogo_02",
+    "commands": [{
+      "id": "8cd15e5d-cd06-4c06-a943-00fdccf41556",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Catalogo?tipo=Cappelli",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bf49b625-0da4-448f-87eb-355fc99273ec",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Catalogo divise",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "152d060b-53f5-4b57-aa1d-ecba5c787820",
+    "name": "TC_VisualizzazioneCatalogo_03",
+    "commands": [{
+      "id": "24fb4b20-2805-4a7a-9d27-b043da5a43c6",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Catalogo?tipo=Pantaloncini",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "65e1df79-4072-40f8-85a5-3cd2054a6f76",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Catalogo pantaloncini",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "28fa5637-e319-4752-b751-5c28dbc837d6",

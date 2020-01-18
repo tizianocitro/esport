@@ -35,7 +35,11 @@ public class GestioneCatalogo extends HttpServlet {
 			String tipo=(String) request.getParameter("tipo");
 			log.info("GestioneCatalogo -> tipo: " + tipo);
 			if(tipo==null || tipo.equals(""))
-				tipo="Divisa";
+				tipo=CatalogoBean.DIVISA;
+
+			if(!tipo.equals(CatalogoBean.DIVISA) && !tipo.equals(CatalogoBean.SCARPE) 
+					&& !tipo.equals(CatalogoBean.PANTALONCINI))
+				tipo=CatalogoBean.DIVISA;
 			
 			log.info("GestioneCatalogo -> secondo controllo su tipo: " + tipo);
 			
