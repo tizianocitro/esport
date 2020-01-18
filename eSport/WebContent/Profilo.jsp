@@ -178,7 +178,7 @@
                                         
                                         <div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">
-                                                <label><b>Metodo di pagamento</b></label>
+                                                <label><b>Metodi di pagamento</b></label>
                                             </div>
                                             <div class="col-md-8 col-6">
                                                 <a class="text-dark metpag-link" href="MetodoPagamento.jsp" target="_blanc" style="text-decoration: none">

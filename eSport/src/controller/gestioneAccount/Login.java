@@ -66,6 +66,7 @@ public class Login extends HttpServlet {
 				session.setAttribute("ruolo", UTENTE);
 				session.setAttribute("userLogged", null);
 					
+				session.setAttribute("errore", "errore");
 				redirectedPage="/Login.jsp";
 			}
 		}

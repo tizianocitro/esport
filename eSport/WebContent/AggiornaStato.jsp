@@ -77,6 +77,12 @@
 						<br>
                   		<button type="submit" class="btn btn-black">Modifica</button>
                   		<button type="reset" class="btn btn-secondary">Annulla</button>
+                  		<button class="btn btn-danger">
+                  			<%! String sttmDsc="sottomissione desc"; %>
+							<a class="text-light no-dec" href="OrdiniAttivi?order=<%= sttmDsc %>" style="text-decoration: none">
+								Indietro
+							</a>
+						</button>
                		</form>
             	</div>
          	</div>

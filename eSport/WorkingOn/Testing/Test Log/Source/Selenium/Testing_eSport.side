@@ -1307,6 +1307,162 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "66b12dd4-9fe3-4532-96cc-1386ac372ad4",
+    "name": "TC_AggiuntaProdottoCarrello_01",
+    "commands": [{
+      "id": "a7d36684-1370-4def-b67b-d65124059a16",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/AddProdottoCarrello?prodotto=099&selectTaglia=L",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "777cea0b-bbaf-4015-a90e-a5c1878ce6d9",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Errore",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "f82ceccd-ed94-4897-a0cd-dc9602aca75d",
+    "name": "TC_AggiuntaProdottoCarrello_03",
+    "commands": [{
+      "id": "1d02b0b8-da43-43b0-beb4-cda19fda0cb8",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/AddProdottoCarrello?prodotto=001&selectTaglia=C",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dd5d13de-7c1f-42ce-af81-7f8e7a01c612",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Errore",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "cfd7af65-b681-45d5-ad6c-365567606345",
+    "name": "TC_AggiuntaProdottoCarrello_02",
+    "commands": [{
+      "id": "d658d7fe-4d1c-4162-98f5-c9bc5c223981",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/AddProdottoCarrello?prodotto=001",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cb6114e0-0759-4f13-9f54-a993ae0616c4",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Errore",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "07281c08-4304-41a3-b4bd-e1e6370689bc",
+    "name": "TC_AggiuntaProdottoCarrello_04",
+    "commands": [{
+      "id": "ceee89a2-c29a-476a-99e8-88cd7a2ce46d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/AddProdottoCarrello?prodotto=001&selectTaglia=L",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4f74827a-5867-4ad8-a149-aa03f589be4b",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "eSport - Carrello",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "4f310387-9a34-47ae-9106-1ac2c3a6ad7f",
+    "name": "TC_ModificaQuantitaCarrello_04",
+    "commands": [{
+      "id": "15fb2c7a-e80b-4c86-bee3-4c7b389fb34e",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/ModificaQt?action=plus&prodotto=001&taglia=L",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e71e82b5-6756-42af-8a4e-2a4990a0ebba",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=sp-qt",
+      "targets": [
+        ["id=sp-qt", "id"],
+        ["css=#sp-qt", "css:finder"],
+        ["xpath=//span[@id='sp-qt']", "xpath:attributes"],
+        ["xpath=//p[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Quantità acquisto 3')]", "xpath:innerText"]
+      ],
+      "value": "Quantità acquisto 2"
+    }]
+  }, {
+    "id": "0fc36636-39c7-42a3-b13c-90c6a4ce241a",
+    "name": "TC_ModificaQuantitaCarrello_01",
+    "commands": [{
+      "id": "8af836af-5002-48af-8948-97a04ca0cc74",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/ModificaQt?action=plus&prodotto=099&taglia=L",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "63e30696-dd97-49bd-b0a5-98cb05029b70",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=sp-qt",
+      "targets": [],
+      "value": "Quantità acquisto 1"
+    }]
+  }, {
+    "id": "c53f2e8a-159d-440f-82bf-d3e7ab049d6d",
+    "name": "TC_ModificaQuantitaCarrello_02",
+    "commands": [{
+      "id": "ee3f40fc-c64c-40ea-b2f3-dc2bee28357b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/ModificaQt?action=plus&prodotto=001",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6133cfb5-8424-4746-8ec6-20267059e1e8",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=sp-qt",
+      "targets": [],
+      "value": "Quantità acquisto 1"
+    }]
+  }, {
+    "id": "a3a12d39-6981-46a7-8066-503fcafb440b",
+    "name": "TC_ModificaQuantitaCarrello_03",
+    "commands": [{
+      "id": "cdc45b3b-87b0-4245-8e30-3cb27bdd9bac",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/ModificaQt?action=plus&prodotto=001&taglia=C",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "178b0978-2095-47d9-ada7-7790ad4aa1b3",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=sp-qt",
+      "targets": [
+        ["id=sp-qt", "id"],
+        ["css=#sp-qt", "css:finder"],
+        ["xpath=//span[@id='sp-qt']", "xpath:attributes"],
+        ["xpath=//p[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Quantità acquisto 3')]", "xpath:innerText"]
+      ],
+      "value": "Quantità acquisto 1"
+    }]
   }],
   "suites": [{
     "id": "28fa5637-e319-4752-b751-5c28dbc837d6",

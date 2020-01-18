@@ -25,7 +25,14 @@
 			<div class="col-md-6 col-sm-12">
             	<div class="login-form">
                		<form name='accesso' action="Login" method="post">
-               			<div class="error-msg" id="usrErr"></div>
+               			<%
+               			String errore=(String) session.getAttribute("errore");
+               			if(errore!=null && errore.equalsIgnoreCase("errore")){
+               			%>
+               				<div class="error-msg" id="usrErr" style="text-color: red">Username o passoword errati</div>
+               			<% 
+               				session.removeAttribute("errore");
+               			} %>
                			<div class="form-group">
                      		<label><h2>Username</h2></label>
                      		<input type="text" name="username" class="form-control" placeholder="Username">

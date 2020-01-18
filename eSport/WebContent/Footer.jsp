@@ -9,24 +9,25 @@
 					<ul class="list-unstyled quick-links">
 						<li><a href="Index.jsp"><i class="fa fa-angle-double-right"></i>Home</a></li>
 						<li><a href="#"><i class="fa fa-angle-double-right"></i>Supporto</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>Il mio carrello</a></li>
+						<li><a href="Carrello"><i class="fa fa-angle-double-right"></i>Il mio carrello</a></li>
 					
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Catalogo</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>Divise</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>Pantaloncini</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>Scarpe da gioco</a></li>
+						<li><a href="Catalogo?tipo=Divisa&order=nome"><i class="fa fa-angle-double-right"></i>Divise</a></li>
+						<li><a href="Catalogo?tipo=Pantaloncini&order=nome"><i class="fa fa-angle-double-right"></i>Pantaloncini</a></li>
+						<li><a href="Catalogo?tipo=Scarpe&order=nome"><i class="fa fa-angle-double-right"></i>Scarpe da gioco</a></li>
 				
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Area utente</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>Profilo</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>Ordini effettuati</a></li>
+						<li><a href="Profilo.jsp"><i class="fa fa-angle-double-right"></i>Profilo</a></li>
+						<%! String sttmnDesc="sottomissione desc"; %>
+						<li><a href="Ordine?toDo=utente&order=<%= sttmnDesc %>"><i class="fa fa-angle-double-right"></i>Ordini effettuati</a></li>
 						<li><a href="Login.jsp"><i class="fa fa-angle-double-right"></i>Accedi</a></li>
 						
 					</ul>
@@ -46,8 +47,8 @@
 			</div>	
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-					<p><u><a href="#">eSport Inc.</a></u> è un marchio registrato presso l'Università degli Studi di Salerno</p>
-					<p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="#" target="_blank">eSport Inc.</a></p>
+					<p><u><a href="Index.jsp">eSport Inc.</a></u> è un marchio registrato presso l'Università degli Studi di Salerno</p>
+					<p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="Index.jsp" target="_blank">eSport Inc.</a></p>
 				</div>
 				</hr>
 			</div>	

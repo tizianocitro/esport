@@ -116,12 +116,16 @@ public class CarrelloBean {
 		
 		for(CarrelloItem item: carrello) {
 			if(item.getProdotto().getCodice().equals(codiceProdotto) 
-					&& item.getTaglia().equals(taglia))
-				if(action.equals(ACTION_PLUS))
-					item.setQt(item.getQt() + 1);
-				else if(action.equals(ACTION_MINUS)) {
-					item.setQt(item.getQt() - 1);
+					&& item.getTaglia().equals(taglia)) {
+				if(action.equals(ACTION_PLUS)) {
+					if(item.getQt()!=item.getProdotto().getQt())
+						item.setQt(item.getQt() + 1);
 				}
+				else if(action.equals(ACTION_MINUS)) {
+					if(item.getQt()>1)
+						item.setQt(item.getQt() - 1);
+				}
+			}
 		}
 	}
 	
