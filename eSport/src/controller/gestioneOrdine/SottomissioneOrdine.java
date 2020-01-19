@@ -77,7 +77,6 @@ public class SottomissioneOrdine extends HttpServlet {
 						ordine.setIndirizzo(Integer.parseInt(indirizzo));
 						ordine.setPagamento(Integer.parseInt(metodo));
 						
-						double totale=0;
 						log.info("SottomissioneOrdine -> uso i prodotti nel carrello per creare la composizione dell'ordine");
 						for(CarrelloItem item: carrello.getCarrello()) {
 							log.info("SottomissioneOrdine -> creo la composizone dell'ordine");
@@ -89,14 +88,13 @@ public class SottomissioneOrdine extends HttpServlet {
 							cb.setPrezzoVen(item.getProdotto().getPrezzo());
 							cb.setQt(item.getQt());
 							cb.setTaglia(item.getTaglia());
-							
-							totale+=item.getProdotto().getPrezzo();
-	
+								
 							log.info("SottomissioneOrdine -> aggiungo composizione all'ordine");
 							ordine.addProdotto(cb);
 						}
 						
 						log.info("SottomissioneOrdine -> aggiorno totale dell'ordine");
+						float totale=(float) session.getAttribute("costoTotale");
 						ordine.setTotale(totale);
 						log.info("SottomissioneOrdine -> salvo l'ordine per completare la sottomissione");
 						try {
