@@ -61,7 +61,7 @@
 		</ul>
 
 		<ul class="nav navbar-nav ml-auto">
-			<form id="searchForm" class="form-inline" action="#" method="post">
+			<form id="searchForm" class="form-inline" action="InCostruzione.html" method="post">
 				<div id="searchDiv" class="input-group">
 					<input type="text" name="nameToSearch" class="form-control"
 						placeholder="Cerca">
@@ -75,7 +75,7 @@
 			<%
 				if ((userAuth == null) || (!userAuth.booleanValue())) {
 			%>
-			<li class="hvr nav-item"><a href="#" class="nav-link"> <i
+			<li class="hvr nav-item"><a href="InCostruzione.html" class="nav-link"> <i
 					class="fas fa-edit"></i> Registrati
 			</a></li>
 			<li class="hvr nav-item"><a href="Login.jsp" class="nav-link">

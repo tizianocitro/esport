@@ -62,7 +62,7 @@
 
 	      	 	  <div class="col-lg-3">
 					<h1 class="my-4">I tuoi indirizzi</h1>
-					<a id="add-indirizzo" href="#">	
+					<a id="add-indirizzo" href="InCostruzione.html">	
 	        			<div class="ind-prod">
 							<i class="fas fa-plus text-dark"></i>
 							<h3 class="text-dark">Aggiungi <br> indirizzo</h3>

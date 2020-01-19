@@ -32,7 +32,7 @@ public class UtenteBean {
 	 * @param username
 	 */
 	public void setUsername(String username) {
-		this.username = username;
+		this.username=username;
 	}
 	
 	/**
@@ -48,7 +48,7 @@ public class UtenteBean {
 	 * @param password
 	 */
 	public void setPassword(String pass) {
-		this.pass = pass;
+		this.pass=pass;
 	}
 	
 	/**
@@ -64,7 +64,7 @@ public class UtenteBean {
 	 * @param ruoli
 	 */
 	public void setRuolo(Map<String, RuoloBean> ruoli) {
-		this.ruoli = ruoli;
+		this.ruoli=ruoli;
 	}
 	
 	/**

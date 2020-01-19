@@ -122,13 +122,18 @@
               					<div class="card-body">
                 					<h4 class="card-header">
                   						<a href="SchedaProdotto?codProd=<%= p.getCodice()%>" class="card-link text-white"><%= p.getNome() %></a>
-                					</h4>       		
+                					</h4>      
+                					
+                					<div class="card-header">
+										<p><%= p.getMarca() %></p>
+										<p class="prezzo"><%= p.getPrezzo() + "&euro;" %></p>
+									</div>   		
 								</div>
 									
               					<div class="card-footer">
               						<div align="center">
               							<button class="btn btn-secondary bg-dark text-white">
-                              				<a class="text-light a-btt" href="#?cod=<%= p.getCodice() %>">
+                              				<a class="text-light a-btt" href="InCostruzione.html?cod=<%= p.getCodice() %>">
                               					Modifica prodotto
                               				</a>
                           				</button>
@@ -136,7 +141,7 @@
               						
               						<div align="center">
               							<button class="btn btn-secondary bg-dark text-white">
-                              				<a class="text-light a-btt" href="#?cod=<%= p.getCodice() %>&tipo=<%= p.getTipo() %>">
+                              				<a class="text-light a-btt" href="InCostruzione.html?cod=<%= p.getCodice() %>&tipo=<%= p.getTipo() %>">
                               					Rimuovi prodotto
                               				</a>
                           				</button>

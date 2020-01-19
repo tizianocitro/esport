@@ -95,11 +95,11 @@
                 <div class="col-lg-12">
                     <div class="order">
                     	<%! String pasc="voto desc"; %>
-                        <a class="bb" href="SchedaProdottoStub?order=<%= pasc %>&codProd=<%= p.getCodice()%>">
+                        <a class="bb" href="SchedaProdotto?order=<%= pasc %>&codProd=<%= p.getCodice()%>">
                           <span class="a-sp">Ordina recensioni per voto[alto-basso]</span>
                         </a>
                         
-                        <a class="bb" href="SchedaProdottoStub?order=voto&codProd=<%= p.getCodice()%>">
+                        <a class="bb" href="SchedaProdotto?order=voto&codProd=<%= p.getCodice()%>">
                           <span class="a-sp">Ordina recensioni per voto[basso-alto]</span>
                         </a>
                     </div>

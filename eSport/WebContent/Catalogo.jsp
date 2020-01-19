@@ -85,7 +85,7 @@
         			<% } %>
         			
         			<h1 class="my-4">Filtra</h1>
-	        		<form class="form-inline" action="#">
+	        		<form class="form-inline" action="InCostruzione.html">
 		                    <div class="input-group">
 		                        <input id="nm-fil" type="text" name="nm" class="form-control" placeholder="Nome prodotto" style="background: white; margin-bottom: 5px; border: 1px solid gray;">
 		                        <div class="input-group-btn">
@@ -96,7 +96,7 @@
 		                    </div>
 		             </form>
 		                
-	        		 <form class="form-inline" action="#">
+	        		 <form class="form-inline" action="InCostruzione.html">
 		                    <div class="input-group">
 		                        <input id="mrc-fil" type="text" name="mrc" class="form-control" placeholder="Marca prodotto" style="background: white; margin-bottom: 5px; border: 1px solid gray;">
 		                        <div class="input-group-btn">

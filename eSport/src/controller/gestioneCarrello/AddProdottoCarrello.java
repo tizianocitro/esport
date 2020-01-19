@@ -68,15 +68,8 @@ public class AddProdottoCarrello extends HttpServlet {
 							item.setProdotto(prodottoDaAggiungere);
 							item.setTaglia(taglia);
 							
-							log.info("AddProdottoCarrello -> verifico se il prodotto è già nel carrello o meno");
-							if(!carrello.contains(item)) {
-								log.info("AddProdottoCarrello -> non è nel carrello, lo aggiungo");
-								carrello.addProdotto(item);
-							}
-							else {
-								log.info("AddProdottoCarrello -> già nel carrello, ne aumento solo la quantità");
-								carrello.reAddProdotto(item);
-							}
+							log.info("AddProdottoCarrello -> aggiungo prodotto al carrello");
+							carrello.reAddProdotto(item);
 							
 							log.info("AddProdottoCarrello -> aggiorno il carrello nella sessione");
 							session.setAttribute("Carrello", carrello);

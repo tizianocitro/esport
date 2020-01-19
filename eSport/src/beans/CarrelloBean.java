@@ -22,6 +22,7 @@ public class CarrelloBean {
 	 */
 	public void addProdotto(CarrelloItem carrelloItem) {
 		if(carrelloItem==null || carrelloItem.getProdotto()==null || carrelloItem.getQt()<1 
+				|| carrelloItem.getProdotto().getCodice()==null || carrelloItem.getProdotto().getCodice().equals("")
 				|| carrelloItem.getTaglia()==null || carrelloItem.getTaglia().equals(""))
 			return;
 		
@@ -33,14 +34,19 @@ public class CarrelloBean {
 	 * @param carrello item
 	 */
 	public void reAddProdotto(CarrelloItem carrelloItem) {
-		if(carrelloItem==null || carrelloItem.getProdotto()==null || carrelloItem.getQt()<1 
+		if(carrelloItem==null || carrelloItem.getProdotto()==null || carrelloItem.getQt()<1
+				|| carrelloItem.getProdotto().getCodice()==null || carrelloItem.getProdotto().getCodice().equals("")
 				|| carrelloItem.getTaglia()==null || carrelloItem.getTaglia().equals(""))
 			return;
 		
-		for(CarrelloItem item: carrello) {
-			if(item.equals(carrelloItem))
-				item.setQt(item.getQt() + 1);
+		if(contains(carrelloItem)) {
+			for(CarrelloItem item: carrello) {
+				if(item.equals(carrelloItem))
+					item.setQt(item.getQt() + 1);
+			}
 		}
+		else
+			addProdotto(carrelloItem);
 	}
 	
 	/**
@@ -66,6 +72,7 @@ public class CarrelloBean {
 	 */
 	public void removeProdotto(CarrelloItem carrelloItem) {
 		if(carrelloItem==null || carrelloItem.getProdotto()==null || carrelloItem.getQt()<1 
+				|| carrelloItem.getProdotto().getCodice()==null || carrelloItem.getProdotto().getCodice().equals("")
 				|| carrelloItem.getTaglia()==null || carrelloItem.getTaglia().equals(""))
 			return;
 		
@@ -142,6 +149,11 @@ public class CarrelloBean {
 	 * @return true se il prodotto è già nel carrello, altrimenti false
 	 */
 	public boolean contains(CarrelloItem carrelloItem) {
+		if(carrelloItem==null || carrelloItem.getProdotto()==null
+				|| carrelloItem.getProdotto().getCodice()==null || carrelloItem.getProdotto().getCodice().equals("")
+				|| carrelloItem.getTaglia()==null || carrelloItem.getTaglia().equals(""))
+			return false;
+		
 		for(CarrelloItem item: carrello)
 			if(item.equals(carrelloItem))
 				return true;

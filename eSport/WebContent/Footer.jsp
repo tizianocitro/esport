@@ -8,7 +8,7 @@
 					<h5>Suggerimenti</h5>
 					<ul class="list-unstyled quick-links">
 						<li><a href="Index.jsp"><i class="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>Supporto</a></li>
+						<li><a href="InCostruzione.html"><i class="fa fa-angle-double-right"></i>Supporto</a></li>
 						<li><a href="Carrello"><i class="fa fa-angle-double-right"></i>Il mio carrello</a></li>
 					
 					</ul>

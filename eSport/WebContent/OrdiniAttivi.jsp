@@ -66,7 +66,7 @@
 	        			</div>
 	        			
 	        			<h1 class="my-4">Filtra</h1>
-	        			<form class="form-inline" action="#">
+	        			<form class="form-inline" action="InCostruzione.html">
 		                    <div class="input-group">
 		                        <input id="u-fil" type="text" name="user" class="form-control" placeholder="Username">
 		                        <div class="input-group-btn">
@@ -77,7 +77,7 @@
 		                    </div>
 		                </form>
 		             	
-		             	<form class="form-inline" action="#">
+		             	<form class="form-inline" action="InCostruzione.html">
 		                    <div class="input-group">
 		                        <input id="d-fil" type="text" name="date" class="form-control" placeholder="Da yyyy-MM-dd">
 		                    </div>
