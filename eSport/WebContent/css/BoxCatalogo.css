@@ -19,7 +19,7 @@
     width: 320px;
     margin: 20px;
     padding: 40px 30px;
-    background: #ebf5fc;
+    background: #f2f6f8;
     border-radius: 40px;
     box-shadow: -6px -6px 20px rgba(255, 255, 255, 1),
                 6px 6px 20px rgba(0, 0, 0, 0.1);
@@ -46,7 +46,7 @@
 }
 
 .cat-container .cat-card .cat-title h2 {
-    color: #32a3b1;
+    color: #1f2020;
     font-weight: 700;
     font-size: 1.4em;
     letter-spacing: 2px;
@@ -57,7 +57,7 @@
     padding: 10px 20px;
     margin-top: 15px;
     border-radius: 40px;
-    color: #32a3b1;
+    color: #1f2020;
     font-size: 16px;
     text-decoration: none;
     box-shadow: -4px -4px 15px rgba(255, 255, 255, 1),

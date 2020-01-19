@@ -40,7 +40,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>e-Sport - Gestione catalogo <%= titolo %></title>
+		<title>eSport - Gestione catalogo <%= titolo %></title>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
