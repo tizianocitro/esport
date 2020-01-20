@@ -56,6 +56,13 @@
       "target": "eSport - Home Page",
       "targets": [],
       "value": ""
+    }, {
+      "id": "7139d403-0ec7-40fb-a4f5-733896c5acfa",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "895173f0-3edc-4401-a30d-8d1a685a28ba",
@@ -243,6 +250,13 @@
       "target": "eSport - root",
       "targets": [],
       "value": ""
+    }, {
+      "id": "e56c3186-0eb4-4ab8-a8ef-c841034ba511",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "1548dc6d-df9c-4511-b2ad-156a5cd7aabe",
@@ -269,7 +283,7 @@
       "id": "048fa81f-2280-4221-85e5-1d02e2c975ba",
       "comment": "",
       "command": "open",
-      "target": "http://localhost:8080/eSport/Ordine?toDo=utente&order=sottomissione",
+      "target": "http://localhost:8080/eSport/Login.jsp",
       "targets": [],
       "value": ""
     }, {
@@ -322,6 +336,13 @@
       "target": "eSport - I tuoi ordini",
       "targets": [],
       "value": ""
+    }, {
+      "id": "7762f462-79ac-4e2c-9ee0-926fc475017f",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "67e1c4dc-c910-41eb-8d19-03a4a56fe7b6",
@@ -348,7 +369,7 @@
       "id": "3076d416-2c4e-4484-8ac2-d70c0357aa69",
       "comment": "",
       "command": "open",
-      "target": "http://localhost:8080/eSport/Acquisto.jsp",
+      "target": "http://localhost:8080/eSport/Login.jsp",
       "targets": [],
       "value": ""
     }, {
@@ -418,6 +439,13 @@
       "comment": "",
       "command": "assertTitle",
       "target": "eSport - Carrello",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "71cf392b-1a21-4806-8ca9-368df97dacf6",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
       "targets": [],
       "value": ""
     }]
@@ -545,6 +573,13 @@
       "target": "eSport - Dati acquisto",
       "targets": [],
       "value": ""
+    }, {
+      "id": "50b800f3-4cc2-4b21-821a-e88c1dc184b6",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "f4da3a0f-546b-480d-bb98-f4b890598a01",
@@ -655,6 +690,13 @@
       "comment": "",
       "command": "assertTitle",
       "target": "eSport - Dati acquisto",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "85bb2781-53b4-41e2-9e2c-1df171d4414f",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
       "targets": [],
       "value": ""
     }]
@@ -794,6 +836,13 @@
       "target": "eSport - Riepilogo",
       "targets": [],
       "value": ""
+    }, {
+      "id": "e4a6dba0-225f-4e48-a723-7f8a7a7aee4a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "6fd48884-ea3c-4142-8244-42d1b33b690f",
@@ -853,6 +902,13 @@
       "comment": "",
       "command": "assertTitle",
       "target": "eSport - Accesso non autorizzato",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5d4f9045-9259-4cea-b533-11c4e15165cf",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
       "targets": [],
       "value": ""
     }]
@@ -934,6 +990,13 @@
       "target": "eSport - Gestione ordini",
       "targets": [],
       "value": ""
+    }, {
+      "id": "342ed48f-be50-446f-b1a2-f920af242f0b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "e1584dc1-1514-4567-aad3-9a1f26768056",
@@ -1013,6 +1076,13 @@
       "target": "eSport - Errore",
       "targets": [],
       "value": ""
+    }, {
+      "id": "552405be-7510-4b71-92ab-dc21fb12be7b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "6401d143-3ae2-4c9e-ab27-3a67753d09cc",
@@ -1080,6 +1150,13 @@
       "comment": "",
       "command": "assertTitle",
       "target": "eSport - Accesso non autorizzato",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "da0509a0-bc2a-4606-b54f-f195062a7e4a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
       "targets": [],
       "value": ""
     }]
@@ -1156,6 +1233,13 @@
       "comment": "",
       "command": "assertTitle",
       "target": "eSport - Gestione ordini attivi",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "05e52fc9-ac5e-4ce1-9095-e0c4bd8189da",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
       "targets": [],
       "value": ""
     }]
@@ -1255,6 +1339,13 @@
       "target": "eSport - Fattura",
       "targets": [],
       "value": ""
+    }, {
+      "id": "6d663048-c11b-4268-84de-3fb32b17b11a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "73fb767d-3c4c-44a9-b98a-e8a5b7e658b4",
@@ -1304,6 +1395,13 @@
       "comment": "",
       "command": "assertTitle",
       "target": "eSport - Errore",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "47fcc86d-5000-4764-865c-4c0aaf12a17d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
       "targets": [],
       "value": ""
     }]
@@ -1383,6 +1481,13 @@
     "id": "4f310387-9a34-47ae-9106-1ac2c3a6ad7f",
     "name": "TC_ModificaQuantitaCarrello_04",
     "commands": [{
+      "id": "9704aa50-0835-4521-a38d-38dd4582f23b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/AddProdottoCarrello?prodotto=001&selectTaglia=L",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "15fb2c7a-e80b-4c86-bee3-4c7b389fb34e",
       "comment": "",
       "command": "open",
@@ -1402,11 +1507,25 @@
         ["xpath=//span[contains(.,'Quantità acquisto 3')]", "xpath:innerText"]
       ],
       "value": "Quantità acquisto 2"
+    }, {
+      "id": "d2689229-6a0c-425e-9c90-389d0ae05f03",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/SvuotaCarrello",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "0fc36636-39c7-42a3-b13c-90c6a4ce241a",
     "name": "TC_ModificaQuantitaCarrello_01",
     "commands": [{
+      "id": "2b601caf-4074-4746-a6cf-4cd79f4a7fa4",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/AddProdottoCarrello?prodotto=001&selectTaglia=L",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "8af836af-5002-48af-8948-97a04ca0cc74",
       "comment": "",
       "command": "open",
@@ -1420,11 +1539,25 @@
       "target": "id=sp-qt",
       "targets": [],
       "value": "Quantità acquisto 1"
+    }, {
+      "id": "11ac133c-393e-41a6-86f4-7fd2598695d8",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/SvuotaCarrello",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "c53f2e8a-159d-440f-82bf-d3e7ab049d6d",
     "name": "TC_ModificaQuantitaCarrello_02",
     "commands": [{
+      "id": "3b454b80-ca47-4d72-9e7b-8f889e7dc606",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/AddProdottoCarrello?prodotto=001&selectTaglia=L",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "ee3f40fc-c64c-40ea-b2f3-dc2bee28357b",
       "comment": "",
       "command": "open",
@@ -1438,11 +1571,25 @@
       "target": "id=sp-qt",
       "targets": [],
       "value": "Quantità acquisto 1"
+    }, {
+      "id": "80acac25-0c77-406e-959b-4e8164a50188",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/SvuotaCarrello",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "a3a12d39-6981-46a7-8066-503fcafb440b",
     "name": "TC_ModificaQuantitaCarrello_03",
     "commands": [{
+      "id": "63a3e0f8-8ebe-4304-b9a1-4add31d71ef5",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/AddProdottoCarrello?prodotto=001&selectTaglia=L",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "cdc45b3b-87b0-4245-8e30-3cb27bdd9bac",
       "comment": "",
       "command": "open",
@@ -1462,6 +1609,13 @@
         ["xpath=//span[contains(.,'Quantità acquisto 3')]", "xpath:innerText"]
       ],
       "value": "Quantità acquisto 1"
+    }, {
+      "id": "d309f443-ae2a-411a-896e-ac058c091865",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/SvuotaCarrello",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "8a6fdfb6-b1a4-4d87-bdf1-3ea476b90a05",
@@ -1530,6 +1684,13 @@
       "comment": "",
       "command": "assertTitle",
       "target": "eSport - Lascia una recensione",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f99f3a8e-fbeb-4200-a4d2-7dcbfc402567",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
       "targets": [],
       "value": ""
     }]
@@ -1634,6 +1795,13 @@
       "target": "eSport - Lascia una recensione",
       "targets": [],
       "value": ""
+    }, {
+      "id": "e72e411a-6205-41ee-8509-ed2fa7c94c72",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "f635ff98-f02d-43e7-a551-05ce9f39eafc",
@@ -1715,6 +1883,13 @@
       "comment": "",
       "command": "assertTitle",
       "target": "eSport - Lascia una recensione",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "92c8db83-8174-4460-bf4b-d72ba035d81c",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
       "targets": [],
       "value": ""
     }]
@@ -1810,6 +1985,13 @@
       "comment": "",
       "command": "assertTitle",
       "target": "eSport - Divisa Home Real Madrid",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "350655af-41f5-45b4-8c2e-811ace8e639c",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
       "targets": [],
       "value": ""
     }]
@@ -1945,6 +2127,13 @@
       "target": "eSport - I tuoi indirizzi",
       "targets": [],
       "value": ""
+    }, {
+      "id": "841cdb35-9111-4705-a513-edd7aebeb508",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "634c6e42-5e34-409f-9c4e-a9b7331113aa",
@@ -2024,6 +2213,13 @@
       "target": "eSport - I tuoi metodi di pagamento",
       "targets": [],
       "value": ""
+    }, {
+      "id": "e7c0a304-6dc1-4142-8207-96dffd7cad73",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "5e472996-1be9-493c-a25b-3404e41b46f5",
@@ -2073,6 +2269,13 @@
       "comment": "",
       "command": "assertTitle",
       "target": "eSport - Accesso non autorizzato",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "93faf453-4593-4517-9d43-7c88d3ab818a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
       "targets": [],
       "value": ""
     }]
@@ -2144,6 +2347,13 @@
       "target": "eSport - Gestione catalogo divise",
       "targets": [],
       "value": ""
+    }, {
+      "id": "d954e782-5065-4164-8e14-e77b6c6ed150",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "fe40fa1e-f0d2-41d1-ae1d-4d1b42c55154",
@@ -2195,6 +2405,13 @@
       "target": "eSport - Gestione catalogo divise",
       "targets": [],
       "value": ""
+    }, {
+      "id": "e8af0c0a-b7f6-46c8-a337-2e8b4b8f5521",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "154fb2ae-6e03-4d24-9b0c-3c0625ac702f",
@@ -2244,6 +2461,13 @@
       "comment": "",
       "command": "assertTitle",
       "target": "eSport - Gestione catalogo pantaloncini",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6c4dc6cc-a534-4036-b7ff-39034a1bfd0e",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/eSport/Logout",
       "targets": [],
       "value": ""
     }]
